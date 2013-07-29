@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Foundation 4</title>
+  <title>MIMOSAJS</title>
 
   
   <link rel="stylesheet" href="css/foundation.css">
@@ -13,14 +13,45 @@
 
   <script src="js/vendor/custom.modernizr.js"></script>
 <style type="text/css">
+
+@font-face {
+  font-family: "SerifaStd-Black";
+  src: url("css/SerifaStd-Black.otf") format("opentype");
+}
+@font-face {
+  font-family: "SerifaStd-Bold";
+  src: url("css/SerifaStd-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "SerifaStd-Italic";
+  src: url("css/SerifaStd-Italic.otf") format("opentype");
+}
+@font-face {
+  font-family: "SerifaStd-Light";
+  src: url("css/SerifaStd-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "SerifaStd-LightItalic";
+  src: url("css/SerifaStd-LightItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "SerifaStd-Roman";
+  src: url("css/SerifaStd-Roman.otf") format("opentype");
+}
+
+body {
+	font-family: SerifaStd-Light;
+}
 	.contain-to-grid .top-bar {
 		margin-bottom: 0;
 		background-color: #0d0d0d;
 	}
 	.top-bar-section li a:not(.button) {
+		font-family: SerifaStd-Light;
 		color: #676767;
 		font-weight: normal;
 		background-color: #0d0d0d;
+		font-size: .89em;
 	}
 	.top-bar-section li a:not(.button).active {
 		background-color: #0c0c0c;
@@ -31,6 +62,9 @@
 		background-size: 1920px 1038px;
 		background-position: 50% 0;
 		text-align: center;
+	}
+	.row {
+		max-width: 100%;
 	}
 	.row h1 {
 		background: url("img/mimosa-hat.png")no-repeat;
@@ -46,8 +80,10 @@
 		text-transform: uppercase;
 		font-weight: normal;
 		font-style: italic;
+		font-family: SerifaStd-Light;
 	}
-	h2, h3 {
+	h2, h3, h4 {
+		text-transform: uppercase;
 		color: #2d464d;
 		font-weight: normal;
 		font-style: italic;
@@ -55,10 +91,17 @@
 		margin-bottom: 40px;
 	}
 	h2 {
-		font-size: 40px;
+		font-family: SerifaStd-Light;
+		font-size: 47px;
+		line-height: 42px;
 	}
 	h3 {
-		font-size: 30px;
+		font-family: SerifaStd-Light;
+		font-size: 27px;
+	}
+	h4 {
+		font-family: SerifaStd-Light;
+		font-size: 26px;
 	}
 	.welcome .button {
 		text-transform: uppercase;
@@ -70,6 +113,107 @@
 		box-shadow: 3px 5px 5px #999999;
 		-webkit-box-shadow: 3px 5px 5px #999999;
 		margin-bottom: 107px;
+		background-color: #1388a8;
+	}
+	.links {
+		background: #001c35;
+		height: 109px;
+		margin-bottom: 67px;
+	}
+	.sub-nav {
+		margin: 28px auto;
+		background: #001c35;
+	}
+	.sub-nav dd a {
+		font-family: SerifaStd-Italic;
+		text-transform: uppercase;
+		color: #cfedf6;
+		font-size: 0.89em;
+	}
+	.sub-nav dd.active a {
+		background: none;
+		color: #17a7ca;
+	}
+	.features_top h3 {
+		margin-top: 119px;
+		font-family: SerifaStd-Light;
+		font-style: bold;
+		font-size: 74px;
+		color: #1c6b84;
+		margin-bottom: 0;
+	}
+	.features_top h4 {
+		color: #2d464d; 
+	}
+	.features_top p {
+		color: #2d464d;
+		font-family: SerifaStd-Italic;
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: 13px;
+	}
+	.features_top p em {
+		color: #1c6b84;
+	}
+	.features_bottom {
+		background: linear-gradient(#012632 0%, #0f6580 100%);
+		background: -webkit-linear-gradient(#012632 0%, #0f6580 100%);
+	}
+	.features_bottom h3 {
+		margin: 0 auto;
+		font-family: SerifaStd-Italic;
+		font-size: 89px;
+		font-style: normal;
+		color: #dde3e7;
+		text-align: center;
+		margin-top: 55px;
+		margin-bottom: 55px;
+	}
+	.features_bottom ul {
+		margin-bottom: 144px;
+	}
+	.features_bottom ul li {
+		font-family: SerifaStd-Italic;
+		font-size: 13px;
+		color: #dde3e7;
+		padding-top: 144px;
+	}
+	.features_bottom ul li strong {
+		font-family: SerifaStd-Italic;
+		font-size: 20px;
+		color: #1597b8;
+		line-height: 13px;
+		display: block;
+	}
+	.features_bottom ul li:first-child {
+		background: url("img/i_coding.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.features_bottom ul li:nth-child(2) {
+		background: url("img/i_watch.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.features_bottom ul li:nth-child(3) {
+		background: url("img/i_convention.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.features_bottom ul li:nth-child(4) {
+		background: url("img/i_best.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.features_bottom ul li:nth-child(5) {
+		background: url("img/i_feedback.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.features_bottom ul li:nth-child(6) {
+		background: url("img/i_reload.png")no-repeat;
+		background-position: 45% 0px;
+	}
+	.compilers {
+		background: url("img/compilers_bg.png")no-repeat;
+		background-size: 400px 656px;
+		background-position: 16% 0px;
+		border-bottom: solid 3px #cf4a0f;
 	}
 </style>
 </head>
@@ -122,7 +266,7 @@
 		</div>
 	</article>
 
-	<div class="row">
+	<div class="row links">
 		<div class="large-2 columns">
 			&nbsp;
 		</div>
@@ -139,14 +283,15 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row features_top">
 		<div class="large-2 columns">
 			&nbsp;
 		</div>
 		<div class="large-3 columns">
-			<h3>BUBBLY WITH A PUNCH</h3>
+			<h3>BUBBLY</h3>
+			<h4>WITH A PUNCH</h4>
 			<p>Comes loaded with what you need to start coding right away. Transpilers, Pre-Processors, Micro-templates, RequireJS support and more.</p>
-			<p>CHECK OUT OUR QUICK PRESENTATION</p>
+			<p><em>CHECK OUT OUR QUICK PRESENTATION</em></p>
 		</div>
 		<div class="large-5 columns">
 			<div class="flex-video">
@@ -158,7 +303,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row features_bottom">
 		<div class="large-2 columns">
 			&nbsp;
 		</div>
@@ -184,12 +329,12 @@ Both the server built into Mimosa and the one it provides you on project creatio
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row compilers">
 		<div class="large-2 columns">
 			&nbsp;
 		</div>
 		<div class="large-3 columns">
-			<h3>COMPILERS</h3>
+			&nbsp;
 		</div>
 		<div class="large-5 columns">
 			<h3>COMPILERS... WE GOT 'EM</h3>
