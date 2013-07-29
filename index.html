@@ -209,10 +209,71 @@ body {
 	}
 	.compilers {
 		background: url("img/compilers_bg.png")no-repeat;
-		background-size: 400px 656px;
-		background-position: 16% 0px;
+		background-size: 439px 725px;
+		background-position: 17% 0px;
 		border-bottom: solid 3px #cf4a0f;
-		background-color: #eeeeee;
+		background-color: #ffffff;
+	}
+	.compilers h3 {
+		font-size: 34px;
+		font-family: SerifaStd-Italic;
+		color: #5a6d73;
+		margin-top: 66px;
+	}
+	.compilers .panel {
+		background: url("img/i_compile.png")no-repeat;
+		background-position: 45px 34px;
+		padding-left: 160px;
+		background-size: 61px 54px;
+		background-color: #c4c4c4;
+	}
+	.compilers .panel strong {
+		font-family: SerifaStd-Italic;
+		color: #1c6b84;
+		font-size: 21px;
+	}
+	.compilers .panel p {
+		color: #465a60;
+		font-size: 13px;
+	}
+	.compilers .panel p a, .compilers .panel p a:hover, .compilers .panel p a:visited {
+		color: #1c6b84;
+		text-decoration: none;
+	}
+	.required {
+		background: url("img/required_bg.png")no-repeat;
+	}
+	.required .panel {
+		margin-top: 55px;
+		background: rgba(45, 50, 53, 0.89);
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+		border: 0;
+	}
+	.required article {
+		background: url("img/i_require.png")no-repeat;
+		background-position: 5px 3px;
+		padding-left: 160px;
+	}
+	.required article strong {
+		text-transform: uppercase;
+		font-size: 21px;
+		color: #1597b9;
+	}
+	.required article p {
+		font-size: 15px;
+		color: #eeeeee;
+	}
+	.required h3 {
+		font-family: SerifaStd-Light;
+		font-weight: bold;
+		font-size: 55px;
+		font-style: italic;
+		color: #06233c;
+		margin-bottom: 34px;
+	}
+	.required h3:first-child {
+		margin-top: 89px;
 	}
 </style>
 </head>
@@ -270,12 +331,14 @@ body {
 			&nbsp;
 		</div>
 		<div class="large-8 columns">
-			<dl class="sub-nav">
-			  <dd class="active"><a href="#">Get Started</a></dd>
-			  <dd><a href="#">Release Notes (v0.13.12, Jul 03)</a></dd>
-			  <dd><a href="#">Submit issues/Suggest features </a></dd>
-			  <dd><a href="#">Support/Discussion Group</a></dd>
-			</dl>
+			<p>
+				<dl class="sub-nav">
+				  <dd class="active"><a href="#">Get Started</a></dd>
+				  <dd><a href="#">Release Notes (v0.13.12, Jul 03)</a></dd>
+				  <dd><a href="#">Submit issues/Suggest features </a></dd>
+				  <dd><a href="#">Support/Discussion Group</a></dd>
+				</dl>
+			</p>
 		</div>
 		<div class="large-2 columns">
 			&nbsp;
@@ -345,17 +408,17 @@ Both the server built into Mimosa and the one it provides you on project creatio
 			<div class="panel">
 			  <!-- Content here -->
 			  <strong>CSS</strong>
-			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
 			</div>
 			<div class="panel">
 			  <!-- Content here -->
 			  <strong>Micro-Templates</strong>
-			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
 			</div>
 			<div class="panel">
 			  <!-- Content here -->
 			  <strong>Meta-Languages? Pfft.</strong>
-			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+			  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
 			</div>
 		</div>
 		<div class="large-2 columns">
@@ -363,25 +426,24 @@ Both the server built into Mimosa and the one it provides you on project creatio
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row required">
 		<div class="large-2 columns">
 			&nbsp;
 		</div>
 		<div class="large-5 columns">
 			<div class="panel">
-			  <!-- Content here -->
-			  <strong>Dependency Checking</strong>
-			  <p>Mimosa will keep track of your dependency graph and alert you right away if you've mis-typed a path, referred to something that doesn't exist, or have a circular dependency. It will also keep tabs on your shims, maps and plugin paths.</p>
-			</div>
-			<div class="panel">
-			  <!-- Content here -->
-			  <strong>Optimization</strong>
-			  <p>If you use RequireJS, you probably know about the optimizer. With the tick of a flag Mimosa will run the optimizer on every successful JavaScript compile or copy. And you won't need to configure a thing.</p>
-			</div>
-			<div class="panel">
-			  <!-- Content here -->
-			  <strong>Also with CommonJS!</strong>
-			  <p>Using an external Mimosa module, you can code using the CommonJS format and still utilize the offerings of RequireJS, like path aliasing and mapping, and Mimosa's AMD/RequireJS support.</p>
+			  <article>
+				  <strong>Dependency Checking</strong>
+				  <p>Mimosa will keep track of your dependency graph and alert you right away if you've mis-typed a path, referred to something that doesn't exist, or have a circular dependency. It will also keep tabs on your shims, maps and plugin paths.</p> 
+			  </article>
+			  <article>
+				  <strong>Optimization</strong>
+				  <p>If you use RequireJS, you probably know about the optimizer. With the tick of a flag Mimosa will run the optimizer on every successful JavaScript compile or copy. And you won't need to configure a thing.</p> 
+			  </article>
+			  <article>
+				  <strong>Also with CommonJS!</strong>
+				  <p>Using an external Mimosa module, you can code using the CommonJS format and still utilize the offerings of RequireJS, like path aliasing and mapping, and Mimosa's AMD/RequireJS support.</p>
+			  <article>
 			</div>
 		</div>
 		<div class="large-3 columns">
