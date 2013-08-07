@@ -5,8 +5,8 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>MIMOSAJS</title>
-
+  <title>Mimosa - A Browser Development Toolki</title>
+  <meta name="description" content="A modern browser development toolkit. JavaScript, CSS, and template compilers, linting, optimization, serving, RequireJS support, and Live Reload  built right in. Pluggable for authoring your own functionality.">
 
   <link rel="stylesheet" href="css/foundation.css">
 
@@ -59,21 +59,22 @@ body {
 	}
 	.welcome {
 		background: url("img/mimosa-bg.jpg")no-repeat;
-		background-size: 1920px 1038px;
-		background-position: 50% 0;
+		background-size: 1920px 975px;
+		background-position: 50% 8%;
 		text-align: center;
+		padding-bottom: 40px;
 	}
 	.row {
 		max-width: 100%;
 	}
 	.row h1 {
 		background: url("img/mimosa-hat.png")no-repeat;
-		height: 421px;
+		height: 350px;
 		width: 421px;
 		margin: 0 auto;
-		margin-top: 114px;
+		margin-top: 75px;
 		margin-bottom: 40px;
-		padding-top: 255px;
+		padding-top: 155px;
 		text-align: center;
 		font-size: 65px;
 		color: #2d464d;
@@ -117,7 +118,6 @@ body {
 	}
 	.links {
 		background: #001c35;
-		margin-bottom: 55px;
 	}
 	.sub-nav {
 		background: #001c35;
@@ -134,25 +134,11 @@ body {
 		background: none;
 		color: #17a7ca;
 	}
-	.features_top h3 {
-		font-family: SerifaStd-Light;
-		font-style: bold;
-		font-size: 55px;
-		color: #1c6b84;
-		margin-bottom: 0;
+	.features_top {
+    background: url("img/mimosa-bg.jpg") no-repeat scroll 50% 95% / 1920px 975px transparent
 	}
-	.features_top h4 {
-		color: #2d464d;
-	}
-	.features_top p {
-		color: #2d464d;
-		font-family: SerifaStd-Italic;
-		text-transform: uppercase;
-		font-weight: normal;
-		font-size: 13px;
-	}
-	.features_top p em {
-		color: #1c6b84;
+	.features_top .flex-video {
+	  margin: 25px 0;
 	}
 	.features_bottom {
 		background: linear-gradient(#012632 0%, #0f6580 100%);
@@ -166,54 +152,56 @@ body {
 		color: #dde3e7;
 		text-align: center;
 		margin-top: 55px;
-		margin-bottom: 55px;
+		margin-bottom: 45px;
+		line-height: 80px;
 	}
 	.features_bottom ul {
-		margin-bottom: 144px;
+		margin-bottom: 50px;
 	}
 	.features_bottom ul li {
 		font-family: SerifaStd-Italic;
 		font-size: 13px;
 		color: #dde3e7;
-		padding-top: 144px;
+		padding-top: 125px;
 	}
 	.features_bottom ul li strong {
 		font-family: SerifaStd-Italic;
 		font-size: 20px;
 		color: #1597b8;
 		display: block;
+		text-align: center;
 	}
 	.features_bottom ul li:first-child {
 		background: url("img/i_coding.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(2) {
 		background: url("img/i_watch.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(3) {
 		background: url("img/i_convention.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(4) {
 		background: url("img/i_best.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(5) {
 		background: url("img/i_feedback.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(6) {
 		background: url("img/i_reload.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(7) {
 		background: url("img/i_bower.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.features_bottom ul li:nth-child(8) {
 		background: url("img/i_testing.png")no-repeat;
-		background-position: 45% 0px;
+		background-position: 50% 0px;
 	}
 	.compilers {
 		background-color: #ffffff;
@@ -297,10 +285,6 @@ body {
 		background-position: 17% 0px;
 		border-bottom: solid 3px #cf4a0f;
 	}
-	.features_top h3 {
-		margin-top: 119px;
-		font-size: 74px;
-	}
 	.features_bottom h3 {
 		font-size: 89px;
 	}
@@ -318,6 +302,8 @@ body {
 </style>
 </head>
 <body>
+  <a href="https://github.com/dbashford/mimosa"><img style="position: absolute; top: 42px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
 	<div class="contain-to-grid">
 		<nav class="top-bar">
 
@@ -356,9 +342,7 @@ body {
 			</div>
 			<div class="large-6 columns">
 				<h1>MIMOSA</h1>
-				<h2>A modern browser development toolkit.</h2>
-				<h3>Comes loaded with what you need to start coding right away. Transpilers, Pre-Processors, Micro-templates, RequireJS support and more.</h3>
-				<a href="#" class="button">MIMOSA ON GITHUB</a>
+				<h2>A modern browser development toolkit</h2>
 			</div>
 			<div class="large-3 columns">
 				&nbsp;
@@ -373,14 +357,14 @@ body {
 				&nbsp;
 			</div>
 			<div class="large-8 columns">
-				
+
 				<br />
-				
+
 				<dl class="sub-nav">
-				  <dd class="active"><a href="#">Get Started</a></dd>
-				  <dd><a href="#">Release Notes (v0.13.12, Jul 03)</a></dd>
-				  <dd><a href="#">Submit issues/Suggest features </a></dd>
-				  <dd><a href="#">Support/Discussion Group</a></dd>
+				  <dd><a href="./started.html">Get Started</a></dd>
+				  <dd><a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md">Release Notes (v0.14.6, Aug 3)</a></dd>
+				  <dd><a href="https://github.com/dbashford/mimosa/issues">Submit issues/Suggest features</a></dd>
+				  <dd><a href="https://groups.google.com/forum/#!forum/mimosajs">Support/Discussion Group</a></dd>
 				</dl>
 
 				<center>
@@ -392,7 +376,7 @@ body {
 
 					<a href="https://twitter.com/share" data-text="Mimosa - A Modern Browser Development Toolkit" class="twitter-share-button" data-url="http://mimosajs.com" data-count="horizontal" data-via="mimosajs">Tweet</a>
 				</center>
-				
+
 				<br />
 			</div>
 			<div class="large-2 columns">
@@ -402,24 +386,20 @@ body {
 	</article>
 	<article class="features_top">
 		<div class="row">
-			<div class="large-2 columns">
+			<div class="large-3 columns">
 				&nbsp;
 			</div>
-			<div class="large-3 columns">
-				<h3>BUBBLY</h3>
-				<h4>WITH A PUNCH</h4>
-				<p>Comes loaded with what you need to start coding right away. Transpilers, Pre-Processors, Micro-templates, RequireJS support and more.</p>
-				<p><em>CHECK OUT OUR QUICK PRESENTATION</em></p>
-			</div>
-			<div class="large-5 columns">
+			<div class="large-6 columns">
 				<div class="flex-video">
-				  <iframe width="420" height="315" src="http://www.youtube.com/embed/v9zCEMEDWX0" frameborder="0" allowfullscreen></iframe>
+				  <iframe src="http://slid.es/dbashford/mimosa-primer/embed" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 			</div>
-			<div class="large-2 columns">
+			<div class="large-3 columns">
 				&nbsp;
 			</div>
 		</div>
+	</article>
+  <article>
 
 		<div class="row features_bottom">
 			<div class="large-2 columns">
@@ -428,21 +408,21 @@ body {
 			<div class="large-8 columns">
 				<h3>Features</h3>
 				<ul class="small-block-grid-1 large-block-grid-3">
-				  <li><strong>CODING IN SECONDS</strong>
+				  <li><strong>Coding in Seconds</strong>
 	Use Mimosa's command line to build out a skeleton app that is ready to go with your desired meta-languages, a bit of sample code, and an server too! No additional installs or plugins needed to get started. </li>
 				  <li><strong>Watch And Serve Assets</strong>
 	Mimosa will keep track of your assets and when you save something, kick off all sorts of awesome. Mimosa will also optionally serve assets for you, or invoke a node server so that you only need a single process running to watch and serve. </li>
-				  <li><strong>Convention + CONFIG</strong>
+				  <li><strong>Convention + Config</strong>
 	Mimosa's configuration starts empty. Sane defaults keep you coding instead of figuring out config. If you stick close to Mimosa's conventions you may never look at or update the configuration, but Mimosa is heavily configurable if you find yourself needing to vary away from its convention. </li>
-				  <li><strong>CODING IN SECONDS</strong>
+				  <li><strong>Optimize + Minify</strong>
 	Have the best of both worlds. Develop with unminified, uncompressed, individual assets. Flip a switch and develop with minified and compressed assets that have been merged with RequireJS. </li>
 				  <li><strong>Immediate Feedback</strong>
 	Code doesn't compile? You'll find out right away. When code breaks Mimosa will write big angry messages to the console and use Growl if you've got it installed.</li>
-				  <li><strong>LIVE RELOAD</strong>
+				  <li><strong>Live Reload</strong>
 	Both the server built into Mimosa and the one it provides you on project creation come with Live Reload ready to go. When a web asset is compiled or a server template is changed, your browser updates immediately. </li>
-				  <li><strong>BOWER</strong>
+				  <li><strong>Bower</strong>
 	Irure leggings exercitation forage, occupy McSweeney's fixie raw denim swag ex literally est butcher. Echo Park blue bottle cardigan, laboris officia flannel american apparel sustainable placeat try-hard shabby chic.</li>
-				  <li><strong>TESTING</strong>
+				  <li><strong>Testing</strong>
 	Bespoke swag messenger bag master cleanse deserunt 8-bit sed, odio gluten-free assumenda High Life pop-up enim artisan. </li>
 				</ul>
 			</div>
