@@ -62,7 +62,6 @@ body {
 		background-size: 1920px 975px;
 		background-position: 50% 8%;
 		text-align: center;
-		padding-bottom: 40px;
 	}
 	.row {
 		max-width: 100%;
@@ -70,10 +69,9 @@ body {
 	.row h1 {
 		background: url("img/mimosa-hat.png")no-repeat;
 		height: 350px;
-		width: 421px;
 		margin: 0 auto;
 		margin-top: 75px;
-		margin-bottom: 40px;
+		margin-bottom: 21px;
 		padding-top: 155px;
 		text-align: center;
 		font-size: 65px;
@@ -89,7 +87,7 @@ body {
 		font-weight: normal;
 		font-style: italic;
 		line-height: 34px;
-		margin-bottom: 40px;
+		margin-bottom: 21px;
 	}
 	h2 {
 		font-family: SerifaStd-Light;
@@ -113,25 +111,25 @@ body {
 		-webkit-border-radius: 8px;
 		box-shadow: 3px 5px 5px #999999;
 		-webkit-box-shadow: 3px 5px 5px #999999;
-		margin-bottom: 107px;
+		margin-bottom: 89px;
 		background-color: #1388a8;
 	}
 	.links {
 		background: #001c35;
 	}
-	.sub-nav {
-		background: #001c35;
-		margin: 0 auto;
-		width: 81%;
+	.links ul {
 	}
-	.sub-nav dd a {
-		font-family: SerifaStd-Italic;
-		text-transform: uppercase;
+	.links ul li {
+	}
+	.links ul li:first-child {
+		padding-left: 8%;
+	}
+	.links ul li a {
+		font-family: SerifaStd-Light;
 		color: #cfedf6;
 		font-size: 0.89em;
 	}
-	.sub-nav dd.active a {
-		background: none;
+	.links ul li a:hover {
 		color: #17a7ca;
 	}
 	.features_top {
@@ -245,7 +243,8 @@ body {
 	.required article {
 		background: url("img/i_require.png")no-repeat;
 		background-position: 5px 3px;
-		padding-left: 160px;
+		padding-left: 114px;
+		min-height: 99px;
 	}
 	.required article strong {
 		text-transform: uppercase;
@@ -253,13 +252,13 @@ body {
 		color: #1597b9;
 	}
 	.required article p {
-		font-size: 15px;
+		font-size: 13px;
 		color: #eeeeee;
 	}
 	.required h3 {
 		font-family: SerifaStd-Light;
 		font-weight: bold;
-		font-size: 55px;
+		font-size: 48px;
 		font-style: italic;
 		color: #06233c;
 		margin-bottom: 34px;
@@ -353,19 +352,20 @@ body {
 
 	<article class="links">
 		<div class="row">
-			<div class="large-2 columns">
+			<div class="large-1 columns">
 				&nbsp;
 			</div>
-			<div class="large-8 columns">
+			<div class="large-10 columns">
 
 				<br />
+				<ul class="small-block-grid-1 large-block-grid-4">
+				  <li><a href="./started.html">Get Started</a></li>
+				  <li><a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md">Release Notes (v0.14.6, Aug 3)</a></li>
+				  <li><a href="https://github.com/dbashford/mimosa/issues">Submit issues/Suggest features</a></li>
+				  <li><a href="https://groups.google.com/forum/#!forum/mimosajs">Support/Discussion Group</a></li>
+				</ul>
 
-				<dl class="sub-nav">
-				  <dd><a href="./started.html">Get Started</a></dd>
-				  <dd><a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md">Release Notes (v0.14.6, Aug 3)</a></dd>
-				  <dd><a href="https://github.com/dbashford/mimosa/issues">Submit issues/Suggest features</a></dd>
-				  <dd><a href="https://groups.google.com/forum/#!forum/mimosajs">Support/Discussion Group</a></dd>
-				</dl>
+				<br />
 
 				<center>
 					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=dbashford&repo=mimosa&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
@@ -379,7 +379,7 @@ body {
 
 				<br />
 			</div>
-			<div class="large-2 columns">
+			<div class="large-1 columns">
 				&nbsp;
 			</div>
 		</div>
@@ -498,6 +498,10 @@ body {
 				&nbsp;
 			</div>
 			<div class="large-5 columns">
+
+				<h3 class="show-for-small">AMD?</h3>
+				<h3 class="show-for-small">RequireJS?</h3>
+				<h3 class="show-for-small">CommonJS?</h3>
 				<div class="panel">
 				  <article>
 					  <strong>Dependency Checking</strong>
@@ -510,10 +514,10 @@ body {
 				  <article>
 					  <strong>Also with CommonJS!</strong>
 					  <p>Using an external Mimosa module, you can code using the CommonJS format and still utilize the offerings of RequireJS, like path aliasing and mapping, and Mimosa's AMD/RequireJS support.</p>
-				  <article>
+				  </article>
 				</div>
 			</div>
-			<div class="large-3 columns">
+			<div class="large-3 columns hide-for-small">
 				<h3>AMD?</h3>
 				<h3>RequireJS?</h3>
 				<h3>CommonJS?</h3>
