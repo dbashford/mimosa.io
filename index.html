@@ -160,7 +160,17 @@ body {
 		font-family: SerifaStd-Italic;
 		font-size: 13px;
 		color: #dde3e7;
-		padding-top: 125px;
+		overflow: hidden;
+		height: 189px;
+	}
+	.features_bottom ul li article {
+		margin-top: 189px;
+	}
+	.move_up {
+		margin-top: 0px !important;
+	}
+	.bg_none {
+		background-image: none !important
 	}
 	.features_bottom ul li strong {
 		font-family: SerifaStd-Italic;
@@ -171,35 +181,35 @@ body {
 	}
 	.features_bottom ul li:first-child {
 		background: url("img/i_coding.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(2) {
 		background: url("img/i_watch.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(3) {
 		background: url("img/i_convention.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(4) {
 		background: url("img/i_best.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(5) {
 		background: url("img/i_feedback.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(6) {
 		background: url("img/i_reload.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(7) {
 		background: url("img/i_bower.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.features_bottom ul li:nth-child(8) {
 		background: url("img/i_testing.png")no-repeat;
-		background-position: 50% 0px;
+		background-position: 55% 13px;
 	}
 	.compilers {
 		background-color: #ffffff;
@@ -408,22 +418,31 @@ body {
 			<div class="large-8 columns">
 				<h3>Features</h3>
 				<ul class="small-block-grid-1 large-block-grid-3">
-				  <li><strong>Coding in Seconds</strong>
-	Use Mimosa's command line to build out a skeleton app that is ready to go with your desired meta-languages, a bit of sample code, and an server too! No additional installs or plugins needed to get started. </li>
-				  <li><strong>Watch And Serve Assets</strong>
-	Mimosa will keep track of your assets and when you save something, kick off all sorts of awesome. Mimosa will also optionally serve assets for you, or invoke a node server so that you only need a single process running to watch and serve. </li>
-				  <li><strong>Convention + Config</strong>
-	Mimosa's configuration starts empty. Sane defaults keep you coding instead of figuring out config. If you stick close to Mimosa's conventions you may never look at or update the configuration, but Mimosa is heavily configurable if you find yourself needing to vary away from its convention. </li>
-				  <li><strong>Optimize + Minify</strong>
-	Have the best of both worlds. Develop with unminified, uncompressed, individual assets. Flip a switch and develop with minified and compressed assets that have been merged with RequireJS. </li>
-				  <li><strong>Immediate Feedback</strong>
-	Code doesn't compile? You'll find out right away. When code breaks Mimosa will write big angry messages to the console and use Growl if you've got it installed.</li>
-				  <li><strong>Live Reload</strong>
-	Both the server built into Mimosa and the one it provides you on project creation come with Live Reload ready to go. When a web asset is compiled or a server template is changed, your browser updates immediately. </li>
-				  <li><strong>Bower</strong>
-	Irure leggings exercitation forage, occupy McSweeney's fixie raw denim swag ex literally est butcher. Echo Park blue bottle cardigan, laboris officia flannel american apparel sustainable placeat try-hard shabby chic.</li>
-				  <li><strong>Testing</strong>
-	Bespoke swag messenger bag master cleanse deserunt 8-bit sed, odio gluten-free assumenda High Life pop-up enim artisan. </li>
+				  <li>
+				  	<article><strong>Coding in Seconds</strong>
+	Use Mimosa's command line to build out a skeleton app that is ready to go with your desired meta-languages, a bit of sample code, and an server too! No additional installs or plugins needed to get started.</article>
+				</li>
+				  <li>
+				  	<article><strong>Watch And Serve Assets</strong>
+	Mimosa will keep track of your assets and when you save something, kick off all sorts of awesome. Mimosa will also optionally serve assets for you, or invoke a node server so that you only need a single process running to watch and serve.</article> </li>
+				  <li>
+				  	<article><strong>Convention + Config</strong>
+	Mimosa's configuration starts empty. Sane defaults keep you coding instead of figuring out config. If you stick close to Mimosa's conventions you may never look at or update the configuration, but Mimosa is heavily configurable if you find yourself needing to vary away from its convention.</article> </li>
+				  <li>
+				  	<article><strong>Optimize + Minify</strong>
+	Have the best of both worlds. Develop with unminified, uncompressed, individual assets. Flip a switch and develop with minified and compressed assets that have been merged with RequireJS.</article> </li>
+				  <li>
+				  	<article><strong>Immediate Feedback</strong>
+	Code doesn't compile? You'll find out right away. When code breaks Mimosa will write big angry messages to the console and use Growl if you've got it installed.</article></li>
+				  <li>
+				  	<article><strong>Live Reload</strong>
+	Both the server built into Mimosa and the one it provides you on project creation come with Live Reload ready to go. When a web asset is compiled or a server template is changed, your browser updates immediately.</article> </li>
+				  <li>
+				  	<article><strong>Bower</strong>
+	Irure leggings exercitation forage, occupy McSweeney's fixie raw denim swag ex literally est butcher. Echo Park blue bottle cardigan, laboris officia flannel american apparel sustainable placeat try-hard shabby chic.</article></li>
+				  <li>
+				  	<article><strong>Testing</strong>
+	Bespoke swag messenger bag master cleanse deserunt 8-bit sed, odio gluten-free assumenda High Life pop-up enim artisan.</article> </li>
 				</ul>
 			</div>
 			<div class="large-2 columns">
@@ -575,6 +594,18 @@ body {
 
   <script>
     $(document).foundation();
+    $(".features_bottom ul li").mouseover(
+    	function() {
+    		$(this).children("article").addClass("move_up");
+    		$(this).addClass("bg_none");
+
+    });
+    $(".features_bottom ul li").mouseout(
+    	function() {
+    		$(this).children("article").removeClass("move_up");
+    		$(this).removeClass("bg_none");
+
+    });
   </script>
 </body>
 </html>
