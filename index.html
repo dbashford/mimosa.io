@@ -216,10 +216,18 @@ body {
 		color: #ffffff;
 		font-size: 13px;
 	}
-	.compilers .panel p a, .compilers .panel p a:hover, .compilers .panel p a:visited {
+	.compilers .panel p a,.compilers .panel p a:visited {
 		color: #f6ae13;
 		text-decoration: none;
 	}
+	.compilers .panel p a:hover {
+	  text-decoration: underline;
+	}
+	.compilers strong {
+	  text-transform: uppercase;
+
+	}
+
 	.required {
 		background: url("img/required_bg.jpg")no-repeat;
 	}
@@ -437,7 +445,7 @@ body {
 				</li>
 				  <li>
 				  	<article><strong>Watch And Serve Assets</strong>
-	Mimosa will keep track of your assets and when you save something, kick off all sorts of awesome. Mimosa will also optionally serve assets for you, or invoke a node server so that you only need a single process running to watch and serve.</article> </li>
+	Mimosa will keep track of your assets and when you save something kick off all sorts of awesome. Mimosa will also optionally serve assets for you or invoke a node server so that you only need a single process running to watch and serve.</article> </li>
 				  <li>
 				  	<article><strong>Convention + Config</strong>
 	Mimosa's configuration starts empty. Sane defaults keep you coding instead of figuring out config. If you stick close to Mimosa's conventions you may never look at or update the configuration, but Mimosa is heavily configurable if you find yourself needing to vary away from its convention.</article> </li>
@@ -449,7 +457,7 @@ body {
 	Code doesn't compile? You'll find out right away. When code breaks Mimosa will write big angry messages to the console and use Growl if you've got it installed.</article></li>
 				  <li>
 				  	<article><strong>Live Reload</strong>
-	Both the server built into Mimosa and the one it provides you on project creation come with Live Reload ready to go. When a web asset is compiled or a server template is changed, your browser updates immediately.</article> </li>
+	Both the server built into Mimosa and the one it provides you on project creation come with Live Reload ready to go. When a web asset is compiled or a server template is changed, your browser updates <span style="text-decoration:underline">immediately</span>.</article> </li>
 				  <li>
 				  	<article><strong>Bower</strong>
 	Irure leggings exercitation forage, occupy McSweeney's fixie raw denim swag ex literally est butcher. Echo Park blue bottle cardigan, laboris officia flannel american apparel sustainable placeat try-hard shabby chic.</article></li>
@@ -482,22 +490,43 @@ body {
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>JavaScript</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+  				  <p>Mimosa will compile your <a href="http://coffeescript.org/">CoffeeScript</a> and <a href="http://maxtaco.github.com/coffee-script/">Iced CoffeeScript</a> (each w/ source maps), <a href="https://github.com/satyr/coco">Coco</a>, <a href="http://gkz.github.com/LiveScript/">LiveScript</a> and <a href="http://www.typescriptlang.org/">TypeScript</a>. We'll make more, just <a href="https://github.com/dbashford/mimosa/issues">ask</a>.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>CSS</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p><a href="http://learnboost.github.com/stylus/">Stylus</a> w/<a
+            href="http://visionmedia.github.com/nib/">nib</a>. <a
+            href="http://sass-lang.com/">SASS (via Ruby or node)</a> w/<a
+            href="http://compass-style.org/">Compass</a>. <a
+            href="http://lesscss.org/">LESS</a>. Mimosa won't bother
+            compiling your partials individually, but when your partials change
+            it'll compile whichever files at the root of your CSS tree need
+            compiling.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>Micro-Templates</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p><a href="https://github.com/linkedin/dustjs/">Dust</a>. <a
+            href="http://handlebarsjs.com/">Handlebars</a>. <a
+            href="http://emblemjs.com/">Emblem</a>. <a
+            href="http://twitter.github.com/hogan.js/">Hogan</a>. <a
+            href="http://underscorejs.org/">Underscore</a>. <a
+            href="http://lodash.com/">LoDash</a>. <a
+            href="http://jade-lang.com/">Jade</a>. <a
+            href="https://github.com/sstephenson/eco">ECO</a>. <a
+            href="https://github.com/visionmedia/ejs">EJS</a>. <a
+            href="https://ractivejs.org/">Ractive</a>. Just HTML.  Mimosa
+            will pre-compile all of your templates.  Not using one of these?
+            <a href="https://github.com/dbashford/mimosa/issues">Request</a> your favorite be added.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>Meta-Languages? Pfft.</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p>Plain JS, Plain CSS, no templates? You're a classic and Mimosa's cool
+            with that. Files that don't need compiling will just be copied, but
+            they'll still get the royal treatment, including linting and RequireJS
+            verification.</p>
   				</div>
   			</div>
   			<div class="large-2 columns">
@@ -512,22 +541,43 @@ body {
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>JavaScript</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+  				  <p>Mimosa will compile your <a href="http://coffeescript.org/">CoffeeScript</a> and <a href="http://maxtaco.github.com/coffee-script/">Iced CoffeeScript</a> (each w/ source maps), <a href="https://github.com/satyr/coco">Coco</a>, <a href="http://gkz.github.com/LiveScript/">LiveScript</a> and <a href="http://www.typescriptlang.org/">TypeScript</a>. We'll make more, just <a href="https://github.com/dbashford/mimosa/issues">ask</a>.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>CSS</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p><a href="http://learnboost.github.com/stylus/">Stylus</a> w/<a
+            href="http://visionmedia.github.com/nib/">nib</a>. <a
+            href="http://sass-lang.com/">SASS (via Ruby or node)</a> w/<a
+            href="http://compass-style.org/">Compass</a>. <a
+            href="http://lesscss.org/">LESS</a>. Mimosa won't bother
+            compiling your partials individually, but when your partials change
+            it'll compile whichever files at the root of your CSS tree need
+            compiling.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>Micro-Templates</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p><a href="https://github.com/linkedin/dustjs/">Dust</a>. <a
+            href="http://handlebarsjs.com/">Handlebars</a>. <a
+            href="http://emblemjs.com/">Emblem</a>. <a
+            href="http://twitter.github.com/hogan.js/">Hogan</a>. <a
+            href="http://underscorejs.org/">Underscore</a>. <a
+            href="http://lodash.com/">LoDash</a>. <a
+            href="http://jade-lang.com/">Jade</a>. <a
+            href="https://github.com/sstephenson/eco">ECO</a>. <a
+            href="https://github.com/visionmedia/ejs">EJS</a>. <a
+            href="https://ractivejs.org/">Ractive</a>. Just HTML.  Mimosa
+            will pre-compile all of your templates.  Not using one of these?
+            <a href="https://github.com/dbashford/mimosa/issues">Request</a> your favorite be added.</p>
   				</div>
   				<div class="panel">
   				  <!-- Content here -->
   				  <strong>Meta-Languages? Pfft.</strong>
-  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				  <p>Plain JS, Plain CSS, no templates? You're a classic and Mimosa's cool
+            with that. Files that don't need compiling will just be copied, but
+            they'll still get the royal treatment, including linting and RequireJS
+            verification.</p>
   				</div>
   			</div>
   			<div class="large-2 columns">&nbsp;</div>
