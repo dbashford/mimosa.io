@@ -106,28 +106,7 @@ body {
 		font-family: SerifaStd-Light;
 		font-size: 26px;
 	}
-	.links {
-		background: #553504;
-		margin-top:20px;
-	}
 
-	.links ul li:first-child {
-		padding-left: 15%;
-	}
-	.links ul li a {
-		font-family: SerifaStd-Light;
-		color: #cfedf6;
-		font-size: 0.89em;
-	}
-
-	.links ul li.rel-notes {
-		padding-left: 6%;
-
-	}
-
-	.links ul li a:hover {
-		color: #f9b012;
-	}
 	.features_top .flex-video {
 	  margin: 25px 0;
 	}
@@ -278,12 +257,54 @@ body {
 		margin-top: 89px;
 	}
 
+  /* Quick links
+  -------------------------------------------------- */
+	.bs-links {
+	  padding:10px 0;
+		background: #553504;
+		margin-top:20px;
+		font-family: SerifaStd-Light;
+		font-size: 0.89em;
+	}
+
+	.bs-links a:hover {
+		color: #f9b012;
+	}
+
+  .bs-links {
+   margin-top: 15px;
+  }
+  .quick-links {
+   min-height: 30px;
+   margin: 0;
+   padding: 5px 20px;
+   list-style: none;
+   text-align: center;
+   overflow: hidden;
+  }
+  .quick-links:first-child {
+   min-height: 0;
+  }
+  .quick-links li {
+   display: inline;
+   margin: 0 8px;
+  }
+  .quick-links li a {
+    color: white;
+  }
+
+  .quick-links .github-btn,
+  .quick-links .tweet-btn,
+  .quick-links .follow-btn {
+   position: relative;
+   top: 5px;
+  }
+
 @media only screen and (min-width: 767px) {
 
 	.compilers .panel {
 		background-position: 45px 13px;
 	}
-
 
 }
 
@@ -346,52 +367,46 @@ body {
 <a href="https://github.com/you"><img style="position: absolute; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	<article class="welcome">
 		<div class="row">
-			<div class="large-3 columns">
-				&nbsp;
-			</div>
-			<div class="large-6 columns">
-				<h1>&nbsp;</h1>
-				<h2>A modern browser development toolkit</h2>
-				<h3>Loaded with what you need to start coding right away. Transpilers, Pre-Processors, Micro-templates, RequireJS, Bower and more.</h3>
-			</div>
-			<div class="large-3 columns">
-				&nbsp;
-			</div>
-		</div>
-	</article>
-
-
-	<article class="links">
-		<div class="row">
 			<div class="large-2 columns">
 				&nbsp;
 			</div>
 			<div class="large-8 columns">
-
-				<br />
-				<ul class="small-block-grid-3 ">
-				  <li><a href="./started.html">Get Started!</a></li>
-				  <li class="rel-notes"><a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md">Release Notes (v0.14.6, Aug 3)</a></li>
-				  <li><a href="https://groups.google.com/forum/#!forum/mimosajs">Support/Discussion Group</a></li>
-				</ul>
-
-				<center>
-					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=dbashford&repo=mimosa&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
-
-					<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=dbashford&repo=mimosa&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-
-					<a href="https://twitter.com/mimosajs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @mimosajs</a>
-
-					<a href="https://twitter.com/share" data-text="Mimosa - A Modern Browser Development Toolkit" class="twitter-share-button" data-url="http://mimosajs.com" data-count="horizontal" data-via="mimosajs">Tweet</a>
-				</center>
-
-				<br />
+				<h1>&nbsp;</h1>
+				<h2>A modern browser <br/>development toolkit</h2>
+				<h3>Loaded with what you need to start coding right away. Transpilers, Pre-Processors, Micro-templates, RequireJS, Bower and more.</h3>
 			</div>
-			<div class="large-1 columns">
+			<div class="large-2 columns">
 				&nbsp;
 			</div>
 		</div>
 	</article>
+
+
+  	<div class="bs-links">
+      <ul class="quick-links">
+        <li><a href="./started.html">Get Started</a></li>
+        <li><a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md">Release Notes (v0.14.12, Aug 15)</a></li>
+        <li><a href="https://github.com/dbashford/mimosa/issues">Submit issues/Suggest features</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/mimosajs">Support/Discussion Group</a></li>
+      </ul>
+      <ul class="quick-links">
+        <li>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=dbashford&repo=mimosa&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+        </li>
+        <li>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=dbashford&repo=mimosa&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+        </li>
+        <li class="follow-btn">
+          <a href="https://twitter.com/mimosajs" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @mimosajs</a>
+        </li>
+        <li class="tweet-btn">
+          <a href="https://twitter.com/share" data-text="Mimosa - A Modern Browser Development Toolkit" class="twitter-share-button" data-url="http://mimosajs.com" data-count="horizontal" data-via="mimosajs">Tweet</a>
+        </li>
+      </ul>
+    </div>
+
+
+
 	<article class="features_top">
 		<div class="row">
 			<div class="large-3 columns">
@@ -410,10 +425,10 @@ body {
   <article>
 
 		<div class="row features_bottom">
-			<div class="large-2 columns">
+			<div class="large-1 columns">
 				&nbsp;
 			</div>
-			<div class="large-8 columns">
+			<div class="large-10 columns">
 				<h3>Features</h3>
 				<ul class="small-block-grid-1 large-block-grid-4">
 				  <li>
@@ -443,75 +458,81 @@ body {
 	Bespoke swag messenger bag master cleanse deserunt 8-bit sed, odio gluten-free assumenda High Life pop-up enim artisan.</article> </li>
 				</ul>
 
-				<h3 class="headline">but that's not it...</h3>
+				<h3 class="headline">but that's not all...</h3>
 
 			</div>
 
 
-			<div class="large-2 columns">
+			<div class="large-1 columns">
 				&nbsp;
 			</div>
 		</div>
 	</article>
 	<article class="compilers">
 		<div class="row">
-			<div class="large-2 columns show-for-large">
-				&nbsp;
-			</div>
-			<div class="large-3 columns show-for-large">
-				&nbsp;
-			</div>
-			<div class="large-5 columns show-for-large">
-				<h3>COMPILERS, WE GOT 'EM</h3>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>JavaScript</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>CSS</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>Micro-Templates</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>Meta-Languages? Pfft.</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-			</div>
-			<div class="large-2 columns show-for-large">
-				&nbsp;
+		  <div class="show-for-large">
+  			<div class="large-2 columns">
+  				&nbsp;
+  			</div>
+  			<div class="large-3 columns">
+  				&nbsp;
+  			</div>
+  			<div class="large-5 columns">
+  				<h3>COMPILERS</h3>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>JavaScript</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>CSS</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>Micro-Templates</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>Meta-Languages? Pfft.</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  			</div>
+  			<div class="large-2 columns">
+  				&nbsp;
+  			</div>
 			</div>
 
+      <div class="hide-for-large">
+        <div class="large-2 columns">&nbsp;</div>
+  			<div class="large-8 columns">
+  				<h3>COMPILERS</h3>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>JavaScript</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>CSS</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>Micro-Templates</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  				<div class="panel">
+  				  <!-- Content here -->
+  				  <strong>Meta-Languages? Pfft.</strong>
+  				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
+  				</div>
+  			</div>
+  			<div class="large-2 columns">&nbsp;</div>
 
-			<div class="large-12 columns hide-for-large">
-				<h3>COMPILERS, WE GOT 'EM</h3>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>JavaScript</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced CoffeeScript, Coco, LiveScript and TypeScript. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>CSS</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>Micro-Templates</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-				<div class="panel">
-				  <!-- Content here -->
-				  <strong>Meta-Languages? Pfft.</strong>
-				  <p>Mimosa will compile your CoffeeScript (w/ source maps!), Iced <a>CoffeeScript</a>, <a>Coco</a>, <a>LiveScript</a> and <a>TypeScript</a>. We'll make more, just ask. </p>
-				</div>
-			</div>
+  		</div>
 		</div>
 	</article>
 	<article class="required">
