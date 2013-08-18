@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/index.css">
+  <script type="text/javascript" src="js/vendor/custom.modernizr.js"></script>
   <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
@@ -23,7 +24,7 @@
 		    </li>
 		    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 		    <li class="toggle-topbar menu-icon">
-		    	<a href="#"><span>Menu</span></a>
+		    	<a href="#"><span></span></a>
 		    </li>
 		  </ul>
 
@@ -315,5 +316,17 @@
 
   <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).ready(function() {
+          $(document).foundation();
+    })
+  </script>
 </body>
 </html>
