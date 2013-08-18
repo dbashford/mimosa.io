@@ -15,14 +15,6 @@
 <style type="text/css">
 
 @font-face {
-  font-family: "SerifaStd-Black";
-  src: url("css/SerifaStd-Black.otf") format("opentype");
-}
-@font-face {
-  font-family: "SerifaStd-Bold";
-  src: url("css/SerifaStd-Bold.otf") format("opentype");
-}
-@font-face {
   font-family: "SerifaStd-Italic";
   src: url("css/SerifaStd-Italic.otf") format("opentype");
 }
@@ -30,18 +22,7 @@
   font-family: "SerifaStd-Light";
   src: url("css/SerifaStd-Light.otf") format("opentype");
 }
-@font-face {
-  font-family: "SerifaStd-LightItalic";
-  src: url("css/SerifaStd-LightItalic.otf") format("opentype");
-}
-@font-face {
-  font-family: "SerifaStd-Roman";
-  src: url("css/SerifaStd-Roman.otf") format("opentype");
-}
 
-body {
-	font-family: SerifaStd-Light;
-}
 	.contain-to-grid .top-bar {
 		margin-bottom: 0;
 		background-color: #0d0d0d;
@@ -137,8 +118,7 @@ body {
 		margin-bottom: 25px;
 	}
 	.features_bottom ul li {
-		font-family: SerifaStd-Italic;
-		font-size: 13px;
+		font-size: 15px;
 		color: #dde3e7;
 		overflow: hidden;
 	}
@@ -222,7 +202,7 @@ body {
 	}
 	.compilers .panel p {
 		color: #ffffff;
-		font-size: 13px;
+		font-size: 15px;
 	}
 	.compilers .panel p a,.compilers .panel p a:visited {
 		color: #f6ae13;
@@ -253,6 +233,7 @@ body {
 		min-height: 99px;
 	}
 	.required article strong {
+    font-family: SerifaStd-Italic;
 		text-transform: uppercase;
 		font-size: 21px;
 		color: #f9b012;
@@ -281,6 +262,7 @@ body {
 		margin-top:20px;
 		font-family: SerifaStd-Light;
 		font-size: 0.89em;
+    text-transform: uppercase;
 	}
 
 	.bs-links a:hover {
@@ -631,51 +613,5 @@ body {
 
   <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
-  <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
-  '.js><\/script>')
-  </script>
-
-  <script src="js/foundation.min.js"></script>
-  <!--
-
-  <script src="js/foundation/foundation.js"></script>
-
-  <script src="js/foundation/foundation.alerts.js"></script>
-
-  <script src="js/foundation/foundation.clearing.js"></script>
-
-  <script src="js/foundation/foundation.cookie.js"></script>
-
-  <script src="js/foundation/foundation.dropdown.js"></script>
-
-  <script src="js/foundation/foundation.forms.js"></script>
-
-  <script src="js/foundation/foundation.joyride.js"></script>
-
-  <script src="js/foundation/foundation.magellan.js"></script>
-
-  <script src="js/foundation/foundation.orbit.js"></script>
-
-  <script src="js/foundation/foundation.reveal.js"></script>
-
-  <script src="js/foundation/foundation.section.js"></script>
-
-  <script src="js/foundation/foundation.tooltips.js"></script>
-
-  <script src="js/foundation/foundation.topbar.js"></script>
-
-  <script src="js/foundation/foundation.interchange.js"></script>
-
-  <script src="js/foundation/foundation.placeholder.js"></script>
-
-  <script src="js/foundation/foundation.abide.js"></script>
-
-  -->
-
-  <script>
-    $(document).foundation();
-  </script>
 </body>
 </html>
