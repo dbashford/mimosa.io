@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>About/FAQ - Mimosa</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Common questions and issues.">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" >
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" >
+  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="./index.html">Mimosa</a>
+            </li>
+            <li class="">
+              <a href="./started.html">Get Started</a>
+            </li>
+            <li class="">
+              <a href="./commands.html">Commands</a>
+            </li>
+            <li class="">
+              <a href="./compilers.html">Compilers</a>
+            </li>
+            <li  class="">
+              <a href="./modules.html">Modules</a>
+            </li>
+            <li class="">
+              <a href="./server.html">Serve</a>
+            </li>
+            <li class="">
+              <a href="./utilities.html">Utilities</a>
+            </li>
+            <li class="">
+              <a href="./optimization.html">Optimization</a>
+            </li>
+            <li class="">
+              <a href="./configuration.html">Configuration</a>
+            </li>
+            <li class="active">
+              <a href="./about.html">About/FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container main">
+
+  <header class="jumbotron subhead" id="overview">
+    <h1>About + FAQ</h1>
+    <p class="lead">Some common questions answered</p>
+    <div class="subnav">
+      <ul class="nav nav-pills">
+        <li><a href="#cpu" title="Contribute">CPU Burn</a></li>
+        <li><a href="#contrib" title="Contribute">Contribute?</a></li>
+        <li><a href="#ember" title="Ember.js">Ember.js</a></li>
+        <li><a href="#emfile" title="EMFILE">EMFILE</a></li>
+        <li><a href="#norequirejs" title="No RequireJS">No RequireJS</a></li>
+        <li><a href="#Heroku" title="Heroku">Heroku</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="command-list">
+
+    <section id="faq">
+      <div class="page-header">
+        <h1>
+          FAQ
+        </h1>
+      </div>
+    </section>
+
+    <h2 id="contrib">CPU running hot?</h2>
+
+    <p>If you have a lot of files, or are using multiple watchers (like mimosa + mimosa-import-source), you might find your CPU pegged and things bogging down. Both mimosa core (<code class="option">watch</code> settings) and mimosa-import-source have intervals you can provide it to keep it from polling the file system too often. For details, check out the <a href="https://github.com/dbashford/mimosa/issues/179">GitHub issue</a> where this was discussed.</p>
+
+    <p>Windows Users: You can also try turn off polling altogether by turning <code class="option">usePolling</code> to false. This might be the best option if you have truly enormous projects.</p>
+
+    <p>*Nix users: Do not turn off polling.</p>
+
+    <h2 id="contrib">Want to Contribute?</h2>
+
+    <ol>
+      <li>Clone the repo. Take care to not clone the repo to same directory where other mimosa modules are cloned.  This will confuse Mimosa when running it a dev space.</li>
+      <li><code class="option">npm link</code> inside the repo to make your dev location available as a global command line option.</li>
+      <li>Hack code, submit pull request!</li>
+      <li>When committing, take care to not accidentally commit/push any unintended <code class="option">package.json</code> changes. If you are both hacking on Mimosa core and on Mimosa modules, you'll notice installing Mimosa modules will update the Mimosa <code class="option">package.json</code>.</li>
+    </ol>
+
+
+    <h2 id="ember">Ember.js</h2>
+
+    <p>Getting started with Mimosa and with Ember?  Check out the community contributed <a href="https://github.com/emirotin/mimosa-ember">mimosa-ember</a> demo project. The author took a vanilla Mimosa install, Ember-ized it and detailed how to go about doing that step-by-step.</p>
+
+    <h2 id="emfile">EMFILE Issues</h2>
+
+    <p>node.js is fast. Wicked fast. Sometimes too fast for its own good. If you have a large project with many files (usually 200+) that Mimosa has to move from one directory to another on startup, Mimosa will attempt to process all your files at once and may attempt to open more files than your system allows. When that happens, you'll see an error like this:</p>
+
+    <pre>child_process.js:922
+    throw errnoException(process._errno, 'spawn');
+          ^
+Error: spawn EMFILE
+    at errnoException (child_process.js:975:11)
+    at ChildProcess.spawn (child_process.js:922:11)
+    at exports.spawn (child_process.js:710:9)
+    at Object.exports.execFile (child_process.js:602:15)
+    at exports.exec (child_process.js:573:18)</pre>
+
+    <p>This problem is why the <code class="option">watch.throttle</code> setting was invented.  Check it out on the <a href="./configuration.html#watch">Configuration</a> page.</p>
+
+
+    <h2 id="norequirejs">Mimosa Without Require.js?</h2>
+
+    <p>I see search engine traffic coming to the Mimosa site having used the search term "mimosa without requirejs" quite a bit.</p>
+
+    <p>Mimosa certainly provides a lot of sugar for RequireJS users, and it comes configured with RequireJS support enabled, but Mimosa is absolutely usable if you aren't using RequireJS. All Mimosa truly relies on RequireJS for is concatenation of scripts. Mimosa can compile, lint, minify, serve and provide live reload out of the box without using RequireJS at all.</p>
+
+    <p>The key changes to any Mimosa project not using RequireJS are</p>
+
+    <ul>
+      <li>Remove the <code class="option">require</code> module from the list of configured modules</li>
+      <li>Script tags need to be added to the pages that need those scripts since RequireJS' module loading will not be able to pull in files for you.</li>
+    </ul>
+
+    <p>Check out this <a href="https://github.com/dbashford/MimosaNoRequireJS">example project</a> which leverages all the goodies of Mimosa without using RequireJS.</p>
+
+    <h2 id="Heroku">Heroku</h2>
+
+    <p>Want to push your app to Heroku?  Here's a few steps to go from no app to a Heroku app in no time at all. The following assumes you have <a href="https://id.heroku.com/signup/devcenter">signed up</a>, you have the <a href="https://toolbelt.heroku.com/">toolbelt</a> installed, and you have git installed as Heroku deploys code via git.</p>
+
+    <h3>Initial Setup</h3>
+
+    <p>Many of the following tasks only need to be executed once.</p>
+
+    <ol>
+      <li>Execute <code class="option">mimosa new</code> and pick your favorite technologies. You must pick a server.</li>
+      <li>Open the <code class="option">mimosa-config.coffee</code>, uncomment the <code class="option">modules</code> array and add <code class="option">'web-package'</code> to the end of the array.  Note: If you already had <code class="option">web-package</code> installed, you'll want to make sure to upgrade to the latest version. The best way to do that is to change the entry in the <code class="option">modules</code> array to <code class="option">web-package@0.8.0</code>. <code class="option">0.8.0</code> is necessary for maximum Heroku support.</li>
+      <li>Open <code class="option">.gitignore</code> and change <code class="option">/dist</code> to <code class="option"># /dist</code>. This makes the <code class="option">dist</code> directory, which is created by the <code class="option">web package</code> module, something that gets checked in.</li>
+      <li>In the root of the project, create a file named <code class="option">Procfile</code>, no extension.  The content of this file should be one line: <code class="option">web: node dist/app.js</code>. This lets Heroku know how to start your app.</li>
+      <li>Run <code class="option">mimosa build -omp</code>.  This minifies, optimizes and packages up the code.</li>
+      <li>Run <code class="option">heroku login</code> and provide your credentials</li>
+      <li>Run the following git commands: <code class="option">git init</code>, <code class="option">git add .</code>, <code class="option">git commit -m "init"</code></li>
+      <li>Run <code class="option">heroku create</code>, which sets up the remote repo with Heroku</li>
+      <li>Now push your code! <code class="option">git push heroku master</code></li>
+    </ol>
+
+    <p>At the end of the console spam from Heroku will be the URL to your app.</p>
+
+    <h3>After Initial Setup</h3>
+
+    <p>Once you are passed the initial setup, the list of steps shrinks dramatically. Now its just a git repo and you need to build your app.</p>
+
+    <ol>
+      <li>Run <code class="option">mimosa build -omp</code></li>
+      <li><code class="option">git add .</code>, <code class="option">git commit -m "init"</code></li>
+      <li><code class="option">git push heroku master</code></li>
+    </ol>
+
+  </section>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap-collapse.js"></script>
+<script src="js/vendor/bootstrap-scrollspy.js"></script>
+
+<!-- scripts concatenated and minified via build script -->
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- end scripts -->
+
+<script>
+    var _gaq=[['_setAccount','UA-33737130-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

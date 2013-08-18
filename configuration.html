@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Configuration - Mimosa</title>
+  <meta name="description" content="While preferring as little config as possible, Mimosa is hugely configurable.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" >
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" >
+  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="./index.html">Mimosa</a>
+            </li>
+            <li>
+              <a href="./started.html">Get Started</a>
+            </li>
+            <li class="">
+              <a href="./commands.html">Commands</a>
+            </li>
+            <li  class="">
+              <a href="./compilers.html">Compilers</a>
+            </li>
+            <li  class="">
+              <a href="./modules.html">Modules</a>
+            </li>
+            <li class="">
+              <a href="./server.html">Serve</a>
+            </li>
+            <li class="">
+              <a href="./utilities.html">Utilities</a>
+            </li>
+            <li class="">
+              <a href="./optimization.html">Optimization</a>
+            </li>
+            <li class="active">
+              <a href="./configuration.html">Configuration</a>
+            </li>
+            <li class="">
+              <a href="./about.html">About/FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container main">
+
+  <header class="jumbotron subhead" id="overview">
+    <h1>Configuration</h1>
+    <p class="lead">The keys to the kingdom, when Mimosa's defaults aren't quite cutting it</p>
+    <div class="subnav">
+      <ul class="nav nav-pills">
+        <li><a href="#version" title="Enforce a Mimosa version">Version</a></li>
+        <li><a href="#modules" title="What modules are installed">Modules</a></li>
+        <li><a href="#watch" title="What to watch and where">Watch</a></li>
+        <li><a href="#vendor" title="Where the vendor scripts are">Vendor</a></li>
+        <li><a href="#compilers" title="Compiler tweaks">Compilers</a></li>
+        <li><a href="#templates" title="Template config">Templates</a></li>
+        <li><a href="#copy" title="What files will Mimosa copy">Copy</a></li>
+        <li><a href="#server" title="Micro-Templates galore">Server</a></li>
+        <li><a href="#require" title="Copy JS/CSS and other assets like images">RequireJS</a></li>
+        <li><a href="#minify" title="Which schtuff to not minify">Minify</a></li>
+        <li><a href="#growl" title="To Growl or not to Growl">Growl</a></li>
+        <li><a href="#lint" title="To Lint or not to Lint">Lint</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="command-list config">
+    <section id="config">
+      <div class="page-header">
+        <h1>
+          Overview <small><span class="options">how it all works</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <p>When Mimosa starts up, it expects to find a <code class="option">mimosa-config.coffee</code> or a <code class="option">mimosa-config.js</code> file in current directory, or in one of the directories above the current directory.  The <code class="option">mimosa-config</code> file configures all that Mimosa does.
+
+    <h2>How to get it?</h2>
+
+    <p>There are two ways to be given a config file by Mimosa: with <code class="option">mimosa new</code> and <code class="option">mimosa config</code>. For <code class="option">mimosa new</code>, the <code class="option">mimosa-config</code> will be altered to match the selections made during project creation. For <code class="option">mimosa config</code> the entire config file is commented out.</p>
+
+    <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a CoffeeScript file. However, if JavaScript is preferred, the file can be converted to a <code class="option">.js</code> and Mimosa will find it and use it. Just have to make sure the file is valid JavaScript. CoffeeScript comments (#, ###) will need to be changed to JavaScript comments (//, /*...*/). Curly brackets and commas will need to be added as well.</p>
+
+    <h2>Wait, it is all commented out?</h2>
+
+    <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, and the less time spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
+
+    <p>However, rather than deliver an empty text file for the config, the <code class="option">mimosa-config</code> comes with all of the configurable options listed out and explained, but commented out.  Each commented out option also lists its default. Options, defaults, and explanation...when the config file needs to be changed, everything is right there in the file.</p>
+
+    <h2>But when you want to change the config...</h2>
+
+    <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintainenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="./compilers.html#copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
+
+    <p>But if, for instance, you just don't want compiled code in a directory named <code class="option">public</code>, make sure to uncomment the right lines all the way back to the root of the config. Don't just uncomment the <code class="option">compiledDir</code>, uncomment <code class="option">compiledDir</code> and <code class="option">watch</code>.
+    </p>
+
+    <section id="version">
+      <div class="page-header">
+        <h1>
+          Mimosa Version <small><span class="command">minMimosaVersion</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <h4 class="hi minMimosaVersion">minMimosaVersion</h4>
+
+        <p class="hi minMimosaVersion">The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">0.7.0</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">0.7.1</code>, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="modules">minMimosaVersion: null</span></pre>
+      </div>
+    </div>
+
+    <p class="hi minMimosaVersion">When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
+
+    <p class="hi minMimosaVersion">This is useful on project teams, when, for example, features of a newly released Mimosa are used, and the team wants to enforce that everyone upgrade their Mimosa.</p>
+
+    <section id="modules">
+      <div class="page-header">
+        <h1>
+          Mimosa Modules <small><span class="command">modules</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <h4 class="hi modules">modules</h4>
+
+        <p class="hi modules">The <code class="option">modules</code> array informs Mimosa what Mimosa modules to use. Many Mimosa modules may be installed, both ones that come with Mimosa and ones installed on top of Mimosa. This setting lets Mimosa know which ones to use for a project. The defaults represent those modules that come with Mimosa out of the box without any additional installs. The <code class="option">mimosa-</code> can be left off the name of modules as Mimosa will assume it.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="modules">modules: ['lint', 'server', 'require', 'minify', 'live-reload']</span></pre>
+      </div>
+    </div>
+
+    <p class="hi modules">If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code class="option">mod:install</code>.</p>
+
+    <p class="hi modules">Also, this config allows for installing specific versions of modules. If a new module is added by name only, Mimosa installs the latest version. If a version if provided, Mimosa will install that specific version. The syntax for installing specific versions is <code class="option">moduleName@moduleVersion</code>, for example <code class="option">web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
+
+    <section id="watch">
+      <div class="page-header">
+        <h1>
+          Watching the File System <small><span class="command">watch</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <h4 class="hi watch">watch</h4>
+
+        <p class="hi watch">The <code class="option">watch</code> section of the config contains information about what directories to watch, what files to ignore, and how fast to process added files.</p>
+
+        <h4 class="hi sourceDir watch">watch.sourceDir</h4>
+
+        <p class="hi sourceDir watch">The <code class="option">sourceDir</code> property is the path, either relative to the <code class="option">mimosa-config</code> or absolute, where assets are located. This is the directory Mimosa will watch for changes to kick off the compiler workflow.</p>
+
+        <h4 class="hi compiledDir watch">watch.compiledDir</h4>
+
+        <p class="hi compiledDir watch">The <code class="option">compiledDir</code> property is the path, relative to the <code class="option">mimosa-config</code> or absolute, where compiled assets will be delivered. If the <code class="option">compiledDir</code> does not exist, Mimosa will create it. Mimosa will mimic the same folder/directory structure in the <code class="option">compiledDir</code> that it finds in the <code class="option">sourceDir</code></p>
+
+      </div>
+      <div class="span6">
+<pre><span class="watch">watch:</span>
+  <span class="sourceDir">sourceDir: "assets"</span>
+  <span class="compiledDir">compiledDir: "public"</span>
+  <span class="javascriptDir">javascriptDir: "javascripts"</span>
+  <span class="exclude">exclude: [/[/\\](\.|~)[^/\\]+$/]</span>
+  <span class="throttle">throttle: 0</span>
+  <span class="polling">usePolling: true</span>
+  <span class="interval">interval: 100</span>
+  <span class="binary">binaryInterval: 300</span></pre>
+      </div>
+    </div>
+
+    <h4 class="hi javascriptDir javascript compilers">watch.javascriptDir</h4>
+    <p class="hi javascriptDir javascript compilers">Location of the JavaScript code inside the <code class="option">watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code class="option">watch.compiledDir</code>. Note that there is not a <code class="option">watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
+
+    <p class="hi javascriptDir javascript compilers"><code class="option">watch.javascriptDir</code> can be set to <code class="option">null</code> if not building web applictions. If <code class="option">watch.javascriptDir</code> is set to <code class="option">null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
+
+    <h4 class="hi exclude watch">watch.exclude</h4>
+
+    <p class="hi exclude watch">The <code class="option">exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code class="option">sourceDir</code> or absolute. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
+
+    <h4 class="hi throttle watch">watch.throttle</h4>
+
+    <p class="hi throttle watch">The <code class="option">throttle</code> property represents how many files Mimosa will process every 100 milliseconds. Setting this property will slow down processing of file additions. This is necessary for very large projects with thousands of files. Mimosa processes them so fast that it quickly hits a system's open file limit. When this setting is set to 0, no throttling will take place. But if there are hundreds of files and EMFILE issues occur, play with the throttle. It may take a few minutes to get the throttle setting right, so that Mimosa is still processing files quickly, but not so quickly it crashes. NOTE: If<code class="option">usePolling</code> is set to  <code class="option">false</code>, this setting has no effect.</p>
+
+    <h4 class="hi polling watch">watch.usePolling</h4>
+
+    <p class="hi polling watch">DO NOT turn <code class="option">usePolling</code> off if you are on a *nix, you will crash with EMFILE issues. Windows users, read on: The <code class="option">usePolling</code> setting determines whether or not system polling is the method by which Mimosa keeps track of project assets. Polling on large applications with many hundreds of files may cause Mimosa/node to eat up a lot of CPU. The first settings to play with are the intervals below, to see if you can slow the polling down to an amount that is satisfactory to use but that also doesn't eat up the CPU. Turning <code class="option">usePolling</code> to false is a last option.</p>
+
+    <h4 class="hi interval watch">watch.interval</h4>
+
+    <p class="hi interval watch">The <code class="option">interval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for non-binary files. Tweak this number if you are having CPU issues.</p>
+
+    <h4 class="hi binary watch">watch.binaryInterval</h4>
+
+    <p class="hi binary watch">The <code class="option">binaryInterval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for binary files. Tweak this number if you are having CPU issues.</p>
+
+    <section id="vendor">
+      <div class="page-header">
+        <h1>
+          Vendor Scripts <small><span class="command">vendor</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <h4 class="hi vendor javascripts">vendor.javascripts</h4>
+        <p class="hi vendor javascripts">The location, relative to the <code class="option">watch.sourceDir</code>, of the vendor scripts.</p>
+
+        <h4 class="hi vendor stylesheets">vendor.stylesheets</h4>
+        <p class="hi vendor stylesheets">The location, relative to the <code class="option">watch.sourceDir</code>, of the vendor stylesheets.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="vendor">vendor:</span>
+  <span class="javascripts">javascripts: "javascripts/vendor"</span>
+  <span class="stylesheets">stylesheets: "stylesheets/vendor"</span></pre>
+      </div>
+    </div>
+
+    <section id="compilers">
+      <div class="page-header">
+        <h1>
+          Compiling your Meta-Languages <small><span class="command">compilers</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <p>Many compilers have compiler specific configuration that is not listed here.  Checkout the <a href="./compilers.html">Compilers</a> page for more information.</p>
+
+        <h4 class="hi compilers extensionOverrides">compilers.extensionOverrides</h4>
+        <p class="hi compilers extensionOverrides">The <code class="option">compilers.extensionOverrides</code> config block contains nothing by default. This property allows certain extensions to be processed by a specific compiler. Each Mimosa compiler is already configured to process files with certain extensions, but this configuration allows those extensions to be changed. To use this, map a compiler name to an array of extensions.  For example, <code class="option">extensionOverrides:{coffee: ["coff", "coffee"]}</code> will add the "coff" extension to the already-default "coffee" extension. The <code class="option">compilers.extensionOverrides</code> setting can also be used to turn a compiler off if its behavior isn't desired. If CoffeeScript should not be compiled, the CoffeeScript compiler should be turned off with  <code class="option">extensionOverrides:{coffee: null}</code></p>
+
+      </div>
+      <div class="span6">
+<pre><span class="compilers">compilers:</span>
+  <span class="extensionOverrides">extensionOverrides:</span></pre>
+      </div>
+    </div>
+
+    <section id="templates">
+      <div class="page-header">
+        <h1>
+          Templates <small><span class="command">template</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi template">template</h4>
+        <p class="hi template">The object for template configuration. If this is set to <code class="option">null</code> the template compilers are not intantiated. This is a quick and easy way to disable all template compilation, if, for instance, you wanted to add template extensions to be copied rather than be compiled.</p>
+
+        <h4 class="hi nameTransform template">template.nameTransform</h4>
+        <p class="hi nameTransform template">Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.
+
+          <ul class="hi nameTransform template">
+            <li><code class="option">fileName</code> (default), this option results in the name of the file being the name of the template.</li>
+            <li><code class="option">filePath</code>, this makes the name of the template the path of the file with 1) the <a href="./configuration.html#watch">watch.javascriptDir</a> chopped off, 2) the slashes forced to <code class="option">/</code>, and 3) the extension removed. No leading slash.</li>
+            <li>A RegExp can be provided. That RegExp is applied on the <code class="option">filePath</code> string from above to remove any unwanted pieces of text from the string. The RegExp is used as part of a <code class="option">string.replace</code></li>
+            <li>A function can be provided. That function is passed the <code class="option">filePath</code> from above. The function must return a string that is the desired name of the template.</li>
+          </ul>
+
+        </p>
+
+      </div>
+      <div class="span6">
+<pre><span class="template">template:</span>
+  <span class="nameTransform">nameTransform: 'fileName'</span>
+  <span class="amdWrap">amdWrap: true</span>
+  <span class="outputFileName">outputFileName: "templates"</span>
+  <span class="handlebars">handlebars:</span>
+    <span class="lib">lib:undefined</span>
+    <span class="helpers">helpers: ["app/template/handlebars-helpers"]</span>
+    <span class="ember">ember:</span>
+      <span class="emberEnabled">enabled:false</span>
+      <span class="emberPath">path:"vendor/ember"</span>
+
+-- OR instead of outputFileName --
+
+  <span class="output">output</span>: [{
+    <span class="folders">folders:[""]</span>
+    <span class="outputFileName2">outputFileName:""</span>
+  }]</pre>
+      </div>
+    </div>
+
+    <h4 class="hi amdWrap template">template.amdWrap</h4>
+    <p class="hi amdWrap template">By default Mimosa wraps compiled template files in an AMD-compliant <code class="option">define</code> block. When <code class="option">amdWrap</code> is set to <code class="option">false</code> Mimosa will not wrap the compiled template files and will also not write a wrapped client library for the micro-templater of choice.</p>
+
+    <h4 class="hi outputFileName template">template.outputFileName</h4>
+    <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.javascriptDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./compilers.html#mt">compilers tab</a> for more info.</p>
+
+    <h4 class="hi handlebars lib template">template.handlebars.lib</h4>
+    <p class="hi handlebars lib template">Only relevant for Handlebars templates. This setting allows for a specific version of the Handlebars compiler to be given to Mimosa to use to compile Handlebars templates. Mimosa comes with a Handlebars compilers, but some <a href="http://emberjs.com/">client-side MVC frameworks</a> can be picky about the version of Handlebars used to precompile templates. To provide a Handlebars version it must be <code class="option">npm install</code>ed into your application. Then use the node.js <code class="option">require</code> function to hand it to Mimosa.  Ex: <code class="option">lib: require('handlebars')</code> </p>
+
+    <h4 class="hi handlebars helpers template">template.handlebars.helpers</h4>
+    <p class="hi handlebars helpers template">Only relevant for Handlebars templates. An array of paths from <code class="option">watch.javascriptDir</code> to the files containing handlebars helper registrations. The default can be left alone if there are no helpers.</p>
+
+    <h4 class="hi handlebars ember template">template.handlebars.ember</h4>
+    <p class="hi handlebars ember template">The configuration block specific to using Handlebars with <a href="http://emberjs.com/">Ember.js</a>.</p>
+
+    <h4 class="hi handlebars ember emberEnabled template">template.handlebars.ember.enabled</h4>
+    <p class="hi handlebars ember emberEnabled template">Whether or not to use the <a href="http://emberjs.com/">Ember.js</a> specific Handlebars compiler. Defaults to not being enabled.</p>
+
+    <h4 class="hi handlebars ember emberPath template">template.handlebars.ember.path</h4>
+    <p class="hi handlebars ember emberPath template">The AMD path for the client <a href="http://emberjs.com/">Ember.js</a> library. Defaults to <code class="option">vendor/ember</code>. This is used when building the <code class="option">define</code> AMD wrapper for the compiled template files.</p>
+
+    <h4 class="hi output template">template.output</h4>
+    <p class="hi output template">An alternate configuration to <code class="option">template.outputFileName</code>, <code class="option">template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code class="option">template.output</code> and <code class="option">template.outputFileName</code> cannot both be used at the same time.</p>
+
+    <h4 class="hi folders output template">template.output[].folders</h4>
+    <p class="hi folders output template">All of the templates contained inside <code class="option">folders</code> are compiled and bundled together. It is recursive, so any templates inside sub-folders are included as well.  <code class="option">folders</code> entries are relative to <code class="option">watch.javascriptDir</code> and must exist. If left a blank string, the folder used will be <code class="option">watch.javascriptDir</code>.</p>
+
+    <h4 class="hi outputFileName2 output template">template.output[].outputFileName</h4>
+    <p class="hi outputFileName2 output template"><code class="option">template.output[].outputFileName</code> is identical to <code class="option">template.outputFileName</code> except it is scoped in this case to just the folder specified by the <code class="option">folder</code> property. There is no default, so this property must be provided.</p>
+
+    <section id="copy">
+      <div class="page-header">
+        <h1>
+          Copy Extensions <small><span class="command">copy</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi copy">copy</h4>
+        <p class="hi copy">The <code class="option">copy</code> config block contains configuration for the copy "compiler". For more information on the copy "compiler", see <a href="./compilers.html#copy">the compilers tab</a>.</p>
+
+        <h4 class="hi copyextensions copy">copy.extensions</h4>
+      </div>
+      <div class="span6">
+<pre><span class="copy">copy:</span>
+  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map"]</span></pre>
+      </div>
+    </div>
+
+    <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and amd path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
+
+    <section id="server">
+      <div class="page-header">
+        <h1>
+          Server Setup <small><span class="command">server</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi server">server</h4>
+        <p class="hi server">Configuration for embedded and/or delivered server. Many of the settings below are targeted primarily at configuring Mimosa's embedded server. When running a node server, the settings can be either used or ignored. That server can set its own port, for instance, rather than use the port passed by Mimosa. But the server and view code delivered via <code class="option">mimosa new</code> will reference the settings below.</p>
+
+        <h4 class="hi defaultServer server">server.defaultServer</h4>
+        <p class="hi defaultServer server"><code class="option">server.defaultServer</code> contains configuration for the server inside Mimosa.</p>
+
+        <h4 class="hi defaultServer enabled server">server.defaultServer.enabled</h4>
+        <p class="hi defaultServer enabled server"><code class="option">server.defaultServer.enabled</code> determines whether Mimosa will start a default server or attempt to use a server in the project. When set to <code class="option">true</code>, Mimosa will run its own embedded Express.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="server">server:</span>
+  <span class="defaultServer">defaultServer:</span>
+    <span class="enabled">enabled: false</span>
+    <span class="onePager">onePager: false</span>
+  <span class="path">path: 'server.coffee'</span>
+  <span class="port">port: 3000</span>
+  <span class="base">base: ''</span>
+  <span class="views">views:</span>
+    <span class="viewscompileWith">compileWith: 'jade'</span>
+    <span class="viewsextension">extension: 'jade'</span>
+    <span class="viewspath">path: 'views'</span></pre>
+      </div>
+    </div>
+
+    <h4 class="hi defaultServer onePager server">server.defaultServer.onePager</h4>
+    <p class="hi defaultServer onePager server"><code class="option">server.defaultServer.onePager</code> lets Mimosa know if a project is a one or multi page application. This effects how Mimosa's embedded server handles routing. See the <a href="./server.html">server page</a> for more details</p>
+
+    <h4 class="hi path server">server.path</h4>
+    <p class="hi path server">When <code class="option">defaultServer.enabled</code> is set to <code class="option">false</code>, <code class="option">server.path</code> is the path to the server code. The path can be relative to the root of the application or absolute. The server code at <code class="option">server.path</code> must export a <code class="option">startServer</code> function.  Mimosa will pass that method a copy of the <code class="option">mimosa-config</code>, including all the defaults for each setting and including extra fields inserted by Mimosa upon startup. <code class="option">startServer</code> will also be passed a callback that it must execute when complete.</p>
+
+    <h4 class="hi port server">server.port</h4>
+    <p class="hi port server">The port on which Mimosa starts the server.</p>
+
+    <h4 class="hi base server">server.base</h4>
+    <p class="hi base server">The base path of the application. By default this is set to blank, so the application is served up at http://localhost:3000, but set <code class="option">base</code> to 'app' and the application would be served at http://localhost:3000/app.</p>
+
+    <h4 class="hi views server">server.views</h4>
+    <p class="hi views server">Configuration for the views.</p>
+
+    <h4 class="hi viewscompileWith views server">server.views.compileWith</h4>
+    <p class="hi viewscompileWith views server">The language/library of the server views. Valid values: <code class="option">jade</code>, <code class="option">hogan</code>, <code class="option">ejs</code>, <code class="option">dust</code> and <code class="option">handlebars</code>.</p>
+
+    <h4 class="hi viewsextension views server">server.views.extension</h4>
+    <p class="hi viewsextension views server">Extension of server views.</p>
+
+    <h4 class="hi viewspath views server">server.views.path</h4>
+    <p class="hi viewspath views server">The path to server views. The path can be either absolute or relative. If <code class="option">server.defaultServer.enabled</code> is set to <code class="option">true</code>, <code class="option">server.views.path</code> is relative to the root of the project. If <code class="option">server.defaultServer.enabled</code> is set to <code class="option">false</code>, <code class="option">server.views.path</code> is relative to <code class="option">server.path</code>.</p>
+
+    <section id="require">
+      <div class="page-header">
+        <h1>
+          RequireJS Verification and Optimization <small><span class="command">require</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi require">require</h4>
+        <p class="hi require">Mimosa's configuration for AMD/RequireJS path verification and the r.js optimizer.</p>
+
+        <h4 class="hi verify exclude">require.exclude</h4>
+        <p class="hi verify exclude">The <code class="option">exclude</code> setting is an array of either string paths (absolute or relative) or regexes that when matching a file will keep that file from being processed by the  <code class="option">require</code> module. This can be used to keep files from being considered main modules to be used for processing if <code class="option">require</code> infers incorrectly.</p>
+
+        <h4 class="hi require commonConfig">require.commonConfig</h4>
+        <p class="hi require commonConfig">Location of common RequireJS configuration that is used across multiple pages/modules. See the <a href="https://github.com/requirejs/example-multipage/tree/master/www/js">RequireJS multi-page application example</a> on GitHub for an example of using common configuration.</p>
+
+        <h4 class="hi verify require">require.verify</h4>
+        <p class="hi verify require">Settings for AMD/RequireJS path verification.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="require">require:</span>
+  <span class="commonConfig">exclude:[]</span>
+  <span class="commonConfig">commonConfig:"common"</span>
+  <span class="verify">verify:</span>
+    <span class="verifyenabled">enabled: true</span>
+  <span class="optimize">optimize :</span>
+    <span class="inferConfig">inferConfig:true</span>
+    <span class="overrides">overrides:</span>
+</pre>
+      </div>
+    </div>
+
+    <h4 class="hi verifyenabled verify require">require.verify.enabled</h4>
+    <p class="hi verifyenabled verify require">Whether or not Mimosa will perform AMD/RequireJS path verification.</p>
+
+    <h4 class="hi optimize require">require.optimize</h4>
+    <p class="hi optimize require">Settings for asset optimization via the r.js optimizer.</p>
+
+    <h4 class="hi inferConfig optimize require">require.optimize.inferConfig</h4>
+    <p class="hi inferConfig optimize require">Mimosa infers many r.js optimizer settings. Set <code class="option">inferConfig</code> to <code class="option">false</code> to make Mimosa not do that. Check out the <a href="./optimization.html#require">Optimization tab</a> to see what inferences Mimosa makes for r.js execution.</p>
+
+    <h4 class="hi overrides optimize require">require.optimize.overrides</h4>
+    <p class="hi overrides optimize require">Used to make tweaks to the r.js configuration for asset optimization, uncomment this line and add the <a href="http://requirejs.org/docs/optimization.html#options">r.js config</a> as new parameters inside the <code class="option">require.optimize.overrides</code> object. To just unset a Mimosa defaults, set the property to null.  <code class="option">require.optimize.overrides</code> can also be a function. That function is passed the full inferred r.js config for the module being optimized. This provides the opportunity to amplify the inferred config rather than just replace it.</p>
+
+    <section id="minify">
+      <div class="page-header">
+        <h1>
+          Asset Minification <small><span class="command">minify</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi minify">minify</h4>
+        <p class="hi minify">The <code class="option">minify</code> config block contains configuration for non-require minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
+
+      </div>
+      <div class="span6">
+<pre><span class="minify">minify:</span>
+  <span class="exclude">exclude:[/\.min\./]</span></pre>
+      </div>
+    </div>
+
+    <h4 class="hi exclude minify">minify.exclude</h4>
+    <p class="hi exclude minify"><code class="option">minify.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
+
+    <section id="growl">
+      <div class="page-header">
+        <h1>
+          When to Growl <small><span class="command">growl</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi growl">growl</h4>
+        <p class="hi growl">Settings for whether and when to send Growl notifications. By default any error in compilation will send a Growl message, and turning that off is not configurable.</p>
+
+        <h4 class="hi onStartup growl">growl.onStartup</h4>
+        <p class="hi onStartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents Growls for those successful compiles.</p>
+
+        <h4 class="hi onSuccess growl">growl.onSuccess</h4>
+
+      </div>
+      <div class="span6">
+<pre><span class="growl">growl:</span>
+  <span class="onStartup">onStartup: false</span>
+  <span class="onSuccess">onSuccess:</span>
+    <span class="growljavascript">javascript: true</span>
+    <span class="growlcss">css: true</span>
+    <span class="growltemplate">template: true</span>
+    <span class="growlcopy">copy: true</span></pre>
+      </div>
+    </div>
+
+    <p class="hi onSuccess growl">Various settings controlling whether or not to send Growl messages when tasks are successful post-startup.</p>
+
+     <h4 class="hi growljavascript onSuccess growl">growl.onSuccess.javascript</h4>
+     <p class="hi growljavascript onSuccess growl">Controls whether or not to get a Growl message upon successful compilation of JavaScript meta-language files.</p>
+
+     <h4 class="hi growlcss onSuccess growl">growl.onSuccess.css</h4>
+     <p class="hi growlcss onSuccess growl">Controls whether or not to send a Growl message upon successful compilation of CSS meta-language files.</p>
+
+     <h4 class="hi growltemplate onSuccess growl">
+       growl.onSuccess.template</h4>
+     <p class="hi growltemplate onSuccess growl">Controls whether or not yto send a Growl message upon successful compilation of template file(s).</p>
+
+     <h4 class="hi growlcopy onSuccess growl">growl.onSuccess.copy</h4>
+     <p class="hi growlcopy onSuccess growl">Controls whether or not to send a Growl message upon successful copying of copied assets, like images, plain JavaScript, and plain CSS.</p>
+
+    <section id="lint">
+      <div class="page-header">
+        <h1>
+          Linting <small><span class="command">lint</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi lint">lint</h4>
+        <p class="hi lint">Settings for CSS and JS linting/hinting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
+
+        <h4 class="hi lintexclude lint">lint.exclude</h4>
+        <p class="hi lintexclude lint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute.</p>
+
+        <h4 class="hi compiled lint">lint.compiled</h4>
+        <p class="hi compiled lint">Settings for assets Mimosa has compiled, like CoffeeScript or Stylus.</p>
+
+        <h4 class="hi compiledjavascript compiled lint">lint.compiled.javascript</h4>
+        <p class="hi compiledjavascript compiled lint">When this property is set to true, Mimosa will execute jshint on the successful compile of an asset to JavaScript.</p>
+
+        <h4 class="hi compiledcss compiled lint">lint.compiled.css</h4>
+        <p class="hi compiledcss compiled lint">When this property is set to true, Mimosa will execute csslint on the successful compile of an asset to  CSS.</p>
+
+        <h4 class="hi copied lint">lint.copied</h4>
+        <p class="hi copied lint">Settings for assets Mimosa has copied, like plain JavaScript and CSS.</p>
+
+
+      </div>
+      <div class="span6">
+<pre><span class="lint">lint:</span>
+  <span class="lintexclude">exclude:[]</span>
+  <span class="compiled">compiled:</span>
+    <span class="compiledjavascript">javascript:true</span>
+    <span class="compiledcss">css:true</span>
+  <span class="copied">copied:</span>
+    <span class="copiedjavascript">javascript: true</span>
+    <span class="copiedcss">css: true</span>
+  <span class="vendor">vendor:</span>
+    <span class="vendorjavascript">javascript: false</span>
+    <span class="vendorcss">css: false</span>
+  <span class="rules">rules:</span>
+    <span class="rulesjavascript">jshintrc: ".jshintrc"</span>
+    <span class="rulesjavascript">javascript:</span>
+    <span class="rulescss">css:</span></pre>
+      </div>
+    </div>
+
+    <h4 class="hi copiedjavascript copied lint">lint.copied.javascript</h4>
+    <p class="hi copiedjavascript copied lint">When this property is set to true, Mimosa will execute jshint on the successful copy of a JavaScript asset.</p>
+
+    <h4 class="hi copiedcss copied lint">lint.copied.css</h4>
+    <p class="hi copiedcss copied lint">When this property is set to true, Mimosa will execute csslint on the successful copy of a CSS asset.</p>
+
+    <h4 class="hi vendor lint">lint.vendor</h4>
+    <p class="hi vendor lint">Settings for vendor assets, both vendor CSS and vendor JS.</p>
+
+    <h4 class="hi vendorjavascript vendor lint">lint.vendor.javascript</h4>
+    <p class="hi vendorjavascript lint">When this property is set to true, Mimosa will execute jshint on the successful copy of a vendor JavaScript asset.</p>
+
+    <h4 class="hi vendorcss vendor lint">lint.vendor.css</h4>
+    <p class="hi vendorcss vendor lint">When this property is set to true, Mimosa will execute csslint on the successful copy of a vendor CSS asset.</p>
+
+    <h4 class="hi rules lint">lint.rules</h4>
+    <p class="hi rules lint">All hints/lints come with default rules built in.  Override those with this setting.</p>
+
+    <h4 class="hi jshintrc rules lint">lint.rules.jshintrc</h4>
+    <p class="hi jshintrc rules lint">Location of a .jshintrc file if one exists. Mimosa will look up the file structure in an attempt to find this file, eventually stopping at the file system root.</p>
+
+    <h4 class="hi rulesjavascript rules lint">lint.rules.javascript</h4>
+    <p class="hi rulesjavascript rules lint">Add  <a href="http://www.jshint.com/options/">jshint overrides</a> as key/value pairs underneath this property.</p>
+
+    <h4 class="hi rulescss rules lint">lint.rules.css</h4>
+    <p class="hi rulescss rules lint">Add <a href="https://github.com/stubbornella/csslint/wiki/Rules">csslint overrides</a> as key/value pairs underneath this property.</p>
+
+    <section id="lint">
+      <div class="page-header">
+        <h1>
+          Live Reload <small><span class="command">liveReload</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+        <h4 class="hi liveReload lrenabled">liveReload.enabled</h4>
+        <p class="hi liveReload lrenabled">This property determines whether or not Live Reload is enabled. When Live Reload is enabled, a few javascript files are added to the layout of the dev version of the app. See the <a href="utilities.html#reload">Utilities tab</a> to read more on this functionality.</p>
+      </div>
+      <div class="span6">
+<pre><span class="liveReload">liveReload:</span>
+  <span class="lrenabled">enabled: true</span>
+  <span class="additionalDirs">additionalDirs:["views"]</span></pre>
+      </div>
+    </div>
+
+    <h4 class="hi liveReload additionalDirs">liveReload.additionalDirs</h4>
+    <p class="hi liveReload additionalDirs">A list of additional directories to cause Live Reload to refresh the browser. Paths in the array can be absolute or relative to the root of the project. By default this is set to <code class="option">["views"]</code>, which means a change to anything in the views directory will cause the browser to refresh.</p>
+
+  </section>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap-collapse.js"></script>
+<script src="js/vendor/bootstrap-scrollspy.js"></script>
+
+<!-- scripts concatenated and minified via build script -->
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- end scripts -->
+
+<script>
+    var _gaq=[['_setAccount','UA-33737130-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
