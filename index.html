@@ -23,20 +23,28 @@
   src: url("css/SerifaStd-Light.otf") format("opentype");
 }
 
+  .contain-to-grid {
+        position:fixed;
+    position: fixed;
+right: 0;
+left: 0;
+z-index: 1030;
+margin-bottom: 0;
+  }
+
 	.contain-to-grid .top-bar {
 		margin-bottom: 0;
 		background-color: #0d0d0d;
 	}
 	.top-bar-section li a:not(.button) {
-		font-family: SerifaStd-Light;
-		color: #676767;
+		color: #999;
 		font-weight: normal;
 		background-color: #0d0d0d;
 		font-size: .89em;
 	}
 	.top-bar-section li a:not(.button).active {
 		background-color: #0c0c0c;
-		color: #cbcbcb;
+		color: white;
 	}
 	.welcome {
 		background: url("img/mimosa-bg.jpg")no-repeat;
@@ -348,16 +356,36 @@
 		  <section class="top-bar-section">
 		    <!-- Left Nav Section -->
 		    <ul class="left">
-		      <li><a href="#" class="active">Mimosa</a></li>
-		      <li><a href="#">Get Started</a></li>
-		      <li><a href="#">Commands</a></li>
-		      <li><a href="#">Compilers</a></li>
-		      <li><a href="#">Modules</a></li>
-		      <li><a href="#">Serve</a></li>
-		      <li><a href="#">Utilities</a></li>
-		      <li><a href="#">Optimization</a></li>
-		      <li><a href="#">Configuration</a></li>
-		      <li><a href="#">About/FAQ</a></li>
+            <li class="active">
+              <a href="./index.html">Mimosa</a>
+            </li>
+            <li class="">
+              <a href="./started.html">Get Started</a>
+            </li>
+            <li class="">
+              <a href="./commands.html">Commands</a>
+            </li>
+            <li class="">
+              <a href="./compilers.html">Compilers</a>
+            </li>
+            <li  class="">
+              <a href="./modules.html">Modules</a>
+            </li>
+            <li class="">
+              <a href="./server.html">Serve</a>
+            </li>
+            <li class="">
+              <a href="./utilities.html">Utilities</a>
+            </li>
+            <li class="">
+              <a href="./optimization.html">Optimization</a>
+            </li>
+            <li class="">
+              <a href="./configuration.html">Configuration</a>
+            </li>
+            <li class="">
+              <a href="./about.html">About/FAQ</a>
+            </li>
 		    </ul>
 		  </section>
 		</nav>
