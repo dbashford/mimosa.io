@@ -322,7 +322,7 @@ margin-bottom: 0;
 
   .compilers {
     background: url("../img/compilers_bg.png")no-repeat;
-    background-size: 439px 725px;
+    background-size: 439px 100%;
     background-position: 17% 0px;
     border-bottom: solid 3px #cf4a0f;
   }
