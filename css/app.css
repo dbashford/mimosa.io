@@ -4,6 +4,10 @@ body {
    background-image: url(../img/background_tile.jpg)
 }
 
+button, .button {
+  background-color: #ec511d;
+}
+
 .navbar-inner {
   background-color:#111;
   background-image:-moz-linear-gradient(top, #111, #111);
