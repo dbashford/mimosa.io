@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Get Started - Mimosa</title>
+  <meta name="description" content="Getting started is super easy, you'll be coding in no time. ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" >
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" >
+  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="./index.html">Mimosa</a>
+            </li>
+            <li class="active">
+              <a href="./started.html">Get Started</a>
+            </li>
+            <li class="">
+              <a href="./commands.html">Commands</a>
+            </li>
+            <li class="">
+              <a href="./compilers.html">Compilers</a>
+            </li>
+            <li  class="">
+              <a href="./modules.html">Modules</a>
+            </li>
+            <li class="">
+              <a href="./server.html">Serve</a>
+            </li>
+            <li class="">
+              <a href="./utilities.html">Utilities</a>
+            </li>
+            <li class="">
+              <a href="./optimization.html">Optimization</a>
+            </li>
+            <li class="">
+              <a href="./configuration.html">Configuration</a>
+            </li>
+            <li class="">
+              <a href="./about.html">About/FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container main">
+
+  <header class="jumbotron subhead" id="overview">
+    <h1>Get Started</h1>
+    <p class="lead">Installation, and first steps. You are just minutes away from coding.</p>
+    <div class="subnav">
+      <ul class="nav nav-pills">
+        <li><a href="#install" title="Create a new project">Install Mimosa</a></li>
+        <li><a href="#demoapps" title="Use a demo app">Demo Apps</a></li>
+        <li><a href="#skeletons" title="Try a skeleton">Skeletons</a></li>
+        <li><a href="#nonexist" title="Get started right now">Quick Start - New App</a></li>
+        <li><a href="#exist" title="Get started right now">Quick Start - Existing App</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="command-list">
+
+    <section id="install">
+      <div class="page-header">
+        <h1>
+          Installation
+          <small><span class="options">it's a piece of cake </span></small>
+        </h1>
+      </div>
+      <h2>1) node.js</h2>
+      <p>Mimosa is written in <a href="http://nodejs.org/">node.js</a> and that needs to be installed. <a href="http://nodejs.org/download/">Download and install</a> anything over version 0.8.0. The node.js install comes with the <a href="https://npmjs.org/">Node Package Manager (npm)</a>. (Note: If you want to compile SASS with node, then you'll need node version 0.10.0 or above.)</p>
+      <h2>2) mimosa</h2>
+      <p>Use npm to install Mimosa.</p>
+      <pre>$ npm install -g mimosa</pre>
+      <p>The <code class="option">-g</code> flag installs Mimosa globally so it can be run from the command line anywhere.  You may need to use sudo to install this depending on your system's setup.</p>
+      <p>If you need to install a specific version of Mimosa for compatibility reasons, then add the version to the end of the command.</p>
+      <pre>$ npm install -g mimosa@0.14.0</pre>
+
+    </section>
+
+    <div class="page-header">
+      <h1>
+        Where to Start with Development?
+      </h1>
+    </div>
+
+    <p>You've got four choices, all detailed below:</p>
+
+    <ul>
+      <li>Start by cloning/downloading a demo application if you want something meaty.</li>
+      <li>Use one of Mimosa's application skeletons if you just want a little boilerplate, some client libraries and some sample code.</li>
+      <li>Start with a fresh Mimosa generated scaffold.</li>
+      <li>Hook up your existing application.</li>
+    </ul>
+
+    <section id="demoapps" class="demoapps">
+       <div class="page-header">
+         <h1>
+           Demo Applications <small><span class="options">great way to learn Mimosa</span></small>
+         </h1>
+       </div>
+
+       <p>Before creating your own app, play around with someone else's!  Download an app from GitHub and use Mimosa's command line interface to play with the code and get comfortable with Mimosa and the technologies inside the demo apps.</p>
+
+       <p>As more demo apps are built, they'll get added here.  If you put a little something together using Mimosa let us know so we can add it to the list! Either <a href="https://github.com/dbashford/mimosajs.com/issues">open an issue</a> or shoot a message to @mimosajs.</p>
+       <ul>
+         <li>
+           <h2><a href="https://github.com/dbashford/MimosaTestem">MimosaTestem</a> <small>A small CoffeeScript, Stylus, Handlebars app will a full Mimosa-managed Testem/Mocha/Sinon/Chai test suite.</small></h2>
+         </li>
+         <li>
+           <h2><a href="https://github.com/dbashford/AngularFunMimosa">AngularFun</a> <small>A mid-sized CoffeeScript, LESS, Stylus, Angular.js, Bootstrap application.</small></h2>
+         </li>
+         <li>
+           <h2><a href="https://github.com/dbashford/AngularFunMimosaCommonJS">AngularFunCommonJS</a> <small>Same as the AngularFun project, but utilizing a mixture of both AMD and CommonJS code.</small></h2>
+         </li>
+         <li>
+           <h2><a href="https://github.com/dbashford/mimosa-ember-emblem-templates">MimosaEmberEmblem</a> <small>A small Ember.js project utilizing Emblem for templating. Also: CoffeeScript, Jade, Express.</small></h2>
+         </li>
+         <li>
+           <h2><a href="https://github.com/emirotin/mimosa-ember">MimosaEmber</a> <small>The Mimosa starter app but Ember-ized. CoffeeScript, Emblem, SASS, Jade, Express.</small></h2>
+         </li>
+         <li>
+           <h2><a href="https://github.com/breathe/mimosa-peepcode">MimosaEmberPeepcode</a> <small>The Peepcode Ember example. Bower, Testem, Ember.js, Emblem, CoffeeScript, Foundation, Stylus, Express and Jade.</small></h2>
+         </li>
+
+       </ul>
+     </section>
+
+
+     <section id="skeletons" class="demoapps">
+       <div class="page-header">
+         <h1>
+           Pre-Built Skeletons <small><span class="options">just some starter structure and libraries</span></small>
+         </h1>
+       </div>
+
+       <p>Mimosa has a growing list of skeletons. From the command line execute <code class="option">mimosa skel:list</code> to get a list of pre-built skeletons. Follow the instructions to install one of your choosing!</p>
+
+       <p>Mimosa needs more skeletons! Check out the <a href="https://github.com/dbashford/mimosa-skeleton">documentation</a> and whip something up real quick using the technologies you love so that others can benefit.</p>
+
+     </section>
+
+
+    <section id="nonexist">
+      <div class="page-header">
+        <h1>
+          Quick Start - New App
+          <small><span class="options">you'll be coding soon</span></small>
+        </h1>
+      </div>
+
+      <p>If you want to build an app from scratch, or just play around with Mimosa, start here.</p>
+
+      <h2>1) Create a new application</h2>
+
+      <p>Inside the desired folder, create an app by executing <code class="option">mimosa new</code>.</p>
+
+      <pre>$ mimosa new nameOfApplicationHere</pre>
+
+      <p>Follow the prompts and choose the desired meta-languages/pre-processors, server, and server view technologies. If you aren't sure which ones to choose, that's perfect. Mimosa is a great tool to learn them. For now go with the ones marked with an asterisk as they are Mimosa favorites.</p>
+
+      <h2>2) Start the server</h2>
+
+      <p>Change into the directory that was created and execute:</p>
+
+      <pre>$ mimosa watch --server</pre>
+
+      <p>Navigate to <a href="http://localhost:3000">http://localhost:3000</a> in a browser to see the sample app. Mimosa will watch the assets directory of the project and compile changed files to the public directory. The web app serves assets in the public directory.</p>
+
+      <h2>3) Start Coding</h2>
+
+      <p>All set! To get the project started, Mimosa has delivered a bare bones web app with some code using the chosen technologies. Head over to the <a href="./commands.html">Commands</a> tab to learn how to interact with Mimosa. If you want to play around with something meatier than the codebase that <code class="option">mimosa new</code> delivers, try out a demo app.
+
+    </section>
+
+    <section id="exist">
+       <div class="page-header">
+         <h1>
+           Quick Start - Existing App
+           <small><span class="options">easy to wire up</span></small>
+         </h1>
+       </div>
+
+       <p>If you want to use Mimosa with an existing app, this is the place to start.</p>
+
+       <h2>1) Get the config</h2>
+
+       <p>From the command line, type <code class="option">mimosa config</code> and Mimosa will generate a <code class="option">mimosa-config.coffee</code> file in the current directory. This file controls everything Mimosa does. For now its contents will be commented out and all of Mimosa's defaults will be in effect. While Mimosa doesn't currently deliver its config as a JavaScript file, you are welcome to transform the <code class="option">mimosa-config.coffee</code> to JavaScript.</p>
+
+       <h2>2) Tweak the config</h2>
+
+       <p>Place the <code class="option">mimosa-config</code> at the root of a project. Either change the project's codebase to match Mimosa's defaults, or change the <code class="option">mimosa-config</code> to work with the project. The <code class="option">mimosa-config</code> is self-documenting. Each config setting is explained inside the file. All of the <a href="./configuration.html">configuration options</a> are documented on the site as well.</p>
+
+       <p>The most important settings in the config, to get you started, are inside the top <code class="option">watch</code> setting.  Make sure that <code class="option">sourceDir</code>, <code class="option">compiledDir</code>, and <code class="option">javascriptDir</code> all point to the right place in the project.</p>
+
+       <h2>3) Fire it up</h2>
+
+       <p>Execute <code class="option">mimosa watch</code> and Mimosa will build and watch project assets. Mimosa will generate errors if something is wrong with the config.</p>
+
+       <h2>4) Next steps?</h2>
+
+       <ul>
+         <li>Get familiar with Mimosa's <a href="./commands.html">commands</a></li>
+         <li>Browse the list of <a href="./compilers.html">compilers</a>.</li>
+         <li>See how Mimosa can help <a href="./server.html#mimosas">serve assets</a> or <a href="./server.html#yours">start a server</a>.</li>
+         <li>Learn about Mimosa's <a href="./optimization.html">optimization</a> options.</li>
+         <li>Having trouble? Hit the <a href="https://groups.google.com/forum/#!forum/mimosajs">Google group</a> to find a solution.</li>
+       </ul>
+     </section>
+
+  </section>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap-collapse.js"></script>
+<script src="js/vendor/bootstrap-scrollspy.js"></script>
+
+<!-- scripts concatenated and minified via build script -->
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- end scripts -->
+
+<script>
+    var _gaq=[['_setAccount','UA-33737130-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
