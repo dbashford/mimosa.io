@@ -80,6 +80,7 @@
         <li><a href="#skeletons" title="Try a skeleton">Skeletons</a></li>
         <li><a href="#nonexist" title="Get started right now">Quick Start - New App</a></li>
         <li><a href="#exist" title="Get started right now">Quick Start - Existing App</a></li>
+        <li><a href="#steps" title="Get started right now">Next Steps?</a></li>
       </ul>
     </div>
   </header>
@@ -94,14 +95,11 @@
         </h1>
       </div>
       <h2>1) node.js</h2>
-      <p>Mimosa is written in <a href="http://nodejs.org/">node.js</a> and that needs to be installed. <a href="http://nodejs.org/download/">Download and install</a> anything over version 0.8.0. The node.js install comes with the <a href="https://npmjs.org/">Node Package Manager (npm)</a>. (Note: If you want to compile SASS with node, then you'll need node version 0.10.0 or above.)</p>
+      <p>Mimosa is written in <a href="http://nodejs.org/">node.js</a> and that needs to be installed. <a href="http://nodejs.org/download/">Download and install</a> anything over version 0.8.0. The node.js install comes with the <a href="https://npmjs.org/">Node Package Manager (npm)</a>.</p>
       <h2>2) mimosa</h2>
       <p>Use npm to install Mimosa.</p>
       <pre>$ npm install -g mimosa</pre>
-      <p>The <code class="option">-g</code> flag installs Mimosa globally so it can be run from the command line anywhere.  You may need to use sudo to install this depending on your system's setup.</p>
-      <p>If you need to install a specific version of Mimosa for compatibility reasons, then add the version to the end of the command.</p>
-      <pre>$ npm install -g mimosa@0.14.0</pre>
-
+      <p>The <code class="option">-g</code> flag installs Mimosa globally so it can be run from the command line anywhere.  You may need to use <code class="option">sudo</code> to install this depending on your system's setup.</p>
     </section>
 
     <div class="page-header">
@@ -162,7 +160,7 @@
 
        <p>Mimosa has a growing list of skeletons. From the command line execute <code class="option">mimosa skel:list</code> to get a list of pre-built skeletons. Follow the instructions to install one of your choosing!</p>
 
-       <p>Mimosa needs more skeletons! Check out the <a href="https://github.com/dbashford/mimosa-skeleton">documentation</a> and whip something up real quick using the technologies you love so that others can benefit.</p>
+       <p>Mimosa needs more skeletons! Check out the <a href="https://github.com/dbashford/skelmimosa">documentation</a> and whip something up real quick using the technologies you love so that others can benefit.</p>
 
      </section>
 
@@ -222,11 +220,18 @@
        <h2>3) Fire it up</h2>
 
        <p>Execute <code class="option">mimosa watch</code> and Mimosa will build and watch project assets. Mimosa will generate errors if something is wrong with the config.</p>
+     </section>
 
-       <h2>4) Next steps?</h2>
+       <section id="steps">
+          <div class="page-header">
+            <h1>
+              Next steps?
+              <small><span class="options">now what?</span></small>
+            </h1>
+          </div>
 
        <ul>
-         <li>Get familiar with Mimosa's <a href="./commands.html">commands</a></li>
+         <li>Get familiar with Mimosa's <a href="./commands.html">commands</a>.</li>
          <li>Browse the list of <a href="./compilers.html">compilers</a>.</li>
          <li>See how Mimosa can help <a href="./server.html#mimosas">serve assets</a> or <a href="./server.html#yours">start a server</a>.</li>
          <li>Learn about Mimosa's <a href="./optimization.html">optimization</a> options.</li>

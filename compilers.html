@@ -425,12 +425,12 @@
       <h2>SASS w/Compass <small><span class="mim">sass</span> <span class="command">["scss", "sass"]</span></small></h2>
       <p><a href="http://sass-lang.com/">SASS</a> w/<a href="http://compass-style.org/">Compass</a> is another Mimosa option. For SASS there are two compiling options, using Ruby SASS <a href="http://sass-lang.com/">(SASS Ruby gem install)</a> or node.js SASS. Ruby is SASS' source language and the node.js version is a port of the Ruby functionality to node.js. Mimosa comes bundled with the node.js version, but it is capable of calling out to the Ruby version if the gem is installed. By default the Ruby version is enabled, but if Mimosa does not find it to be installed Mimosa will fall back to the node.js version. There is also config (below) to force the use of either version.</p>
 
+      <p>Note: To use the node version of SASS, node version 0.10 is required.</p>
+
       <pre>sass:
   node:false</pre>
 
       <p>Compass <a href="http://compass-style.org/install/">(Ruby install)</a> does not have a node.js port, so to use SASS and Compass together, Ruby SASS must be used.</p>
-
-
 
       <h2>LESS <small><span class="mim">less</span> <span class="command">["less"]</span></small></h2>
       <p>Mimosa will also compile <a href="http://lesscss.org/">LESS</a>.  LESS is a node library, so there is no need to install anything to use it, and LESS compiles will be speedy.</p>
