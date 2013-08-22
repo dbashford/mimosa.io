@@ -176,7 +176,7 @@
       </div>
     </section>
 
-    <p>Mimosa's module features have their own set of commands prefixed with <code class='option'>mod:</code>.  Read about them on the <a href="./modules.html">Module's page</a>.</p>
+    <p>Mimosa's module features have their own set of commands prefixed with <code class='option'>mod:</code>.  Read about them on the <a href="./modules.html#commands">Module's page</a>.</p>
 
     <section id="new">
       <div class="page-header">
@@ -377,46 +377,75 @@ $ mimosa watch -s</pre>
 
     <h3>Clean Compiled Assets First (-c/--clean)</h3>
 
-    <p>Use the <code class='option'>--clean</code> flag to clean the compiled directory before watching starts. This forces a recompile and recopy of all assets.</p>
-
-    <pre>$ mimosa watch --clean
+    <div class="row">
+      <div class="span6">
+        <p>Use the <code class='option'>--clean</code> flag to clean the compiled directory before watching starts. This forces a recompile and recopy of all assets.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --clean
 $ mimosa watch -c</pre>
-
+      </div>
+    </div>
     <h3>Delete Compiled Directory First (-d/--delete)</h3>
 
-    <p>More drastic than the clean flag, the  <code class='option'>--delete</code> flag will remove the compiled directory entirely. This is the same as the <code class='option'>--force</code> option for the <code class='option'>clean</code> command below. More details about the difference between cleaning and deleting below.</p>
-
-    <pre>$ mimosa watch --delete
+    <div class="row">
+      <div class="span6">
+        <p>More drastic than the <code class='option'>clean</code> flag, the  <code class='option'>--delete</code> flag will remove the compiled directory entirely. This is the same as the <code class='option'>--force</code> option for the <code class='option'>clean</code> command below.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --delete
 $ mimosa watch -d</pre>
+      </div>
+    </div>
 
     <h3>Serve Optimized Assets (-o/--optimize)</h3>
 
-    <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--optimize</code> flag turned on and by default, via the <code class='option'>require</code> module, Mimosa will optimize the codebase on start-up and with every file change. See the <a href="./optimization.html">optimization</a> tab to read more about Mimosa's default optimization options.</p>
-
-    <pre>$ mimosa watch --optimize
+    <div class="row">
+      <div class="span6">
+        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--optimize</code> flag turned on and by default, via the <code class='option'>require</code> module, Mimosa will optimize the codebase on start-up and with every file change. See the <a href="./optimization.html">optimization</a> tab to read more about Mimosa's default optimization options.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --optimize
 $ mimosa watch -o</pre>
+      </div>
+    </div>
 
     <h3>Minify Assets (-m/--minify)</h3>
 
-    <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--minify</code> flag turned on and Mimosa will, by default, via the <code class='option'>minify</code> module, use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files after they are compiled and before they are written. Mimosa will also single-line CSS.</p>
-
-    <pre>$ mimosa watch --minify
+    <div class="row">
+      <div class="span6">
+        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--minify</code> flag turned on and Mimosa will, by default, via the <code class='option'>minify</code> module, use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files after they are compiled and before they are written. The <code class='option'>minify</code> module will also single-line CSS.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --minify
 $ mimosa watch -m</pre>
+      </div>
+    </div>
 
     <h3>Minify and Optimize Assets (-mo/--minify --optimize)</h3>
 
-    <pre>$ mimosa watch --minify --optimize
-$ mimosa watch -mo</pre>
-
+    <div class="row">
+      <div class="span6">
     <p>When combined, the <code class='option'>--minify</code> and <code class='option'>--optimize</code> options provide more control over the application's minification strategy. Check out the <a href="./optimization.html#minopt">Minify + Optimize section of the Optimization tab</a> to learn more.</a>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --minify --optimize
+$ mimosa watch -mo</pre>
+      </div>
+    </div>
+
 
     <h3>Use a Profile (-P/--profile)</h3>
 
-    <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-
+    <div class="row">
+      <div class="span6">
+        <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+      </div>
+      <div class="span6">
     <pre>$ mimosa watch --profile nameOfProfile
 $ mimosa watch -P nameOfProfile</pre>
-
+      </div>
+    </div>
 
     <section id="clean">
       <div class="page-header">
@@ -439,6 +468,9 @@ $ mimosa watch -P nameOfProfile</pre>
         <p>Because the clean command will not remove anything in <code class="option">watch.compiledDir</code> that isn't in <code class="option">watch.sourceDir</code>, Mimosa may leave behind code. If <code class="option">mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning. </p>
 
         <p>When included, the <code class="option">--force</code> flag will remove the entire compiled directory and all of its contents, no questions asked.</p>
+
+        <pre>$ mimosa clean --force
+$ mimosa clean -f</pre>
 
       </div>
       <div class="span6 term">
@@ -465,11 +497,15 @@ $ mimosa watch -P nameOfProfile</pre>
 
     <h3>Use a Profile (-P/--profile)</h3>
 
-    <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-
-    <pre>$ mimosa clean --profile nameOfProfile
+    <div class="row">
+      <div class="span6">
+        <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa clean --profile nameOfProfile
 $ mimosa clean -P nameOfProfile</pre>
-
+      </div>
+    </div>
     <section id="build">
       <div class="page-header">
         <h1>
@@ -516,36 +552,69 @@ $ mimosa build -o</pre>
     </div>
 
     <h3>Minify Assets (-m/--minify)</h3>
-
-    <p>To build minified code, run the <code class='option'>build</code> command with the <code class='option'>--minify</code> flag. If the <code class='option'>minify</code> module is in use, Mimosa will use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files and will single-line CSS.</p>
+    <div class="row">
+      <div class="span6">
+        <p>To build minified code, run the <code class='option'>build</code> command with the <code class='option'>--minify</code> flag. If the <code class='option'>minify</code> module is in use, Mimosa will use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files and will single-line CSS.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --minify
+$ mimosa build -m</pre>
+      </div>
+    </div>
 
     <h3>Minify and Optimize Assets (-mo/--minify --optimize)</h3>
 
-    <pre>$ mimosa build --minify --optimize
+    <div class="row">
+      <div class="span6">
+        <p>Need a bit more control over a project's minification strategy?  See the <a href="./optimization.html">page on optimization</a> to see the benefit of using <code class='option'>--minify</code> and <code class='option'>--optimize</code> together.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --minify --optimize
 $ mimosa build -mo</pre>
-
-    <p>Need a bit more control over a project's minification strategy?  See the <a href="./optimization.html">page on optimization</a> to see the benefit of using <code class='option'>--minify</code> and <code class='option'>--optimize</code> together.</p>
+      </div>
+    </div>
 
     <h3>Package Application (-p/--package)</h3>
 
+    <div class="row">
+      <div class="span6">
     <p>Provide a <code class="option">--package</code> flag and Mimosa will invoke any installed packaging modules. Mimosa doesn't come with any packaging modules by default, but modules like <a href="https://github.com/dbashford/mimosa-web-package">mimosa-web-package</a> are available and can be added to an application by simply adding the module name to the <code class="option">mimosa-config</code> <code class="option">modules</code> array.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --package
+$ mimosa build -p</pre>
+      </div>
+    </div>
 
     <h3>Install Application (-i/--install)</h3>
 
+    <div class="row">
+      <div class="span6">
     <p>Provide a <code class="option">--install</code> flag and Mimosa will invoke any configured install modules. Mimosa doesn't come with any installation modules, but this paves the way for those sorts of modules to be used.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --install
+$ mimosa build -i</pre>
+      </div>
+    </div>
 
     <h3>Use a Profile (-P/--profile)</h3>
 
+    <div class="row">
+      <div class="span6">
     <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-
-    <pre>$ mimosa build --profile nameOfProfile
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --profile nameOfProfile
 $ mimosa build -P nameOfProfile</pre>
+      </div>
+    </div>
 
     <section id="bower">
       <div class="page-header">
         <h1>
           Bower Commands
-          <small><span class="mim">mimosa</span> <span class="command">bower</span>, <span class="command">bower:cleam</span></small>
+          <small><span class="mim">mimosa</span> <span class="command">bower</span>, <span class="command">bower:clean</span></small>
         </h1>
       </div>
     </section>
@@ -594,10 +663,9 @@ $ mimosa build -P nameOfProfile</pre>
       <div class="span6 term">
         <div class="inner">
           <p>
-            Davids-MacBook-Pro:bar dbashford$ mimosa config<br/>
+            $ mimosa config<br/>
             <span class="inst">17:28:45 - Copied mimosa-config-commented.coffee into current directory.</span><br/>
             <span class="inst">17:28:45 - Copied mimosa-config.coffee into current directory.</span><br/>
-            Davids-MacBook-Pro:bar dbashford$
           </p>
         </div>
       </div>
@@ -615,7 +683,7 @@ $ mimosa [command] --help</pre>
       </div>
       <div class="span6 term">
         <div class="inner">
-          <p>Davids-MacBook-Pro:foo dbashford$ mimosa new --help</p>
+          <p>$ mimosa new --help</p>
 
           <div class="help">
             <p>Usage: new [options] [name]</p>
@@ -645,16 +713,18 @@ $ mimosa [command] --help</pre>
                 $ mimosa new [name] -d
             </p>
           </div>
-          <p>Davids-MacBook-Pro:foo dbashford$</p>
         </div>
       </div>
     </div>
     <h3>-D/--debug</h3>
-
-    <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code class="option">--debug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
-
-    <pre>$ mimosa [command] --debug
+    <div class="row">
+      <div class="span6">
+        <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code class="option">--debug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa [command] --debug
 $ mimosa [command] -D</pre>
+      </div>
     </div>
   </section>
 </div>
