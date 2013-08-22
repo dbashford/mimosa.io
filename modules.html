@@ -87,11 +87,15 @@
   <section class="command-list">
     <div class="page-header" id="overview">
       <h1>
-        What is a Module? <small><span class="options">Mimosa is the car, modules drive</span></small>
+        What is a Module?
       </h1>
     </div>
 
-    <p>A Mimosa module is a node.js project that, when installed inside Mimosa, can be used as part of Mimosa's workflows. Mimosa is able to use a module because modules implement a simple interface Mimosa can access.</p>
+    <p>A Mimosa module is a node.js package that, when installed inside Mimosa, can be used as part of Mimosa's workflows. Mimosa is able to use a module because modules implement a simple interface Mimosa can access.</p>
+
+    <p>Modules are collaborative in nature. They are all able to access one another. One good example is the <a href="https://github.com/brzpegasus/mimosa-dependency-graph">dependency-graph</a> module which creates d3 visualizations depicting an application's dependency tree. Rather than needing to build the dependency tree itself, that module can utilize the data already available in the <code class="option">mimosa-require</code> module, which exposes a dependency object. This lets the module author just focus on writing d3 to create a cool visualization.</p>
+
+    <p>Also, unlike other build tools, Mimosa modules do not rely on communicating via the file system. Mimosa's core is responsible for lining up the modules on a execution conveyor belt, passing information from one module to another directly. So, for example, a CoffeeScript file can be read, compiled, linted, minified, written to disk and live reload-ed in the browser -- effectively being touched by 6 modules -- with only two IOs: the read of the input CoffeeScript and the write of the output minified JavaScript. This keeps Mimosa fast. Live Reload will kick off before you even get a chance to toggle back to the browser.</p>
 
     <p>There's a strong chance what you need can be created as a new module. In most cases all that is required to install a module is to include the module's name in the Mimosa configuration. Mimosa self-installs modules it comes across but does not already know about.</p>
 
@@ -103,7 +107,9 @@
 
     <h2>Included Modules</h2>
 
-    <p>The table below lists the modules that come baked into Mimosa.  These do not need to be installed separately.</p>
+    <p>Mimosa has several internal modules that handle things like reading and writing files and compilation of assets. There are also external modules that are simply default and included with Mimosa when it installs.</p>
+
+    <p>The first table below lists the external modules that come baked into Mimosa. These do not need to be installed separately.</p>
 
     <br/>
 
@@ -134,6 +140,10 @@
         <tr>
           <td><a href="./optimization.html#min">minify</a></td>
           <td>Minification of JavaScript assets</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-bower">bower</a></td>
+          <td>Bower integration for managing vendor assets.</td>
         </tr>
       </tbody>
     </table>
@@ -207,10 +217,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-bower">bower</a></td>
-          <td>Bower integration for managing vendor assets.</td>
-        </tr>
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-just-copy">just-copy</a></td>
           <td>Allow assets to bypass Mimosa module processing and just be copied.</td>
@@ -356,15 +362,14 @@ $ mimosa mod:list -v</pre>
       <div class="span6 term">
         <div class="inner">
           <p>
-            Davids-MacBook-Pro:webapp dbashford$ mimosa mod:list<br/><br/>
+            $ mimosa mod:list<br/><br/>
             <span class="inst">The following is a list of the Mimosa modules you have installed.</span><br/><br/>
             <span class="fb">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version&nbsp;&nbsp;&nbsp;Website</span><br/>
             <span class="inst">mimosa-server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosajs.com</span><br/>
             <span class="inst">mimosa-require&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosajs.com</span><br/>
             <span class="inst">mimosa-minify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosajs.com</span><br/>
             <span class="inst">mimosa-lint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosajs.com</span><br/><br/>
-            <span class="inst">To view more module details, execute 'mimosa mod:list -v' for 'verbose' logging. </span><br/><br/>
-            Davids-MacBook-Pro:webapp dbashford$<br/>
+            <span class="inst">To view more module details, execute 'mimosa mod:list -v' for 'verbose' logging. </span>
           </p>
         </div>
       </div>
@@ -397,7 +402,7 @@ $ mimosa mod:search -v</pre>
       <div class="span6 term">
         <div class="inner">
           <p>
-            Davids-MacBook-Pro:webapp dbashford$ mimosa mod:search<br/><br/>
+            $ mimosa mod:search<br/><br/>
 
             <span class="inst">Searching NPM for Mimosa modules, this might take a few seconds...</span><br/><br/>
 
@@ -429,9 +434,7 @@ $ mimosa mod:search -v</pre>
 
             <span class="inst">To view more module details, execute 'mimosa mod:search -v' for 'verbose' logging.</span><br/><br/>
 
-            <span class="inst">Install modules by executing 'mimosa mod:install [name of module]'</span><br/><br/>
-
-            Davids-MacBook-Pro:webapp dbashford$<br/>
+            <span class="inst">Install modules by executing 'mimosa mod:install [name of module]'</span>
           </p>
         </div>
       </div>
@@ -450,25 +453,23 @@ $ mimosa mod:search -v</pre>
 
         <pre>$ mimosa mod:install mimosa-server</pre>
 
-        <p>If the module has already been installed, this will update it to the latest version. To install a specific version of a module, add the version after a @.</p>
-
-        <pre>$ mimosa mod:install mimosa-server@0.2.0</pre>
-
-        <p>To use and test a module under local development that isn't in NPM execute <code class='option'>mod:install</code> without providing a name for the module.  For this to work properly, the command must be executed from the same directory as the module's package.json, which should be the root of the module. Once the module is installed, Mimosa treats it the same as a module it installed from NPM.</p>
-
       </div>
       <div class="span6 term">
         <div class="inner">
           <p>
-            Davids-MacBook-Pro:webapp dbashford$ mimosa mod:install mimosa-server@0.2.0<br/><br/>
+            $ mimosa mod:install mimosa-server@0.2.0<br/><br/>
 
-            <span class="inst">09:57:43 - Install of 'mimosa-server@0.2.0' successful</span> <br/><br/>
-
-            Davids-MacBook-Pro:webapp dbashford$
+            <span class="inst">09:57:43 - Install of 'mimosa-server@0.2.0' successful</span>
           </p>
         </div>
       </div>
+
     </div>
+    <p>If the module has already been installed, this will update it to the latest version. To install a specific version of a module, add the version after a @.</p>
+
+    <pre>$ mimosa mod:install mimosa-server@0.2.0</pre>
+
+    <p>To use and test a module under local development that isn't in NPM execute <code class='option'>mod:install</code> without providing a name for the module.  For this to work properly, the command must be executed from the same directory as the module's package.json, which should be the root of the module. Once the module is installed, Mimosa treats it the same as a module it installed from NPM.</p>
     <div class="page-header">
       <h1>
         Uninstall a Module
@@ -488,52 +489,15 @@ $ mimosa mod:search -v</pre>
       <div class="span6 term">
         <div class="inner">
           <p>
-            Davids-MacBook-Pro:webapp dbashford$ mimosa mod:uninstall mimosa-server<br/><br/>
+            $ mimosa mod:uninstall mimosa-server<br/><br/>
 
-            <span class="inst">09:57:43 - Uninstall of 'mimosa-server' successful</span> <br/><br/>
+            <span class="inst">09:57:43 - Uninstall of 'mimosa-server' successful</span>
 
-            Davids-MacBook-Pro:webapp dbashford$
           </p>
         </div>
       </div>
     </div>
-    <div class="page-header">
-       <h1>
-         Initialize Your Own Module
-         <small><span class="mim">mimosa</span> <span class="command">mod:init</span> <span class="options">[nameOfModule]</span> <span class="options">[-c/--coffee]</span></small>
-       </h1>
-     </div>
-     <div class="row">
-       <div class="span6">
-         <h2>mod:init</h2>
 
-         <p>Execute <code class='option'>mod:init</code> and provide the command with a 'mimosa-' prefixed module name and Mimosa will create a directory using the name (or use an existing directory), and place a module skeleton inside. The skeleton contains heavily documented JavaScript code to get started, <a href="http://jashkenas.github.com/docco/">docco</a>-generated documentation for that code, and a starter <code class='option'>package.json</code> for deploying the module to <a href="https://npmjs.org/">NPM</a>.</p>
-
-         <p>All of the <code class='option'>package.json</code> placeholders need to be changed before publishing to NPM. The following sections go into detail about what steps to take with the new module skeleton.</p>
-
-         <pre>$ mimosa mod:init mimosa-foo</pre>
-
-         <h3>Prefer CoffeeScript? (-c/--coffee)</h3>
-
-         <p>Add a <code class="option">--coffeescript</code> flag and Mimosa will provide a CoffeeScript skeleton instead of JavaScript.</p>
-
-         <pre>$ mimosa mod:init -c
-$ mimosa mod:init --coffee</pre>
-
-       </div>
-
-       <div class="span6 term">
-         <div class="inner">
-           <p>
-             Davids-MacBook-Pro:mimosaplay dbashford$ mimosa mod:init mimosa-foo<br/><br/>
-
-             <span class="inst">10:06:59 - Module skeleton successfully placed in mimosa-foo directory. The first thing you'll want to do is go into mimosa-foo/package.json and replace the placeholders.</span> <br/><br/>
-
-             Davids-MacBook-Pro:mimosaplay dbashford$
-           </p>
-         </div>
-       </div>
-     </div>
 
      <div class="page-header">
        <h1>
@@ -554,16 +518,14 @@ $ mimosa mod:init --coffee</pre>
        <div class="span6 term">
          <div class="inner">
            <p>
-             Davids-MacBook-Pro:foo dbashford$ mimosa mod:config live-reload
+             $ mimosa mod:config live-reload
              <br/><br/><br/>
 
              <span class="inst"># liveReload:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Configuration for live-reload<br/>
                 &nbsp;&nbsp;# enabled:true&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Whether or not live-reload is enabled<br/>
                 &nbsp;&nbsp;# additionalDirs:["views"]&nbsp;&nbsp;&nbsp;# Additional directories outside the watch.compiledDir<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# that you would like to have trigger a page refresh,<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# like, by default, static views</span> <br/><br/><br/>
-
-             Davids-MacBook-Pro:foo dbashford$
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# like, by default, static views</span>
            </p>
          </div>
        </div>
@@ -580,49 +542,75 @@ $ mimosa mod:init --coffee</pre>
 
     <p>At the bottom of the <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/index.coffee#L6-L10">index file</a> is the <code class="option">module.exports</code> object. That object defines the module interface.</p>
 
-    <pre>module.exports =
-  registration: registration
-  defaults: config.defaults
-  placeholder: config.placeholder
-  validate: config.validate</pre>
-
     <p>Working from the bottom up:</p>
 
-    <ul>
-      <li><code class="option">validate</code> is optional, but if it exists it is called to validate a user's configuration. The <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L23">mimosa-minify validate</a> is small. One thing it does is verify that the mimosa-config's <code class="option">minify</code> object is an <code class="option">object</code>. If it wasn't <code class="option">validate</code> would return an error, Mimosa would not start, and the error message would be displayed.</li>
-      <li><code class="option">placeholder</code>, also optional, is how the commented out mimosa-config placeholder text is provided. <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L7-L19">mimosa-minify's placeholder</a> contains text explaining each configuration parameter.</li>
-      <li><code class="option">defaults</code>, again optional, is how the module lets Mimosa know its default configuration. <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L3-L5">mimosa-minify's defaults</a> returns a simple object.</li>
-      <li><code class="option">registration</code> is how a module informs Mimosa what code to call and when.</li>
-    </ul>
+    <div class="row">
+      <div class="span8">
+        <ul>
+          <li><code class="option">validate</code> is optional, but if it exists it is called to validate a user's configuration. The <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L23">mimosa-minify validate</a> is small. One thing it does is verify that the mimosa-config's <code class="option">minify</code> object is an <code class="option">object</code>. If it wasn't <code class="option">validate</code> would return an error, Mimosa would not start, and the error message would be displayed.</li>
+          <li><code class="option">placeholder</code>, also optional, is how the commented out mimosa-config placeholder text is provided. <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L7-L19">mimosa-minify's placeholder</a> contains text explaining each configuration parameter.</li>
+          <li><code class="option">defaults</code>, again optional, is how the module lets Mimosa know its default configuration. <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/config.coffee#L3-L5">mimosa-minify's defaults</a> returns a simple object.</li>
+          <li><code class="option">registration</code> is how a module informs Mimosa what code to call and when.</li>
+        </ul>
+      </div>
+      <div class="span4">
+          <pre>module.exports = {
+  registration: registration,
+  defaults: config.defaults,
+  placeholder: config.placeholder,
+  validate: config.validate
+}</pre>
+      </div>
+    </div>
+
+
+
+
 
     <p>Lets break down a single line of <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/plugin.coffee#L10-L18">mimosa-minify's registration</a>.
 
-    <pre>register(['add','update','buildFile'],'beforeWrite', _minifyJS, e.javascript)</pre>
-
-    <ul>
-      <li><code class="option">register</code> is a function provided by Mimosa to execute the registration.</li>
-      <li>The entries in the <code class="option">['add','update','buildFile']</code> array are Mimosa workflows. mimosa-minify needs to be invoked to minify JavaScript when a JavaScript file is built (when Mimosa starts), added (after it starts), or updated.</li>
-      <li><code class="option">'beforeWrite'</code> indicates what workflow step to call the module's code. In this case right before a file is written its text needs to be minified.</li>
-      <li><code class="option">_minifyJS</code> is the function to invoke.</li>
-      <li><code class="option">e.javascript</code> indicates the function should only be called for JavaScript based extensions (like .js and .coffee).</li>
-    </ul>
+    <div class="row">
+      <div class="span8">
+        <ul>
+          <li><code class="option">register</code> is a function provided by Mimosa to execute the registration.</li>
+          <li>The entries in the <code class="option">['add','update','buildFile']</code> array are Mimosa workflows. mimosa-minify needs to be invoked to minify JavaScript when a JavaScript file is built (when Mimosa starts), added (after it starts), or updated.</li>
+          <li><code class="option">'beforeWrite'</code> indicates what workflow step to call the module's code. In this case right before a file is written its text needs to be minified.</li>
+          <li><code class="option">_minifyJS</code> is the function to invoke.</li>
+          <li><code class="option">e.javascript</code> indicates the function should only be called for JavaScript based extensions (like .js and .coffee).</li>
+        </ul>
+      </div>
+      <div class="span4">
+        <pre>register(
+  ['add','update','buildFile'],
+  'beforeWrite',
+  _minifyJS,
+  e.javascript
+)</pre>
+      </div>
+    </div>
 
     <p>Lets look at the first few lines of the <a href="https://github.com/dbashford/mimosa-minify/blob/master/src/plugin.coffee#L66-L68">_minifyJS</a> function (converted to JavaScript).</p>
 
-    <pre>var _minifyJS = function (config, options, next) {
-  var hasFiles = options.files && options.files.length > 0
-  if (!hasFiles) {
-    return next()
-  }
-  ...</pre>
+    <div class="row">
+      <div class="span6">
+        <p>Functions called during Mimosa's workflows are handed three objects.</p>
 
-    <p>Functions called during Mimosa's workflows are handed three objects.</p>
+        <ul>
+          <li>The resolved mimosa-config, including the configuration for the module being invoked.</li>
+          <li>An <code class="option">options</code> object which contains the variable information regarding the current files being processed.</li>
+          <li>A <code class="option">next</code> callback which informs Mimosa it can continue on to the next step in the workflow.</li>
+        </ul>
+      </div>
+      <div class="span6">
+        <pre>var _minifyJS = function (config, options, next) {
+var hasFiles = options.files && options.files.length > 0
+if (!hasFiles) {
+  return next()
+}
+...</pre>
+      </div>
+    </div>
 
-    <ul>
-      <li>The resolved mimosa-config, including the configuration for the module being invoked.</li>
-      <li>An <code class="option">options</code> object which contains the variable information regarding the current files being processed.</li>
-      <li>A <code class="option">next</code> callback which informs Mimosa it can continue on to the next step in the workflow.</li>
-    </ul>
 
     <p>The <code class="option">options</code> object contains a <code class="option">files</code> array which contains references to the file(s) being processed including their file path and file text. The code above does a check to see if there are any files to process.  If there isn't, there is nothing to minify, so it calls the <code class="option">next</code> callback and exits.</p>
 
@@ -638,11 +626,13 @@ $ mimosa mod:init --coffee</pre>
 
     <h2>Where to start?</h2>
 
-    <p>Mimosa can help module development get off the ground with a module skeleton. Discussed above, the <code class='option'>mod:init</code> command will create a module skeleton. The only hard and fast rule with Mimosa modules is that when they are created they must be prefixed with 'mimosa-'. This makes them easy to find if someone else wants to use them, but also differentiates Mimosa's modules from all of the libraries both in <a href="https://npmjs.org/">NPM</a> and inside Mimosa.</p>
+    <p>Mimosa can help module development get off the ground with a module skeleton. <code class='option'>mimosa skel:new</code> can be used to pull in a skeleton. There are two available in the skeleton registry <code class='option'>mimosa-module-javascript</code> and <code class='option'>mimosa-module-coffeescript</code>. So, for instance, <code class='option'>mimosa skel:new mimosa-module-javascript</code> will pull in the JavaScript Mimosa module skeleton.
 
-    <h2>What does mod:init give me?</h2>
+    <p>The only hard and fast rule with Mimosa modules is that when they are created they must be prefixed with 'mimosa-'. This makes them easy to find if someone else wants to use them, but also differentiates Mimosa's modules from all of the libraries both in <a href="https://npmjs.org/">NPM</a> and inside Mimosa. So you'll want to make sure that you keep the name of the module prefixed.</p>
 
-    <p><code class='option'>mod:init</code> provides a group of files to get module development started.</p>
+    <h2>What does a skeleton give me?</h2>
+
+    <p>The module skeletons provide a group of files to get module development started.</p>
 
     <ul>
       <li><code class='option'>package.json</code>: Those familiar with node.js recognize this file. This defines all sorts of metadata about a node project: the project name, dependencies, repo location, a description, and more. When a project is published to <a href="https://npmjs.org/">NPM</a>, NPM expects the <code class='option'>package.json</code> to be present.  The <code class='option'>package.json</code> that Mimosa provides needs some editing.  Many of the fields inside of it are placeholders and should be changed before publishing.</li>
@@ -666,45 +656,66 @@ $ mimosa mod:init --coffee</pre>
       <li><code class='option'>retrieveConfig</code>: A callback function that a module can use to execute a Mimosa <code class='option'>clean</code> and <code class='option'>build</code> and get the full <code class='option'>mimosa-config</code> should it be needed. This function takes two parameters, a flag to indicate if a build should be run before executing the command, and a callback function to execute the command module's code. That callback is passed the full <code class='option'>mimosa-config</code>.</p>
     </ul>
 
-    <p>The <a href="https://github.com/dbashford/mimosa-volo/blob/master/index.coffee">mimosa-volo</a> module is a good example module for how to add a command to Mimosa.  It adds an <code class='option'>import</code> command and makes use of the <code class='option'>mimosa-config</code> during execution.</p>
+    <p>The <a href="https://github.com/dbashford/mimosa-bower/blob/master/src/index.coffee#L40-L61">mimosa-bower</a> module is a good example module for how to add a command to Mimosa. It adds three commands, <code class='option'>bower</code>, <code class='option'>bower:install</code> and <code class='option'>bower:clean</code>.</p>
 
     <h3>defaults()</h3>
-    <p>A module's <code class='option'>defaults</code> function is called when Mimosa starts up and is used to assemble the configuration used by Mimosa.  <code class='option'>defaults</code> should return a JavaScript object that is the default configuration for the module. That default configuration is merged with the user provided configuration to establish the full <code class='option'>mimosa-config</code>.</p>
 
-    <pre>exports.defaults = function() {
+    <div class="row">
+      <div class="span6">
+        <p>A module's <code class='option'>defaults</code> function is called when Mimosa starts up and is used to assemble the configuration used by Mimosa.  <code class='option'>defaults</code> should return a JavaScript object that is the default configuration for the module. That default configuration is merged with the user provided configuration to establish the full <code class='option'>mimosa-config</code>.</p>
+
+        <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
+      </div>
+      <div class="span6">
+        <pre>exports.defaults = function() {
   return {
     minify: {
       exclude: [/\.min\./]
     }
   };
 };</pre>
+      </div>
+    </div>
 
-    <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
+
 
     <h3>placeholder()</h3>
-    <p>A module's <code class='option'>placeholder</code> function is called when Mimosa is building the <code class='option'>mimosa-config.coffee</code> file that is delivered to a user during both the <code class='option'>mimosa new</code> and <code class='option'>mimosa config</code> commands. Use this function to return a string that shows what the module's configuration is and then explains each setting.</p>
 
-    <pre>exports.placeholder = function() {
-  return "\t\n\n"+
-         "  # minify:                    # Configuration for non-require minification/compression via uglify\n" +
-         "                               # using the --minify flag.\n" +
-         "    # exclude:[/\\.min\\./]     # List of regexes to exclude files when running minification.\n" +
-         "                               # Any path with \".min.\" in its name, like jquery.min.js, is assumed to\n" +
-         "                               # already be minified and is ignored by default. Override this property\n" +
-         "                               # if you have other files that you'd like to exempt from minification.";
-};</pre>
+    <div class="row">
+      <div class="span3">
+        <p>A module's <code class='option'>placeholder</code> function is called when Mimosa is building the <code class='option'>mimosa-config.coffee</code> file that is delivered to a user during both the <code class='option'>mimosa new</code> and <code class='option'>mimosa config</code> commands. Use this function to return a string that shows what the module's configuration is and then explains each setting.</p>
+        <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
 
-    <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
+      </div>
+      <div class="span9">
+        <pre>exports.placeholder = function() {
+      return "\t\n\n"+
+             "  # minify:                    # Configuration for non-require minification/compression via uglify\n" +
+             "                               # using the --minify flag.\n" +
+             "    # exclude:[/\\.min\\./]    # List of regexes to exclude files when running minification.\n" +
+             "                               # Any path with \".min.\" in its name, like jquery.min.js, is assumed\n" +
+             "                               # to already be minified and is ignored by default. Override this\n" +
+             "                               # property if you have other files that you'd like to exempt from\n"
+             "                               # minification.";
+
+    };</pre>
+      </div>
+    </div>
 
     <h3>validate(mimosaConfig, validators)</h3>
-    <p>A module's <code class='option'>validate</code> function is called when Mimosa starts up and after Mimosa has put together the full <code class='option'>mimosa-config</code>. That full config is passed to the validate method of all modules and each module has the opportunity to ensure that the config settings are valid. This method should return an array of strings. Each string represents an error that the module has found with the config. If a module return any errors, Mimosa will print the errors and exit to give the user a chance to update the config.</p>
 
-    <p>The <code class='option'>validate</code> function is also passed, as the second parameter, an object containing a collection of validation and utility functions. The best way to learn what those functions are is to <a href="https://github.com/dbashford/mimosa/blob/master/src/util/validators.coffee">check the source</a>.
 
-    <p>If there are no errors, return an empty array. If there is no config to validate, then do not implement the method.</p>
+    <div class="row">
+      <div class="span4">
+        <p>A module's <code class='option'>validate</code> function is called when Mimosa starts up and after Mimosa has put together the full <code class='option'>mimosa-config</code>. That full config is passed to the validate method of all modules and each module has the opportunity to ensure that the config settings are valid. This method should return an array of strings. Each string represents an error that the module has found with the config. If a module return any errors, Mimosa will print the errors and exit to give the user a chance to update the config.</p>
 
-    <p>This method is also the last opportunity to edit the module's configuration. After this method is called, the configuration is completely locked down and cannot be edited. For example, a module may take a list of regexs and turn them into a single RegExp object.</p>
+        <p>The <code class='option'>validate</code> function is also passed, as the second parameter, an object containing a collection of validation and utility functions. The best way to learn what those functions are is to <a href="https://github.com/dbashford/mimosa/blob/master/src/util/validators.coffee">check the source</a>.
 
+        <p>If there are no errors, return an empty array. If there is no config to validate, then do not implement the method.</p>
+
+        <p>This method is also the last opportunity to edit the module's configuration. After this method is called, the configuration is completely locked down and cannot be edited. For example, a module may take a list of regexs and turn them into a single RegExp object.</p>
+      </div>
+      <div class="span8">
     <pre>
 exports.validate = function(config, validators) {
   var errors = [];
@@ -727,22 +738,33 @@ exports.validate = function(config, validators) {
 
   return errors;
 };</pre>
+      </div>
+    </div>
 
     <h3>registration(mimosaConfig, register)</h3>
 
-    <p>The <code class='option'>registration</code> function is the most important function of a module. This function is called during Mimosa's startup and it allows a module to bind to one or many steps in a Mimosa workflow. Inside this function is where a module tells Mimosa to call its functions at certain times.</p>
+    <div class="row">
+      <div class="span5">
+        <p>The <code class='option'>registration</code> function is the most important function of a module. This function is called during Mimosa's startup and it allows a module to bind to one or many steps in a Mimosa workflow. Inside this function is where a module tells Mimosa to call its functions at certain times.</p>
 
-    <p>The arguments passed in are:</p>
-    <ul>
-      <li><code class='option'>mimosaConfig</code>: The full <code class='option'>mimosa-config</code> including added flags to indicate what sort of Mimosa command is being run (like isForceClean), and an added list of extensions being used by the application. A developer may decide based on the flags in the config to not register anything, which is fine. In the case of the minification example below, if the isMinify flag isn't turned on then the module doesn't register itself.</li>
-      <li><code class='option'>register</code>: This is a function handed to a module as a means to register a module with Mimosa. More information about how to use this register function follows in the next section.</li>
-    </ul>
+        <p>The arguments passed in are:</p>
+        <ul>
+          <li><code class='option'>mimosaConfig</code>: The full <code class='option'>mimosa-config</code> including added flags to indicate what sort of Mimosa command is being run (like isForceClean), and an added list of extensions being used by the application. A developer may decide based on the flags in the config to not register anything, which is fine. In the case of the minification example below, if the isMinify flag isn't turned on then the module doesn't register itself.</li>
+          <li><code class='option'>register</code>: This is a function handed to a module as a means to register a module with Mimosa. More information about how to use this register function follows in the next section.</li>
+        </ul>
+      </div>
+      <div class="span7">
+          <pre>registration = function (mimosaConfig, register) {
+  if (mimosaConfig.isMinify) {
+    var e = mimosaConfig.extensions
+    register(['add','update','buildFile'],      'afterCompile', _minifyJS,  e.javascript)
+    register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  e.template)
+  }
+}</pre>
+      </div>
+    </div>
 
-    <pre>registration = (mimosaConfig, register) ->
-  if mimosaConfig.isMinify
-    e = mimosaConfig.extensions
-    register ['add','update','buildFile'],      'afterCompile', _minifyJS,  [e.javascript...]
-    register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.template...]</pre>
+
 
     <div class="page-header" id="register">
       <h1>
@@ -755,13 +777,13 @@ exports.validate = function(config, validators) {
 
     <ol>
       <li>A list of workflows, an array of strings. Pick one-to-many workflows depending on the sort of task the module accomplishes. Possible values: buildFile, buildExtension, postBuild, add, update, remove, preClean, cleanFile, postClean. These are explained below.</li>
-      <li>A workflow step, a string. A workflow step for the selected workflows. For example, for the 'update' workflow, a module's code might be executed 'afterCompile'.The list of steps for each workflow is explained below.</li>
+      <li>A workflow step, a string. A workflow step for the selected workflows. For example, for the 'update' workflow, a module's code might be executed 'afterCompile'. The list of steps for each workflow is explained below.</li>
       <li>Module callback, a function. This is the function Mimosa will call when processing reaches the workflow(s) and step called out in the previous parameters.</li>
       <li>An optional array of extensions upon which to execute the callback. If the file or extension being processed doesn't match one of these extensions, the callback will not be executed. The extensions refer to the original extension of the file being processed, so in the case of a CoffeeScript file it would be 'coffee' and not 'js'. The passed in <code class='option'>mimosaConfig</code> object has an <code class='option'>extensions</code> object a module can use to cover all of the desired extensions. The <code class='option'>extensions</code> object has 4 properties: <code class='option'>javascript</code>, <code class='option'>css</code>, <code class='option'>template</code>, and <code class='option'>copy</code>. If no extensions are provided, Mimosa will send all files/extensions through the module.</li>
     </ol>
 
-    <pre>register ['add','update','buildFile'],      'afterCompile', _minifyJS,  [e.javascript...]
-register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.template...]</pre>
+    <pre>register(['add','update','buildFile'],      'afterCompile', _minifyJS, e.javascript);
+register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.template);</pre>
 
     <p>Notice that the register method is executed multiple times. There is nothing stopping a module from registering multiple times for multiple workflows.</p>
 
@@ -769,6 +791,8 @@ register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.templ
 
     <p>A workflow is a set of steps an asset, a group of assets, or an application can go through. There are three groups of workflows: build, watch and clean.</p>
 
+    <div class="row">
+      <div class="span4">
     <h3>Build Workflows</h3>
 
     <p>Modules registered to take place during the build workflows perform project builds. The build workflows are all prefixed with <code class="options">build</code> and they all occur in order during Mimosa's startup. <code class="options">preBuild</code> occurs first, followed by <code class="options">buildFile</code>, <code class="options">buildExtension</code>, and <code class="options">postBuild</code>.</p>
@@ -789,7 +813,8 @@ register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.templ
     <h4>postBuild</h4>
 
     <p>After the extensions are finished, individual asset handling is finished. <code class="options">postBuild</code> is when post asset completion tasks, like asset optimization, take place. <code class="options">postBuild</code> is also when servers are started. If a module was being built for something like installing the app to Heroku, then <code class="options">postBuild</code> is a candidate workflow.</p>
-
+      </div>
+      <div class="span4">
     <h3>Watch Workflows</h3>
 
     <p>If <code class="options">mimosa build</code> was executed, then after <code class="options">postBuild</code> is done, Mimosa exits.  If <code class="options">mimosa watch</code> is executed, then Mimosa keeps running and monitors the project's codebase for changes. When changes occur, the watch workflows are executed. The watch types are very straight forward.</p>
@@ -804,6 +829,8 @@ register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.templ
 
     <h4>remove</h4>
     <p>The <code class="options">remove</code> workflow is executed when a file in the <code class="options">watch.sourceDir</code> directory is deleted.</p>
+  </div>
+  <div class="span4">
 
     <h3>Clean Workflows</h3>
 
@@ -820,11 +847,14 @@ register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.templ
     <h4>postClean</h4>
     <p>The <code class="options">postClean</code> workflow is the final opportunity to tidy up files and directories. This is when, for example, a module might make a pass to remove any empty directories the module might be responsible for that remain after the files have been handled.</p>
 
+    </div>
+    </div>
+
     <h2>Workflow Steps <small><span class="options">a list of processing steps for each workflow</span></small></h2>
 
     <p>The previous section covered each of the workflows. Each workflow has many steps within it. An example is the best way to illustrate how steps relate to workflows.</p>
 
-    <p>The simplest workflow is <code class="options">update</code>. If a CoffeeScript file is saved inside the <code class="options">watch.sourceDir</code> while Mimosa is running, here is what happens:</p>
+    <p>The simplest workflow is <code class="options">update</code>. If a CoffeeScript file is saved inside the <code class="options">watch.sourceDir</code> while Mimosa is running, here is what might happen:</p>
 
     <ol>
       <li>The first step executed is <code class="options">init</code>. During the <code class="options">init</code> step, Mimosa will generate some information about the asset to be used by future steps. For instance it will set a flag into the <code class="options">options</code> object (discussed in the next section) to indicate that the file is a JavaScript file, and it will set flags to indicate if the file is a vendor file or not.</li>
@@ -835,8 +865,6 @@ register ['add','update','buildExtension'], 'beforeWrite',  _minifyJS,  [e.templ
       <li>During the <code class="options">write</code> step the compiled JavaScript is written to the <code class="options">watch.compiledDir</code></li>
       <li>You'd think we'd be done now, but not so fast! The <code class="options">afterWrite</code> step is where optimization takes place if that is selected.</li>
     </ol>
-
-    <p>And there are many steps in this example that have no functionality registered against them.  The <code class="options">beforeRead</code>, <code class="options">afterRead</code> and <code class="options">beforeCompile</code> steps, for example, have no modules that registered to execute against them, but they are there in the event a module comes along that logically has tasks to perform at that point in the workflow.</p>
 
     <p>Also, many modules can register to be executed for the same workflow and step, they'll just be executed in order that they get registered which is determined by their order in the <code class="options">modules</code> array in the <code class="options">mimosa-config</code>.</p>
 
