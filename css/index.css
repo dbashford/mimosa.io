@@ -17,17 +17,17 @@
 
 
 body {
-  font-size: 15px;
+   font-size: 15px;
    font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
   .contain-to-grid {
-        position:fixed;
+    position:fixed;
     position: fixed;
-right: 0;
-left: 0;
-z-index: 1030;
-margin-bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    margin-bottom: 0;
   }
 
   .contain-to-grid .top-bar {
@@ -260,6 +260,36 @@ margin-bottom: 0;
     margin-top: 89px;
   }
 
+  .getstarted {
+    height: 344px;
+    background: none;
+    background-size: 100%;
+    background-color: #d3c7a1;
+  }
+  .getstarted h3 {
+    font-family: SerifaStd-Light;
+    font-weight: bold;
+    font-size: 48px;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 55px;
+    line-height: 55px;
+    color: #000;
+  }
+  .getstarted a.button {
+    font-family: SerifaStd-Light;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+    font-size: 21px;
+    background-color: #fbbd12;
+    border-radius: 8px;
+    box-shadow: 3px 2px 8px #5e5946;
+    -webkit-box-shadow: 2px 5px 8px #5e5946;
+    border: solid 1px #9ed8f0;
+  }
   /* Quick links
   -------------------------------------------------- */
   .bs-links {
@@ -312,20 +342,28 @@ margin-bottom: 0;
 
 @media only screen and (min-width: 767px) {
 
-  .compilers .panel {
-    background-position: 45px 13px;
-  }
-
-}
-
-@media only screen and (min-width: 1280px) {
-
   .compilers {
     background: url("../img/compilers_bg.png")no-repeat;
     background-size: 439px 101%;
     background-position: 17% 0px;
     border-bottom: solid 3px #cf4a0f;
   }
+
+  .compilers .panel {
+    background-position: 45px 13px;
+  }
+  
+  .getstarted {
+    height: 344px;
+    background: url("../img/bg_mixitup.jpg")no-repeat;
+    background-size: 100%;
+    background-color: #d3c7a1;
+  }
+
+}
+
+@media only screen and (min-width: 1280px) {
+
   .features_bottom h3 {
     font-size: 89px;
   }
@@ -335,7 +373,6 @@ margin-bottom: 0;
 @media only screen and (min-width: 1440px) {
 
   .compilers {
-    background: none;
   }
 
 
