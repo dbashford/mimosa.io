@@ -711,3 +711,13 @@ i {
     width: 100%;
     height: 100%;
 }
+
+.configuration .nav-tabs > li > a, .configuration .nav-pills > li > a {
+  padding-right:10px;
+
+}
+
+.configuration .nav > li:first-child > a,
+.configuration .nav > li:first-child > a:hover {
+  padding-left: 10px;
+}
