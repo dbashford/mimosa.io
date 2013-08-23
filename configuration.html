@@ -100,13 +100,13 @@
       </div>
     </section>
 
-    <p>When Mimosa starts up, it expects to find a <code class="option">mimosa-config.coffee</code> or a <code class="option">mimosa-config.js</code> file in current directory, or in one of the directories above the current directory.  The <code class="option">mimosa-config</code> file configures all that Mimosa does.
+    <p>When Mimosa starts up, it expects to find a <code class="option">mimosa-config.coffee</code> or a <code class="option">mimosa-config.js</code> file in current directory.  The <code class="option">mimosa-config</code> file configures all that Mimosa does.
 
     <h2>How to get it?</h2>
 
     <p>There are two ways to be given a config file by Mimosa: with <code class="option">mimosa new</code> and <code class="option">mimosa config</code>. For <code class="option">mimosa new</code>, the <code class="option">mimosa-config</code> will be altered to match the selections made during project creation. For <code class="option">mimosa config</code> the entire config file is commented out.</p>
 
-    <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a CoffeeScript file. However, if JavaScript is preferred, the file can be converted to a <code class="option">.js</code> and Mimosa will find it and use it. Just have to make sure the file is valid JavaScript. CoffeeScript comments (#, ###) will need to be changed to JavaScript comments (//, /*...*/). Curly brackets and commas will need to be added as well.</p>
+    <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a CoffeeScript file. However, if JavaScript is preferred, the file can be converted to a <code class="option">.js</code> and Mimosa will find it and use it. You just have to make sure the file is valid JavaScript.</p>
 
     <h2>Wait, it is all commented out?</h2>
 
@@ -134,11 +134,11 @@
 
         <h4 class="hi minMimosaVersion">minMimosaVersion</h4>
 
-        <p class="hi minMimosaVersion">The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">0.7.0</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">0.7.1</code>, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+        <p class="hi minMimosaVersion">The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">0.14.14</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">0.14.15</code>, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
 
       </div>
       <div class="span6">
-<pre><span class="modules">minMimosaVersion: null</span></pre>
+<pre><span class="minMimosaVersion">minMimosaVersion: null</span></pre>
       </div>
     </div>
 
@@ -161,13 +161,19 @@
 
         <p class="hi modules">The <code class="option">modules</code> array informs Mimosa what Mimosa modules to use. Many Mimosa modules may be installed, both ones that come with Mimosa and ones installed on top of Mimosa. This setting lets Mimosa know which ones to use for a project. The defaults represent those modules that come with Mimosa out of the box without any additional installs. The <code class="option">mimosa-</code> can be left off the name of modules as Mimosa will assume it.</p>
 
+    <p class="hi modules">If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code class="option">mod:install</code>.</p>
+
       </div>
       <div class="span6">
-<pre><span class="modules">modules: ['lint', 'server', 'require', 'minify', 'live-reload']</span></pre>
+<pre><span class="modules">modules: [
+  'lint',
+  'server',
+  'require',
+  'minify',
+  'live-reload'
+]</span></pre>
       </div>
     </div>
-
-    <p class="hi modules">If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code class="option">mod:install</code>.</p>
 
     <p class="hi modules">Also, this config allows for installing specific versions of modules. If a new module is added by name only, Mimosa installs the latest version. If a version if provided, Mimosa will install that specific version. The syntax for installing specific versions is <code class="option">moduleName@moduleVersion</code>, for example <code class="option">web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
 
@@ -271,15 +277,19 @@
 
         <p>Many compilers have compiler specific configuration that is not listed here.  Checkout the <a href="./compilers.html">Compilers</a> page for more information.</p>
 
-        <h4 class="hi compilers extensionOverrides">compilers.extensionOverrides</h4>
-        <p class="hi compilers extensionOverrides">The <code class="option">compilers.extensionOverrides</code> config block contains nothing by default. This property allows certain extensions to be processed by a specific compiler. Each Mimosa compiler is already configured to process files with certain extensions, but this configuration allows those extensions to be changed. To use this, map a compiler name to an array of extensions.  For example, <code class="option">extensionOverrides:{coffee: ["coff", "coffee"]}</code> will add the "coff" extension to the already-default "coffee" extension. The <code class="option">compilers.extensionOverrides</code> setting can also be used to turn a compiler off if its behavior isn't desired. If CoffeeScript should not be compiled, the CoffeeScript compiler should be turned off with  <code class="option">extensionOverrides:{coffee: null}</code></p>
-
       </div>
       <div class="span6">
 <pre><span class="compilers">compilers:</span>
   <span class="extensionOverrides">extensionOverrides:</span></pre>
       </div>
     </div>
+
+    <h4 class="hi compilers extensionOverrides">compilers.extensionOverrides</h4>
+    <p class="hi compilers extensionOverrides">The <code class="option">compilers.extensionOverrides</code> config block contains nothing by default. This property allows certain extensions to be processed by a specific compiler. Each Mimosa compiler is already configured to process files with certain extensions, but this configuration allows those extensions to be changed. To use this, map a compiler name to an array of extensions.  For example, <code class="option">extensionOverrides:{coffee: ["coff", "coffee"]}</code> will add the "coff" extension to the already-default "coffee" extension. The <code class="option">compilers.extensionOverrides</code> setting can also be used to turn a compiler off if its behavior isn't desired. If CoffeeScript should not be compiled, the CoffeeScript compiler should be turned off with  <code class="option">extensionOverrides:{coffee: null}</code></p>
+
+    <h4 class="hi handlebars lib template">template.handlebars.lib</h4>
+    <p class="hi handlebars lib template">Only relevant for Handlebars templates. This setting allows for a specific version of the Handlebars compiler to be given to Mimosa to use to compile Handlebars templates. Mimosa comes with a Handlebars compilers, but some <a href="http://emberjs.com/">client-side MVC frameworks</a> can be picky about the version of Handlebars used to precompile templates. To provide a Handlebars version it must be <code class="option">npm install</code>ed into your application. Then use the node.js <code class="option">require</code> function to hand it to Mimosa.  Ex: <code class="option">lib: require('handlebars')</code> </p>
+
 
     <section id="templates">
       <div class="page-header">
@@ -313,7 +323,6 @@
   <span class="amdWrap">amdWrap: true</span>
   <span class="outputFileName">outputFileName: "templates"</span>
   <span class="handlebars">handlebars:</span>
-    <span class="lib">lib:undefined</span>
     <span class="helpers">helpers: ["app/template/handlebars-helpers"]</span>
     <span class="ember">ember:</span>
       <span class="emberEnabled">enabled:false</span>
@@ -333,9 +342,6 @@
 
     <h4 class="hi outputFileName template">template.outputFileName</h4>
     <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.javascriptDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./compilers.html#mt">compilers tab</a> for more info.</p>
-
-    <h4 class="hi handlebars lib template">template.handlebars.lib</h4>
-    <p class="hi handlebars lib template">Only relevant for Handlebars templates. This setting allows for a specific version of the Handlebars compiler to be given to Mimosa to use to compile Handlebars templates. Mimosa comes with a Handlebars compilers, but some <a href="http://emberjs.com/">client-side MVC frameworks</a> can be picky about the version of Handlebars used to precompile templates. To provide a Handlebars version it must be <code class="option">npm install</code>ed into your application. Then use the node.js <code class="option">require</code> function to hand it to Mimosa.  Ex: <code class="option">lib: require('handlebars')</code> </p>
 
     <h4 class="hi handlebars helpers template">template.handlebars.helpers</h4>
     <p class="hi handlebars helpers template">Only relevant for Handlebars templates. An array of paths from <code class="option">watch.javascriptDir</code> to the files containing handlebars helper registrations. The default can be left alone if there are no helpers.</p>
