@@ -1,10 +1,9 @@
 body {
   font-size: 15px;
-  font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Opensans_Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   background-image: url(../img/background_tile.jpg);
   font-weight:normal;
 }
-
 button, .button {
   background-color: #ec511d;
 }

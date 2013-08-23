@@ -15,12 +15,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Opensans_Regular";
+  src: url("font/Open_Sans/Opensans-Regular.ttf") format("truetype");
+}
 
 body {
    font-size: 15px;
-   font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-family: Opensans_Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.top-bar .name {
+  height: auto;
+}
   .contain-to-grid {
     position:fixed;
     position: fixed;
@@ -38,7 +45,7 @@ body {
     color: #999;
     font-weight: normal;
     background-color: #0d0d0d;
-    font-size: 15px;
+    font-size: 13px;
   }
   .top-bar-section li a:not(.button).active {
     background-color: #0c0c0c;
@@ -187,11 +194,12 @@ body {
     font-family: SerifaStd-Italic;
     color: #987424;
     margin-top: 66px;
+    line-height: 34px;
   }
   .compilers .panel {
     background: url("../img/i_compile.png")no-repeat;
     background-position: 45px 34px;
-    padding-left: 160px;
+    padding-left: 144px;
     background-size: 61px 54px;
     background-color: #c4c4c4;
   }
@@ -219,10 +227,10 @@ body {
   }
   .compilers strong {
     text-transform: uppercase;
-
   }
 
   .required {
+    border-top: solid 3px #cf4a0f;
     background: url("../img/required_bg.jpg")no-repeat;
   }
   .required .panel {
@@ -262,7 +270,7 @@ body {
 
   .getstarted {
     height: 344px;
-    background: none;
+    background: url("../img/bg_mixitup.jpg")no-repeat;
     background-size: 100%;
     background-color: #d3c7a1;
   }
@@ -343,23 +351,27 @@ body {
 @media only screen and (min-width: 767px) {
 
   .compilers {
+  }
+  .compilers .panel {
+    background-position: 45px 13px;
+  }
+}
+
+@media only screen and (min-width: 1085px) {
+
+  .compilers {
     background: url("../img/compilers_bg.png")no-repeat;
-    background-size: 439px 101%;
-    background-position: 17% 0px;
-    border-bottom: solid 3px #cf4a0f;
+    background-size: 730px 978px;
+    background-position: -233px 0px;
   }
 
   .compilers .panel {
     background-position: 45px 13px;
   }
-  
-  .getstarted {
-    height: 344px;
-    background: url("../img/bg_mixitup.jpg")no-repeat;
-    background-size: 100%;
-    background-color: #d3c7a1;
+  .compilers .title {
+    display: none;
   }
-
+  
 }
 
 @media only screen and (min-width: 1280px) {
@@ -370,10 +382,23 @@ body {
 
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1348px) {
+  .compilers {
+    min-height: 768px;
+    background-size: 573px 768px;
+    background-position: 8% 0px;
+  }
+  .compilers .title {
+    display: inline-block;
+    width: 127px;
+    min-height: 768px;
+    background: url("../img/title-compilers.png")no-repeat rgba(85,53,4,0.55);
+    background-size: 101%;
+    margin: 0;
+  }
+}
 
+@media only screen and (min-width: 1440px) {
   .compilers {
   }
-
-
 }
