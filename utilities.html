@@ -96,7 +96,7 @@
       </div>
       <div class="row">
         <div class="span6">
-          <p>Mimosa comes with a bunch of AMD/RequireJS support.  Mimosa will...</p>
+          <p>Mimosa comes with a bunch of AMD/RequireJS support all provided by the <code class="option">mimosa-require</code> module. That module will...</p>
 
           <ul>
              <li>Verify paths when JavaScript successfully compiles. Mimosa will follow relative paths for dependencies, and also use config paths whether they resolve to an actual dependency, <code class="option">jquery: 'vendor/jquery'</code>, or they resolve to a module, <code class="option">moduleX:'a/path/to/module/x'</code>.
@@ -118,31 +118,29 @@
         <div class="span6">
           <div class="term">
             <div class="inner">
-              18:59:06 - RequireJS dependency [[ controller ]] for path alias [[ c ]], inside file [[ /Users/dbashford/mygithub/AngularFunMimosa/public/javascripts/main.js ]], cannot be found.<br/>
-              18:59:22 - RequireJS shim [[ ang ]] inside file [[ /Users/dbashford/mygithub/AngularFunMimosa/public/javascripts/main.js ]] refers to a dependency that cannot be found [[ vendo/modernizr ]].<br/>
-              18:59:33 - RequireJS dependency [[ c/gitHu ]], inside file [[ /Users/dbashford/mygithub/AngularFunMimosa/public/javascripts/main.js ]], cannot be found.<br/>
-              18:59:43 - RequireJS mapping inside file [[ /Users/dbashford/mygithub/AngularFunMimosa/public/javascripts/main.js ]], for module [[ * ]] has path that cannot be found [[ vendor/angular-resourc ]].
+              18:59:06 - RequireJS dependency [[ controller ]] for path alias [[ c ]], inside file [[ /path/to/public/javascripts/main.js ]], cannot be found.<br/>
+              18:59:22 - RequireJS shim [[ ang ]] inside file [[ /path/to/public/javascripts/main.js ]] refers to a dependency that cannot be found [[ vendo/modernizr ]].<br/>
+              18:59:33 - RequireJS dependency [[ c/gitHu ]], inside file [[ /path/to/public/javascripts/main.js ]], cannot be found.<br/>
+              18:59:43 - RequireJS mapping inside file [[ /path/to/public/javascripts/main.js ]], for module [[ * ]] has path that cannot be found [[ vendor/angular-resourc ]].
             </div>
           </div>
-<pre># require:
-  # exclude:[]
-  # commonConfig:"common"
-  # verify:
-    # enabled: true
-  # optimize :
-    # inferConfig:true
-    # overrides:</pre>
+<pre>require:
+  exclude:[]
+  commonConfig:"common"
+  verify:
+    enabled: true
+  optimize :
+    inferConfig:true
+    overrides:</pre>
 
         </div>
       </div>
 
-      <p>Path verification can be turned off using the configuration shown here.  Set enabled to <code class="option">false</code>. For information about how Mimosa uses RequireJS to optimize your application, check out the <a href="file:///Users/dbashford/mygithub/mimosajs.com/optimization.html">Optimization</a> tab.</p>
+      <p>Path verification can be turned off using the configuration shown here.  Set <code class="option">require.verify.enabled</code> to <code class="option">false</code>. For information about how Mimosa uses RequireJS to optimize your application, check out the <a href="file:///Users/dbashford/mygithub/mimosajs.com/optimization.html">Optimization</a> tab.</p>
 
-      <p>Path verification is always disabled for vendor assets, that is, assets located inside a <code class="option">vendor</code> directory.  Vendor assets often use creative means to turn themselves into AMD modules that prove hard to verify.  That said, if a vendor asset is placed outside the vendor folder, Mimosa is coded to handle how some of the methods vendor assets are AMDed. But Mimosa may complain that some vendor assets are throwing errors or are not properly wrapped.</p>
+      <p>Path verification is always disabled for vendor assets, that is, assets in the <code class="option">vendor.javascripts</code> directory.  Vendor assets often use creative means to turn themselves into AMD modules that prove hard to verify.  That said, if a vendor asset is placed outside the vendor folder, Mimosa is coded to handle how some of the methods vendor assets are AMDed. But Mimosa may complain that some vendor assets are throwing errors or are not properly wrapped.</p>
 
       <p>To read more about Mimosa's RequireJS support, head over to the <a href="./optimization.html">Optimization</a> page.</p>
-
-      <p>Mimosa's RequireJS support comes from the <code class="option">mimosa-require</code> module, a default Mimosa module that comes installed with Mimosa. For more on modules, see the <a href="./modules.html">Modules</a> page.</p>
 
     </section>
     <section id="lint">
@@ -154,46 +152,45 @@
       </div>
       <div class="row">
         <div class="span8">
-          <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. Inside the <code class="option">mimosa-config</code> is the snippet to the right which controls the linting. As with all of the default config, this is entirely commented out as the defaults are already enforced.</p>
-
-          <p>Mimosa's Linting support comes courtesy of the <code class="option">mimosa-lint</code> module, a default Mimosa module that comes installed with Mimosa.  For more on modules, see the <a href="./modules.html">Modules</a> page.</p>
+          <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Using the <code class="option">mimosa-lint</code> module, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. Inside the <code class="option">mimosa-config</code> is the snippet to the right which controls the linting. As with all of the default config, this is entirely commented out as the defaults are already enforced.</p>
 
           <h2>Linting Compiled Assets</h2>
 
-          <p>The <code class="option">compiled</code> block controls whether or not linting is enabled for compiled code. So when Mimosa compiles SASS, LESS or Stylus, Mimosa will send the resulting CSS through a linting process. Similarly for the JavaScript meta-languages, Mimosa will lint the resulting JavaScript.</p>
+          <p>The <code class="option">compiled</code> block controls whether or not linting is enabled for compiled code. So when Mimosa compiles SASS, LESS or Stylus, Mimosa will send the resulting CSS through a linting process. Similarly for the JavaScript transpilers, Mimosa will lint the resulting JavaScript.</p>
 
           <h2>Linting Copied Assets</h2>
 
           <p>The <code class="option">copied</code> settings determine whether or not to lint copied files, like hand-coded JavaScript.</p>
 
+          <h2>Linting Vendor Assets</h2>
+
+
         </div>
 
         <div class="span4">
-<pre># lint:
-  # exclude:[]
-  # compiled:
-    # javascript:true
-    # css:true
-  # copied:
-    # javascript: true
-    # css: true
-  # vendor:
-    # javascript: false
-    # css: false
-  # rules:
-    # jshintrc: ".jshintrc"
-    # js:
-      # plusplus: true
-    # css:
-      # floats: false</pre>
+<pre>lint:
+  exclude:[]
+  compiled:
+    javascript:true
+    css:true
+  copied:
+    javascript: true
+    css: true
+  vendor:
+    javascript: false
+    css: false
+  rules:
+    jshintrc: ".jshintrc"
+    js:
+      plusplus: true
+    css:
+      floats: false</pre>
         </div>
       </div>
 
-      <h2>Linting Vendor Assets</h2>
+      <p>Linting is, by default, disabled for vendor assets, that is, those assets living inside a <code class="option">vendor.javascripts</code> directory. Vendor libraries often break from the idiom, or use hacks, to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap causes 400+ warnings.</p>
 
-      <p>Mimosa also allows control over the linting of code contained in the <code class="option">vendor</code> directory. Linting is, by default, disabled for vendor assets, that is, those assets living inside a <code class="option">/vendor/</code> directory. Vendor libraries often break from the idiom, or use hacks, to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap causes 400+ warnings.</p>
-
-      <p>To enable vendor asset hinting, uncomment enable the setting and switch the flags to <code class="option">true</code>.</p>
+      <p>To enable vendor asset linting, uncomment enable the setting and switch the flags to <code class="option">true</code>.</p>
 
       <h2>Lint Rules</h2>
 
