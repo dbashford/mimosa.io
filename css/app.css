@@ -631,7 +631,7 @@ i {
   padding-left:10px;
 }
 
-#requirejs .term {
+#requirejs .term, #bower .term {
   margin-left: 0px;
   color:red;
   margin-bottom: 15px;
