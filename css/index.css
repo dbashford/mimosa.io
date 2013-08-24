@@ -6,14 +6,6 @@
   font-family: "SerifaStd-Light";
   src: url("SerifaStd-Light.otf") format("opentype");
 }
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('font/proximanova-webfont.eot');
-  src: url('font/proximanova-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/proximanova-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: "Opensans_Regular";
@@ -45,7 +37,7 @@ body {
     color: #999;
     font-weight: normal;
     background-color: #0d0d0d;
-    font-size: 13px;
+    font-size: 15px;
   }
   .top-bar-section li a:not(.button).active {
     background-color: #0c0c0c;
@@ -371,7 +363,7 @@ body {
   .compilers .title {
     display: none;
   }
-  
+
 }
 
 @media only screen and (min-width: 1280px) {
