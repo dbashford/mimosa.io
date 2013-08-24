@@ -336,7 +336,7 @@ body {
 
 @media only screen and (min-width: 58.75em) {
   .top-bar-section li a:not(.button) {
-    padding: 0 12px;
+    padding: 0 12px 0 11px;
   }
 }
 
