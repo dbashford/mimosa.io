@@ -9,12 +9,18 @@
   processScroll()
 
   // hack sad times - holdover until rewrite for 2.1
+  /*
   $nav.on('click', function () {
-    if (!isFixed)
-      setTimeout(function () { $win.scrollTop($win.scrollTop() - 147) }, 10)
-    else
-      setTimeout(function () { $win.scrollTop($win.scrollTop() - 87) }, 10)
+    if (!isFixed) {
+      console.log("not fixed")
+      //setTimeout(function () { $win.scrollTop($win.scrollTop() - 147) }, 10)
+    } else {
+      console.log("fixed")
+
+      //setTimeout(function () { $win.scrollTop($win.scrollTop() - 87) }, 10)
+    }
   })
+  */
 
   $win.on('scroll', processScroll)
 
