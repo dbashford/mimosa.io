@@ -460,6 +460,9 @@
         <h4 class="hi bower">bower</h4>
         <p class="hi bower">Root level container for Bower configuration.</p>
 
+        <h4 class="hi bower bowerWatch">bower.watch</h4>
+        <p class="hi bower bowerWatch">When <code class="option">bower.watch</code> is set to <code class="option">true</code>, Mimosa will watch the <code class="option">bower.json</code> for changes, and when the file changes, run a Bower install.</p>
+
         <h4 class="hi bower bowerDir">bower.bowerDir</h4>
         <p class="hi bower bowerDir">Container for configuration for how to handle the directory where Bower first places its assets before Mimosa copies them to their final destination.</p>
 
@@ -472,6 +475,7 @@
       </div>
       <div class="span6">
         <pre><span class="bower">bower:</span>
+  <span class="bowerWatch">watch:true</span>
   <span class="bowerDir">bowerDir:</span>
     <span class="bowerPath">path: ".mimosa/bower_components"</span>
     <span class="bowerClean">clean: true</span>
@@ -486,7 +490,6 @@
     <span class="pathMod">pathMod: []</span>
       </div>
     </div>
-
 
     <h4 class="hi bower bowerCopy">bower.copy</h4>
     <p class="hi bower bowerCopy">Container for properties that instruct mimosa-bower how to go about copying assets to their eventual destination.</p>

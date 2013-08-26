@@ -1,7 +1,8 @@
+@import url("font.css");
+
 body {
   font-size: 15px;
   font-family: Opensans_Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  background-image: url(../img/background_tile.jpg);
   font-weight:normal;
 }
 button, .button {
@@ -26,31 +27,6 @@ button, .button {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: museo-slab,"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-@font-face {
-  font-family: 'museo-slab';
-  src: url('font/museo_slab_300-webfont.eot');
-  src: url('font/museo_slab_300-webfont.eot?#iefix') format('embedded-opentype'),
-      url('font/museo_slab_300-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'museo-slab';
-  src: url('font/museo_slab_500-webfont.eot');
-  src: url('font/museo_slab_500-webfont.eot?#iefix') format('embedded-opentype'),
-      url('font/museo_slab_500-webfont.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('font/proximanova-webfont.eot');
-  src: url('font/proximanova-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/proximanova-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 h3 {

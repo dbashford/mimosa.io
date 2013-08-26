@@ -1,24 +1,4 @@
-@font-face {
-  font-family: "SerifaStd-Italic";
-  src: url("SerifaStd-Italic.otf") format("opentype");
-}
-@font-face {
-  font-family: "SerifaStd-Light";
-  src: url("SerifaStd-Light.otf") format("opentype");
-}
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('font/proximanova-webfont.eot');
-  src: url('font/proximanova-webfont.eot?#iefix') format('embedded-opentype'),
-       url('font/proximanova-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Opensans_Regular";
-  src: url("font/Open_Sans/Opensans-Regular.ttf") format("truetype");
-}
+@import url("font.css");
 
 body {
    font-size: 15px;
@@ -44,7 +24,7 @@ body {
     color: #999;
     font-weight: normal;
     background-color: #0d0d0d;
-    font-size: 13px;
+    font-size: 15px;
   }
   .top-bar-section li a:not(.button).active {
     background-color: #0c0c0c;
@@ -347,7 +327,7 @@ body {
   }
 @media only screen and (min-width: 58.75em) {
   .top-bar-section li a:not(.button) {
-    padding: 0 12px;
+    padding: 0 12px 0 11px;
   }
 }
 
@@ -374,7 +354,7 @@ body {
   .compilers .title {
     display: none;
   }
-  
+
 }
 
 @media only screen and (min-width: 1280px) {
