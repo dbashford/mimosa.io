@@ -26,7 +26,6 @@ body {
 }
 
 .top-bar .name {
-  height: auto;
 }
   .contain-to-grid {
     position:fixed;
@@ -212,7 +211,7 @@ body {
   .compilers .panel strong {
     font-family: SerifaStd-Italic;
     color: #f6ae13;
-    font-size: 21px;
+    font-size: 13px;
   }
   .compilers .panel p {
     color: #ffffff;
@@ -232,6 +231,8 @@ body {
   .required {
     border-top: solid 3px #cf4a0f;
     background: url("../img/required_bg.jpg")no-repeat;
+    background-size: 100% 100%;
+    height: auto;
   }
   .required .panel {
     margin-top: 55px;
@@ -249,7 +250,7 @@ body {
   .required article strong {
     font-family: SerifaStd-Italic;
     text-transform: uppercase;
-    font-size: 21px;
+    font-size: 17px;
     color: #f9b012;
   }
   .required article p {
@@ -259,7 +260,7 @@ body {
   .required h3 {
     font-family: SerifaStd-Light;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 34px;
     font-style: italic;
     color: #000000;
     margin-bottom: 34px;
@@ -341,7 +342,9 @@ body {
    position: relative;
    top: 5px;
   }
-
+  article {
+    margin-right: 0 !important;
+  }
 @media only screen and (min-width: 58.75em) {
   .top-bar-section li a:not(.button) {
     padding: 0 12px;
