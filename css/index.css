@@ -6,6 +6,7 @@ body {
 }
 
 .top-bar .name {
+  height: 45px;
 }
   .contain-to-grid {
     position:fixed;
@@ -67,13 +68,13 @@ body {
   }
   h2 {
     font-family: SerifaStd-Light;
-    font-size: 47px;
-    line-height: 42px;
+    font-size: 29px;
+    line-height: 29px;
   }
   h3 {
     font-family: SerifaStd-Light;
-    font-size: 23px;
-    line-height: 23px;
+    font-size: 21px;
+    line-height: 21px;
   }
   h4 {
     font-family: SerifaStd-Light;
@@ -329,6 +330,9 @@ body {
   .top-bar-section li a:not(.button) {
     padding: 0 12px 0 11px;
   }
+.top-bar .name {
+  height: auto;
+}
 }
 
 @media only screen and (min-width: 767px) {
