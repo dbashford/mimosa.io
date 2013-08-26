@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <p>When <code class="option">mimosa bower</code>, <code class="option">mimosa watch</code> or <code class="option">mimosa build</code> are executed, Mimosa will assess whether or not any packages need to be installed and install them to the <code class="option">bower.bowerDir.path</code> directory, by default <code class="option">.mimosa/bower/bower_components</code>.</p>
+        <p>When <code class="option">mimosa bower</code>, <code class="option">mimosa watch</code> or <code class="option">mimosa build</code> are executed, Mimosa will assess whether or not any packages need to be installed and install them to the <code class="option">bower.bowerDir.path</code> directory, by default <code class="option">.mimosa/bower/bower_components</code>. Mimosa will also watc the <code class="option">bower.json</code> for changes while running <code class="option">mimosa watch</code> and if any changes occur, Mimosa will immediately off a Bower install.</p>
 
         <p>If <code class="option">bower.copy.trackChanges</code> is set to <code class="option">true</code> (the default), Mimosa keeps track of two artifacts to help it determine if installs need to occur. First, it keeps track of the <code class="option">bower.json</code> that was last used for an install. If the current <code class="option">bower.json</code> is different, an install will be executed. Second, Mimosa keeps track of the bower section of your project's <code class="option">mimosa-config</code> for the last install. If it changes, an install will be executed.</p>
 
