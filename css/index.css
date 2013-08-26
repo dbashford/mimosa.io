@@ -317,6 +317,10 @@ body {
     color: white;
   }
 
+  .actual-links li {
+    margin: 0 25px;
+  }
+
   .quick-links .github-btn,
   .quick-links .tweet-btn,
   .quick-links .follow-btn {
