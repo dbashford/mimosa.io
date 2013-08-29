@@ -99,12 +99,16 @@
 
     <h2 id="upgrade">1.0 upgrade</h2>
 
-    <p><code class="option">1.0</code> contained a few possible breaking changes:</p>
+    <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code> :</p>
 
     <ul>
       <li>A minor inconvenience, and not very breaking, but if you have a Mimosa project that has not overridden the <code class="option">modules</code> array, then when you upgrade to <code class="option">1.0</code> <code class="option">mimosa-bower</code> will now be included in your project. You'll get a message indicating that a <code class="option">bower.json</code> cannot be found. If you do not want Bower, simply uncomment the <code class="option">modules</code> array and leave Bower out.</li>
       <li><code class="option">template.handlebars.lib</code> and <code class="option">template.emblem.lib</code> have been moved to <code class="option">compilers.libs.handlebars</code> and <code class="option">compilers.libs.emblem</code> respectively.</li>
       <li>Using <code class="option">node-sass</code>? It is no longer bundled with Mimosa. To use <code class="option">node-sass</code> you must <code class="option">npm install</code> to install it into your project and then use <code class="option">compilers.libs.sass</code> to <code class="option">require</code> it in.</li>
+      <li>In your template config, if you were providing <code class="option">folders</code> to bundle into different output files, you will need to alter the folder paths as the relative path has changed from <code class="option">watch.javascriptDir</code> to <code class="option">watch.sourceDir</code>.</li>
+      <li>In your template config, if you were overriding the location of output files, you will need to alter the paths as the relative path has changed from <code class="option">watch.javascriptDir</code> to <code class="option">watch.sourceDir</code>.</li>
+
+      </li>
     </ul>
 
 
