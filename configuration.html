@@ -487,7 +487,7 @@
     <span class="mainOverrides">mainOverrides: {}</span>
     <span class="strategy">strategy: "packageRoot"</span>
     <span class="forceLatest">forceLatest: true</span>
-    <span class="pathMod">pathMod: []</span>
+    <span class="pathMod">pathMod: []</span></pre>
       </div>
     </div>
 
@@ -531,28 +531,39 @@
         <h4 class="hi require">require</h4>
         <p class="hi require">Mimosa's configuration for AMD/RequireJS path verification and the r.js optimizer.</p>
 
-        <h4 class="hi verify exclude">require.exclude</h4>
-        <p class="hi verify exclude">The <code class="option">exclude</code> setting is an array of either string paths (absolute or relative) or regexes that when matching a file will keep that file from being processed by the  <code class="option">require</code> module. This can be used to keep files from being considered main modules to be used for processing if <code class="option">require</code> infers incorrectly.</p>
+        <h4 class="hi require requireExclude">require.exclude</h4>
+        <p class="hi require requireExclude">The <code class="option">exclude</code> setting is an array of either string paths (absolute or relative) or regexes that when matching a file will keep that file from being processed by the  <code class="option">require</code> module. This can be used to keep files from being considered main modules to be used for processing if <code class="option">require</code> infers incorrectly.</p>
 
         <h4 class="hi require commonConfig">require.commonConfig</h4>
         <p class="hi require commonConfig">Location of common RequireJS configuration that is used across multiple pages/modules. See the <a href="https://github.com/requirejs/example-multipage/tree/master/www/js">RequireJS multi-page application example</a> on GitHub for an example of using common configuration.</p>
 
-        <h4 class="hi verify require">require.verify</h4>
-        <p class="hi verify require">Settings for AMD/RequireJS path verification.</p>
-
       </div>
       <div class="span6">
 <pre><span class="require">require:</span>
-  <span class="commonConfig">exclude:[]</span>
+  <span class="requireExclude">exclude:[]</span>
   <span class="commonConfig">commonConfig:"common"</span>
+  <span class="tracking">tracking:</span>
+    <span class="trackingEnabled">enabled: false</span>
+    <span class="trackingPath">path: ".mimosa/require/tracking.json"</span>
   <span class="verify">verify:</span>
     <span class="verifyenabled">enabled: true</span>
   <span class="optimize">optimize :</span>
     <span class="inferConfig">inferConfig:true</span>
-    <span class="overrides">overrides:</span>
-</pre>
+    <span class="overrides">overrides:</span></pre>
       </div>
     </div>
+
+    <h4 class="hi tracking require">require.tracking</h4>
+    <p class="hi tracking require">Settings for mimosa-require tracking. When enabled mimosa-require makes a record of its dependency information on the file system. This provides faster <code class="option">mimosa watch</code> startup times as Mimosa does not need to process every JavaScript file to build the mimosa-require dependency information.</p>
+
+    <h4 class="hi trackingEnabled tracking require">require.tracking.enabled</h4>
+    <p class="hi trackingEnabled tracking require">When set <code class="option">true</code> mimosa-require will keep tracking information cached on the file system. When set to <code class="option">false</code> mimosa-require will force Mimosa to recompile all the JavaScript. This currently defaults to <code class="option">false</code> while it is being tried out but will default to <code class="option">true</code> in the near future.</p>
+
+    <h4 class="hi trackingPath tracking require">require.tracking.path</h4>
+    <p class="hi trackingPath tracking require">The path to the tracking file.</p>
+
+    <h4 class="hi verify require">require.verify</h4>
+    <p class="hi verify require">Settings for AMD/RequireJS path verification.</p>
 
     <h4 class="hi verifyenabled verify require">require.verify.enabled</h4>
     <p class="hi verifyenabled verify require">Whether or not Mimosa will perform AMD/RequireJS path verification.</p>
