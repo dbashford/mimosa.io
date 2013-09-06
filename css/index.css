@@ -272,14 +272,24 @@ body {
     font-weight: 100;
     text-transform: uppercase;
     color: #000;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 21px;
+    padding-top:22px;
     background-color: #fbbd12;
     border-radius: 8px;
     box-shadow: 3px 2px 8px #5e5946;
     -webkit-box-shadow: 2px 5px 8px #5e5946;
     border: solid 1px #9ed8f0;
   }
+
+  .welcome a.button {
+    margin-bottom:15px;
+  }
+  .welcome a img {
+    margin-top: -8px;
+    margin-left: 4px;
+  }
+
   /* Quick links
   -------------------------------------------------- */
   .bs-links {
