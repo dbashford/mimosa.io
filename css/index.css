@@ -267,7 +267,7 @@ body {
     line-height: 55px;
     color: #000;
   }
-  .getstarted a.button {
+  .welcome a.button, .getstarted a.button {
     font-family: SerifaStd-Light;
     font-weight: 100;
     text-transform: uppercase;
