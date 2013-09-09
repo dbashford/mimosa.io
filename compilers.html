@@ -422,7 +422,7 @@
 
       <p>For each templating language, the compiled template files provide a JavaScript object of templates, keyed by the template file name (the default configuration for template name). Each template needs to have a unique name. Should this be violated, Mimosa will warn of template collision issues.</p>
 
-      <p>Most of the libraries require a client side version to run the compiled templates. Mimosa will handle including that library in your project. It will place an AMD wrapped version of the library inside the <code class="option">vendor.javascripts</code> library and reference it from the compiled template file. If a library that matches Mimosa's name for the library exists, Mimosa will not overwrite that file. Also, if a requirejs path alias is set up pointing at the library, like <code class="option">underscore:"vendor/underscore"</code>, Mimosa will use the path. To the right are the names of the libraries Mimosa places in <code class="option">watch.javascriptDir</code>/<code class="option">vendor</code> directory.</p>
+      <p>Most of the libraries require a client side version to run the compiled templates. If using AMD wrapping for your templates (more on that below), Mimosa will handle including that library in your project. It will place an AMD wrapped version of the library inside the <code class="option">vendor.javascripts</code> library and reference it from the compiled template file. If a library that matches Mimosa's name for the library exists, Mimosa will not overwrite that file. Also, if using AMD wrapping, if a requirejs path alias is set up pointing at the library, like <code class="option">underscore:"vendor/underscore"</code>, Mimosa will use the path. To the right are the names of the libraries Mimosa places in <code class="option">watch.javascriptDir</code>/<code class="option">vendor</code> directory.</p>
         </div>
         <div class="span6">
 
@@ -464,7 +464,7 @@
              </tr>
              <tr>
                <td>EJS</td>
-               <td>ejs</td>
+               <td>ejs-filters</td>
              </tr>
              <tr>
                <td>ECO</td>
@@ -515,9 +515,13 @@
 
       <p>As with the CSS and JavaScript compilers, multiple templating libraries can be used at once, but to do so properly, there is some additional config Mimosa needs. Mimosa bundles templates into the same file, but templates from different libraries don't belong in the same file. So if multiple libraries are being used, provide Mimosa, via the <code class="option">mimosa-config</code>, a map/hash of compiler name to output file name with the <code class="option">template.outputFileName</code> (or the <code class="option">template.output[].outputFileName</code>) config property. The <code class="option">mimosa-config</code> includes a commented out example.</p>
 
-      <h3>Not AMD wrapped</h3>
+      <h3>Not Wrapped at All</h3>
 
-      <p>For all the options above, Mimosa wraps the compiled templates in an AMD <code class="option">define</code> block. If a project is not using AMD, this would cause problems. At the root of the <code class="option">template</code> config is an <code class="option">amdWrap</code> flag. By default <code class="option">amdWrap</code> is set to <code class="option">true</code>. When set to <code class="option">false</code> Mimosa will not wrap the template output. Mimosa will also not write the AMD-wrapped template client library into the <code class="option">watch.javascriptDir</code>/<code class="option">vendor</code> directory. If going the non-AMD route, the client library must be provided by the project.</p>
+      <p>If <code class="option">template.wrapType</code> is set to <code class="option">none</code>, then Mimosa does no wrapping. Mimosa will also not write the AMD-wrapped template client library into the <code class="option">watch.javascriptDir</code>/<code class="option">vendor</code> directory. If going the non-AMD route, the client library must be provided by the project.</p>
+
+      <h3>CommonJS Compliant</h3>
+
+      <p>If <code class="option">template.wrapType</code> config is set to <code class="option">common</code>, Mimosa will create CommonJS compliant template files. Mimosa will also not write any client libraries so the project author must provide a version of the library that works in a CommonJS project.</p>
 
       <p>Next to the name of each micro-templater below is the Mimosa name and the list of default extensions Mimosa recognizes.</p>
 
@@ -536,7 +540,7 @@
 
       <p>Because all of the templates are compiled together, helpers, <code class="option">{{example-helper}}</code>, are immediately available without any extra work.  Also, partials do not require Handlebars.registerPartial to be called.  The output <code class="option">template.js</code> file is modified to access the entire list of templates when attempting to insert a partial.</p>
 
-      <p>Mimosa keeps an AMD wrapped version of Handlebars that it writes to   <code class="option">assets/javascripts/vendor/handlebars.js</code> directory as part of compilation, so there is no need to include the library.</p>
+      <p>Mimosa keeps an AMD wrapped version of Handlebars that it writes to   <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
 
       <h3>Got Ember?</h3>
 
@@ -589,7 +593,7 @@
 
 
 
-      <p>Mimosa keeps an AMD wrapped version of Dust that it writes to <code class="option">assets/javascripts/vendor/dust.js</code> directory as part of compilation, so there is no need to include the library.</p>
+      <p>Mimosa keeps an AMD wrapped version of Dust that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
 
       <h2>Hogan <small><span class="mim">hogan</span> <span class="command">["hog", "hogan", "hjs"]</span></small></h2>
 
@@ -604,7 +608,7 @@
 
       <p>Note the passing of the templates object into the render method. This isn't necessary unless partials are being used, but it is a super easy way to handle passing partials to Hogan.</p>
 
-      <p>Mimosa keeps an AMD wrapped version of Hogan that it writes to <code class="option">assets/javascripts/vendor/hogan-template.js</code> directory as part of compilation, so there is no need to include the library.</p>
+      <p>Mimosa keeps an AMD wrapped version of Hogan that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
 
       <h2>Jade <small><span class="mim">jade</span> <span class="command">["jade"]</span></small></h2>
       <div class="row">
@@ -616,7 +620,7 @@
         </div>
       </div>
 
-      <p>Mimosa keeps an AMD wrapped version of Jade that it writes to <code class="option">assets/javascripts/vendor/jade-runtime.js</code> directory as part of compilation, so there is no need to include the library.</p>
+      <p>Mimosa keeps an AMD wrapped version of Jade that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
 
       <h2>Underscore <small><span class="mim">underscore</span> <span class="command">["tpl", "underscore"]</span></small></h2>
       <div class="row">
@@ -628,7 +632,7 @@
         </div>
       </div>
 
-      <p>Mimosa keeps an AMD wrapped version of Underscore that it writes to <code class="option">assets/javascripts/vendor/underscore.js</code> directory as part of compilation, so there is no need to include the library yourself if you are just using it for templating.</p>
+      <p>Mimosa keeps an AMD wrapped version of Underscore that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
 
       <h2>Lodash <small><span class="mim">lodash</span> <span class="command">["tmpl", "lodash"]</span></small></h2>
 
@@ -641,7 +645,7 @@
         </div>
       </div>
 
-      <p>Mimosa keeps an AMD wrapped version of Lodash that it writes to <code class="option">assets/javascripts/vendor/lodash.js</code> directory as part of compilation, so there is no need to include the library.
+      <p>Mimosa keeps an AMD wrapped version of Lodash that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.
 
       <h2>Embedded JavaScript Templates (EJS) <small><span class="mim">ejs</span> <span class="command">["ejs"]</span></small></h2>
 
@@ -654,7 +658,7 @@
         </div>
       </div>
 
-      <p>Mimosa keeps an AMD wrapped version of EJS' filters that it writes to <code class="option">assets/javascripts/vendor/ejs-filters.js</code> directory as part of compilation. Mimosa's compiled EJS file will use those filters, but this can be overridden with custom filters.</p>
+      <p>Mimosa keeps an AMD wrapped version of EJS' filters that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation. Mimosa's compiled EJS file will use those filters, but this can be overridden with custom filters.</p>
 
       <h2>Embedded CoffeeScript Templates (ECO) <small><span class="mim">none</span> <span class="command">["eco"]</span></small></h2>
 

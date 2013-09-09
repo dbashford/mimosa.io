@@ -619,7 +619,9 @@ $ mimosa build -P nameOfProfile</pre>
       </div>
     </section>
 
-    <p><h2>bower, bower:install</h2> <code class='option'>bower</code> and <code class='option'>bower:install</code> are identical. They provide one off access to Bower installs without kicking off <code class='option'>watch</code>or <code class='option'>build</code>.</p>
+    <p><h2>bower</h2> <code class='option'>bower</code> provide one off access to Bower installs without kicking off <code class='option'>watch</code>or <code class='option'>build</code>.</p>
+
+    <p><h2>bower:install &lt;names,of,modules&gt; [-d/--savedev]</h2> <code class='option'>bower:install</code> will install one to many modules into your application and save the new modules to the <code class='option'>dependencies</code> array of the <code class='option'>bower.json</code>. To save to the <code class='option'>devDependencies</code>, add a <code class='option'>[-d/--savedev]</code> flag. You can even use version numbers when installing modules. Example: <code class='option'>mimosa bower:install backbone,underscore,jquery#1.8.1</code></p>
 
     <p><h2>bower:clean [-c/--cache]</h2> <code class='option'>bower:clean</code> will remove all of the Bower installed dependencies from their target directories in the vendor folder. It will also clean up any Bower package related folders that then become empty. Finally it will clean up the <code class='option'>bower.bowerDir.path</code> folder, removing all the temporary assets.</p>
 

@@ -99,15 +99,17 @@
 
     <h2 id="upgrade">1.0 upgrade</h2>
 
-    <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code> :</p>
+    <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code>. Mostly all the changes are simple <code class="option">mimosa-config</code> updates:</p>
 
     <ul>
       <li>A minor inconvenience, and not very breaking, but if you have a Mimosa project that has not overridden the <code class="option">modules</code> array, then when you upgrade to <code class="option">1.0</code> <code class="option">mimosa-bower</code> will now be included in your project. You'll get a message indicating that a <code class="option">bower.json</code> cannot be found. If you do not want Bower, simply uncomment the <code class="option">modules</code> array and leave Bower out.</li>
       <li><code class="option">template.handlebars.lib</code> and <code class="option">template.emblem.lib</code> have been moved to <code class="option">compilers.libs.handlebars</code> and <code class="option">compilers.libs.emblem</code> respectively.</li>
       <li>Using <code class="option">node-sass</code>? It is no longer bundled with Mimosa. To use <code class="option">node-sass</code> you must <code class="option">npm install</code> to install it into your project and then use <code class="option">compilers.libs.sass</code> to <code class="option">require</code> it in.</li>
-      <li>In your template config, if you were providing <code class="option">folders</code> to bundle into different output files, you will need to alter the folder paths as the relative path has changed from <code class="option">watch.javascriptDir</code> to <code class="option">watch.sourceDir</code>.</li>
-      <li>In your template config, if you were overriding the location of output files, you will need to alter the paths as the relative path has changed from <code class="option">watch.javascriptDir</code> to <code class="option">watch.sourceDir</code>.</li>
-      <li>If you are using mimosa-testem-simple, you will want to make sure you upgrade to <code class="option">0.6.5</code>.</li>
+      <li>In your template config, if you were providing <code class="option">folders</code> to bundle into different output files, you will need to alter the folder paths as they are now relative to <code class="option">watch.sourceDir</code> rather than <code class="option">watch.javascriptDir</code>.</li>
+      <li>In your template config, if you were overriding the location of output files, you will need to alter the paths as they are now relative to <code class="option">watch.sourceDir</code> rather than <code class="option">watch.javascriptDir</code>.</li>
+      <li>If you are using mimosa-testem-simple, you will want to make sure you upgrade to the latest version (at least <code class="option">0.6.5</code>).</li>
+      </li>
+      <li>The <code class="option">template.amdWrap</code> option has been deprecated. Use <code class="option">template.wrapType</code> instead. Rather than being a flag, it is a string with valid values of: <code class="option">common</code>, <code class="option">amd</code>, and <code class="option">none</code>.</li>
       </li>
     </ul>
 
@@ -132,7 +134,7 @@
 
     <h2 id="ember">Ember.js</h2>
 
-    <p>Getting started with Mimosa and with Ember?  Check out the community contributed <a href="https://github.com/emirotin/mimosa-ember">mimosa-ember</a> demo project. The author took a vanilla Mimosa install, Ember-ized it and detailed how to go about doing that step-by-step.</p>
+    <p>Getting started with Mimosa and with Ember?  Check out one of several <a href="./started.html#demoapps">community contributed example projects</a>.</p>
 
     <h2 id="emfile">EMFILE Issues</h2>
 

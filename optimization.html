@@ -75,6 +75,7 @@
     <div class="subnav">
       <ul class="nav nav-pills">
         <li><a href="#opt" title="Optimization">Optimization</a></li>
+        <li><a href="#browserify" title="Browserify?">Browserify?</a></li>
         <li><a href="#require" title="using the r.js optimizer">RequireJS Optimization</a></li>
         <li><a href="#min" title="Keep your assets nice and small">Minify</a></li>
         <li><a href="#minopt" title="both is good">Minify + Optimize</a></li>
@@ -100,6 +101,21 @@
       <p>Via the <code class="option">mimosa-require</code> module that comes with Mimosa by default, Mimosa uses the <a href="https://github.com/jrburke/r.js/">r.js optimizer</a> which is perfect for optimizing RequireJS applications. Underneath the hood, that optimizer is using <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to shrink a codebase down as tiny as possible. Mimosa bundles Uglify2, and can use it to individually shrink assets. And Mimosa's Uglify and the r.js optimizer can be combined to provide more fine-grained control over a minification strategy.</p>
 
     </section>
+
+    <section id="browserify">
+      <div class="page-header">
+        <h1>
+          Browserify me please!
+          <small><span class="options">node in the browser ftw</span></small>
+        </h1>
+      </div>
+
+      <p>Out-of-the-box Mimosa supports RequireJS based optimization. But if <a href="http://browserify.org/">browserify</a> is your favorite build tool, then check out the <a href="https://github.com/JonET/mimosa-browserify">mimosa-browserify module</a>. The GitHub page has details on its use and the author has put <a href="https://github.com/JonET/mimosa-browserify-example">an example app</a> up show how to use it.</p>
+
+      <p>But if RequireJS is your thing...</p>
+
+    </section>
+
     <section id="require">
       <div class="page-header">
         <h1>
