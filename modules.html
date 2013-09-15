@@ -327,13 +327,8 @@
       <tbody>
         <tr>
           <td>mod:list</td>
-          <td>[-v/--verbose]</td>
-          <td>List all the modules you have installed.</td>
-        </tr>
-        <tr>
-          <td>mod:search</td>
-          <td>[-v/--verbose]</td>
-          <td>List all the modules in NPM.</td>
+          <td>[-i/--installed][-v/--verbose]</td>
+          <td>List all Mimosa modules in NPM, or, with a flag, just those you have installed including version information.</td>
         </tr>
         <tr>
           <td>mod:install</td>
@@ -355,15 +350,19 @@
 
     <div class="page-header">
       <h1>
-        List Installed Modules
-        <small><span class="mim">mimosa</span> <span class="command">mod:list</span> <span class="options">[-v/--verbose]</span></small>
+        List Available/Installed Modules
+        <small><span class="mim">mimosa</span> <span class="command">mod:list</span> <span class="options">[-i/--installed] [-v/--verbose]</span></small>
       </h1>
     </div>
     <div class="row">
       <div class="span6">
         <h2>mod:list</h2>
 
-        <p>Execute <code class='option'>mod:list</code> to see a list of all the installed Mimosa modules. The displayed list includes the name, version, and URL of the website of the module.</p>
+        <p><code class='option'>mod:list</code> will search <a href="https://npmjs.org/">NPM</a> to find all available Mimosa modules. <code class='option'>mod:list</code> will list the most recent version of the module and if that module is currently installed, the installed version. If there is a difference, the installed version will be colored to signal that the version is out of date.</p>
+
+        <h3>Just the installed modules (-i/--installed)</h3>
+
+        <p>Execute <code class='option'>mod:list</code> with the <code class="option">--installed</code> flag to limit the full list to just those currently installed.</p>
 
         <pre>$ mimosa mod:list</pre>
 
@@ -380,82 +379,25 @@ $ mimosa mod:list -v</pre>
         <div class="inner">
           <p>
             $ mimosa mod:list<br/><br/>
-            <span class="inst">The following is a list of the Mimosa modules you have installed.</span><br/><br/>
-            <span class="fb">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version&nbsp;&nbsp;&nbsp;Website</span><br/>
-            <span class="inst">mimosa-server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io</span><br/>
-            <span class="inst">mimosa-require&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io</span><br/>
-            <span class="inst">mimosa-minify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io</span><br/>
-            <span class="inst">mimosa-lint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io</span><br/><br/>
-            <span class="inst">To view more module details, execute 'mimosa mod:list -v' for 'verbose' logging. </span>
+
+            <span class="inst">Searching Mimosa modules...</span><br/><br/>
+            <span class="inst">The following is a list of Mimosa in NPM.</span><br/><br/>
+
+            <span class="fb">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version Updated&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have?       Website</span><br/>
+            <span class="inst">mimosa-bower&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2.1&nbsp;&nbsp;&nbsp;2013-09-08 01:51:45  1.2.1       http://www.mimosa.io</span><br/>
+            <span class="inst">mimosa-lint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.0.0&nbsp;&nbsp;&nbsp;2013-08-25 22:23:41  1.0.0       http://www.mimosa.io</span><br/>
+            <span class="inst">mimosa-live-reload 1.0.0&nbsp;&nbsp;&nbsp;2013-08-26 02:38:52  1.0.0       http://www.mimosa.io</span><br/>
+            <span class="inst">mimosa-minify&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.0.0&nbsp;&nbsp;&nbsp;2013-08-26 02:53:12  1.0.0       http://www.mimosa.io</span><br/>
+            <span class="inst">mimosa-require&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.3.0&nbsp;&nbsp;&nbsp;2013-09-14 03:22:21  <span style="color:red">1.2.1</span>       http://www.mimosa.io</span><br/>
+            <span class="inst">mimosa-server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.0.0&nbsp;&nbsp;&nbsp;2013-08-25 21:59:13  1.0.0       http://www.mimosa.io</span><br/><br/>
+            <span class="inst">To view more module details, execute 'mimosa mod:list -v' for 'verbose' logging.</span><br/><br/>
+            <span class="inst">To view only the installed Mimosa modules, add the [-i/--installed] flag: 'mimosa mod:list -i'</span><br/><br/>
+            <span class="inst">Install modules by executing 'mimosa mod:install <<name of module>>'</span>
           </p>
         </div>
       </div>
     </div>
-    <div class="page-header">
-      <h1>
-        Search NPM for Modules
-        <small><span class="mim">mimosa</span> <span class="command">mod:search</span> <span class="options">[-v/--verbose]</span></small>
-      </h1>
-    </div>
-    <div class="row">
-      <div class="span6">
-        <h2>mod:search</h2>
 
-        <p><code class='option'>mod:search</code> will search <a href="https://npmjs.org/">NPM</a> to find all the available Mimosa modules. This command can take some time as it talks over HTTP to NPM, finding all available modules and then narrowing down the list to just those prefixed with 'mimosa-'.</p>
-
-        <pre>$ mimosa mod:search</pre>
-
-        <p>Included in the list of modules is the name, current version, last time it was updated, whether or not it is already installed, and a website for the module.</p>
-
-        <h3>Get more details (-v/--verbose)</h3>
-
-        <p>Add a <code class="option">--verbose</code> flag and Mimosa will include additional information including a short description and the list of dependencies the module has on other node.js modules.</p>
-
-        <pre>$ mimosa mod:search --verbose
-$ mimosa mod:search -v</pre>
-
-      </div>
-
-      <div class="span6 term">
-        <div class="inner">
-          <p>
-            $ mimosa mod:search<br/><br/>
-
-            <span class="inst">Searching NPM for Mimosa modules, this might take a few seconds...</span><br/><br/>
-
-            <span class="inst">The following is a list of the Mimosa modules in NPM.</span><br/><br/>
-
-            <span class="fb">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version&nbsp;Updated&nbsp;&nbsp;&nbsp;&nbsp;Installed?&nbsp;Website</span><br/>
-            <span class="inst">mimosa-logger&nbsp;&nbsp;0.1.0
-              &nbsp;&nbsp;2012-10-21 no        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          http://www.mimosa.io
-            </span><br/>
-            <span class="inst">mimosa-server&nbsp;&nbsp;0.2.1
-              &nbsp;&nbsp;2012-10-25 yes
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              http://www.mimosa.io
-            </span><br/>
-            <span class="inst">mimosa-lint&nbsp;&nbsp;&nbsp;&nbsp;0.2.0
-              &nbsp;&nbsp;2012-10-24 yes
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io
-            </span><br/>
-            <span class="inst">mimosa-require&nbsp;0.2.0
-              &nbsp;&nbsp;2012-10-24 yes &nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;http://www.mimosa.io
-            </span><br/>
-            <span class="inst">mimosa-minify&nbsp;&nbsp;0.2.0
-              &nbsp;&nbsp;2012-10-24 yes
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              http://www.mimosa.io
-            </span><br/><br/>
-
-            <span class="inst">To view more module details, execute 'mimosa mod:search -v' for 'verbose' logging.</span><br/><br/>
-
-            <span class="inst">Install modules by executing 'mimosa mod:install [name of module]'</span>
-          </p>
-        </div>
-      </div>
-    </div>
     <div class="page-header">
       <h1>
         Install a Module
@@ -1322,7 +1264,7 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
 
     <h2>Publishing to NPM</h2>
 
-    <p>If you are familiar with <a href="http://npmjs.org/">NPM</a>, this part is not new. A simple <code class="options">npm publish</code> from the root of your module will install a module to NPM so that anyone can get access to it.  Once it is in NPM, commands like <code class="options">mod:install</code> and <code class="options">mod:search</code> will be able to find it.</p>
+    <p>If you are familiar with <a href="http://npmjs.org/">NPM</a>, this part is not new. A simple <code class="options">npm publish</code> from the root of your module will install a module to NPM so that anyone can get access to it.  Once it is in NPM, commands like <code class="options">mod:install</code> and <code class="options">mod:list</code> will be able to find it.</p>
 
     <p>If you have never published to NPM before, then spend a few minutes reading the <a href="https://npmjs.org/doc/developers.html">developer docs</a>. Just a few simple steps and you are ready to publish.</p>
 

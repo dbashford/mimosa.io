@@ -180,7 +180,7 @@
           <ul>
              <li>Verify paths when JavaScript successfully compiles. Mimosa will follow relative paths for dependencies, and also use config paths whether they resolve to an actual dependency, <code class="option">jquery: 'vendor/jquery'</code>, or they resolve to a module, <code class="option">moduleX:'a/path/to/module/x'</code>.
             <li>Detect dependencies embedded within <code class="option">define</code> and <code class="option">require</code> callbacks. i.e. deferred <code class="option">require</code> calls.</li>
-            <li>Verify map and shim paths, and keep track of the map config and use it for path verification.</li>
+            <li>Verify map, shim and package paths, and keep track of those configs for path verification.</li>
             <li>Notify when paths are broken. An unresolved path is as crucial as a compiler error: code is broken.</li>
             <li>Catch circular dependencies and notify on the console.</li>
             <li>Catch when a non-vendor piece of compiled JavaScript isn't wrapped in <code class="option">require</code> or <code class="option">define</code> and notify you on the console.</li>

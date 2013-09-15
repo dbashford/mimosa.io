@@ -276,7 +276,7 @@
           <p><a href="http://coffeescript.org/">CoffeeScript</a> is one of Mimosa's compilers. Mimosa will treat files ending in <code class="option">.coffee</code> as CoffeeScript files.</p>
 
 
-          <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a>. Source maps map lines of compiled JavaScript back to lines of the original CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of CoffeeScript. The inclusion of source maps eliminates one of the chief concerns with using this particular compiles-to-JavaScript language. Source maps are turned off by default for <code class="option">mimosa build</code>.</p>
+          <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a>. Source maps map lines of compiled JavaScript back to lines of the original CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of CoffeeScript. The inclusion of source maps eliminates one of the chief concerns with using this particular compiles-to-JavaScript language. Source maps are turned off by default for <code class="option">mimosa build</code>. Dynamic source maps are used by default, unless minifying code, in which case source maps are generated as separate files.</p>
         </div>
         <div class="span6">
           <pre>coffeescript:
@@ -314,7 +314,7 @@
         </div>
       </div>
 
-      <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a> for Iced CoffeeScript. Source maps map lines of compiled JavaScript back to lines of the original Iced CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of Iced CoffeeScript. Source maps are turned off by default for <code class="option">mimosa build</code>.</p>
+      <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a> for Iced CoffeeScript. Source maps map lines of compiled JavaScript back to lines of the original Iced CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of Iced CoffeeScript. Source maps are turned off by default for <code class="option">mimosa build</code>. Dynamic source maps are used by default, unless minifying code, in which case source maps are generated as separate files.</p>
 
       <p>Mimosa provides the full ability to configure the Iced CoffeeScript compiler via the <code class="option">mimosa-config</code>. <code class="option">bare</code> compilation can be turned off, and any other flags/settings Iced CoffeeScript exposes to tweak compilation can be added. The following is the default config for the Iced CoffeeScript compiler.</p>
 
