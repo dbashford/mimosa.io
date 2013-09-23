@@ -138,16 +138,30 @@
 
           <ul>
             <li><code class="option">baseUrl</code>: set by combining the mimosa-config <code class="option">watch.compiledDir</code> with the <code class="option">compilers.javascript.directory</code></li>
-            <li><code class="option">out</code>: optimized files are output into the <code class="option">watch.compiled</code> + <code class="option">compilers.javascript.directory</code> in a file that is the main module name + <code class="option">-built.js</code></li>
             <li><code class="option">mainConfigFile</code>: set to the file path of the main module unless a common config (<code class="option">require.commonConfig</code> setting) is detected.  If a common config is found, <code class="option">mainConfigFile</code> is set to that.</li>
             <li><code class="option">findNestedDependencies</code>: <code class="option">true</code></li>
             <li><code class="option">wrap</code>: <code class="option">true</code></li>
-            <li><code class="option">include</code>: set to the name of the module being compiled</li>
-            <li><code class="option">insertRequire</code>: set to the name of the module being compiled</li>
-            <li><code class="option">name</code>: set to <code class="option">almond</code></li>
             <li><code class="option">logLevel</code>: set to <code class="option">3</code> which is the r.js error logging level</li>
             <li><code class="option">optimize</code>: set to <code class="option">uglify2</code> unless both the <code class="option">--optimize</code> and <code class="option">--minify</code> flags are used, in which case it is set to <code class="option">none</code></li>
           </ul>
+
+          <p> For single file runs without <code class="option">modules</code>, the following will also be inferred.</p>
+
+          <ul>
+            <li><code class="option">out</code>: optimized files are output into the <code class="option">watch.compiled</code> + <code class="option">compilers.javascript.directory</code> in a file that is the main module name + <code class="option">-built.js</code></li>
+            <li><code class="option">include</code>: set to the name of the module being compiled</li>
+            <li><code class="option">insertRequire</code>: set to the name of the module being compiled</li>
+            <li><code class="option">name</code>: set to <code class="option">almond</code></li>
+          </ul>
+
+          <p>For runs that involve the <code class="option">optimize.modules</code> config, the following in inferred.</p>
+
+          <ul>
+            <li><code class="option">keepBuildDir</code>: Keeps the build directory between builds.</li>
+            <li><code class="option">modules</code>: This isn't inferred, rather it is taken without modification from the <code class="option">require.optimize.modules</code> config.  It is the presence of <code class="option">optimize.modules</code> that triggers the different group of inferred properties.</li>
+            <li><code class="option">dir</code>: This is set to the relative path from the root of the project to the root of the javascript directory as defined in the <code class="option">watch</code>< config. This is where all the outputs from the run will be deposited.</li>
+          </ul>
+
 
           <p>These settings will package up each individual module into its own optimized file wrapped with Almond.</p>
         </div>

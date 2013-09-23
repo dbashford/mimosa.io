@@ -186,6 +186,7 @@
             <li>Catch when a non-vendor piece of compiled JavaScript isn't wrapped in <code class="option">require</code> or <code class="option">define</code> and notify you on the console.</li>
             <li>Run RequireJS' optimizer when the <code class="option">optimize</code> flag is enabled for <code class="option">mimosa build</code>, and on every file change for <code class="option">mimosa watch</code>.</li>
             <li>Need no config at all for the optimizer, which takes some time to configure. Mimosa will keep track of dependencies and build a vanilla optimizer configuration.</li>
+            <li>Use your <code class="option">modules</code> config to create many r.js outputs for your dynamic requirejs calls.</li>
             <li>For complex r.js configurations, allow modification of pre-built inferred configs rather than needing from-scratch configurations.</li>
             <li>Handle multi-page applications with multiple modules.</li>
             <li>Detect and use common RequireJS configuration used across multiple modules</li>
@@ -207,11 +208,12 @@
   exclude:[]
   commonConfig:"common"
   tracking:
-    enabled: false
+    enabled: true
     path: ".mimosa/require/tracking.json"
   verify:
     enabled: true
   optimize :
+    modules: null
     inferConfig:true
     overrides:</pre>
 
@@ -222,7 +224,7 @@
 
       <p>Path verification is always disabled for vendor assets, that is, assets in the configured <code class="option">vendor.javascripts</code> directory.  Vendor assets often use creative means to turn themselves into AMD modules that prove hard to verify.  That said, if a vendor asset is placed outside the vendor folder, Mimosa is coded to handle how some of the methods vendor assets are AMDed. But Mimosa may complain that some vendor assets are throwing errors or are not properly wrapped.</p>
 
-      <p>New with <code class="option">v1.0.0-rc.3</code>, Mimosa now has the ability to cache dependency information between Mimosa runs, making startup time dramatically faster for large applications. Set <code class="option">tracking.enabled</code> to <code class="option">true</code> to benefit.</p>
+      <p>New with <code class="option">v1.0.0-rc.3</code>, Mimosa now has the ability to cache dependency information between Mimosa runs, making startup time dramatically faster for large applications.</p>
 
       <p>To read more about Mimosa's RequireJS support, head over to the <a href="./optimization.html">Optimization</a> page.</p>
 
