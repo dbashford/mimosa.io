@@ -283,9 +283,11 @@ $ mimosa new nameOfApplicationHere -d</pre>
           </p>
 
           <p>
-            1) None - You don't need a server, or you'd like Mimosa to serve your application for you.<br/>
+            1) None - You either don't need a server or you have one already that you will manage separate from Mimosa.<br/>
             2) (*) Express - http://expressjs.com/<br/>
-            : 1
+            3) Mimosa's Embedded Express - http://mimosa.io/server.html#mimosas, this is less powerful than having your own, but may be sufficient for trivial websites.<br/>
+
+            : 2
           </p>
 
           <p class="fb">
@@ -315,7 +317,7 @@ $ mimosa new nameOfApplicationHere -d</pre>
           <p class="logs">
             23:20:05 - Copying skeleton project into /path/to/foo<br/>
             23:20:05 - Installing node modules<br/>
-            <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch --server' from inside your project to monitor the file system. Then start coding!</span><br/>
+            <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch' from inside your project to monitor the file system. Then start coding!</span><br/>
           </p>
         </div>
       </div>

@@ -79,6 +79,7 @@
         <li><a href="#new" title="What Mimosa delivers">Via 'mimosa new'</a></li>
         <li><a href="#mimosas" title="Mimosa's embedded server">Mimosa's Server</a></li>
         <li><a href="#yours" title="How Mimosa invokes your server">Your Server</a></li>
+        <li><a href="#none" title="Bring your own!">No Server</a></li>
         <li><a href="#views" title="View options">Views</a></li>
       </ul>
     </div>
@@ -164,6 +165,27 @@
   app.set 'views', <b>config.server.views.path</b>
   app.engine <b>config.server.views.extension</b>, engines[<b>config.server.views.compileWith</b>]
   app.set 'view engine', <b>config.server.views.extension</b></pre>
+
+    <section id="none">
+      <div class="page-header">
+        <h1>
+          No Server
+          <small><span class="options">because you don't need one, or you've got your own</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <p>One of the options when running <code class="option">mimosa new</code> is to choose no server. The <code class="option">mimosa-config</code> that Mimosa delivers when you choose this option includes no <code class="option">mimosa-server</code> or <code class="option">mimosa-live-reload</code> because both of those modules involve using either a node.js custom server or Mimosa's embedded Express server.</p>
+
+    <p>Choose no server when either one is legitimately not needed, or when a non-node.js server already exists and needs to be leveraged.  An an example I've experienced teams using Mimosa on top of node.js, Rails/Sinatra, and .NET backends.</p>
+
+    <p>When running a non-node.js server, the major consideration is the <code class="option">watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives. Consider the following:</p>
+
+<pre>watch:
+  compiledDir: "../server/public"</pre>
+
+  <p>This setup will place the compiled assets up one level and then into a <code class="option">server/public</code> directory. Sitting alongside the <code class="option">server</code> directory might be a <code class="option">client</code> directory where all the Mimosa managed UI code lives.</p>
+
 
     <section id="views">
       <div class="page-header">
