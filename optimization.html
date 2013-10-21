@@ -178,7 +178,13 @@
         </div>
       </div>
 
-      <h2>Programmatically Take Control of the Optimizer with Modules</h2>
+      <h2>Regarding "modules" based builds</h2>
+
+      <p>As noted above, Mimosa has specific support in place for configuring and running require.js builds involving a <code class="option">modules</code> config. As of Mimosa version <code class="option">1.0.8</code> source maps are disabled by default for r.js builds that involve the <code class="option">modules</code> config. Source maps are only generated when using <code class="option">mimosa watch</code>, so when running <code class="option">watch</code> with the <code class="option">optimize</code> flag and a <code class="option">modules</code> config, Mimosa turns off source maps. Source maps do not cause any issues with the first r.js optimize run, but they do cause trouble with subsequent ones. Source maps can be forced on by adding <code class="option">generateSourceMaps: true</code> to the <code class="option">require.optimize.overrides</code>. Just know the 2nd+ runs will not output proper files.</p>
+
+      <p>This should be remedied in future Mimosa releases.</p>
+
+      <h2>Programmatically Take Control of the Optimizer with Mimosa Modules</h2>
 
       <p>Mimosa can't know all the intricacies of a project.  It can make a lot of educated guesses and put together a really good base r.js config, but there are times when complicated alterations must be made to the r.js config. <code class="option">overrides</code> allows static changes to the r.js configuration, but that isn't always ideal. <code class="option">require.optimize.inferConfig:false</code> loses all of the smarts Mimosa puts into building a r.js config. Ideally a project can take advantage of the work Mimosa puts into building the r.js config, and dynamically alter it as well.</p>
 

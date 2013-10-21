@@ -548,6 +548,8 @@
   <span class="verify">verify:</span>
     <span class="verifyenabled">enabled: true</span>
   <span class="optimize">optimize :</span>
+    <span class="modules">modules: null</span>
+    <span class="moduleCaching">moduleCachingPath: ".mimosa/require/moduleCaching"</span>
     <span class="inferConfig">inferConfig:true</span>
     <span class="overrides">overrides:</span></pre>
       </div>
@@ -570,6 +572,12 @@
 
     <h4 class="hi optimize require">require.optimize</h4>
     <p class="hi optimize require">Settings for asset optimization via the r.js optimizer.</p>
+
+    <h4 class="hi modules optimize require">require.optimize.modules</h4>
+    <p class="hi modules optimize require">Use this if building a <code class="option">modules</code>-based require.js application. This is a straight pass-through of the typical require.js <code class="option">modules</code> config.</p>
+
+    <h4 class="hi moduleCaching optimize require">require.optimize.moduleCachingPath</h4>
+    <p class="hi moduleCaching optimize require">This setting is only valid when running a <code class="option">modules</code>-based project. Mimosa keeps some files cached for re-running during <code class="option">mimosa watch</code>. This path is where the caching takes place.</p>
 
     <h4 class="hi inferConfig optimize require">require.optimize.inferConfig</h4>
     <p class="hi inferConfig optimize require">Mimosa infers many r.js optimizer settings. Set <code class="option">inferConfig</code> to <code class="option">false</code> to make Mimosa not do that. Check out the <a href="./optimization.html#require">Optimization tab</a> to see what inferences Mimosa makes for r.js execution.</p>
