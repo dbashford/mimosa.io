@@ -484,6 +484,7 @@
     <span class="trackChanges">trackChanges: true</span>
     <span class="outRoot">outRoot: null</span>
     <span class="bowerExclude">exclude:[]</span>
+    <span class="unknownMainFullCopy">unknownMainFullCopy: false</span>
     <span class="mainOverrides">mainOverrides: {}</span>
     <span class="strategy">strategy: "packageRoot"</span>
     <span class="forceLatest">forceLatest: true</span>
@@ -505,6 +506,9 @@
 
     <h4 class="hi bower bowerCopy bowerExclude">bower.copy.exclude</h4>
     <p class="hi bower bowerCopy bowerExclude">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">bowerDir.path</code> or absolute.</p>
+
+    <h4 class="hi bower bowerCopy unknownMainFullCopy">bower.copy.unknownMainFullCopy</h4>
+    <p class="hi bower bowerCopy unknownMainFullCopy">A boolean that when set will force the copy of all Bower module assets into the vendor output directory for the module. This will likely copy a lot of undesirable assets, but if that isn't a problem, setting this property is a quick way to get files copied over without the hassle of configuring <code class="option">mainOverrides</code> (below).</p>
 
     <h4 class="hi bower bowerCopy mainOverrides">bower.copy.mainOverrides</h4>
     <p class="hi bower bowerCopy mainOverrides"> Occasionally bower packages do not clearly indicate what file is the main library file. In those cases, mimosa-bower cannot find the main files to copy them to the vendor directory. json2 is a good example. <code class="option">mainOverrides</code> allows for setting which files should be copied for a package. The key for this object is the name of the package. The value is an array of path strings representing the package's main files. The paths should be relative to the root of the package. For example: <code class="option">{"json2":["json2.js","json_parse.js"]}</code>. The paths can also be to directories. That will include all the directory's files. <code class="option">mainOverrides</code> packages can also be provided an object in addition to string paths. The object maps input paths to output paths and allow for specific placement of files and folders. Ex <code class="option">{"json2":{"json2.js":"json-utils/json2.js"}</code>. In this case the <code class="option">json2.js</code> file will be placed in <code class="option">json-utils/json2.js</code> in the <code class="option">vendor.javascripts</code> folder. If a file is provided as opposed to a directory, the output path must specify the output file name. Any directories copied in this way are copied entirely without manipulation of the folder structure.</p>
