@@ -76,8 +76,9 @@
     <p class="lead">Some common questions answered</p>
     <div class="subnav">
       <ul class="nav nav-pills">
-        <li><a href="#upgrade" title="Contribute">1.0 upgrade</a></li>
-        <li><a href="#cpu" title="Contribute">CPU Burn</a></li>
+        <li><a href="#upgrade11" title="upgrade to 1.1">1.1 upgrade</a></li>
+        <li><a href="#upgrade" title="upgrade">1.0 upgrade</a></li>
+        <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
         <li><a href="#contrib" title="Contribute">Contribute?</a></li>
         <li><a href="#ember" title="Ember.js">Ember.js</a></li>
         <li><a href="#emfile" title="EMFILE">EMFILE</a></li>
@@ -97,6 +98,43 @@
       </div>
     </section>
 
+    <h2 id="upgrade11">1.1 upgrade (upcoming)</h2>
+
+    <p>With <code class="option">1.1</code> the <code class="option">mimosa-lint</code> module is being phased out as a default module.  It will still be a valid module and if you have it included in your project, Mimosa will continue to use it. Going forward, though, <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> and <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a> will replace <code class="option">mimosa-lint</code> as default modules.</p>
+
+    <h3>How might this effect me?</h3>
+
+    <p>If you do not override your modules array, in other words if it is still commented out, and you upgrade to <code class="option">1.1</code> Mimosa will no longer use <code class="option">mimosa-lint</code> and will instead use the two new modules.  If you have put a lot of work into your <code class="option">lint</code> configuration, adding rules and such, then you'll need to make a change.</p>
+
+    <p>You could uncomment your modules array.  That'll solve the problem straight away.  That'll force your project to use <code class="option">lint</code> and its config.</p>
+
+    <p>You could also switch to using the new modules.  That'll take some minor config copying as each new module has a slimmed down version of the <code class="option">mimosa-lint</code> config.</p>
+
+    <h3>I'd like to use the new modules please</h3>
+
+    <p>Then you just have some config to update. Here are the new default configs, when comparing them to the old one, the config translation should be an easy one:</p>
+
+    <div class="row">
+      <div class="span6">
+        <h4>mimosa-jshint</h4>
+        <pre>jshint:
+  exclude:[]
+  compiled: true
+  copied: true
+  vendor: false
+  jshintrc: ".jshintrc"
+  rules:{}</pre>
+      </div>
+      <div class="span6">
+        <h4>mimosa-csslint</h4>
+        <pre>csslint:
+  exclude:[]
+  compiled: true
+  copied: true
+  vendor: false
+  rules:{}</pre>
+      </div>
+    </div>
     <h2 id="upgrade">1.0 upgrade</h2>
 
     <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code>. Mostly all the changes are simple <code class="option">mimosa-config</code> updates:</p>
