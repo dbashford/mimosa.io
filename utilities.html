@@ -244,49 +244,45 @@
       </div>
       <div class="row">
         <div class="span8">
-          <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Using the <code class="option">mimosa-lint</code> module, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. Inside the <code class="option">mimosa-config</code> is the snippet to the right which controls the linting. As with all of the default config, this is entirely commented out as the defaults are already enforced.</p>
+          <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Using the <code class="option">mimosa-csslint</code> and <code class="option">mimosa-jshint</code> modules, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. Inside the <code class="option">mimosa-config</code> are the snippets to the right which control the linting for a project's CSS and JavaScript. As with all of the default config, these blocks of config are entirely commented out as the defaults are already enforced.</p>
 
           <h2>Linting Compiled Assets</h2>
 
-          <p>The <code class="option">compiled</code> block controls whether or not linting is enabled for compiled code. So when Mimosa compiles SASS, LESS or Stylus, Mimosa will send the resulting CSS through a linting process. Similarly for the JavaScript transpilers, Mimosa will lint the resulting JavaScript.</p>
+          <p>The <code class="option">compiled</code> flags control whether or not linting is enabled for compiled code. So when Mimosa compiles SASS, LESS or Stylus, Mimosa will send the resulting CSS through a linting process. Similarly for the JavaScript transpilers, Mimosa will lint the resulting JavaScript.</p>
 
           <h2>Linting Copied Assets</h2>
 
-          <p>The <code class="option">copied</code> settings determine whether or not to lint copied files, like hand-coded JavaScript.</p>
-
-          <h2>Linting Vendor Assets</h2>
-
+          <p>The <code class="option">copied</code> flags determine whether or not to lint copied files, like hand-coded JavaScript and CSS.</p>
 
         </div>
 
         <div class="span4">
-<pre>lint:
+<pre>jshint:
   exclude:[]
-  compiled:
-    javascript:true
-    css:true
-  copied:
-    javascript: true
-    css: true
-  vendor:
-    javascript: false
-    css: false
-  rules:
-    jshintrc: ".jshintrc"
-    js:
-      plusplus: true
-    css:
-      floats: false</pre>
+  compiled: true
+  copied: true
+  vendor: false
+  jshintrc: ".jshintrc"
+  rules: {}
+
+csslint:
+  exclude:[]
+  compiled: true
+  copied: true
+  vendor: false
+  rules: {}</pre>
         </div>
       </div>
 
-      <p>Linting is, by default, disabled for vendor assets, that is, those assets living inside a <code class="option">vendor.javascripts</code> directory. Vendor libraries often break from the idiom or use hacks to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap causes 400+ warnings.</p>
+      <h2>Linting Vendor Assets</h2>
 
-      <p>To enable vendor asset linting, uncomment and enable the setting and switch the flags to <code class="option">true</code>.</p>
+      <p>Linting is, by default, disabled for vendor assets, that is, those assets located inside the <code class="option">vendor.javascripts</code> or <code class="option">vendor.stylesheets</code> directory. Vendor libraries often break from the idiom or use hacks to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap emits 400+ warnings.</p>
+
+      <p>To enable vendor asset linting, uncomment and set the <code class="option">vendor</code> flag to <code class="option">true</code>.</p>
 
       <h2>Lint Rules</h2>
 
-      <p>The <code class="option">rules</code> block is where linting rules for each of the linting tools are overridden or changed. Example overrides are provided in the default configuration. Those are examples, they are not actually overrides.</p>
+      <p>The <code class="option">rules</code> block is where linting rules for each of the linting tools are overridden or changed. Example overrides are provided in the default configuration. Those are examples, they are not actual overrides.</p>
 
       <h2>Default Rules</h2>
 
@@ -307,7 +303,7 @@ expr: true</pre>
       <p>Both of the lint/hinters come with default configurations that Mimosa uses. Here are links to the tools, as well as to the configuration for those tools.</p>
 
       <ul>
-        <li><a href="http://www.jshint.com/">JSHint</a>, <a href="http://www.jshint.com/">JSHint Rules Definitions</a></li>
+        <li><a href="http://www.jshint.com/">JSHint</a>, <a href="http://www.jshint.com/docs/options/">JSHint Rules Definitions</a></li>
         <li><a href="http://csslint.net/">CSSLint</a>, <a href="https://github.com/stubbornella/csslint/wiki/Rules">CSSLint Rules Definitions</a></li>
       </ul>
 

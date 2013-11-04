@@ -122,8 +122,12 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="./utilities.html#lint">lint</a></td>
-          <td>CSS and JS linting/hinting</td>
+          <td><a href="https://github.com/dbashford/mimosa-csslint">csslint</a></td>
+          <td>Run <a href="http://www.csslint.net">CSSLint</a> over your CSS.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-jshint">jshint</a></td>
+          <td>Run <a href="http://www.jshint.com">JSHint</a> over your JavaScript code.</td>
         </tr>
         <tr>
           <td><a href="./utilities.html#requirejs">require</a></td>
@@ -221,12 +225,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-csslint">csslint</a></td>
-          <td>Run <a href="http://www.csslint.net">CSSLint</a> over your CSS.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-jshint">jshint</a></td>
-          <td>Run <a href="http://www.jshint.com">JSHint</a> over your JavaScript code.</td>
+          <td><a href="./utilities.html#lint">lint</a></td>
+          <td>CSS and JS linting/hinting (this module was a default module until <code class="option">1.1.0</code>)</td>
         </tr>
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-plato">plato</a></td>
@@ -434,8 +434,6 @@
     <div class="row">
       <div class="span6">
         <h2>mod:list</h2>
-
-        <p>Note, at the moment this command will not work behind a proxy.</p>
 
         <p><code class='option'>mod:list</code> will search <a href="https://npmjs.org/">NPM</a> to find all available Mimosa modules. <code class='option'>mod:list</code> will list the most recent version of the module and if that module is currently installed, the installed version. If there is a difference, the installed version will be colored to signal that the version is out of date.</p>
 
