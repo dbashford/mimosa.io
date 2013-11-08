@@ -126,7 +126,7 @@
         </tr>
         <tr>
           <td>build</td>
-          <td>[-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-P/--profile]</td>
+          <td>[-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
           <td>Builds the project and exits.</td>
         </tr>
         <tr>
@@ -597,6 +597,18 @@ $ mimosa build -p</pre>
       <div class="span6">
         <pre>$ mimosa build --install
 $ mimosa build -i</pre>
+      </div>
+    </div>
+
+    <h3>Force Erroring Out (-e/--errorout)</h3>
+
+    <div class="row">
+      <div class="span6">
+    <p>Provide a <code class="option">--errorout</code> flag and the <code class='option'>build</code> command will error out if it encounters any compiler (js, css, template) errors.  Without this flag set, <code class='option'>build</code> compilers everything and gracefully exits.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa build --errorout
+$ mimosa build -e</pre>
       </div>
     </div>
 
