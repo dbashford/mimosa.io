@@ -125,7 +125,7 @@
     <section id="version">
       <div class="page-header">
         <h1>
-          Mimosa Version <small><span class="command">minMimosaVersion</span></small>
+          Mimosa Version
         </h1>
       </div>
     </section>
@@ -133,19 +133,26 @@
     <div class="row">
       <div class="span6">
 
-        <h4 class="hi minMimosaVersion">minMimosaVersion</h4>
+        <p>These settings are useful on project teams, when, for example, features of a newly released Mimosa are used, and the team wants to enforce that everyone upgrade their Mimosa.</p>
 
-        <p class="hi minMimosaVersion">The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">0.14.14</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">0.14.15</code>, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+        <h4 class="hi minMimosaVersion">minMimosaVersion</h4>
 
       </div>
       <div class="span6">
-<pre><span class="minMimosaVersion">minMimosaVersion: null</span></pre>
+<pre><span class="minMimosaVersion">minMimosaVersion: null</span>
+<span class="requiredMimosaVersion">requiredMimosaVersion: null</span></pre>
       </div>
     </div>
 
+    <p class="hi minMimosaVersion">The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">1.1.0</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">1.1.5</code>, when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+
     <p class="hi minMimosaVersion">When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
 
-    <p class="hi minMimosaVersion">This is useful on project teams, when, for example, features of a newly released Mimosa are used, and the team wants to enforce that everyone upgrade their Mimosa.</p>
+    <h4 class="hi requiredMimosaVersion">requiredMimosaVersion</h4>
+
+    <p class="hi requiredMimosaVersion">The <code class="option">requiredMimosaVersion</code> setting allows the enforcing of specific Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">1.1.0</code> installed, and the <code class="option">requiredMimosaVersion</code> is set to anything else, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+
+    <p class="hi requiredMimosaVersion">When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
 
     <section id="modules">
       <div class="page-header">
