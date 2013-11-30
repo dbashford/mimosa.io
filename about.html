@@ -79,6 +79,7 @@
         <li><a href="#upgrade12" title="upgrade to 1.2">1.2 upgrade</a></li>
         <li><a href="#upgrade11" title="upgrade to 1.1">1.1 upgrade</a></li>
         <li><a href="#upgrade" title="upgrade">1.0 upgrade</a></li>
+        <li><a href="#git" title="git">git error?</a></li>
         <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
         <li><a href="#contrib" title="Contribute">Contribute?</a></li>
         <li><a href="#ember" title="Ember.js">Ember.js</a></li>
@@ -184,6 +185,10 @@
       <li>mimosa-require now performs tracking by default. If you have trouble with tracking or would like to turn it off, then `require.tracking.enabled` should be set to `false`.</li>
     </ul>
 
+
+    <h2 id="git">"Error: git is not installed or not in the PATH"</h2>
+
+    <p>By default Mimosa uses Bower.  Bower fetches scripts and libraries from GitHub.  So, Mimosa has a dependency on git because it uses Bower.  If you don't want to install git, then you cannot use Bower.  That isn't a problem!  Just remove <code class="option">"bower"</code> from the list of modules in your <code class="option">mimosa-config</code>.</p>
 
     <h2 id="contrib">CPU running hot?</h2>
 
