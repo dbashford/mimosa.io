@@ -76,6 +76,7 @@
     <p class="lead">Some common questions answered</p>
     <div class="subnav">
       <ul class="nav nav-pills">
+        <li><a href="#upgrade12" title="upgrade to 1.2">1.2 upgrade</a></li>
         <li><a href="#upgrade11" title="upgrade to 1.1">1.1 upgrade</a></li>
         <li><a href="#upgrade" title="upgrade">1.0 upgrade</a></li>
         <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
@@ -97,6 +98,35 @@
         </h1>
       </div>
     </section>
+
+    <h2 id="upgrade11">1.2 upgrade</h2>
+
+    <p>With <code class="option">1.2</code> the <code class="option">mimosa-minify</code> module is being phased out as a default module.  It will still be a valid module and if you have it included in your project, Mimosa will continue to use it. Going forward, though, <a href="https://github.com/dbashford/mimosa-minify-js">mimosa-minify-js</a> and <a href="https://github.com/dbashford/mimosa-minify-css">mimosa-minify-css</a> will replace <code class="option">mimosa-minify</code> as default modules.</p>
+
+    <h3>How might this effect me?</h3>
+
+    <p>If you <b>do not</b> override your modules array -- if it is still commented out -- and you upgrade to <code class="option">1.2</code> Mimosa will no longer use <code class="option">mimosa-minify</code> and will instead use the two new modules. So, if you have uncommented the <code class="option">minify.exclude</code> configuration you'll need to make some changes.</p>
+
+    <p>You could uncomment your modules array.  That'll solve the problem straight away.  That'll force your project to use the <code class="option">minify</code> module and its config.</p>
+
+    <p>You could also switch to using the new modules.  This'll mean 15 seconds of config updates.</p>
+
+    <h3>I'd like to use the new modules please</h3>
+
+    <p>Here are the new default configs, when comparing them to the old one, the config translation should be an easy one:</p>
+
+    <div class="row">
+      <div class="span6">
+        <h4>mimosa-minify-js</h4>
+        <pre>minifyJS:
+  exclude:[/\.min\./]</pre>
+      </div>
+      <div class="span6">
+        <h4>mimosa-minify-css</h4>
+        <pre>minifyCSS:
+  exclude:[/\.min\./]</pre>
+      </div>
+    </div>
 
     <h2 id="upgrade11">1.1 upgrade</h2>
 
@@ -135,6 +165,8 @@
   rules:{}</pre>
       </div>
     </div>
+
+
     <h2 id="upgrade">1.0 upgrade</h2>
 
     <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code>. Mostly all the changes are simple <code class="option">mimosa-config</code> updates:</p>

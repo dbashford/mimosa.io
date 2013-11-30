@@ -174,11 +174,13 @@
       </div>
       <div class="span6">
 <pre><span class="modules">modules: [
-  'lint',
+  'jshint',
+  'csslint',
   'server',
   'require',
   'minify',
-  'live-reload'
+  'live-reload',
+  'bower'
 ]</span></pre>
       </div>
     </div>
@@ -608,18 +610,29 @@
 
     <div class="row">
       <div class="span6">
-        <h4 class="hi minify">minify</h4>
-        <p class="hi minify">The <code class="option">minify</code> config block contains configuration for non-require minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
+        <h4 class="hi minifyJS">minifyJS</h4>
+        <p class="hi minifyJS">The <code class="option">minifyJS</code> config block contains configuration for JavaScript minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
+
+        <h4 class="hi excludeJS minifyJS">minifyJS.exclude</h4>
 
       </div>
+
+
       <div class="span6">
-<pre><span class="minify">minify:</span>
-  <span class="exclude">exclude:[/\.min\./]</span></pre>
+<pre><span class="minifyJS">minifyJS:</span>
+  <span class="excludeJS">exclude:[/\.min\./]</span>
+<span class="minifyCSS">minifyCSS:</span>
+  <span class="excludeCSS">exclude:[/\.min\./]</span>  </pre>
       </div>
     </div>
 
-    <h4 class="hi exclude minify">minify.exclude</h4>
-    <p class="hi exclude minify"><code class="option">minify.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
+    <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
+
+      <h4 class="hi minifyCSS">minifyJS</h4>
+      <p class="hi minifyCSS">The <code class="option">minifyCSS</code> config block contains configuration for CSS minification/compression via clean-css using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
+
+    <h4 class="hi excludeCSS minifyCSS">minifyCSS.exclude</h4>
+    <p class="hi excludeCSS minifyCSS"><code class="option">minifyCSS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like bootstrap.min.css, is assumed to already be minified so it will be ignored by default.</p>
 
     <section id="growl">
       <div class="page-header">
