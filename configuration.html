@@ -392,14 +392,20 @@
         <p class="hi copy">The <code class="option">copy</code> config block contains configuration for the copy "compiler". For more information on the copy "compiler", see <a href="./compilers.html#copy">the compilers tab</a>.</p>
 
         <h4 class="hi copyextensions copy">copy.extensions</h4>
+
+        <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and amd path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
+
       </div>
       <div class="span6">
 <pre><span class="copy">copy:</span>
-  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"]</span></pre>
+  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"]</span>
+  <span class="copyexclude">exclude: []</span></pre>
       </div>
     </div>
 
-    <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and amd path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
+    <h4 class="hi copyexclude copy">copy.exclude</h4>
+
+    <p class="hi copyexclude copy">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">watch.sourceDir</code> or absolute.</p>
 
     <section id="server">
       <div class="page-header">
