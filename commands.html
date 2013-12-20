@@ -161,7 +161,7 @@
         </tr>
         <tr>
           <td>All Commands</td>
-          <td>[-D, --debug], [--help]</td>
+          <td>[-D, --mdebug], [--help]</td>
           <td>These flags are available for all commands.</td>
         </tr>
       </tbody>
@@ -711,7 +711,7 @@ $ mimosa [command] --help</pre>
             <div style="padding-left:10px">
                 -h, --help      output usage information<br/>
                 -d, --defaults  bypass prompts and go with Mimosa defaults (CoffeeScript, SASS, Handlebars)<br/>
-                -D, --debug     run in debug mode<br/>
+                -D, --mdebug     run in debug mode<br/>
             </div>
 
             <br/>
@@ -734,16 +734,19 @@ $ mimosa [command] --help</pre>
         </div>
       </div>
     </div>
-    <h3>-D/--debug</h3>
+    <h3>-D/--mdebug</h3>
     <div class="row">
       <div class="span6">
-        <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code class="option">--debug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
+        <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code class="option">--mdebug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
       </div>
       <div class="span6">
-        <pre>$ mimosa [command] --debug
+        <pre>$ mimosa [command] --mdebug
 $ mimosa [command] -D</pre>
       </div>
     </div>
+    <h3>node.js flags</h3>
+        <p>Mimosa will take and use an assortment of node.js process flags. These flags are the same as the ones that would be used when executing <code class="option">node</code> directly. The available node pass-through flags are <code class="option">--debug</code>, <code class="option">--debug-brk</code>, <code class="option">-gc</code>, <code class="option">--expose-gc</code>, <code class="option">--gc-global</code>, <code class="option">--harmony</code>, <code class="option">--harmony-proxies</code>, <code class="option">--harmony-collections</code>, <code class="option">--harmony-generators</code>, <code class="option">--prof</code>.</p>
+
   </section>
 </div>
 
