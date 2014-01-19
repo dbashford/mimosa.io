@@ -76,13 +76,12 @@
     <p class="lead">Some common questions answered</p>
     <div class="subnav">
       <ul class="nav nav-pills">
+        <li><a href="#upgrade20" title="upgrade to 2.0">2.0 upgrade</a></li>
         <li><a href="#upgrade12" title="upgrade to 1.2">1.2 upgrade</a></li>
         <li><a href="#upgrade11" title="upgrade to 1.1">1.1 upgrade</a></li>
-        <li><a href="#upgrade" title="upgrade">1.0 upgrade</a></li>
         <li><a href="#git" title="git">git error?</a></li>
         <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
-        <li><a href="#contrib" title="Contribute">Contribute?</a></li>
-        <li><a href="#ember" title="Ember.js">Ember.js</a></li>
+        <li><a href="#ember" title="Ember.js">Ember</a></li>
         <li><a href="#emfile" title="EMFILE">EMFILE</a></li>
         <li><a href="#norequirejs" title="No RequireJS">No RequireJS</a></li>
         <li><a href="#Heroku" title="Heroku">Heroku</a></li>
@@ -99,6 +98,20 @@
         </h1>
       </div>
     </section>
+
+    <h2 id="upgrade20">2.0 upgrade</h2>
+
+    <p><code class="option">2.0</code> brings the externalization of Mimosa's JS/CSS/Template compilers. This slims down Mimosa's footprint, speeding up installs, and greatly simplifies the Mimosa codebase. Externalizing the compilers also sets Mimosa up for other contributors to very easily create new, external compilers of their own. Previously that would have entailed pull requests back to the main Mimosa library.</p>
+
+    <p>Only config changes are necessary to upgrade to <code class="option">2.0</code>.</p>
+
+    <ul>
+      <li>Each of Mimosa's JS/CSS/Template compilers now have their own Mimosa module. If using any of them, they need to be added to the <code class="option">mimosa-config</code> <code class="option">modules</code> array. For instance, if using CoffeeScript, Stylus and Handlebars, <code class="option">"coffeescript", "stylus", "handlebars"</code> will need to be added to the <code class="option">modules</code> array.</li>
+      <li>Mimosa's "copy" compiler was also pulled out of Mimosa's core. That compiler handles any files that go through any sort of transpiling or preprocessing. If using images, <code class="option">.js</code> or <code class="option">.css</code> files, add <code class="option">"copy"</code> to the modules list. It will be a very rare project that doesn't need to add <code class="option">"copy"</code> to the list.</li>
+      <li>Using the <code class="option">compiler</code> config? That is going away. Each compiler module has its own configuration, including the ability to provide a specific version of the compiler and change the extensions being used for the compiler. For details on each compiler's config, check the README on that compiler's github page. For instance, here is the <a href="https://github.com/dbashford/mimosa-livescript">LiveScript README</a>.</li>
+      <li>The Handlebars compiler has been pulled out into two separate compilers, one for those using ember.js, and those who are not.  This removes the need to specifically configure ember.  Instead of configuring ember, just use the ember specific compiler. The <a href="https://github.com/dbashford/mimosa-ember-handlebars">ember-handlebars</a> and <a href="https://github.com/dbashford/mimosa-handlebars">handlebars</a> github pages have details on how to configure those new modules.</li>
+      <li>The mimosa-server module now depends on the project to have the correct transpilers <code class="option">npm install</code>ed to use those transpilers for node.js server code. So, for instance, if LiveScript is being used on the server, then LiveScript must be  <code class="option">npm install</code>ed into the project.</li>
+    </ul>
 
     <h2 id="upgrade11">1.2 upgrade</h2>
 
@@ -167,25 +180,6 @@
       </div>
     </div>
 
-
-    <h2 id="upgrade">1.0 upgrade</h2>
-
-    <p>The <code class="option">1.0</code> releases contain a few possible breaking changes if you are upgrading from <code class="option">0.14</code>. Mostly all the changes are simple <code class="option">mimosa-config</code> updates:</p>
-
-    <ul>
-      <li>A minor inconvenience, and not very breaking, but if you have a Mimosa project that has not overridden the <code class="option">modules</code> array, then when you upgrade to <code class="option">1.0</code> <code class="option">mimosa-bower</code> will now be included in your project. You'll get a message indicating that a <code class="option">bower.json</code> cannot be found. If you do not want Bower, simply uncomment the <code class="option">modules</code> array and leave Bower out.</li>
-      <li><code class="option">template.handlebars.lib</code> and <code class="option">template.emblem.lib</code> have been moved to <code class="option">compilers.libs.handlebars</code> and <code class="option">compilers.libs.emblem</code> respectively.</li>
-      <li>Using <code class="option">node-sass</code>? It is no longer bundled with Mimosa. To use <code class="option">node-sass</code> you must <code class="option">npm install</code> to install it into your project and then use <code class="option">compilers.libs.sass</code> to <code class="option">require</code> it in.</li>
-      <li>In your template config, if you were providing <code class="option">folders</code> to bundle into different output files, you will need to alter the folder paths as they are now relative to <code class="option">watch.sourceDir</code> rather than <code class="option">watch.javascriptDir</code>.</li>
-      <li>In your template config, if you were overriding the location of output files, you will need to alter the paths as they are now relative to <code class="option">watch.sourceDir</code> rather than <code class="option">watch.javascriptDir</code>.</li>
-      <li>If you are using mimosa-testem-simple, you will want to make sure you upgrade to the latest version (at least <code class="option">0.6.5</code>).</li>
-      </li>
-      <li>The <code class="option">template.amdWrap</code> option has been deprecated. Use <code class="option">template.wrapType</code> instead. Rather than being a flag, it is a string with valid values of: <code class="option">common</code>, <code class="option">amd</code>, and <code class="option">none</code>.</li>
-      </li>
-      <li>mimosa-require now performs tracking by default. If you have trouble with tracking or would like to turn it off, then `require.tracking.enabled` should be set to `false`.</li>
-    </ul>
-
-
     <h2 id="git">"Error: git is not installed or not in the PATH"</h2>
 
     <p>By default Mimosa uses Bower.  Bower fetches scripts and libraries from GitHub.  So, Mimosa has a dependency on git because it uses Bower.  If you don't want to install git, then you cannot use Bower.  That isn't a problem!  Just remove <code class="option">"bower"</code> from the list of modules in your <code class="option">mimosa-config</code>.</p>
@@ -197,16 +191,6 @@
     <p>Windows Users: You can also try turn off polling altogether by turning <code class="option">usePolling</code> to false. This might be the best option if you have truly enormous projects.</p>
 
     <p>*Nix users: Do not turn off polling.</p>
-
-    <h2 id="contrib">Want to Contribute?</h2>
-
-    <ol>
-      <li>Clone the repo. Take care to not clone the repo to same directory where other mimosa modules are cloned.  This will confuse Mimosa when running it a dev space.</li>
-      <li><code class="option">npm link</code> inside the repo to make your dev location available as a global command line option.</li>
-      <li>Hack code, submit pull request!</li>
-      <li>When committing, take care to not accidentally commit/push any unintended <code class="option">package.json</code> changes. If you are both hacking on Mimosa core and on Mimosa modules, you'll notice installing Mimosa modules will update the Mimosa <code class="option">package.json</code>.</li>
-    </ol>
-
 
     <h2 id="ember">Ember.js</h2>
 
