@@ -105,21 +105,20 @@
 
     <h2>How to get it?</h2>
 
-    <p>There are two ways to be given a config file by Mimosa: with <code class="option">mimosa new</code> and <code class="option">mimosa config</code>. For <code class="option">mimosa new</code>, the <code class="option">mimosa-config</code> will be altered to match the selections made during project creation. For <code class="option">mimosa config</code> the entire config file is commented out.</p>
+    <p>There are two ways to be given a config file by Mimosa: with <code class="option">mimosa new</code> and <code class="option">mimosa config</code>. For <code class="option">mimosa new</code>, the <code class="option">mimosa-config</code> will be altered to match the selections made during project creation. For <code class="option">mimosa config</code> only the modules are provided.  Both commands, however, also output a <code class="option">mimosa-config-documented.coffee</code> file which contains all of the documentation on the possible/default configuration items for the modules that are currently installed.</p>
 
-    <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a CoffeeScript file. However, if JavaScript is preferred, the file can be converted to a <code class="option">.js</code> and Mimosa will find it and use it. You just have to make sure the file is valid JavaScript.</p>
+    <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a JavaScript file. However, if CoffeeScript is preferred, the file can be converted to <code class="option">.coffee</code> and Mimosa will find it and use it.</p>
 
-    <h2>Wait, it is all commented out?</h2>
+    <h2>Why is my config file so small?</h2>
 
-    <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, and the less time spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
+    <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, then the less time is spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
 
-    <p>However, rather than deliver an empty text file for the config, the <code class="option">mimosa-config</code> comes with all of the configurable options listed out and explained, but commented out.  Each commented out option also lists its default. Options, defaults, and explanation...when the config file needs to be changed, everything is right there in the file.</p>
+    <p>While the delivered config file is small, the <code class="option">mimosa-config-documented.coffee</code> file that Mimosa also provides is large and contains all the possible/default configuration items for the installed modules.</p>
 
-    <h2>But when you want to change the config...</h2>
+    <h2>When you want to change the config...</h2>
 
-    <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintainenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="./compilers.html#copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
+    <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="./compilers.html#copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
 
-    <p>But if, for instance, you just don't want compiled code in a directory named <code class="option">public</code>, make sure to uncomment the right lines all the way back to the root of the config. Don't just uncomment the <code class="option">compiledDir</code>, uncomment <code class="option">compiledDir</code> and <code class="option">watch</code>.
     </p>
 
     <section id="version">
@@ -174,6 +173,7 @@
       </div>
       <div class="span6">
 <pre><span class="modules">modules: [
+  'copy'
   'jshint',
   'csslint',
   'server',
@@ -225,8 +225,8 @@
       </div>
     </div>
 
-    <h4 class="hi javascriptDir javascript compilers">watch.javascriptDir</h4>
-    <p class="hi javascriptDir javascript compilers">Location of the JavaScript code inside the <code class="option">watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code class="option">watch.compiledDir</code>. Note that there is not a <code class="option">watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
+    <h4 class="hi javascriptDir javascript">watch.javascriptDir</h4>
+    <p class="hi javascriptDir javascript">Location of the JavaScript code inside the <code class="option">watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code class="option">watch.compiledDir</code>. Note that there is not a <code class="option">watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
 
     <p class="hi javascriptDir javascript compilers"><code class="option">watch.javascriptDir</code> can be set to <code class="option">null</code> if not building web applictions. If <code class="option">watch.javascriptDir</code> is set to <code class="option">null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
 
@@ -283,24 +283,7 @@
       </div>
     </section>
 
-    <div class="row">
-      <div class="span6">
-
-        <p>Many compilers have compiler specific configuration that is not listed here.  Checkout the <a href="./compilers.html">Compilers</a> page for more information.</p>
-
-      </div>
-      <div class="span6">
-<pre><span class="compilers">compilers:</span>
-  <span class="extensionOverrides">extensionOverrides:</span>
-  <span class="libs">libs:{}</span></pre>
-      </div>
-    </div>
-
-    <h4 class="hi compilers extensionOverrides">compilers.extensionOverrides</h4>
-    <p class="hi compilers extensionOverrides">The <code class="option">compilers.extensionOverrides</code> config block contains nothing by default. This property allows certain extensions to be processed by a specific compiler. Each Mimosa compiler is already configured to process files with certain extensions, but this configuration allows those extensions to be changed. To use this, map a compiler name to an array of extensions.  For example, <code class="option">extensionOverrides:{coffee: ["coff", "coffee"]}</code> will add the "coff" extension to the already-default "coffee" extension. The <code class="option">compilers.extensionOverrides</code> setting can also be used to turn a compiler off if its behavior isn't desired. If CoffeeScript should not be compiled, the CoffeeScript compiler should be turned off with  <code class="option">extensionOverrides:{coffee: null}</code></p>
-
-    <h4 class="hi compilers libs">compilers.libs</h4>
-    <p class="hi compilers libs">This object allows for specific versions of any compiler library to be handed to Mimosa for it to use in lieu of using the one that comes with Mimosa. For instance, Mimosa comes with a Handlebars compiler, but some <a href="http://emberjs.com/">client-side MVC frameworks</a> can be picky about the version of Handlebars used to precompile templates. To provide a specific Handlebars version it must be <code class="option">npm install</code>ed into your application. Then use the node.js <code class="option">require</code> function to hand it to Mimosa.  Ex: <code class="option">compilers: libs: handlebars: require('handlebars')</code> </p>
+    <p>With Mimosa <code class="option">2.0</code> the <code class="option">compilers</code> section of the <code class="option">mimosa-config</code> was removed. <code class="option">2.0</code> externalized all of the compilers, so the <code class="option">compilers</code> config now resides with each individual external compiler.</p>
 
     <section id="templates">
       <div class="page-header">
@@ -312,9 +295,6 @@
 
     <div class="row">
       <div class="span6">
-        <h4 class="hi template">template</h4>
-        <p class="hi template">The object for template configuration. If this is set to <code class="option">null</code> the template compilers are not intantiated. This is a quick and easy way to disable all template compilation, if, for instance, you wanted to add template extensions to be copied rather than be compiled.</p>
-
         <h4 class="hi nameTransform template">template.nameTransform</h4>
         <p class="hi nameTransform template">Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.
 
@@ -334,11 +314,6 @@
   <span class="wrapType">wrapType: "amd"</span>
   <span class="commonLibPath">commonLibPath: null</span>
   <span class="outputFileName">outputFileName: "templates"</span>
-  <span class="handlebars">handlebars:</span>
-    <span class="helpers">helpers: ["app/template/handlebars-helpers"]</span>
-    <span class="ember">ember:</span>
-      <span class="emberEnabled">enabled:false</span>
-      <span class="emberPath">path:"vendor/ember"</span>
 
 -- OR instead of outputFileName --
 
@@ -358,17 +333,8 @@
     <h4 class="hi outputFileName template">template.outputFileName</h4>
     <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./compilers.html#mt">compilers tab</a> for more info.</p>
 
-    <h4 class="hi handlebars helpers template">template.handlebars.helpers</h4>
-    <p class="hi handlebars helpers template">Only relevant for Handlebars templates. An array of paths from <code class="option">watch.javascriptDir</code> to the files containing handlebars helper registrations. The default can be left alone if there are no helpers.</p>
-
-    <h4 class="hi handlebars ember template">template.handlebars.ember</h4>
-    <p class="hi handlebars ember template">The configuration block specific to using Handlebars with <a href="http://emberjs.com/">Ember.js</a>.</p>
-
-    <h4 class="hi handlebars ember emberEnabled template">template.handlebars.ember.enabled</h4>
-    <p class="hi handlebars ember emberEnabled template">Whether or not to use the <a href="http://emberjs.com/">Ember.js</a> specific Handlebars compiler. Defaults to not being enabled.</p>
-
-    <h4 class="hi handlebars ember emberPath template">template.handlebars.ember.path</h4>
-    <p class="hi handlebars ember emberPath template">The AMD path for the client <a href="http://emberjs.com/">Ember.js</a> library. Defaults to <code class="option">vendor/ember</code>. This is used when building the <code class="option">define</code> AMD wrapper for the compiled template files.</p>
+    <h4 class="hi handlebars template">template.handlebars</h4>
+    <p class="hi handlebars template">With Mimosa <code class="option">2.0</code> the <code class="option">handlebars</code> config has been removed from the <code class="option">template</code> config. Mimosa <code class="option">2.0</code> externalized all of the compilers, so the handlebars config now resides with the two new <a href="https://github.com/dbashford/mimosa-handlebars">handlebars</a> and <a href="https://github.com/dbashford/mimosa-ember-handlebars">ember-handlebars</a> compilers.</p>
 
     <h4 class="hi output template">template.output</h4>
     <p class="hi output template">An alternate configuration to <code class="option">template.outputFileName</code>, <code class="option">template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code class="option">template.output</code> and <code class="option">template.outputFileName</code> cannot both be used at the same time.</p>
@@ -394,7 +360,7 @@
 
         <h4 class="hi copyextensions copy">copy.extensions</h4>
 
-        <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and amd path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
+        <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and AMD path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
 
       </div>
       <div class="span6">

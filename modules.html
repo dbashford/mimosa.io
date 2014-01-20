@@ -107,9 +107,9 @@
 
     <h2>Included Modules</h2>
 
-    <p>Mimosa has several internal modules that handle things like reading and writing files and compilation of assets. There are also external modules that are simply default and included with Mimosa when it installs.</p>
+    <p>Mimosa has several internal modules that handle things like reading and writing files and logging. There are also external modules that are simply default and included with Mimosa when it installs.</p>
 
-    <p>The first table below lists the external modules that come baked into Mimosa. These do not need to be installed separately.</p>
+    <p>The table below lists the external modules that come baked into Mimosa. These do not need to be installed separately.</p>
 
     <br/>
 
@@ -142,11 +142,11 @@
           <td>Application reloads when the code does</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-minify-css">minify-css</a></td>
+          <td><a href="./optimization.html#min">minify-css</a></td>
           <td>Minification of CSS assets</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-minify-js">minify-js</a></td>
+          <td><a href="./optimization.html#min">minify-js</a></td>
           <td>Minification of JS assets</td>
         </tr>
         <tr>
@@ -180,7 +180,11 @@
         </tr>
         <tr>
           <td><a href="https://github.com/CraigCav/mimosa-karma">karma</a></td>
-          <td><a href="http://karma-runner.github.io/0.8/index.html">Karma</a> (formerly Testacular) test runner integration</td>
+          <td><a href="http://karma-runner.github.io/0.8/index.html">Karma</a> test runner integration.</td>
+        </tr>
+        <tr>
+          <td><a href="https://npmjs.org/package/mimosa-karma-enterprise">karma-enterprise</a></td>
+          <td>Advanced <a href="http://karma-runner.github.io/0.8/index.html">Karma</a> test runner integration.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/CraigCav/mimosa-jasmine-node">jasmine-node</a></td>
@@ -324,6 +328,10 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><a href="https://github.com/mwagg/mimosa-myth ">myth</a></td>
+          <td>A simple <a href="http://www.myth.io/">Myth</a> CSS preprocessor module.</td>
+        </tr>
         <tr>
           <td><a href="./optimization.html#min">minify</a></td>
           <td>Minification of JavaScript/CSS assets (formerly a default module until Mimosa v1.2.0)</td>
@@ -731,7 +739,7 @@ if (!hasFiles) {
 
     <div class="row">
       <div class="span3">
-        <p>A module's <code class='option'>placeholder</code> function is called when Mimosa is building the <code class='option'>mimosa-config.coffee</code> file that is delivered to a user during both the <code class='option'>mimosa new</code> and <code class='option'>mimosa config</code> commands. Use this function to return a string that shows what the module's configuration is and then explains each setting.</p>
+        <p>A module's <code class='option'>placeholder</code> function is called when Mimosa is building the <code class='option'>mimosa-config</code> file that is delivered to a user during both the <code class='option'>mimosa new</code> and <code class='option'>mimosa config</code> commands. Use this function to return a string that shows what the module's configuration is and then explains each setting.</p>
         <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
 
       </div>

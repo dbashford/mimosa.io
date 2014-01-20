@@ -103,7 +103,7 @@
     <h2>But if you want one...</h2>
     <p>Toss a <code class="option">-s/--server</code> onto <code class="option">mimosa watch</code> and Mimosa will invoke a server. Which server Mimosa invokes depends on what is in the <code class="option">mimosa-config</code>. Mimosa could start its own embedded Express server and point it at a project's views and assets. Or Mimosa could start the server provided by <code class="option">mimosa new</code>. Or Mimosa could execute an existing server using a simple exports hook.</p>
 
-    <p>All options are nodejs-based. The<code class="option">server</code> module does not have the ability to start your Rails server or your Tomcat.</p>
+    <p>All server integration options are nodejs-based. The <code class="option">server</code> module does not have the ability to start your Rails server or your Tomcat. But Mimosa can deliver compiled assets to the directory your server expects to find them by changing the <code class="option">watch.compiledDir</code> to that location.</p>
 
     <section id="new">
       <div class="page-header">
@@ -143,7 +143,7 @@
 
     <p>When <code class="option">onePager</code> is set to <code class="option">true</code> the embedded Express server is configured to automatically route every request to the application's <code class="option">index</code> view that doesn't result in an asset being returned. For instance given a URL of<code class="option">/account/1/item/2/comment/4</code> Mimosa's embedded server will route the request to the index view and leave the handling of the complex URL to the client code.</p>
 
-    <p>When <code class="option">onePager</code> is set to <code class="option">false</code>, Mimosa will assume simple routes for the application. <code class="option">url:3000/</code> will still route to the <code class="option">index</code> view. But<code class="option">url:3000/foo/</code> will route to the <code class="option">foo</code> view as will <code class="option">url:3000/foo/bar/b az</code>.</p>
+    <p>When <code class="option">onePager</code> is set to <code class="option">false</code>, Mimosa will assume simple routes for the application. <code class="option">url:3000/</code> will still route to the <code class="option">index</code> view. But<code class="option">url:3000/foo/</code> will route to the <code class="option">foo</code> view as will <code class="option">url:3000/foo/bar/baz</code>.</p>
 
     <section id="yours">
       <div class="page-header">

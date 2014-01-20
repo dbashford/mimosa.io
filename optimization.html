@@ -94,9 +94,9 @@
           <small><span class="options" title="O no!">zip it up, flip it, compress it down</span></small>
         </h1>
       </div>
-      <p>In the normal course of development (in a pre <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a> world) assets are best loaded individually rather than in one merged file. And assets definitely should not be minified or mangled. This all makes for easier debugging and for speedier compile and load times.</p>
+      <p>In the normal course of development assets are best loaded individually rather than in one merged file. And assets definitely should not be minified or mangled. This all makes for easier debugging and for speedier compile and load times. But when an application is taken to production, all the performance improvements that come with merging, optimizing, and minifying assets should be included.</p>
 
-      <p>But when an application is taken to production, all the performance improvements that come with merging, optimizing, and minifying assets should be included. For both the <code class="option">build</code> and <code class="option">watch</code> commands, Mimosa provides <code class="option">--optimize</code> and <code class="option">--minify</code> flags that combine to provide both the ability to fully optimize an application, and to have a more control over what gets optimized.</p>
+      <p>For both the <code class="option">build</code> and <code class="option">watch</code> commands, Mimosa provides <code class="option">--optimize</code> and <code class="option">--minify</code> flags that combine to provide both the ability to fully optimize an application, and to have a more control over what gets optimized.</p>
 
       <p>Via the <code class="option">mimosa-require</code> module that comes with Mimosa by default, Mimosa uses the <a href="https://github.com/jrburke/r.js/">r.js optimizer</a> which is perfect for optimizing RequireJS applications. Underneath the hood, that optimizer is using <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to shrink a codebase down as tiny as possible. Mimosa bundles Uglify2, and can use it to individually shrink assets. And Mimosa's Uglify and the r.js optimizer can be combined to provide more fine-grained control over a minification strategy.</p>
 
@@ -209,7 +209,7 @@
 
       <p>Mimosa's Minification support comes courtesy of the <code class="option">mimosa-minify-js</code> and <code class="option">mimosa-minify-css</code> modules which are both default modules that come with Mimosa when it is installed.</p>
 
-      <p>For both the <code class="option">build</code> and <code class="option">watch</code> commands, Mimosa provides an <code class="option">--minify</code> flag that will run <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> over JavaScript assets. The mimosa-config provides the ability to exclude certain files from this minification using the <code class="option">minify.exclude</code> setting. By default any file already possessing <code class="option">.min.</code> in the path name will be excluded as it is assumed to already be minified.</p>
+      <p>For both the <code class="option">build</code> and <code class="option">watch</code> commands, Mimosa provides an <code class="option">--minify</code> flag that will run <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> over JavaScript assets. The mimosa-config provides the ability to exclude certain files from this minification using the <code class="option">minifyJS.exclude</code> and <code class="option">minifyCSS.exclude</code> settings. By default any file already possessing <code class="option">.min.</code> in the path name will be excluded as it is assumed to already be minified.</p>
 
       <p>If minifying a file that has a sourceMap the minifier will detect the source map and use it to create a new map.  So, for example, CoffeeScript compiled to JavaScript and then minified will have source maps that map the minified code back to the CoffeeScript source.</p>
 
@@ -224,7 +224,7 @@
 
       <p>For either the <code class="option">build</code> or <code class="option">watch</code> commands, using the <code class="option">--minify</code> and <code class="option">--optimize</code> flags together provides increased control over the optimization workflow.</p>
 
-      <p>The r.js optimizer by itself is often good enough to handle minifying, compressing and pulling modules into single files; however, the occasional file does not take kindly to being run through Uglify and will be broken when compressed. The r.js optimizer is all or none. It does not allow choose to omit a file from compression if it is not compressing correctly.</p>
+      <p>The r.js optimizer by itself is often good enough to handle minifying, compressing and pulling modules into single files; however, the occasional file does not take kindly to being run through Uglify and will be broken when compressed. The r.js optimizer is all or none. It does not allow omitting a file from compression if it is not compressing correctly.</p>
 
       <p>When both minifying and optimizing, r.js minification is turned off. Specifically the <code class="option">optimize</code> setting of r.js is set to <code class="option">none</code>. The optimizer is still used to pull all of an application's files together into the same file and wrap it in Almond. But Mimosa will Uglify files first, before calling the optimizer, and Mimosa provides the opportunity to not Uglify whatever files are not making it through Uglifying in working order.</p>
 
@@ -240,7 +240,7 @@
           <small><span class="options">it gets minified too</span></small>
         </h1>
       </div>
-      <p>When the <code class="option">--optimize</code> flag is used, Mimosa will minify CSS files too. And that about covers that.</p>
+      <p>When the <code class="option">--optimize</code> flag is used, Mimosa will minify CSS files too.</p>
     </section>
 
     <section id="combine">
