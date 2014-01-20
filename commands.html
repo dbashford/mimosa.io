@@ -132,7 +132,7 @@
         <tr>
           <td>config</td>
           <td></td>
-          <td>Provides a mimosa-config when one isn't present, and writes a commented out version for reference.</td>
+          <td>Provides a mimosa-config when one isn't present, and writes a fully documented version for reference.</td>
         </tr>
         <tr>
           <td>bower</td>
@@ -198,11 +198,11 @@
 
         <p>If a server was chosen, Mimosa will include the bare essentials for an <a href="http://expressjs.com/">Express</a> application, including a simple <a href="http://expressjs.com/guide.html#routing">router</a> and a file Mimosa will use to start Express. That code will be delivered in the chosen meta-language.</p>
 
-        <p>Lastly, Mimosa will provide some starter views for an index page in the chosen view templating language.</p>
+        <p>Mimosa will also provide some starter views for an index page in the chosen view templating language.</p>
 
         <p>If no server is chosen, Mimosa can handle serving assets. Mimosa provides some configuration options for an embedded Express server so not having a server is a little less painful than it would be otherwise.</p>
 
-        <p>The project directory will also contain Mimosa's configuration file. Almost everything inside of it is commented out, but all the options and explanations for each option are present.</p>
+        <p>The project directory will also contain Mimosa's configuration file which will contain at a minimum a <code class='option'>modules</code> array. If a JavaScript transpiler, a CSS preprocessor or a micro-templating library were chosen, the modules for those will be added to the <code class='option'>modules</code> array and installed inside the project as part of creating the project. A documented version of the config will also be created. It will contain all the information for each of the modules used to build the project along with defaults.</p>
 
         <h3>Pick the defaults (-d/--defaults)</h3>
 
@@ -222,7 +222,7 @@ $ mimosa new nameOfApplicationHere -d</pre>
 
           <p class="inst">If you are unsure which options to pick, the ones with asterisks are Mimosa favorites. Feel free to hit the web to research your selections, Mimosa will be here when you get back.</p>
 
-          <p class="inst">To start, please choose your JavaScript meta-language:</p>
+          <p class="inst">To start, please choose your JavaScript transpiler:</p>
 
           <p>
             1) Coco - https://github.com/satyr/coco<br/>
@@ -239,7 +239,7 @@ $ mimosa new nameOfApplicationHere -d</pre>
           </p>
 
           <p class="inst">
-            Choose your CSS meta-language:
+            Choose your CSS preprocessor:
           </p>
 
           <p>
@@ -262,16 +262,15 @@ $ mimosa new nameOfApplicationHere -d</pre>
             1) (*) Dust - https://github.com/linkedin/dustjs/<br/>
             2) Embedded CoffeeScript Templates (ECO) - https://github.com/sstephenson/eco<br/>
             3) Embedded JavaScript Templates (EJS) - https://github.com/visionmedia/ejs<br/>
-            4) Emblem - http://emblemjs.com<br/>
-            5) (*) Handlebars - http://handlebarsjs.com/<br/>
-            6) Hogan - http://twitter.github.com/hogan.js/<br/>
-            7) HTML - Just Plain HTML Snippets, no compiling<br/>
-            8) Jade - http://jade-lang.com/<br/>
-            9) LoDash - http://lodash.com/docs#template<br/>
-            10) None (No Templating)<br/>
-            11) Ractive - http://ractivejs.org<br/>
-            12) Underscore - http://underscorejs.org/#template<br/>
-            : 6
+            4) (*) Handlebars - http://handlebarsjs.com/<br/>
+            5) Hogan - http://twitter.github.com/hogan.js/<br/>
+            6) HTML - Just Plain HTML Snippets, no compiling<br/>
+            7) Jade - http://jade-lang.com/<br/>
+            8) LoDash - http://lodash.com/docs#template<br/>
+            9) None (No Templating)<br/>
+            10) Ractive - http://ractivejs.org<br/>
+            11) Underscore - http://underscorejs.org/#template<br/>
+            : 5
           </p>
 
           <p class="fb">
@@ -315,8 +314,7 @@ $ mimosa new nameOfApplicationHere -d</pre>
           <p class="inst">Creating and setting up your project...</p>
 
           <p class="logs">
-            23:20:05 - Copying skeleton project into /path/to/foo<br/>
-            23:20:05 - Installing node modules<br/>
+            23:20:05 - Installing application and Mimosa development node modules. This may take a few seconds.<br/>
             <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch' from inside your project to monitor the file system. Then start coding!</span><br/>
           </p>
         </div>
@@ -675,15 +673,15 @@ $ mimosa build -P nameOfProfile</pre>
 
         <pre>$ mimosa config</pre>
 
-        <p>To use Mimosa with an existing project, use this command to copy the default <code class="option">mimosa-config.coffee</code> file into the current directory. Some configuration will likely need to be updated for the project. This command will also create a <code class="option">mimosa-config-commented.coffee</code>. This will allow modifications to occur to the <code class="option">mimosa-config</code> while keeping the defaults file for reference.</p>
+        <p>To use Mimosa with an existing project, use this command to copy the default <code class="option">mimosa-config.js</code> file into the current directory. Some configuration will likely need to be updated for the project. This command will also create a <code class="option">mimosa-config-documented.coffee</code>. This will allow modifications to occur to the <code class="option">mimosa-config</code> while keeping the defaults file for reference.</p>
 
       </div>
       <div class="span6 term">
         <div class="inner">
           <p>
             $ mimosa config<br/>
-            <span class="inst">17:28:45 - Copied mimosa-config-commented.coffee into current directory.</span><br/>
-            <span class="inst">17:28:45 - Copied mimosa-config.coffee into current directory.</span><br/>
+            <span class="inst">17:28:45 - Copied mimosa-config-documented.coffee into current directory.</span><br/>
+            <span class="inst">17:28:45 - Copied mimosa-config.js into current directory.</span><br/>
           </p>
         </div>
       </div>

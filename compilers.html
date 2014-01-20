@@ -95,7 +95,7 @@
       </div>
     </section>
 
-      <p>The following list of compilers come with Mimosa and do not require additional installs.</p>
+      <p>The following list of Mimosa modules that meet the compiler spec for their compiler type. To use one of these, simple add the "Mimosa Name" to your <code class="option">modules</code> array. Each of the compilers has its own configuration which can be found on its GitHub page.</p>
 
     <h2>JavaScript</h2>
 
@@ -109,27 +109,27 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="http://coffeescript.org/">CoffeeScript</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-coffeescript">CoffeeScript</a></td>
           <td>coffee</td>
           <td>coffee, litcoffee</td>
         </tr>
         <tr>
-          <td><a href="http://maxtaco.github.com/coffee-script/">Iced CoffeeScript</a></td>
-          <td>iced</td>
+          <td><a href="https://github.com/dbashford/mimosa-iced-coffeescript">Iced CoffeeScript</a></td>
+          <td>iced-coffeescript</td>
           <td>iced</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/satyr/coco">Coco</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-coco">Coco</a></td>
           <td>coco</td>
           <td>coco, co</td>
         </tr>
         <tr>
-          <td><a href="http://gkz.github.com/LiveScript/">LiveScript</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-livescript">LiveScript</a></td>
           <td>livescript</td>
           <td>ls</td>
         </tr>
         <tr>
-          <td><a href="http://www.typescriptlang.org/">TypeScript</a> - TypeScript support is experimental, <a href="https://github.com/dbashford/mimosa/issues?state=open">provide</a> <a href="https://groups.google.com/forum/#!forum/mimosajs">feedback</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-typescript">TypeScript</a> - TypeScript support is experimental, <a href="https://github.com/dbashford/mimosa/issues?state=open">provide</a> <a href="https://groups.google.com/forum/#!forum/mimosajs">feedback</a></td>
           <td>typescript</td>
           <td>ts</td>
         </tr>
@@ -148,17 +148,17 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="http://learnboost.github.com/stylus/">Stylus</a> w/<a href="http://visionmedia.github.com/nib/">nib</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-stylus">Stylus</a> w/nib</td>
           <td>stylus</td>
           <td>styl</td>
         </tr>
         <tr>
-          <td><a href="http://sass-lang.com/">SASS</a> w/<a href="http://compass-style.org/">Compass</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-sass">SASS</a> w/Compass</td>
           <td>sass</td>
           <td>scss, sass</td>
         </tr>
         <tr>
-          <td><a href="http://lesscss.org/">LESS</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-less">LESS</a></td>
           <td>less</td>
           <td>less</td>
         </tr>
@@ -177,58 +177,63 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="http://handlebarsjs.com/">Handlebars</a> + <a href="http://emberjs.com/guides/templates/handlebars-basics/">Ember Handlebars</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-handlebars">Handlebars</a></td>
           <td>handlebars</td>
           <td>hbs, handlebars</td>
         </tr>
         <tr>
-          <td><a href="http://emblemjs.com/">Emblem</a> + <a href="http://emberjs.com/guides/templates/handlebars-basics/">Ember Emblem</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-ember-handlebars">Ember Handlebars</a></td>
+          <td>ember-handlebars</td>
+          <td>hbs, handlebars</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-emblem">Emblem</a></td>
           <td>emblem</td>
           <td>emblem, embl</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/linkedin/dustjs/">Dust</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-dust">Dust</a></td>
           <td>dust</td>
           <td>dust</td>
         </tr>
         <tr>
-          <td><a href="http://twitter.github.com/hogan.js/">Hogan</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-hogan">Hogan</a></td>
           <td>hogan</td>
           <td>hog, hogan, hjs</td>
         </tr>
         <tr>
-          <td><a href="http://jade-lang.com/">Jade</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-jade">Jade</a></td>
           <td>jade</td>
           <td>jade</td>
         </tr>
         <tr>
-          <td><a href="http://underscorejs.org/">Underscore</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-underscore">Underscore</a></td>
           <td>underscore</td>
           <td>tpl, underscore</td>
         </tr>
         <tr>
-          <td><a href="http://lodash.com/">Lodash</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-lodash">Lodash</a></td>
           <td>lodash</td>
           <td>tmpl, lodash</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/visionmedia/ejs">EJS</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-ejs">EJS</a></td>
           <td>ejs</td>
           <td>ejs</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/sstephenson/eco">ECO</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-eco">ECO</a></td>
           <td>eco</td>
           <td>eco</td>
         </tr>
         <tr>
-          <td><a href="http://www.ractivejs.org/">Ractive</a></td>
+          <td><a href="https://github.com/dbashford/mimosa-ractive">Ractive</a></td>
           <td>ractive</td>
           <td>rtv, rac</td>
         </tr>
         <tr>
           <td>Plain HTML</td>
-          <td>html</td>
+          <td>html-templates</td>
           <td>template</td>
         </tr>
       </tbody>
@@ -236,14 +241,20 @@
 
     <h2>Copy</h2>
 
+    <p>The file copying module manages files that do not need compiling, like images or plain <code class="option">.js</code> or <code class="option">.css</code> files.</p>
+
     <table class="table table-striped table-bordered table-condensed">
       <thead>
         <tr>
+          <th>Name</th>
+          <th>Mimosa Name</th>
           <th>Copied Extensions</th>
         </tr>
       </thead>
       <tbody>
         <tr>
+          <td><a href="https://github.com/dbashford/mimosa-copy">File copying module</a></td>
+          <td>copy</td>
           <td>js, css, png, jpg, jpeg, gif, html, eot, svg, ttf, woff, otf, yaml, kml, ico, htc, htm, json, txt, xml, xsd, map, md, mp4</td>
         </tr>
       </tbody>
@@ -267,102 +278,9 @@
         </h1>
       </div>
 
-      <p>Mimosa currently supports the following JavaScript Transpilers.  Next to the name of each is the Mimosa name and the list of default extensions Mimosa recognizes.</p>
+      <p>Mimosa has support for several JavaScript transpilers. See the list at the top of the page.</p>
 
-      <h2>CoffeeScript <small><span class="mim">coffee</span> <span class="command">["coffee", "litcoffee"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p><a href="http://coffeescript.org/">CoffeeScript</a> is one of Mimosa's compilers. Mimosa will treat files ending in <code class="option">.coffee</code> as CoffeeScript files.</p>
-
-
-          <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a>. Source maps map lines of compiled JavaScript back to lines of the original CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of CoffeeScript. The inclusion of source maps eliminates one of the chief concerns with using this particular compiles-to-JavaScript language. Source maps are turned off by default for <code class="option">mimosa build</code>. Dynamic source maps are used by default, unless minifying code, in which case source maps are generated as separate files.</p>
-        </div>
-        <div class="span6">
-          <pre>coffeescript:
-  sourceMap:true
-  sourceMapDynamic: true
-  sourceMapExclude: [/\/specs?\//, /_spec.js$/]
-  bare:true</pre>
-        </div>
-      </div>
-
-      <p>CoffeeScript, by default, wraps compiled JavaScript in a safety wrapper to protect scope. Mimosa turns this wrapping off by compiling <code class="option">bare</code> by default. Mimosa does this because it assumes code is already being wrapped in AMD or CommonJS/AMD functions <code class="option">define</code> or <code class="option">require</code>.</p>
-
-      <p>Mimosa provides the full ability to configure the CoffeeScript compiler via the <code class="option">mimosa-config</code>. Source maps can be turned off, <code class="option">bare</code> compilation can be turned off, and any other flags/settings CoffeeScript exposes to tweak compilation can be added. The following is the default config for the CoffeeScript compiler.</p>
-
-
-      <p>The <code class="option">sourceMapExclude</code> property is not a CoffeeScript compiler instruction, but one for Mimosa. Any files paths that match the entries in the<code class="option">sourceMapExclude</code> will not have source maps generated.</p>
-
-      <p>Mimosa will also compile <a href="http://ashkenas.com/literate-coffeescript/">Literate CoffeeScript</a> files if they end with the extension <code class="option">litcoffee</code>.</a>
-
-      <h2>Iced CoffeeScript <small><span class="mim">iced</span> <span class="command">['iced']</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p><a href="http://maxtaco.github.com/coffee-script/">Iced CoffeeScript</a> is available as an option for folks who want some async sugar in their Coffee.</p>
-
-          <p>Like CoffeeScript, Iced CoffeeScript, by default, wraps compiled JavaScript in a safety wrapper to protect scope. Mimosa turns this wrapping off by compiling <code class="option">bare</code> by default. Mimosa does this because it assumes code is already being wrapped in AMD or CommonJS/AMD functions <code class="option">define</code> or <code class="option">require</code>.</p>
-        </div>
-        <div class="span6">
-          <pre>iced:
-  sourceMap:true
-  sourceMapDynamic: true
-  sourceMapExclude: [/\/specs?\//, /_spec.js$/]
-  bare:true
-  runtime:"none"</pre>
-        </div>
-      </div>
-
-      <p>By default, during <code class="option">mimosa watch</code> Mimosa will also generate <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a> for Iced CoffeeScript. Source maps map lines of compiled JavaScript back to lines of the original Iced CoffeeScript source. So when something breaks in the compiled JavaScript, tools like the Chrome Dev Tools will show you the responsible line of Iced CoffeeScript. Source maps are turned off by default for <code class="option">mimosa build</code>. Dynamic source maps are used by default, unless minifying code, in which case source maps are generated as separate files.</p>
-
-      <p>Mimosa provides the full ability to configure the Iced CoffeeScript compiler via the <code class="option">mimosa-config</code>. <code class="option">bare</code> compilation can be turned off, and any other flags/settings Iced CoffeeScript exposes to tweak compilation can be added. The following is the default config for the Iced CoffeeScript compiler.</p>
-
-      <p>Iced CoffeeScript files are also compiled without their runtime boilerplate by setting <code class="option">runtime: "none"</code>. That boilerplate looks something like <a href="https://github.com/dbashford/mimosa/blob/master/skeleton/assets/javascripts/vendor/iced.js.iced">this</a>. That boilerplate, if left in, is included in every Iced CoffeeScript file that uses the added async sugar that Iced CoffeeScript provides. The <code class="option">mimosa new</code> Iced CoffeeScript app comes equipped with a better solution. That boilerplate is pulled out into a module and attached to the window so that the compiled Iced CoffeeScript code can use it.</p>
-
-      <p>But, the config is open, so if another solution is preferred, how the Iced CoffeeScript compiler handles the boilerplate can be tweaked.</p>
-
-      <h2>Coco <small><span class="mim">coco</span> <span class="command">['co', 'coco']</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p><a href=" http://gkz.github.com/LiveScript/">Coco</a> compilation is also available.</p>
-          <p>Like the compilers above, by default, Coco wraps compiled JavaScript in a safety wrapper to protect scope. Mimosa turns this wrapping off by compiling <code class="option">bare</code> by default. Mimosa does this because it assumes code is already being wrapped in AMD or CommonJS/AMD functions <code class="option">define</code> or <code class="option">require</code>.</p>
-        </div>
-        <div class="span6">
-          <pre>coco:
-  bare:true</pre>
-        </div>
-      </div>
-
-      <h2>LiveScript <small><span class="mim">livescript</span> <span class="command">['ls']</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p><a href=" http://gkz.github.com/LiveScript/">LiveScript</a> is available as an option for those that enjoy some functional hotness and squiggly arrows.</p>
-
-          <p>Like the compilers above, by default, LiveScript wraps compiled JavaScript in a safety wrapper to protect scope. Mimosa turns this wrapping off by compiling <code class="option">bare</code> by default. Mimosa does this because it assumes code is already being wrapped in AMD or CommonJS/AMD functions <code class="option">define</code> or <code class="option">require</code>.</p>
-        </div>
-        <div class="span6">
-          <pre>livescript:
-  bare:true</pre>
-        </div>
-      </div>
-
-      <h2>TypeScript <small><span class="mim">typescript</span> <span class="command">['ts']</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p>Like the idea of typed JavaScript? <a href=" http://www.typescriptlang.org/">TypeScript</a> might be for you.</p>
-
-          <p>TypeScript has a small bit of its own configuration that isn't documented elsewhere.</p>
-        </div>
-        <div class="span6">
-          <pre>typescript:
-  module:null</pre>
-        </div>
-      </div>
-
-      <p>The <code class="option">module</code> config is used to set how TypeScript will wrap compiled TypeScript. The default is <code class="option">null</code>, which will not wrap the compiled code. Other options are <code class="option">amd</code> and <code class="option">commonjs</code> which will wrap compiled code as expected for each.</p>
-
-      <p>TypeScript support was new with version 0.7.0 of Mimosa, and it is experimental. Feedback from TypeScripters would be huge. What flags and features should be available? Also, the code provided by <code class="option">mimosa new</code> is not even close to being idiomatic TypeScript. <a href="https://github.com/dbashford/MimosaTypeScript">Lend a hand in fixing it</a>?
+      <p>Mimosa's root/base JavaScript compile wraps the module compilers and provides functionality to support writing and cleaning up source maps for those compilers that create them.</p>
 
     </section>
     <section id="css">
@@ -374,33 +292,7 @@
 
       <p>Mimosa does a little bit of extra work with CSS. Mimosa takes care not to compile files that do not need it. If CSS gets included back through a single base CSS file, changing a file deep down the tree of includes will only trigger a compile of that single base file and not the changed file.  Similarly if there are multiple base files, changing a file included in two places will trigger the recompile of those two files.</p>
 
-      <p>The list of CSS compilers follows. Next to each name is the Mimosa name and the list of default extensions.</p>
 
-      <h2>Stylus w/nib <small><span class="mim">stylus</span> <span class="command">["styl"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p><a href="http://learnboost.github.com/stylus/">Stylus</a> with <a href="http://visionmedia.github.com/nib/">nib</a> is available. Mimosa will look for files ending in .styl and treat them as Stylus files. Stylus is a node library (as is nib), so there is no need to install anything to use it, and Stylus compiles will be speedy.</p>
-          <p>To understand how to use the various stylus config options, checkout the <a href="http://learnboost.github.io/stylus/docs/js.html">Stylus JS docs</a>.  Each of the config options are passed through to the stylus compiler.  By default, <code class="option">nib</code> is both <code class="option">use</code>d and <code class="option">import</code>ed. </p>
-        </div>
-        <div class="span6">
-          <pre>stylus:
-  use:['nib']
-  import:['nib']
-  define:{}
-  includes:[]
-  url:{}</pre>
-        </div>
-      </div>
-
-      <h2>SASS w/Compass <small><span class="mim">sass</span> <span class="command">["scss", "sass"]</span></small></h2>
-          <p><a href="http://sass-lang.com/">SASS</a> w/<a href="http://compass-style.org/">Compass</a> is another available CSS pre-processor. For SASS compilation there are two options, using Ruby SASS <a href="http://sass-lang.com/">(SASS Ruby gem install)</a> or node.js SASS (via the node-sass library). Ruby is SASS' source language and the node.js version is a port of the Ruby functionality to node.js. Mimosa does not come bundled with the node.js version as it can occasionally cause installation issues, but Mimosa is ready to use the node version if it is provided. Use the <code class="option">compilers.libs.sass</code> setting in the <code class="option">mimosa-config</code> to provide a node-sass compiler. (Ex: <code class="option">require('node-sass')</code>) By default the Ruby version is enabled.</p>
-      <p>Note: To use the node version of SASS, node version 0.10 is required.</p>
-
-      <p>Compass <a href="http://compass-style.org/install/">(Ruby install)</a> does not have a node.js port, so to use SASS and Compass together, Ruby SASS must be used.</p>
-
-      <h2>LESS <small><span class="mim">less</span> <span class="command">["less"]</span></small></h2>
-      <p>Mimosa will also compile <a href="http://lesscss.org/">LESS</a>.  LESS is a node library, so there is no need to install anything to use it, and LESS compiles will be speedy.</p>
     </section>
     <section id="mt">
       <div class="page-header">
@@ -411,11 +303,11 @@
 
       <div class="row">
         <div class="span6">
-      <p>Listed below are the different micro-templating libraries built into Mimosa. For performance reasons, templates should be pre-compiled on the server rather than the browser. Mimosa pre-compiles templates. As with the CSS and JavaScript meta-languages, micro-templates will be compiled when saved. Based on its configuration, Mimosa will create one-to-many compiled template files. See <a href="#ov">Output Variations</a> below for the output options.</p>
+      <p>For performance reasons, templates should be pre-compiled on the server rather than the browser. Mimosa, through many external compiler modules (see the list at the top of the page) will precompile and project's templates. Based on its configuration, Mimosa will create one-to-many compiled template files. See <a href="#ov">Output Variations</a> below for the output options.</p>
 
       <p>For each templating language, the compiled template files provide a JavaScript object of templates, keyed by the template file name (the default configuration for template name). Each template needs to have a unique name. Should this be violated, Mimosa will warn of template collision issues.</p>
 
-      <p>Most of the libraries require a client side version to run the compiled templates. If using AMD wrapping for your templates (more on that below), Mimosa will handle including that library in your project. It will place an AMD wrapped version of the library inside the <code class="option">vendor.javascripts</code> library and reference it from the compiled template file. If a library that matches Mimosa's name for the library exists, Mimosa will not overwrite that file. Also, if using AMD wrapping, if a requirejs path alias is set up pointing at the library, like <code class="option">underscore:"vendor/underscore"</code>, Mimosa will use the path. To the right are the names of the libraries Mimosa places in <code class="option">vendor/javascripts</code> directory.</p>
+      <p>Most of the libraries require a client side version to run the compiled templates. If using AMD wrapping for your templates (more on that below), Mimosa template compilers will handle including that library in your project. They will place an AMD wrapped version of the library inside the <code class="option">vendor.javascripts</code> library and reference it from the compiled template file. If a library that matches Mimosa's name for the library exists, Mimosa will not overwrite that file. Also, if using AMD wrapping and a requirejs path alias is set up pointing at the library, like <code class="option">underscore:"vendor/underscore"</code>, Mimosa will use the path. To the right are the names of the libraries Mimosa places in <code class="option">vendor/javascripts</code> directory.</p>
         </div>
         <div class="span6">
 
@@ -516,189 +408,6 @@
 
       <p>If <code class="option">template.wrapType</code> config is set to <code class="option">common</code>, Mimosa will create CommonJS compliant template files. Mimosa will also not write any client libraries so the project author must provide a version of the library that works in a CommonJS project.</p>
 
-      <p>Next to the name of each micro-templater below is the Mimosa name and the list of default extensions Mimosa recognizes.</p>
-
-      <h2>Handlebars <small><span class="mim">handlebars</span> <span class="command">["hbs", "handlebars"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p><a href="http://handlebarsjs.com/">Handlebars</a> is available. To access a Handlebars template originating from a file named "example.hbs" passing in JSON data the template needs to render.</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>Handlebars also provides the ability to include reusable helper methods. Those can be coded in any meta-language and should be included inside the <code class="option">compilers.template.handlebars.helpers</code> array.</p>
-
-      <p>Because all of the templates are compiled together, helpers, <code class="option">{{example-helper}}</code>, are immediately available without any extra work.  Also, partials do not require Handlebars.registerPartial to be called.  The output <code class="option">template.js</code> file is modified to access the entire list of templates when attempting to insert a partial.</p>
-
-      <p>Mimosa keeps an AMD wrapped version of Handlebars that it writes to   <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
-
-      <h3>Got Ember?</h3>
-
-      <div class="row">
-        <div class="span6">
-
-          <p><a href="http://emberjs.com/">Ember.js</a> uses Handlebars, but its a Handlebars that is Ember specific. Mimosa's includes Ember Handlebars pre-compilation out of the box with minimal config. By default, vanilla Handlebars will compile all of the <code class="option">.hbs</code> and <code class="option">.handlebars</code> files it comes across. To enable Ember Handlebars pre-compilation, use the  <code class="option">template.handlebars </code> config.</p>
-          <p><code class="option">ember.enabled</code> selects the Ember Handlebars pre-compiler as the compiler that will handle Handlebars templates. <code class="option">path</code> is the AMD location of the Ember library, which defaults to <code class="option">vendor/ember</code>.</p>
-        </div>
-        <div class="span6">
-          <pre>template:
-  handlebars:
-    ember:
-      enabled:true
-      path:"vendor/ember"</pre>
-        </div>
-      </div>
-
-      <p>When Ember Handlebars is enabled, Mimosa will not write the AMD version of Handlebars to the public directory as it does with all the other compilers including vanilla Handlebars.</p>
-
-      <h2>Emblem <small><span class="mim">emblem</span> <span class="command">["emblem", "embl"]</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p><a href="http://emblemjs.com/">Emblem</a> is available. Use the code listed to access an Emblem template originating from a file named "example.embl".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p><a href="http://emblemjs.com">Emblem</a> precompiles to the same functions that Handlebars does and from there on using Emblem is the same as using Handlebars. All of the Handlebars documentation above applies, including...</p>
-
-      <h3>Got Ember?</h3>
-
-      <p>Emblem utilizes the same <code class="option">ember</code> config that Handlebars does, so when <code class="option">handlebars.ember.enabled</code> is set to <code class="option">true</code>, Mimosa will output Ember-compliant Handlebars functions. See the Handlebars documentation above for more details.</p>
-
-      <h2>Dust <small><span class="mim">dust</span> <span class="command">["dust"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Use the code listed to access a <a href="https://github.com/linkedin/dustjs/">Dust</a> template originating from a file named "example.dust".</p>
-           <p>Dust partials can be referenced, <code class="option">{>example_partial/}</code>, and they will be available because all the templates are merged together.</p>
-        </div>
-        <div class="span6">
-          <pre>templates.render('example', {}, function(err, html) {
-  // use template
-})</pre>
-      </div>
-    </div>
-
-
-
-      <p>Mimosa keeps an AMD wrapped version of Dust that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
-
-      <h2>Hogan <small><span class="mim">hogan</span> <span class="command">["hog", "hogan", "hjs"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Use the code listed to access a <a href="http://twitter.github.com/hogan.js/">Hogan</a> template originating from a file named "example.hogan".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example.render({}, templates)</pre>
-        </div>
-      </div>
-
-      <p>Note the passing of the templates object into the render method. This isn't necessary unless partials are being used, but it is a super easy way to handle passing partials to Hogan.</p>
-
-      <p>Mimosa keeps an AMD wrapped version of Hogan that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
-
-      <h2>Jade <small><span class="mim">jade</span> <span class="command">["jade"]</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p>Use the code listed to access a <a href="http://jade-lang.com/">Jade</a> template originating from a file named "example.jade".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>Mimosa keeps an AMD wrapped version of Jade that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
-
-      <h2>Underscore <small><span class="mim">underscore</span> <span class="command">["tpl", "underscore"]</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p>Use the listed code to access an <a href="http://underscorejs.org/">Underscore</a> template originating from a file named "example.tpl"</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>Mimosa keeps an AMD wrapped version of Underscore that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.</p>
-
-      <h2>Lodash <small><span class="mim">lodash</span> <span class="command">["tmpl", "lodash"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Use the listed code to access a <a href="http://lodash.com/">LoDash</a> template originating from a file named "example.lodash".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>Mimosa keeps an AMD wrapped version of Lodash that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation.
-
-      <h2>Embedded JavaScript Templates (EJS) <small><span class="mim">ejs</span> <span class="command">["ejs"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Use the listed code to access an <a href="https://github.com/visionmedia/ejs">EJS</a> template originating from a file named "example.ejs".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>Mimosa keeps an AMD wrapped version of EJS' filters that it writes to <code class="option">vendor.javascripts</code> directory as part of compilation. Mimosa's compiled EJS file will use those filters, but this can be overridden with custom filters.</p>
-
-      <h2>Embedded CoffeeScript Templates (ECO) <small><span class="mim">none</span> <span class="command">["eco"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Use the code listed to access an <a href="https://github.com/sstephenson/eco">ECO</a> template originating from a file named "example.eco".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example({})</pre>
-        </div>
-      </div>
-
-      <p>ECO does not have a client library</p>
-
-      <h2>Ractive <small><span class="mim">ractive</span> <span class="command">["rtv", "rac"]</span></small></h2>
-      <div class="row">
-        <div class="span6">
-          <p>Use the code listed to access a <a href="http://ractivejs.org/">Ractive</a> template originating from a file named "example.rtc".</p>
-          <p>Mimosa keeps a version of Ractive that it writes to <code class="option">assets/javascripts/vendor/ractive.js</code> directory as part of compilation, so there is no need to include the library.</p>
-        </div>
-        <div class="span6">
-          <pre>new Ractive({
-  el: '#ractive-el',
-  template: templates.example,
-  partials: templates,
-  data:{}
-})</pre>
-        </div>
-      </div>
-
-
-
-      <h2>HTML <small><span class="mim">html</span> <span class="command">["template"]</span></small></h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>Plain HTML templates can be used too.</p>
-
-          <p>Use the code listed to access a plain HTML template originating from a file named "example.template".</p>
-        </div>
-        <div class="span6">
-          <pre>var html = templates.example</pre>
-        </div>
-      </div>
-
-      <p>Full disclosure: Mimosa uses Underscore under the hood to handle getting plain HTML templates to the browser as strings. In this case, the Underscore compiler has been made so that it'll not understand it's usual delimiters for code or interpolation, and the resulting compiled Underscore templates are delivered as self-executing.</p>
-
     </section>
     <section id="copy">
       <div class="page-header">
@@ -706,9 +415,9 @@
           Copy "Compiler" <small><span class="command">["js", "css", "png", "jpg", "jpeg", "gif", "html", "eot", "svg", "ttf", "woff", "otf", "yaml", "kml", "ico", "htc", "htm", "json", "txt", "xml", "xsd", "map", "md", "mp4"] </span></small>
         </h1>
       </div>
-      <p>Mimosa maintains a list of extensions that it will simply copy from the assets directory to the public directory.  Because of the copy compiler, images, plain JavaScript, CSS will not be left out.</p>
+      <p>The <a href="https://github.com/dbashford/mimosa-copy">file copying module</a> handles copying files from the assets directory to the public directory. Because of the copy compiler, images, plain JavaScript, CSS will not be left out.</p>
 
-      <p>If there are extra files to copy over, uncomment the <code class="option">copy.extensions</code> config and add it to the list. If the default list of extensions for the copy compiler needs to be updated, consider <a href="https://github.com/dbashford/mimosa/issues">submitting an issue</a> to have new extensions added to Mimosa's defaults.</p>
+      <p>If there are extra files to copy over, uncomment the <code class="option">copy.extensions</code> config and add it to the list. If the default list of extensions for the copy compiler needs to be updated, consider <a href="https://github.com/dbashford/mimosa-copy/issues">submitting an issue</a> to have new extensions added to Mimosa's defaults.</p>
 
     </section>
     <section id="more">
@@ -717,7 +426,8 @@
           Don't See Your Favorite?
         </h1>
       </div>
-      If your favorite meta-language or library is missing, <a href="https://github.com/dbashford/mimosa/issues">file an issue</a> and we'll look into adding support for it!
+
+      <p>If your favorite meta-language or library is missing, <a href="https://github.com/dbashford/mimosa/issues">file an issue</a> and we'll look into adding support for it! Or you can create one yourself. Compilers are easy to create and there are already over 20 examples out there.</p>
     </section>
   </section>
 

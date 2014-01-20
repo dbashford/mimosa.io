@@ -219,13 +219,13 @@
 
        <h2>1) Get the config</h2>
 
-       <p>From the command line, type <code class="option">mimosa config</code> and Mimosa will generate a <code class="option">mimosa-config.coffee</code> file in the current directory. This file controls everything Mimosa does. For now its contents will be commented out and all of Mimosa's defaults will be in effect. While Mimosa doesn't currently deliver its config as a JavaScript file, you are welcome to transform the <code class="option">mimosa-config.coffee</code> to JavaScript.</p>
+       <p>From the command line, type <code class="option">mimosa config</code> and Mimosa will generate a <code class="option">mimosa-config.js</code> file in the current directory. This file controls everything Mimosa does. For now its contents will be relatively brief. <code class="option">mimosa config</code> also delivers a <code class="option">mimosa-config-documented.coffee</code> file which contains documentation for all the various configuration options.</p>
 
        <h2>2) Tweak the config</h2>
 
-       <p>Place the <code class="option">mimosa-config</code> at the root of a project. Either change the project's codebase to match Mimosa's defaults, or change the <code class="option">mimosa-config</code> to work with the project. The <code class="option">mimosa-config</code> is self-documenting. Each config setting is explained inside the file. All of the <a href="./configuration.html">configuration options</a> are documented on the site as well.</p>
+       <p>Place the <code class="option">mimosa-config</code> at the root of a project. Either change the project's codebase to match Mimosa's defaults, or change the <code class="option">mimosa-config</code> to work with the project. All of the <a href="./configuration.html">configuration options</a> are documented on the site as well as in the <code class="option">mimosa-config-documented.coffee</code>.</p>
 
-       <p>The most important settings in the config, to get you started, are inside the top <code class="option">watch</code> setting.  Make sure that <code class="option">sourceDir</code>, <code class="option">compiledDir</code>, and <code class="option">javascriptDir</code> all point to the right place in the project.</p>
+       <p>The most important settings in the config, to get you started, are inside the top <code class="option">watch</code> setting.  Make sure that <code class="option">watch.sourceDir</code>, <code class="option">watch.compiledDir</code>, and <code class="option">watch.javascriptDir</code> all point to the right place in the project.</p>
 
        <h2>3) Fire it up</h2>
 
