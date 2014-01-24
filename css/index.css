@@ -1,5 +1,14 @@
 @import url("font.css");
 
+a {
+  color:#f9b012;
+}
+
+a:hover {
+  color:#f9b012;
+  text-decoration: underline;
+}
+
 body {
    font-size: 15px;
    font-family: Opensans_Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -122,12 +131,10 @@ body {
     background: -webkit-linear-gradient(#301d05 0%, #7d5015 100%);
   }
   .features_bottom a:hover {
-    color: #f9b012;
+    text-decoration:underline;
   }
   .features_bottom a {
-    color:white;
-    text-decoration:underline;
-
+    color: #f9b012;
   }
   .features_bottom h3 {
     margin: 0 auto;
@@ -150,11 +157,12 @@ body {
   }
   .features_bottom ul li article {
     margin-top: 124px;
+    text-align:center;
   }
 
   .features_bottom ul li strong {
-    font-family: SerifaStd-Italic;
-    font-size: 21px;
+    font-family: SerifaStd-LightItalic;
+    font-size: 22px;
     color: #f9b012;
     display: block;
     text-align: center;
