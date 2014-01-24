@@ -67,10 +67,15 @@ body {
     font-family: SerifaStd-Light;
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 550px) {
 
     .row h1 {
       background-size: 300px 105px;
+      margin-top: 65px;
+    }
+
+    .welcome h2 {
+      margin-bottom: 0px;
     }
   }
 
