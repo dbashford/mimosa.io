@@ -66,6 +66,14 @@ body {
     font-style: italic;
     font-family: SerifaStd-Light;
   }
+
+  @media only screen and (max-width: 767px) {
+
+    .row h1 {
+      background-size: 300px 105px;
+    }
+  }
+
   h2, h3, h4 {
     text-transform: uppercase;
     color: #2d464d;
