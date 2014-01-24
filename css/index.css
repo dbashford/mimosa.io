@@ -40,15 +40,23 @@ body {
   .welcome h2 {
     margin-bottom:40px;
   }
+
+  @media only screen and (min-width: 1235px) {
+    .welcome h2 {
+      padding: 0px 45px;
+
+    }
+  }
+
   .row {
     max-width: 100%;
   }
   .row h1 {
-    background: url("../img/mimosa-hat.png")no-repeat;
+    background: url("../img/new-mimosa-logo.png")no-repeat;
     background-position: 50%;
-    height: 305px;
+    height: 135px;
     margin: 0 auto;
-    margin-top: 75px;
+    margin-top: 106px;
     margin-bottom: 9px;
     text-align: center;
     font-size: 65px;
