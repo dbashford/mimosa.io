@@ -1,0 +1,263 @@
+[class^="icon-"], [class*=" icon-"] {
+  height:20px;
+  width:20px;
+}
+
+/* =====[ COLORS ]============================================================================== */
+
+.color-1-bg {
+background: url("../img/gradient-bcg.png") no-repeat!important;
+}
+
+.color-1-font {
+color:#ac8c47!important;
+}
+
+.front, .back {
+float:left;
+width:130px !important;
+height:130px !important;
+background:#FFF;
+-webkit-border-radius:100%;
+-moz-border-radius:100%;
+border-radius:100%;
+-webkit-box-shadow:0 0 8px 0 #bbbbbb;
+box-shadow:0 0 8px 0 #bbbbbb;
+-webkit-transition:all .3s ease-in-out;
+-moz-transition:all .3s ease-in-out;
+-o-transition:all .3s ease-in-out;
+-ms-transition:all .3s ease-in-out;
+transition:all .3s ease-in-out;
+}
+
+.content_wrap {
+width:100%;
+margin:0 auto;
+padding:0;
+}
+
+
+/* =====[ MAIN LIST ]============================================================================== */
+
+.box {
+list-style:none;
+display:block;
+width:100%;
+margin:10px 0 50px;
+padding:0;
+margin-left:-10px !important;
+text-align:center;
+}
+
+.box i {
+padding-right:5px;
+}
+
+.box > li {
+width:100px;
+height:100px;
+display:inline-block;
+margin:8px;
+}
+
+/* =====[ FRONT ELEMENTS ]============================================================================== */
+
+.front > div {
+text-align:center;
+color:#60bad7;
+}
+
+.title {
+font-size:16px;
+text-transform:uppercase;
+text-align:center;
+padding:0;
+font-family: SerifaStd-LightItalic;
+}
+
+.description {
+text-align:center;
+}
+
+/* =====[ BACK ELEMENTS ]============================================================================== */
+
+.back .description {
+  padding: 22px 5px 0px 5px;
+  font-size:13px;
+  line-height: 16px;
+}
+
+/* =====[ CIRCLE ANIMATIONS ]============================================================================== */
+
+.circle {
+border-radius:75px;
+-moz-border-radius: 75px;
+-webkit-border-radius: 75px;
+position:relative;
+-webkit-transition:all .4s ease-in-out;
+-moz-transition:all .4s ease-in-out;
+-o-transition:all .4s ease-in-out;
+-ms-transition:all .4s ease-in-out;
+transition:all .4s ease-in-out;
+position: absolute;
+}
+
+.info {
+color:white;
+position:absolute;
+border-radius:75px;
+-moz-border-radius: 75px;
+-webkit-border-radius: 75px;
+opacity:0;
+-moz-transform:scale(0) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-webkit-transform:scale(0) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-o-transform:scale(0) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-ms-transform:scale(0) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+transform:scale(0) rotate(0deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-webkit-backface-visibility:hidden;
+}
+
+.circle:hover .front {
+-moz-transform:scale(1.1);
+-webkit-transform:scale(1.1);
+-o-transform:scale(1.1);
+-ms-transform:scale(1.1);
+transform:scale(1.1);
+opacity:1;
+}
+
+.circle:hover .info {
+-moz-transform:scale(1) rotate(360deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-webkit-transform:scale(1) rotate(360deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-o-transform:scale(1) rotate(360deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+-ms-transform:scale(1) rotate(360deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+transform:scale(1) rotate(360deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+opacity:1;
+}
+
+.circle:hover .front-popular {
+border-radius:10% 50% 50% 50%!important;
+}
+
+.front-popular {
+  line-height:18px;
+}
+
+.front-popular .icon {
+  height: 65px;
+}
+
+.front-popular .bigger {
+  font-family: SerifaStd-Italic;
+  color:#c65c06!important;
+}
+
+.scalable {
+  background: url("../img/scalable-inactive-icon.png") 43px 20px no-repeat;
+}
+
+.icon-scalable {
+  background: url("../img/scalable-active-icon.png") no-repeat;
+}
+
+.fast {
+  background: url("../img/speed-inactive-icon.png") 43px 20px no-repeat;
+}
+
+.icon-fast {
+  background: url("../img/speed-active-icon.png") no-repeat;
+}
+
+.pluggable {
+  background: url("../img/plug-inactive-icon.png") 43px 20px no-repeat;
+}
+
+.icon-pluggable {
+  background: url("../img/plug-active-icon.png") no-repeat;
+}
+
+.code {
+  background: url("../img/code-inactive-icon.png") 43px 20px no-repeat;
+}
+
+.icon-code {
+  background: url("../img/code-active-icon.png") no-repeat;
+}
+
+.seconds {
+  background: url("../img/development-inactive-icon.png") 43px 20px no-repeat;
+}
+
+.icon-seconds {
+  background: url("../img/development-active-icon.png") no-repeat;
+}
+
+
+.popular {
+font-size:30px;
+color:#c65c06;
+position:absolute;
+left:0;
+top:0;
+opacity:0;
+}
+
+
+
+.circle:hover .popular {
+opacity:1;
+animation:popularAnim 1s 1;
+-webkit-animation:popularAnim 1s 1;
+}
+
+@keyframes popularAnim
+{
+from {opacity:0; left:40px;}
+to {opacity:1; left:0;}
+}
+
+@-webkit-keyframes popularAnim /* Safari and Chrome */
+{
+from {opacity:0; left:40px;}
+to {opacity:1; left:0;}
+}
+
+@-moz-keyframes popularAnim {
+from {opacity:0; left:40px;}
+to {opacity:1; left:0;}
+}
+
+@-ms-keyframes popularAnim {
+from {opacity:0; left:40px;}
+to {opacity:1; left:0;}
+}
+
+.box > li{
+*float:left;
+}
+
+.circle .back{
+*display:none;
+}
+
+.circle .back{
+z-index:0;
+}
+.circle .front{ma
+position:relative;
+z-index:1;
+}
+.circle:hover .back{
+z-index:1;
+}
+.circle:hover .front{
+position:relative;
+z-index:0;
+}
+
+.circle:hover .back{
+*display:inline;
+}
+.circle:hover .front{
+*display:none;
+}

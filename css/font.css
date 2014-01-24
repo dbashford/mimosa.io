@@ -2,9 +2,15 @@
   font-family: "SerifaStd-Italic";
   src: url("SerifaStd-Italic.otf") format("opentype");
 }
+
 @font-face {
   font-family: "SerifaStd-Light";
   src: url("SerifaStd-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SerifaStd-LightItalic";
+  src: url("SerifaStd-LightItalic.otf") format("opentype");
 }
 
 @font-face {

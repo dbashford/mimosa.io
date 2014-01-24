@@ -31,15 +31,18 @@ body {
     background-color: #0c0c0c;
     color: white;
   }
+
   .welcome {
     background: url("../img/mimosa-bg.jpg")no-repeat;
     background-size: 1920px 975px;
-    background-position: 50% -49px;
+    background-position: 50% -115px;
     text-align: center;
   }
+
   .welcome h2 {
-    margin-bottom:40px;
+    margin-bottom: 0;
   }
+
 
   @media only screen and (min-width: 1235px) {
     .welcome h2 {
@@ -51,6 +54,7 @@ body {
   .row {
     max-width: 100%;
   }
+
   .row h1 {
     background: url("../img/new-mimosa-logo.png")no-repeat;
     background-position: 50%;
@@ -63,8 +67,14 @@ body {
     color: #2d464d;
     text-transform: uppercase;
     font-weight: normal;
-    font-style: italic;
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
+  }
+
+  .row .dotted-divider {
+    background: url("../img/line-icon.png") center center no-repeat;
+    height:5px;
+    text-align:center;
+    margin-bottom: 20px;
   }
 
   @media only screen and (max-width: 550px) {
@@ -83,22 +93,24 @@ body {
     text-transform: uppercase;
     color: #2d464d;
     font-weight: normal;
-    font-style: italic;
     line-height: 34px;
     margin-bottom: 21px;
   }
+
   h2 {
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
     font-size: 29px;
     line-height: 29px;
   }
+
   h3 {
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
     font-size: 21px;
     line-height: 21px;
   }
+
   h4 {
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
     font-size: 26px;
   }
 
@@ -261,10 +273,9 @@ body {
     color: #eeeeee;
   }
   .required h3 {
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
     font-weight: bold;
     font-size: 34px;
-    font-style: italic;
     color: #000000;
     margin-bottom: 34px;
   }
@@ -279,10 +290,9 @@ body {
     background-color: #d3c7a1;
   }
   .getstarted h3 {
-    font-family: SerifaStd-Light;
+    font-family: SerifaStd-LightItalic;
     font-weight: bold;
     font-size: 48px;
-    font-style: italic;
     text-transform: uppercase;
     margin: 0;
     margin-top: 55px;
@@ -449,3 +459,7 @@ body {
   .compilers {
   }
 }
+
+
+
+
