@@ -298,6 +298,8 @@
 
     <div class="row">
       <div class="span6">
+        <h4 class="hi writeLibrary template">template.writeLibrary</h4>
+        <p class="hi writeLibrary template">By default many of Mimosa's template compilers will write an AMD wrapped version of the template compiler's client library as a convenience.  If using <code class="option">common</code> as a <code class="option">wrapType</code> it will not.  But there are cases when AMD is being used and a client library is not desired.  In those cases set <code class="option">template.writeLibrary</code> to <code class="option">false</code>.</p>
         <h4 class="hi nameTransform template">template.nameTransform</h4>
         <p class="hi nameTransform template">Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.
 
@@ -313,6 +315,7 @@
       </div>
       <div class="span6">
 <pre><span class="template">template:</span>
+  <span class="writeLibrary">writeLibrary: true</span>
   <span class="nameTransform">nameTransform: 'fileName'</span>
   <span class="wrapType">wrapType: "amd"</span>
   <span class="commonLibPath">commonLibPath: null</span>
