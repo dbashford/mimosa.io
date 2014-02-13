@@ -356,23 +356,23 @@ $ mimosa watch -s</pre>
         <div class="inner">
           <p>
             <span class="prompt">$ mimosa watch --server</span><br/>
-            12:15:21 - Did not find compiled directory [[ /path/to/bar/public ]], so making it for you<br/>
-            12:15:21 - Starting Bower install...<br/>
-            12:15:24 - mimosa-bower created file [[ /path/to/bar/assets/javascripts/vendor/jquery/jquery.js ]]<br/>
-            12:15:24 - mimosa-bower created file [[ /path/to/bar/assets/javascripts/vendor/requirejs/require.js ]]<br/>
-            12:15:24 - Cleaned temp bower output directory [[ /path/to/bar/.mimosa/bower/bower_components ]]<br/>
-            12:15:24 - Watching /path/to/bar/assets<br/>
-            <span class="inst">12:15:24 - Compiled/copied [[ /path/to/bar/public/javascripts/main.js ]]</span><br/>
-            <span class="inst">12:15:24 - Compiled/copied [[ /path/to/bar/public/javascripts/app/example-view.js ]]</span><br/>
-            <span class="inst">12:15:24 - Compiled/copied [[ /path/to/bar/public/javascripts/vendor/requirejs/require.js ]]</span><br/>
-            <span class="inst">12:15:24 - Compiled/copied [[ /path/to/bar/public/javascripts/vendor/jquery/jquery.js ]]</span><br/>
-            <span class="inst">12:15:24 - Compiled/copied [[ /path/to/bar/public/javascripts/app/template/handlebars-helpers.js ]]</span><br/>
-            <span class="inst">12:15:25 - Compiled/copied [[ /path/to/bar/public/stylesheets/style.css ]]</span><br/>
-            <span class="inst">12:15:25 - Compiled/copied [[ /path/to/bar/public/javascripts/vendor/handlebars.js ]]</span><br/>
-            <span class="inst">12:15:25 - Compiled/copied [[ /path/to/bar/public/javascripts/templates.js ]]</span><br/>
-            <span class="inst">12:15:25 - Mimosa is starting your server: /path/to/bar/server.coffee</span><br/>
+            20:31:54 - Info - Did not find compiled directory <span class="path">public</span>, so making it for you<br/>
+            20:31:54 - Info - Starting Bower install...<br/>
+            20:31:54 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/jquery/jquery.js</span><br/>
+            20:31:54 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/requirejs/require.js</span><br/>
+            20:31:54 - Info - Cleaned temp bower output directory <span class="path">.mimosa/bower/bower_components</span><br/>
+            20:31:54 - Info - Watching <span class="path">assets</span><br/>
+            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/main.js</span><br/>
+            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/example-view.js</span><br/>
+            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
+            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
+            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
+            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/stylesheets/style.css</span><br/>
+            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
+            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
+            20:31:55 - <span class="inst">Success</span> - Mimosa is starting your server: server.coffee</span><br/>
             Express server listening on port 3000 in development mode<br/>
-               info  - socket.io started<br/>
+            &nbsp;&nbsp;&nbsp;<span class="path">info</span>  - socket.io started<br/>
           </p>
         </div>
       </div>
@@ -480,19 +480,23 @@ $ mimosa clean -f</pre>
         <div class="inner">
           <p>
             $ mimosa clean<br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/main.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/stylesheets/style.css ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/app/example-view.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/vendor/jquery.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/vendor/require.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/vendor/dust.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/templates.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted file [[ /path/to/foo/public/javascripts/main-built.js ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted empty directory [[ /path/to/foo/public/javascripts/vendor ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted empty directory [[ /path/to/foo/public/javascripts/app ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted empty directory [[ /path/to/foo/public/stylesheets ]]</span><br/>
-            <span class="inst">13:46:45 - Deleted empty directory [[ /path/to/foo/public/javascripts ]]</span><br/>
-            <span class="inst">13:46:45 - [[ /path/to/foo/public ]] has been cleaned.</span><br/>
+            20:40:04 - Info - mimosa-live-reload: removed live reload client.<br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/main.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/stylesheets/style.css</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/app/example-view.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/templates.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor/requirejs</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor/jquery</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/app/template</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/app</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/stylesheets</span><br/>
+            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts</span><br/>
+            20:40:04 - <span class="inst">Success</span> - <span class="path">public</span> has been cleaned.<br/>
           </p>
         </div>
       </div>
@@ -537,18 +541,19 @@ $ mimosa build -o</pre>
         <div class="inner">
           <p>
             $ mimosa build --optimize<br/>
-            10:13:33 - Beginning build<br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/index.html ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/javascripts/main.js ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/stylesheets/style.css ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/javascripts/app/example-view.js ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/javascripts/vendor/require.js ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/javascripts/vendor/jquery.js ]]</span><br/>
-            <span class="inst">10:13:33 - Compiled/copied [[ /path/to/foo/public/javascripts/templates.js ]]</span><br/>
-            10:13:33 - Beginning requirejs optimization for module [[ main ]]<br/>
-            <span class="inst">10:13:35 - The compiled file [[ /path/to/foo/public/javascripts/main-built.js ]] is ready for use.</span><br/>
-            10:13:35 - Requirejs optimization complete.<br/>
-            <span class="inst">10:13:35 - Finished build</span><br/>
+            20:46:18 - Info - Beginning build<br/>
+            20:46:18 - Info - Did not find compiled directory <span class="path">public</span>, so making it for you<br/>
+            20:46:18 - Info - No Bower installs needed.<br/>
+            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/main.js</span><br/>
+            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/example-view.js</span><br/>
+            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
+            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
+            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
+            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/stylesheets/style.css</span><br/>
+            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
+            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
+            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
+            20:46:19 - <span class="inst">Success</span> - Finished build<br/>
           </p>
         </div>
       </div>
@@ -683,8 +688,8 @@ $ mimosa build -P nameOfProfile</pre>
         <div class="inner">
           <p>
             $ mimosa config<br/>
-            <span class="inst">17:28:45 - Copied mimosa-config-documented.coffee into current directory.</span><br/>
-            <span class="inst">17:28:45 - Copied mimosa-config.js into current directory.</span><br/>
+            20:57:19 - <span class="inst">Success</span> - Copied <span class="path">mimosa-config-documented.coffee</span> into current directory.<br/>
+            20:57:19 - <span class="inst">Success</span> - Copied <span class="path">mimosa-config.js</span> into current directory.<br/>
           </p>
         </div>
       </div>

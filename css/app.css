@@ -573,8 +573,12 @@ i {
 
 .term .inst {
   color: green;
-  font-weight:bold;
 }
+
+.term .path {
+  color: #00CDCD;
+}
+
 
 .term .fb {
   color:blue;
@@ -602,6 +606,11 @@ i {
   padding-left:22px;
 }
 
+.logerror {
+  color: red;
+  font-weight:bold;
+}
+
 .help .command {
   color:blue;
   font-weight:bold;
@@ -610,7 +619,6 @@ i {
 
 #requirejs .term, #bower .term {
   margin-left: 0px;
-  color:red;
   margin-bottom: 15px;
 }
 

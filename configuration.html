@@ -88,8 +88,8 @@
         <li><a href="#server" title="Micro-Templates galore">Server</a></li>
         <li><a href="#bower" title="Bower config">Bower</a></li>
         <li><a href="#require" title="Copy JS/CSS and other assets like images">RequireJS</a></li>
-        <li><a href="#minify" title="Which schtuff to not minify">Minify</a></li>
-        <li><a href="#growl" title="To Growl or not to Growl">Growl</a></li>
+        <li><a href="#minify" title="minification">Minify</a></li>
+        <li><a href="#growl" title="logging and growl">Logger</a></li>
         <li><a href="#lint" title="To Lint or not to Lint">Lint</a></li>
       </ul>
     </div>
@@ -620,47 +620,82 @@
     <section id="growl">
       <div class="page-header">
         <h1>
-          When to Growl <small><span class="command">growl</span></small>
+          Logging <small><span class="command">logger</span></small>
         </h1>
       </div>
     </section>
 
     <div class="row">
       <div class="span6">
-        <h4 class="hi growl">growl</h4>
-        <p class="hi growl">Settings for whether and when to send Growl notifications. By default any error in compilation will send a Growl message, and turning that off is not configurable.</p>
 
-        <h4 class="hi onStartup growl">growl.onStartup</h4>
-        <p class="hi onStartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents Growls for those successful compiles.</p>
+        <h4 class="hi infoenabled info logger">logger.info.enabled</h4>
+        <p class="hi infoenabled info logger">Whether or not <code class="option">Info</code> level logging is enabled.</p>
 
-        <h4 class="hi onSuccess growl">growl.onSuccess</h4>
+        <h4 class="hi infocolor info logger">logger.info.color</h4>
+        <p class="hi infocolor info logger">The color for <code class="option">Info</code> level logging.</p>
+
+        <h4 class="hi warnenabled warn logger">logger.warn.enabled</h4>
+        <p class="hi warnenabled warn logger">Whether or not <code class="option">WARN</code> level logging is enabled.</p>
+
+        <h4 class="hi warncolor warn logger">logger.warn.color</h4>
+        <p class="hi warncolor warn logger">The color for <code class="option">WARN</code> level logging.</p>
+
+        <h4 class="hi successenabled success logger">logger.success.enabled</h4>
+        <p class="hi successenabled success logger">Whether or not <code class="option">Success</code> level logging is enabled.</p>
+
+        <h4 class="hi successcolor success logger">logger.success.color</h4>
+        <p class="hi successcolor success logger">The color for <code class="option">Success</code> level logging.</p>
+
+        <h4 class="hi errorenabled error logger">logger.error.enabled</h4>
+        <p class="hi errorenabled error logger">Whether or not <code class="option">ERROR</code> level logging is enabled.</p>
+
+        <h4 class="hi errorcolor error logger">logger.error.color</h4>
+        <p class="hi errorcolor error logger">The color for <code class="option">ERROR</code> level logging.</p>
+
+        <h4 class="hi debugcolor debug logger">logger.debug.color</h4>
+        <p class="hi debugcolor debug logger">The color for <code class="option">Debug</code> level logging.</p>
+
+        <h4 class="hi embeddedenabled embedded logger">logger.embedded.enabled</h4>
+        <p class="hi embeddedenabled embedded logger">Whether or not embedded content in log messages is differently colored.</p>
 
       </div>
       <div class="span6">
-<pre><span class="growl">growl:</span>
-  <span class="onStartup">onStartup: false</span>
-  <span class="onSuccess">onSuccess:</span>
-    <span class="growljavascript">javascript: true</span>
-    <span class="growlcss">css: true</span>
-    <span class="growltemplate">template: true</span>
-    <span class="growlcopy">copy: true</span></pre>
+<pre><span class="logger">logger:</span>
+  <span class="info">info: </span>
+    <span class="infoenabled">enabled: true</span>
+    <span class="infocolor">color: null</span>
+  <span class="warn">warn:</span>
+    <span class="warnenabled">enabled: true</span>
+    <span class="warncolor">color: 'yellow+bold'</span>
+  <span class="success">success:</span>
+    <span class="successenabled">enabled: true</span>
+    <span class="successcolor">color: 'green'</span>
+  <span class="error">error:</span>
+    <span class="errorenabled">enabled: true</span>
+    <span class="errorcolor">color: 'red+bold'</span>
+  <span class="debug">debug:</span>
+    <span class="debugcolor">color: 'blue'</span>
+  <span class="embedded">embeddedText:</span>
+    <span class="embeddedenabled">enabled: true</span>
+    <span class="embeddedcolor">color: 'cyan'</span>
+  <span class="growl">growl:</span>
+    <span class="growlenabled">enabled: true</span>
+    <span class="onstartup">onStartup: false</span>
+    <span class="onsuccess">onSuccess: true</span></pre>
       </div>
     </div>
 
-    <p class="hi onSuccess growl">Various settings controlling whether or not to send Growl messages when tasks are successful post-startup.</p>
+    <h4 class="hi embeddedcolor embedded logger">logger.embedded.color</h4>
+    <p class="hi embeddedcolor embedded logger">The color for embedded content.</p>
 
-     <h4 class="hi growljavascript onSuccess growl">growl.onSuccess.javascript</h4>
-     <p class="hi growljavascript onSuccess growl">Controls whether or not to get a Growl message upon successful compilation of JavaScript meta-language files.</p>
+    <h4 class="hi growl growlenabled">growl.enabled</h4>
+    <p class="hi growl growlenabled">Whether or not Mimosa will attempt to send Growl messages.</p>
 
-     <h4 class="hi growlcss onSuccess growl">growl.onSuccess.css</h4>
-     <p class="hi growlcss onSuccess growl">Controls whether or not to send a Growl message upon successful compilation of CSS meta-language files.</p>
+    <h4 class="hi onstartup growl">growl.onStartup</h4>
+    <p class="hi onstartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents growl messages for those successful compiles.</p>
 
-     <h4 class="hi growltemplate onSuccess growl">
-       growl.onSuccess.template</h4>
-     <p class="hi growltemplate onSuccess growl">Controls whether or not yto send a Growl message upon successful compilation of template file(s).</p>
-
-     <h4 class="hi growlcopy onSuccess growl">growl.onSuccess.copy</h4>
-     <p class="hi growlcopy onSuccess growl">Controls whether or not to send a Growl message upon successful copying of copied assets, like images, plain JavaScript, and plain CSS.</p>
+    <h4 class="hi onsuccess growl">growl.onSuccess</h4>
+    <p class="hi onsuccess growl">Whether or not to Growl success log messages after startup.</p>
 
     <section id="lint">
       <div class="page-header">

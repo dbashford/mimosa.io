@@ -82,7 +82,7 @@
         <li><a href="#requirejs" title="Lint your assets">RequireJS Support</a></li>
         <li><a href="#lint" title="Lint your assets">Linting</a></li>
         <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>
-        <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Notifications</a></li>
+        <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
         <li><a href="#gzip" title="Keep your assets nice and small">GZip</a></li>
         <li><a href="#cache" title="Keep your assets nice and small">Cache Busting</a></li>
         <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
@@ -127,10 +127,10 @@
           <div class="term">
             <div class="inner">
               $ mimosa bower<br/>
-              11:34:31 - Starting Bower install...<br/>
-              11:34:34 - mimosa-bower created file [[ /path/to/foo/assets/javascripts/vendor/jquery/jquery.js ]]<br/>
-              11:34:34 - mimosa-bower created file [[ /path/to/foo/assets/javascripts/vendor/requirejs/require.js ]]<br/>
-              11:34:34 - Cleaned temp bower output directory [[ /path/to/foo/.mimosa/bower/bower_components ]]
+              21:16:50 - Info - Starting Bower install...<br/>
+              21:16:51 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/requirejs/require.js</span><br/>
+              21:16:51 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/jquery/jquery.js</span><br/>
+              21:16:51 - Info - Cleaned temp bower output directory <span class="path">.mimosa/bower/bower_components</span><br/>
             </div>
           </div>
 
@@ -206,10 +206,10 @@
         <div class="span6">
           <div class="term">
             <div class="inner">
-              18:59:06 - RequireJS dependency [[ controller ]] for path alias [[ c ]], inside file [[ /path/to/public/javascripts/main.js ]], cannot be found.<br/>
-              18:59:22 - RequireJS shim [[ ang ]] inside file [[ /path/to/public/javascripts/main.js ]] refers to a dependency that cannot be found [[ vendo/modernizr ]].<br/>
-              18:59:33 - RequireJS dependency [[ c/gitHu ]], inside file [[ /path/to/public/javascripts/main.js ]], cannot be found.<br/>
-              18:59:43 - RequireJS mapping inside file [[ /path/to/public/javascripts/main.js ]], for module [[ * ]] has path that cannot be found [[ vendor/angular-resourc ]].
+              18:59:06 - <span class="logerror">ERROR</span> - RequireJS dependency <span class="path">controller</span> for path alias <span class="path">c</span>, inside file <span class="path">/public/javascripts/main.js</span>, cannot be found.<br/>
+              18:59:22 - <span class="logerror">ERROR</span> - RequireJS shim <span class="path">ang</span> inside file <span class="path">public/javascripts/main.js</span> refers to a dependency that cannot be found <span class="path">vendo/modernizr</span>.<br/>
+              18:59:33 - <span class="logerror">ERROR</span> - RequireJS dependency <span class="path">c/gitHu</span>, inside file <span class="path">/public/javascripts/main.js</span>, cannot be found.<br/>
+              18:59:43 - <span class="logerror">ERROR</span> - RequireJS mapping inside file <span class="path">public/javascripts/main.js</span>, for module <span class="path">*</span> has path that cannot be found <span class="path">vendor/angular-resourc</span>.
             </div>
           </div>
 <pre>require:
@@ -360,36 +360,55 @@ expr: true</pre>
     <section id="notify">
       <div class="page-header">
         <h1>
-          Notifications - Immediate Feedback
+          Logging and Growl
           <small><span class="options">find out right now that something is broken</span></small>
         </h1>
       </div>
 
-      <p>Compilation of assets is kicked off as soon as a file is saved. Mimosa will write to the console the outcome of every compilation event. Should compilation fail, the reason will be included in the log message.</p>
-
       <div class="row">
         <div class="span8">
+          <h2>Logging</h2>
+
+          <p>Mimosa's core code and its various modules will all attempt to log events. Errors, warnings, information, debugging and success messages emanate from Mimosa at various times.</p>
+
+          <p>Mimosa provides an ability to configure its logger. Various types of messages can be turned off and colors can be edited. The configuration listed here is fairly self-explanatory.</p>
+
           <h2>Growl</h2>
 
-          <p>If <a href="http://growl.info/">Growl</a> is installed and turned on, a Growl notification will be created for each failed or successful asset compile. In the event Growl gets too spammy, Growl notifications can be turned off for successful compiles. Growl has its own setting in Mimosa, the defaults are to the right.</p>
+          <p>If <a href="http://growl.info/">Growl</a> is installed and turned on, a Growl notification will be created for each failed or successful asset compile. In the event Growl gets too spammy, Growl notifications can be turned off for successful compiles or turned off entirely. Growl has its own setting in Mimosa, the defaults are to the right.</p>
 
-          <p>If  <a href="./commands.html#clean">clean</a> in run on a project and then <a href="./commands.html#watch">watch</a> is started, Mimosa will compile every asset. If there are dozens or hundreds of assets, Growl notifications may not be desirable for each successful compile during startup. Startup success notifications are off by default, but can be turned on by uncommenting the config and setting the <code class="option">growl.onStartup</code> flag to true.</p>
+          <p>If  <a href="./commands.html#clean">clean</a> in run on a project and then <a href="./commands.html#watch">watch</a> is started, Mimosa will compile every asset. If there are dozens or hundreds of assets, Growl notifications may not be desirable for each successful compile during startup. Startup success notifications are off by default, but can be turned on by uncommenting the config and setting the <code class="option">growl.onStartup</code> flag to <code class="option">true</code>. Post-startup success notifications can be turned off by altering the <code class="option">growl.onSuccess</code> flats. These notifications are on by default.</p>
+
+          <p>To allow Mimosa to use Growl, an extra library needs to be installed. For details on installation on your system, check out the <a href="https://github.com/visionmedia/node-growl#install">node-growl</a> page.</a>
+
 
         </div>
         <div class="span4">
-<pre>growl:
-  onStartup: false
-  onSuccess:
-    javascript: true
-    css: true
-    template: true
-    copy: true</pre>
+<pre>logger:
+  info:
+    enabled: true
+    color: null
+  warn
+    enabled: true
+    color: 'yellow+bold'
+  success:
+    enabled: true
+    color: 'green'
+  error:
+    enabled: true
+    color: 'red+bold'
+  debug:
+    color: 'blue'
+  embeddedText:
+    enabled: true
+    color: 'cyan'
+  growl:
+    enabled: true
+    onStartup: false
+    onSuccess: true
+</pre>
         </div>
       </div>
-
-      <p>To allow Mimosa to use Growl, an extra library needs to be installed. For details on installation on your system, check out the <a href="https://github.com/visionmedia/node-growl#install">node-growl</a> page.</a>
-
-      <p>Post-startup success notifications can be turned off for compiled javascript, css, and templates, as well as for copied assets by altering the <code class="option">growl.onSuccess</code> flats. These notifications are on by default.</p>
 
     </section>
 
