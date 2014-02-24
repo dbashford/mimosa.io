@@ -405,7 +405,7 @@
   <span class="defaultServer">defaultServer:</span>
     <span class="enabled">enabled: false</span>
     <span class="onePager">onePager: false</span>
-  <span class="path">path: 'server.coffee'</span>
+  <span class="path">path: 'server.coffee' or 'server.js'</span>
   <span class="port">port: 3000</span>
   <span class="base">base: ''</span>
   <span class="views">views:</span>
@@ -419,7 +419,7 @@
     <p class="hi defaultServer onePager server"><code class="option">server.defaultServer.onePager</code> lets Mimosa know if a project is a one or multi page application. This effects how Mimosa's embedded server handles routing. See the <a href="./server.html">server page</a> for more details</p>
 
     <h4 class="hi path server">server.path</h4>
-    <p class="hi path server">When <code class="option">defaultServer.enabled</code> is set to <code class="option">false</code>, <code class="option">server.path</code> is the path to the server code. The path can be relative to the root of the application or absolute. The server code at <code class="option">server.path</code> must export a <code class="option">startServer</code> function.  Mimosa will pass that method a copy of the <code class="option">mimosa-config</code>, including all the defaults for each setting and including extra fields inserted by Mimosa upon startup. <code class="option">startServer</code> will also be passed a callback that it must execute when complete.</p>
+    <p class="hi path server">When <code class="option">defaultServer.enabled</code> is set to <code class="option">false</code>, <code class="option">server.path</code> is the path to the server code. The path can be relative to the root of the application or absolute. The server code at <code class="option">server.path</code> must export a <code class="option">startServer</code> function.  Mimosa will pass that method a copy of the <code class="option">mimosa-config</code>, including all the defaults for each setting and including extra fields inserted by Mimosa upon startup. <code class="option">startServer</code> will also be passed a callback that it must execute when complete. As of <code class="option">v2.1.7</code> both 'server.coffee' and 'server.js' are valid defaults. If <code class="option">server.path</code> is not provided, Mimosa will look for both files before providing a validation error.</p>
 
     <h4 class="hi port server">server.port</h4>
     <p class="hi port server">The port on which Mimosa starts the server.</p>
