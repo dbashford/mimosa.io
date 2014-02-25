@@ -42,9 +42,6 @@ body {
   }
 
   .welcome {
-    background: url("../img/mimosa-bg.jpg")no-repeat;
-    background-size: 1920px 975px;
-    background-position: 50% -115px;
     text-align: center;
   }
 
