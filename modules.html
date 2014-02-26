@@ -164,9 +164,9 @@
 
     <p>The tables below list the modules that do not come with Mimosa, but can be installed.  They have been grouped by function.</p>
 
-    <h3>Compile/Copy</h3>
+    <h3>Compile/Copy/Transpile</h3>
 
-    <p>Mimosa has a huge (and growing) list of JavaScript transpilers, CSS preprocessors and Micro-Templating compilers. You'll find that list on the <a href="./compilers.html">Compilers</a> page</a>. The following are additional modules that compile or copy assets.</p>
+    <p>Mimosa has a huge (and growing) list of JavaScript transpilers, CSS preprocessors and Micro-Templating compilers. You'll find that list on the <a href="./compilers.html">Compilers</a> page</a>. The following are additional modules that compile/copy/transpile assets but are not considered "compilers" by Mimosa.</p>
 
     <br/>
 
@@ -189,6 +189,18 @@
         <tr>
           <td><a href="https://github.com/mwagg/mimosa-myth ">myth</a></td>
           <td>A simple <a href="http://www.myth.io/">Myth</a> CSS preprocessor module.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-regenerator">regenerator</a></td>
+          <td>Use ES6 generator syntax today. This module compiles ES6 generators down to ES5 compatible javascript.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-es6-module-transpiler">es6-module-transpiler</a></td>
+          <td>Use ES6 module syntax today. This module compiles ES6 module syntax down to AMD, CommonJS or globals.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-client-jade-static">client-jade-static</a></td>
+          <td>Compiles Jade files with a ".html.jade" extension statically and writes them out as plain HTML.</td>
         </tr>
       </tbody>
     </table>
@@ -222,6 +234,47 @@
         <tr>
           <td><a href="https://github.com/CraigCav/mimosa-jasmine-node">jasmine-node</a></td>
           <td>Start up a Jasmine-Node test suite alongside Mimosa</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Asset Optimization & Concatenation</h3>
+
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th  style="min-width:100px">Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-minify-html">minify-html</a></td>
+          <td>HTML minification.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-minify-svg">minify-svg</a></td>
+          <td>SVG minification.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-minify-img">minify-img</a></td>
+          <td>Image minification.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-sprite">sprite</a></td>
+          <td>Generate CSS sprite images and stylesheets.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/ddlsmurf/mimosa-spritesmith">spritesmith</a></td>
+          <td>Generate CSS sprite images and stylesheets. With retina support.</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/dbashford/mimosa-combine">combine</a></td>
+          <td>Combine all non-binary files in a folder into a single file</td>
+        </tr>
+        <tr>
+          <td><a href="./optimization.html#min">minify</a></td>
+          <td>Minification of JavaScript/CSS assets (formerly a default module until Mimosa v1.2.0)</td>
         </tr>
       </tbody>
     </table>
@@ -374,60 +427,24 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-minify-html">minify-html</a></td>
-          <td>HTML minification.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-minify-svg">minify-svg</a></td>
-          <td>SVG minification.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-minify-img">minify-img</a></td>
-          <td>Image minification.</td>
+          <td><a href="https://github.com/dbashford/mimosa-autoprefixer">autoprefixer</a></td>
+          <td>This module will automatically prefix your vendor CSS and provides source map support.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-handlebars-on-window">handlebars-on-window</a></td>
           <td>Use this module to alter handlebars.js to place Handlebars on the window object.</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-regenerator">regenerator</a></td>
-          <td>Use ES6 generator syntax today. This module compiles ES6 generators down to ES5 compatible javascript.</td>
-        </tr>
-        <tr>
-          <td><a href="./optimization.html#min">minify</a></td>
-          <td>Minification of JavaScript/CSS assets (formerly a default module until Mimosa v1.2.0)</td>
-        </tr>
-        <tr>
           <td><a href="https://github.com/dbashford/mimosa-post-hook">post-hook</a></td>
           <td>Run scripts/commands at the end of the mimosa watch startup.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-sprite">sprite</a></td>
-          <td>Generate CSS sprite images and stylesheets.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/ddlsmurf/mimosa-spritesmith">spritesmith</a></td>
-          <td>Generate CSS sprite images and stylesheets. With retina support.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-es6-module-transpiler">es6-module-transpiler</a></td>
-          <td>Use ES6 module syntax today. This module compiles ES6 module syntax down to AMD, CommonJS or globals.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-just-copy">just-copy</a></td>
           <td>Allow assets to bypass Mimosa module processing and just be copied.</td>
         </tr>
         <tr>
-          <td><a href="https://github.com/dbashford/mimosa-combine">combine</a></td>
-          <td>Combine all non-binary files in a folder into a single file</td>
-        </tr>
-        <tr>
           <td><a href="https://github.com/dbashford/mimosa-import-source">import-source</a></td>
           <td>Copy other files into a project to be included as part of the project.</td>
-        </tr>
-        <tr>
-          <td><a href="https://github.com/dbashford/mimosa-client-jade-static">client-jade-static</a></td>
-          <td>Compiles Jade files with a ".html.jade" extension statically and writes them out as plain HTML.</td>
         </tr>
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-volo">volo</a></td>
