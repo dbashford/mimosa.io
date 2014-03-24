@@ -535,6 +535,9 @@
         <h4 class="hi require commonConfig">require.commonConfig</h4>
         <p class="hi require commonConfig">Location of common RequireJS configuration that is used across multiple pages/modules. See the <a href="https://github.com/requirejs/example-multipage/tree/master/www/js">RequireJS multi-page application example</a> on GitHub for an example of using common configuration.</p>
 
+<h4 class="hi tracking require">require.tracking</h4>
+<p class="hi tracking require">Settings for mimosa-require tracking. When enabled mimosa-require makes a record of its dependency information on the file system. This provides faster <code class="option">mimosa watch</code> startup times as Mimosa does not need to process every JavaScript file to build the mimosa-require dependency information.</p>
+
       </div>
       <div class="span6">
 <pre><span class="require">require:</span>
@@ -545,6 +548,9 @@
     <span class="trackingPath">path: ".mimosa/require/tracking.json"</span>
   <span class="verify">verify:</span>
     <span class="verifyenabled">enabled: true</span>
+    <span class="requireplugins">plugins:</span>
+      <span class="plugincss">css:"css"</span>
+      <span class="pluginhbs">hbs:"hbs"</span>
   <span class="optimize">optimize :</span>
     <span class="modules">modules: null</span>
     <span class="moduleCaching">moduleCachingPath: ".mimosa/require/moduleCaching"</span>
@@ -552,9 +558,6 @@
     <span class="overrides">overrides:</span></pre>
       </div>
     </div>
-
-    <h4 class="hi tracking require">require.tracking</h4>
-    <p class="hi tracking require">Settings for mimosa-require tracking. When enabled mimosa-require makes a record of its dependency information on the file system. This provides faster <code class="option">mimosa watch</code> startup times as Mimosa does not need to process every JavaScript file to build the mimosa-require dependency information.</p>
 
     <h4 class="hi trackingEnabled tracking require">require.tracking.enabled</h4>
     <p class="hi trackingEnabled tracking require">When set <code class="option">true</code> mimosa-require will keep tracking information cached on the file system. When set to <code class="option">false</code> mimosa-require will force Mimosa to recompile all the JavaScript. This currently defaults to <code class="option">false</code> while it is being tried out but will default to <code class="option">true</code> in the near future.</p>
@@ -567,6 +570,9 @@
 
     <h4 class="hi verifyenabled verify require">require.verify.enabled</h4>
     <p class="hi verifyenabled verify require">Whether or not Mimosa will perform AMD/RequireJS path verification.</p>
+
+    <h4 class="hi requireplugings verify require">require.verify.plugins</h4>
+    <p class="hi requireplugins verify require">mimosa-require will verify plugin paths that are listed as dependencies. It does not keep track of plugins otherwise. Plugins are provided by giving the plugin prefix as the key and the extension of the plugin files as a value. "css" and "hbs" are provided as default plugins. If you add more to this list, consider <a href="https://github.com/dbashford/mimosa-require/issues?state=open">submitting an issue</a> to have it added as a default.</p>
 
     <h4 class="hi optimize require">require.optimize</h4>
     <p class="hi optimize require">Settings for asset optimization via the r.js optimizer.</p>
