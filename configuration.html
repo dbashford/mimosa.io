@@ -611,17 +611,26 @@
 <pre><span class="minifyJS">minifyJS:</span>
   <span class="excludeJS">exclude:[/\.min\./]</span>
 <span class="minifyCSS">minifyCSS:</span>
-  <span class="excludeCSS">exclude:[/\.min\./]</span>  </pre>
+  <span class="excludeCSS">exclude:[/\.min\./]</span>
+  <span class="minCSSoptions">options:</span>
+    <span class="processImport">processImport: false</span>
+</pre>
       </div>
     </div>
 
     <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
 
-      <h4 class="hi minifyCSS">minifyJS</h4>
-      <p class="hi minifyCSS">The <code class="option">minifyCSS</code> config block contains configuration for CSS minification/compression via clean-css using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
+    <h4 class="hi minifyCSS">minifyJS</h4>
+    <p class="hi minifyCSS">The <code class="option">minifyCSS</code> config block contains configuration for CSS minification/compression via clean-css using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
 
     <h4 class="hi excludeCSS minifyCSS">minifyCSS.exclude</h4>
     <p class="hi excludeCSS minifyCSS"><code class="option">minifyCSS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like bootstrap.min.css, is assumed to already be minified so it will be ignored by default.</p>
+
+    <h4 class="hi minCSSoptions minifyCSS">minifyCSS.options</h4>
+    <p class="hi minCSSoptions minifyCSS"><code class="option">minifyCSS.options</code> contains options for the <a href="https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically">clean-css package</a>.</p>
+
+    <h4 class="hi processImport minCSSoptions minifyCSS">minifyCSS.options.processImport</h4>
+    <p class="hi processImport minCSSoptions minifyCSS"><code class="option">minifyCSS.options.processImport</code> is a default setting for the minify-css/clean-css module that prevents @import statements from being removed.</p>
 
     <section id="growl">
       <div class="page-header">
