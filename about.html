@@ -84,10 +84,10 @@
         <li><a href="#upgrade12" title="upgrade to 1.2">1.2 upgrade</a></li>
         <li><a href="#git" title="git">git error?</a></li>
         <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
-        <li><a href="#ember" title="Ember.js">Ember</a></li>
         <li><a href="#emfile" title="EMFILE">EMFILE</a></li>
         <li><a href="#norequirejs" title="No RequireJS">No RequireJS</a></li>
         <li><a href="#Heroku" title="Heroku">Heroku</a></li>
+        <li><a href="#Azure" title="Heroku">Azure</a></li>
       </ul>
     </div>
   </header>
@@ -167,10 +167,6 @@
 
     <p>*Nix users: Do not turn off polling.</p>
 
-    <h2 id="ember">Ember.js</h2>
-
-    <p>Getting started with Mimosa and with Ember?  Check out one of several <a href="./started.html#demoapps">community contributed example projects</a>.</p>
-
     <h2 id="emfile">EMFILE Issues</h2>
 
     <p>node.js is fast. Wicked fast. Sometimes too fast for its own good. If you have a large project with many files (usually 200+) that Mimosa has to move from one directory to another on startup, Mimosa will attempt to process all your files at once and may attempt to open more files than your system allows. When that happens, you'll see an error like this:</p>
@@ -234,6 +230,10 @@ Error: spawn EMFILE
       <li><code class="option">git add .</code>, <code class="option">git commit -m "init"</code></li>
       <li><code class="option">git push heroku master</code></li>
     </ol>
+
+    <h2 id="Azure">Azure</h2>
+
+    <p>Peter Morlion wrote an <a href="http://petermorlion.blogspot.be/2014/03/getting-mimosa-durandal-app-to-work-on.html">excellent blog post</a> on how to get up and running with a Mimosa node.js application in <a href="https://www.windowsazure.com/">Azure</a>. His example includes a specific UI framwork, but the steps he took are universal.</p>
 
   </section>
 </div>
