@@ -119,17 +119,17 @@
         </tr>
         <tr>
           <td>watch</td>
-          <td>[-s/--server] [-c/--clean] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</td>
+          <td>[-s/--server] [-c/--clean] [-C/--cleanall] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</td>
           <td>Builds the project and continues watching project files to build them on-the-fly.</td>
         </tr>
         <tr>
           <td>clean</td>
-          <td>[-f/--force] [-P/--profile]</td>
+          <td>[-f/--force] [-C/--cleanall] [-P/--profile]</td>
           <td>Cleans the Mimosa generated assets.</td>
         </tr>
         <tr>
           <td>build</td>
-          <td>[-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
+          <td>[-C/--cleanall] [-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
           <td>Builds the project and exits.</td>
         </tr>
         <tr>
@@ -389,6 +389,20 @@ $ mimosa watch -s</pre>
 $ mimosa watch -c</pre>
       </div>
     </div>
+
+    <h3>Clean Compiled Assets and the .mimosa Cache (-C/--cleanall)</h3>
+
+    <div class="row">
+      <div class="span6">
+        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory before watching starts. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
+        <p>This also includes a clean as with the <code class='option'>--clean</code> flag above.</p>
+      </div>
+      <div class="span6">
+        <pre>$ mimosa watch --cleanall
+$ mimosa watch -C</pre>
+      </div>
+    </div>
+
     <h3>Delete Compiled Directory First (-d/--delete)</h3>
 
     <div class="row">
@@ -466,6 +480,13 @@ $ mimosa watch -P nameOfProfile</pre>
 
         <pre>$ mimosa clean</pre>
 
+        <h3>Remove the .mimosa Cache (-C/--cleanall)</h3>
+
+        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory as part of the clean.</p>
+
+        <pre>$ mimosa watch --cleanall
+$ mimosa watch -C</pre>
+
         <h3>Force Asset Deletion (-f/--force)</h3>
 
         <p>Because the clean command will not remove anything in <code class="option">watch.compiledDir</code> that isn't in <code class="option">watch.sourceDir</code>, Mimosa may leave behind code. If <code class="option">mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning. </p>
@@ -528,6 +549,13 @@ $ mimosa clean -P nameOfProfile</pre>
         <p>Use <code class="option">mimosa build</code> to build your application and exit. <code class="option">mimosa build</code> is also used when creating deployable versions of a project. This command executes a clean before it does anything, so a clean version of the application is built.</p>
 
         <pre>$ mimosa build</pre>
+
+        <h3>Remove the .mimosa Cache (-C/--cleanall)</h3>
+
+        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory before building. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
+
+        <pre>$ mimosa watch --cleanall
+        $ mimosa watch -C</pre>
 
         <h3>Optimized Build (-o/--optimize)</h3>
 
