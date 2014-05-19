@@ -84,7 +84,8 @@
         <li><a href="#css" title="CSS Meta-Language Compilers">CSS</a></li>
         <li><a href="#mt" title="Micro-Templates galore">Micro-Templates</a></li>
         <li><a href="#copy" title="Copy JS/CSS and other assets like images">Copy</a></li>
-        <li><a href="#more" title="Use a demo app">More?</a></li>
+        <li><a href="#more" title="Want more compilers?">More?</a></li>
+        <li><a href="#own" title="Create your own">Create your own</a></li>
       </ul>
     </div>
   </header>
@@ -283,6 +284,12 @@
       </tbody>
     </table>
 
+    <h2>Miscellaneous</h2>
+
+    <p>Miscellaneous compilers don't fit nicely into the categories above.  They don't copy files, transpile JavaScript, pre-process CSS or compile templates.</p>
+
+    <p>There are currently no Miscellaneous compilers, if you are interested in creating one, check out <a href="https://github.com/dbashford/MimosaMiscCompilerExample">this example Miscellaeous compiler</a>.</p>
+
     <section id="many">
       <div class="page-header">
         <h1>
@@ -452,6 +459,22 @@
 
       <p>If your favorite meta-language or library is missing, <a href="https://github.com/dbashford/mimosa/issues">file an issue</a> and we'll look into adding support for it! Or you can create one yourself. Compilers are easy to create and there are already over 20 examples out there.</p>
     </section>
+
+    <section id="own">
+      <div class="page-header">
+        <h1>
+          Create Your Own Compiler
+        </h1>
+      </div>
+
+      <p>Want to create your own?  The best place to start is with an existing compiler.</p>
+
+      <p>All of Mimosa's compiler modules get wrapped in a parent super-compiler.  So, the <a href="https://github.com/dbashford/mimosa-coffeescript">CoffeeScript compiler</a> gets wrapped with a more generic <a href="https://github.com/dbashford/mimosa/blob/master/src/modules/compilers/javascript.coffee">JavaScript compiler</a> when you start Mimosa.  The super-compilers interact with the compiler modules via a defined interface.  You can see the <a href="https://github.com/dbashford/mimosa-coffeescript/blob/master/src/index.js#L56-L65">interface at the bottom of the CoffeeScript compiler</a>.
+
+      <p>If the compiler you want to create doesn't neatly fit into JS/CSS/Template/Copy, you can use the Miscellaeous compiler.  There isn't yet a Miscellaeous compiler, but you can see how to implement one with the <a href="https://github.com/dbashford/MimosaMiscCompilerExample">sample Miscellaenous compiler project</a>.
+    </section>
+
+
   </section>
 
 </div>
