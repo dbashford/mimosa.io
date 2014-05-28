@@ -225,33 +225,32 @@
   <span class="polling">usePolling: true</span>
   <span class="interval">interval: 100</span>
   <span class="binary">binaryInterval: 300</span></pre>
+  <span class="delay">delay: 0</span></pre>
+
       </div>
     </div>
 
     <h4 class="hi javascriptDir javascript">watch.javascriptDir</h4>
     <p class="hi javascriptDir javascript">Location of the JavaScript code inside the <code class="option">watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code class="option">watch.compiledDir</code>. Note that there is not a <code class="option">watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
-
     <p class="hi javascriptDir javascript compilers"><code class="option">watch.javascriptDir</code> can be set to <code class="option">null</code> if not building web applictions. If <code class="option">watch.javascriptDir</code> is set to <code class="option">null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
 
     <h4 class="hi exclude watch">watch.exclude</h4>
-
     <p class="hi exclude watch">The <code class="option">exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code class="option">sourceDir</code> or absolute. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
 
     <h4 class="hi throttle watch">watch.throttle</h4>
-
     <p class="hi throttle watch">The <code class="option">throttle</code> property represents how many files Mimosa will process every 100 milliseconds. Setting this property will slow down processing of file additions. This is necessary for very large projects with thousands of files. Mimosa processes them so fast that it quickly hits a system's open file limit. When this setting is set to 0, no throttling will take place. But if there are hundreds of files and EMFILE issues occur, play with the throttle. It may take a few minutes to get the throttle setting right, so that Mimosa is still processing files quickly, but not so quickly it crashes. NOTE: If<code class="option">usePolling</code> is set to  <code class="option">false</code>, this setting has no effect.</p>
 
     <h4 class="hi polling watch">watch.usePolling</h4>
-
     <p class="hi polling watch">DO NOT turn <code class="option">usePolling</code> off if you are on a *nix, you will crash with EMFILE issues. Windows users, read on: The <code class="option">usePolling</code> setting determines whether or not system polling is the method by which Mimosa keeps track of project assets. Polling on large applications with many hundreds of files may cause Mimosa/node to eat up a lot of CPU. The first settings to play with are the intervals below, to see if you can slow the polling down to an amount that is satisfactory to use but that also doesn't eat up the CPU. Turning <code class="option">usePolling</code> to false is a last option.</p>
 
     <h4 class="hi interval watch">watch.interval</h4>
-
     <p class="hi interval watch">The <code class="option">interval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for non-binary files. Tweak this number if you are having CPU issues.</p>
 
     <h4 class="hi binary watch">watch.binaryInterval</h4>
-
     <p class="hi binary watch">The <code class="option">binaryInterval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for binary files. Tweak this number if you are having CPU issues.</p>
+
+    <h4 class="hi delay watch">watch.delay</h4>
+    <p class="hi delay watch">The <code class="option">delay</code> setting forces Mimosa to pause for a number of milliseconds before processing a file. Use this if it seems Mimosa is processing a file before the file has been entirely written.</p>
 
     <section id="vendor">
       <div class="page-header">
