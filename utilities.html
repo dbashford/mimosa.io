@@ -459,6 +459,9 @@ expr: true</pre>
 
       <p>Profiles can be used for the <code class="option">watch</code>, <code class="option">build</code> and <code class="option">clean</code> commands. Each of those commands have a <code class="option">-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code class="option">mimosa-config</code>. Ex: <code class="option">mimosa build -P build</code>.
 
+      <p>New with version <code class="option">2.2.14</code> of Mimosa, multiple profiles can be provided at the command line.  Ex: <code class="option">mimosa build -P foo#bar</code>.  Profiles are applied from left to right.  So, in this case if the <code class="option">bar</code> profile contains the same configuration as the <code class="option">foo</code> profile, the <code class="option">bar</code> profile information will overwrite foo.</p>
+
+
     </section>
 
   </section>
