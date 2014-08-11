@@ -325,7 +325,7 @@ expr: true</pre>
 
       <p>Mimosa provides live reload support by default via the <code class="option">mimosa-live-reload</code> module. Live reload will immediately refresh a page any time an asset is compiled or a view changes.</p>
 
-      <p><code class="option">mimosa-live-reload</code> handles CSS and JavaScript assets differently. For CSS the page does not need a full reload.  The new CSS is re-evaluated without reloading anything other than the CSS. The page is simply repainted. When JavaScript assets are updated, the entire page refreshes.</p>
+      <p><code class="option">mimosa-live-reload</code> handles CSS and JavaScript assets differently. For CSS the page does not need a full reload.  The new CSS is re-evaluated without reloading anything other than the CSS. The page is simply repainted. When JavaScript assets are updated, the entire page refreshes. (Note: With version <code class="option">2.3</code> of Mimosa, live reload of CSS is handled differently in Chrome. See the <a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md#major-changes) for details.">Release Notes</a> for details.)</p>
 
       <p>This sounds like a fairly small nice-to-have feature, but it quickly becomes one of the handiest time savers in your workflow. Mimosa and Live Reload are often fast enough to get the page reloaded before the browser can be toggled to.</p>
 

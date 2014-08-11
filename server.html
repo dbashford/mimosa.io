@@ -121,7 +121,7 @@
 
     <p><code class="option">mimosa new</code> provides the option to have a server or to use Mimosa's embedded server. If no server is chosen, Mimosa will not deliver any sort of server code.</p>
 
-    <p>If the Express option is chosen, Mimosa will provide a single file, written in the chosen JavaScript meta-language, that Mimosa will use to start your server. Mimosa also provides a simple router, also in the JavaScript meta-language you chose.</p>
+    <p>If an Express or Hapi option is chosen, Mimosa will provide a single file, written in the chosen JavaScript transpiler, that Mimosa will use to start your Express/Hapi server.</p>
 
     <h2>Views</h2>
 
@@ -159,7 +159,7 @@
 
     <p>Mimosa can start a nodejs based server. If <code class="option">server.defaultServer.enabled</code> is set to <code class="option">false</code>, Mimosa will look for a piece of node.js code located at <code class="option">server.path</code>, and execute the <code class="option">startServer</code> function of that code (so that function must be exported). That function will be passed the entire resolved and enriched <code class="option">mimosa-config</code>.</p>
 
-    <p>The <code class="option">startServer</code> function is also passed a callback that must be executed for Mimosa to continue through its workflows. If using Mimosa's live reload functionality is being used, the callback should be provided node's http server object as a first parameter.  That happens to be the object returned by Express's <code class="option">app.listen()</code> function. If socket.io is being used, then the callback should be provided the  socket.io object as a second parameter. See the <a href="./utilities.html#reload">Live Reload section</a> on the Utilities page for more details.</p>
+    <p>The <code class="option">startServer</code> function is also passed a callback that must be executed for Mimosa to continue through its workflows. If using Mimosa's live reload functionality is being used, the callback should be provided node's http server object as a first parameter.  That happens to be the object returned by Express's <code class="option">app.listen()</code> function or Hapi's <code class="option">server.listener</code> property. If socket.io is being used, then the callback should be provided the socket.io object as a second parameter. See the <a href="./utilities.html#reload">Live Reload section</a> on the Utilities page for more details.</p>
 
     <p>The server code delivered by <code class="option">mimosa new</code> will use all of the configuration from the <code class="option">mimosa-config</code> <code class="option">server</code> block. The use of the <code class="option">mimosa-config</code> entries could be removed from the delivered code. For instance, in the following code, all of the bolded entries could be replaced with their actual values, but this of course means Mimosa will be less capable of controlling behavior an app.</p>
 
@@ -202,6 +202,8 @@
     <p>As with the server code Mimosa delivers, the view code and routes are built to be flexible enough to work in several scenarios. Some conditionals and <code class="option">mimosa-config</code> properties can be replaced or hard-coded. The code may not need that level of complexity.</p>
 
     <p>Mimosa uses <a href="https://github.com/visionmedia/consolidate.js">consolidate</a>, both internally and within the delivered Express, to easily toggle between different view templating libraries. Also installed will be the library for the chosen templating library.</p>
+
+    <p>If Hapi is the chosen server templating language, the Hapi server comes configured to use any of the available server templating languages that are available via <code class="option">mimosa new</code>.
 
     <p><code class="option">server.views.compileWith</code> can be configured to use one of the available libraries, and each library has a default extension. When a client library is chosen during <code class="option">mimosa new</code>, Mimosa will modify the <code class="option">mimosa-config</code> with these values. The <code class="option">server.views.compileWith</code> values are listed below next to the name of each technology. The default extensions are listed as well.</p>
 

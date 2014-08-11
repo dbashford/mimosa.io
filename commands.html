@@ -199,7 +199,7 @@
 
         <p>The <code class='option'>new</code> command will kick off a series of prompts to choose meta-languages, a templating library, a server, and a server templater. Mimosa will then create a directory using the name provided. Inside that directory Mimosa will populate an application skeleton. The <code class='option'>assets</code> directory will contain some example code for the chosen selections. At the root of the project will be a <code class='option'>bower.json</code> file that will be used to pull in jQuery and RequireJS when you first start Mimosa.</p>
 
-        <p>If a server was chosen, Mimosa will include the bare essentials for an <a href="http://expressjs.com/">Express</a> application, including a simple <a href="http://expressjs.com/guide.html#routing">router</a> and a file Mimosa will use to start Express. That code will be delivered in the chosen meta-language.</p>
+        <p>If a server was chosen, Mimosa will include the bare essentials for that server selection, application, and the server code will be delivered in the chosen transpiler language.</p>
 
         <p>Mimosa will also provide some starter views for an index page in the chosen view templating language.</p>
 
@@ -285,11 +285,13 @@ $ mimosa new nameOfApplicationHere -d</pre>
           </p>
 
           <p>
-            1) None - You either don't need a server or you have one already that you will manage separate from Mimosa.<br/>
-            2) (*) Express - http://expressjs.com/<br/>
-            3) Mimosa's Embedded Express - http://mimosa.io/server.html#mimosas, this is less powerful than having your own, but may be sufficient for trivial websites.<br/>
 
-            : 2
+            1) None - You either don't need a server or you have one already that you will manage separate from Mimosa.<br/>
+            2) Mimosa's Embedded Server - http://mimosa.io/server.html#mimosas, this is less powerful than having your own, but may be sufficient for trivial websites.<br/>
+            3) (*) Express - http://expressjs.com/<br/>
+            4) Express w/socket.io - http://expressjs.com/ + http://socket.io/<br/>
+            5) Hapi - http://hapijs.com/<br/>
+            : 3
           </p>
 
           <p class="fb">
@@ -318,7 +320,7 @@ $ mimosa new nameOfApplicationHere -d</pre>
 
           <p class="logs">
             23:20:05 - Installing application and Mimosa development node modules. This may take a few seconds.<br/>
-            <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch' from inside your project to monitor the file system. Then start coding!</span><br/>
+            <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch' from inside your project's directory to monitor the file system. Then start coding!</span><br/>
           </p>
         </div>
       </div>
