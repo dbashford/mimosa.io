@@ -141,7 +141,7 @@
 
       </div>
       <div class="span6">
-<pre><span class="minMimosaVersion">minMimosaVersion: null</span>
+<pre><span class="minMimosaVersion">minMimosaVersion: null,</span>
 <span class="requiredMimosaVersion">requiredMimosaVersion: null</span></pre>
       </div>
     </div>
@@ -216,16 +216,18 @@
 
       </div>
       <div class="span6">
-<pre><span class="watch">watch:</span>
-  <span class="sourceDir">sourceDir: "assets"</span>
-  <span class="compiledDir">compiledDir: "public"</span>
-  <span class="javascriptDir">javascriptDir: "javascripts"</span>
-  <span class="exclude">exclude: [/[/\\](\.|~)[^/\\]+$/]</span>
-  <span class="throttle">throttle: 0</span>
-  <span class="polling">usePolling: true</span>
-  <span class="interval">interval: 100</span>
-  <span class="binary">binaryInterval: 300</span>
-  <span class="delay">delay: 0</span></pre>
+<pre><span class="watch">watch: {</span>
+  <span class="sourceDir">sourceDir: "assets",</span>
+  <span class="compiledDir">compiledDir: "public",</span>
+  <span class="javascriptDir">javascriptDir: "javascripts",</span>
+  <span class="exclude">exclude: [/[/\\](\.|~)[^/\\]+$/],</span>
+  <span class="throttle">throttle: 0,</span>
+  <span class="polling">usePolling: true,</span>
+  <span class="interval">interval: 100,</span>
+  <span class="binary">binaryInterval: 300,</span>
+  <span class="delay">delay: 0</span>
+}</pre>
+
 
       </div>
     </div>
@@ -271,9 +273,10 @@
 
       </div>
       <div class="span6">
-<pre><span class="vendor">vendor:</span>
-  <span class="javascripts">javascripts: "javascripts/vendor"</span>
-  <span class="stylesheets">stylesheets: "stylesheets/vendor"</span></pre>
+<pre><span class="vendor">vendor: {</span>
+  <span class="javascripts">javascripts: "javascripts/vendor",</span>
+  <span class="stylesheets">stylesheets: "stylesheets/vendor"</span>
+}</pre>
       </div>
     </div>
 
@@ -313,19 +316,20 @@
 
       </div>
       <div class="span6">
-<pre><span class="template">template:</span>
-  <span class="writeLibrary">writeLibrary: true</span>
-  <span class="nameTransform">nameTransform: 'fileName'</span>
-  <span class="wrapType">wrapType: "amd"</span>
-  <span class="commonLibPath">commonLibPath: null</span>
-  <span class="outputFileName">outputFileName: "javascripts/templates"</span>
+<pre><span class="template">template: {</span>
+  <span class="writeLibrary">writeLibrary: true,</span>
+  <span class="nameTransform">nameTransform: "fileName",</span>
+  <span class="wrapType">wrapType: "amd",</span>
+  <span class="commonLibPath">commonLibPath: null,</span>
+  <span class="outputFileName">outputFileName: "javascripts/templates",</span>
 
 -- OR instead of outputFileName --
 
   <span class="output">output</span>: [{
-    <span class="folders">folders:[""]</span>
+    <span class="folders">folders:[""],</span>
     <span class="outputFileName2">outputFileName:""</span>
-  }]</pre>
+  }]
+}</pre>
       </div>
     </div>
 
@@ -369,9 +373,10 @@
 
       </div>
       <div class="span6">
-<pre><span class="copy">copy:</span>
-  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"]</span>
-  <span class="copyexclude">exclude: []</span></pre>
+<pre><span class="copy">copy: {</span>
+  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"],</span>
+  <span class="copyexclude">exclude: []</span>
+}</pre>
       </div>
     </div>
 
@@ -398,25 +403,29 @@
         <h4 class="hi defaultServer enabled server">server.defaultServer.enabled</h4>
         <p class="hi defaultServer enabled server"><code class="option">server.defaultServer.enabled</code> determines whether Mimosa will start a default server or attempt to use a server in the project. When set to <code class="option">true</code>, Mimosa will run its own embedded Express.</p>
 
+        <h4 class="hi defaultServer onePager server">server.defaultServer.onePager</h4>
+        <p class="hi defaultServer onePager server"><code class="option">server.defaultServer.onePager</code> lets Mimosa know if a project is a one or multi page application. This effects how Mimosa's embedded server handles routing. See the <a href="./server.html">server page</a> for more details</p>
+
+
       </div>
       <div class="span6">
-<pre><span class="server">server:</span>
-  <span class="defaultServer">defaultServer:</span>
-    <span class="enabled">enabled: false</span>
+<pre><span class="server">server: {</span>
+  <span class="defaultServer">defaultServer: {</span>
+    <span class="enabled">enabled: false,</span>
     <span class="onePager">onePager: false</span>
-  <span class="path">path: 'server.coffee' or 'server.js'</span>
-  <span class="port">port: 3000</span>
-  <span class="base">base: ''</span>
-  <span class="views">views:</span>
-    <span class="viewscompileWith">compileWith: 'jade'</span>
-    <span class="viewsextension">extension: 'jade'</span>
-    <span class="viewspath">path: 'views'</span>
-    <span class="viewsoptions">options: {}</span></pre>
+  },
+  <span class="path">path: 'server.js',</span>
+  <span class="port">port: 3000,</span>
+  <span class="base">base: '',</span>
+  <span class="views">views: {</span>
+    <span class="viewscompileWith">compileWith: 'jade',</span>
+    <span class="viewsextension">extension: 'jade',</span>
+    <span class="viewspath">path: 'views',</span>
+    <span class="viewsoptions">options: {}</span>
+  }
+}</pre>
       </div>
     </div>
-
-    <h4 class="hi defaultServer onePager server">server.defaultServer.onePager</h4>
-    <p class="hi defaultServer onePager server"><code class="option">server.defaultServer.onePager</code> lets Mimosa know if a project is a one or multi page application. This effects how Mimosa's embedded server handles routing. See the <a href="./server.html">server page</a> for more details</p>
 
     <h4 class="hi path server">server.path</h4>
     <p class="hi path server">When <code class="option">defaultServer.enabled</code> is set to <code class="option">false</code>, <code class="option">server.path</code> is the path to the server code. The path can be relative to the root of the application or absolute. The server code at <code class="option">server.path</code> must export a <code class="option">startServer</code> function.  Mimosa will pass that method a copy of the <code class="option">mimosa-config</code>, including all the defaults for each setting and including extra fields inserted by Mimosa upon startup. <code class="option">startServer</code> will also be passed a callback that it must execute when complete. As of <code class="option">v2.1.7</code> both 'server.coffee' and 'server.js' are valid defaults. If <code class="option">server.path</code> is not provided, Mimosa will look for both files before providing a validation error.</p>
@@ -469,21 +478,24 @@
 
       </div>
       <div class="span6">
-        <pre><span class="bower">bower:</span>
-  <span class="bowerWatch">watch:true</span>
-  <span class="bowerDir">bowerDir:</span>
-    <span class="bowerPath">path: ".mimosa/bower_components"</span>
+        <pre><span class="bower">bower: {</span>
+  <span class="bowerWatch">watch:true,</span>
+  <span class="bowerDir">bowerDir: {</span>
+    <span class="bowerPath">path: ".mimosa/bower_components",</span>
     <span class="bowerClean">clean: true</span>
-  <span class="bowerCopy">copy:</span>
-    <span class="bowerCopyEnabled">enabled: true</span>
-    <span class="trackChanges">trackChanges: true</span>
-    <span class="outRoot">outRoot: null</span>
-    <span class="bowerExclude">exclude:[]</span>
-    <span class="unknownMainFullCopy">unknownMainFullCopy: false</span>
-    <span class="mainOverrides">mainOverrides: {}</span>
-    <span class="strategy">strategy: "packageRoot"</span>
-    <span class="forceLatest">forceLatest: true</span>
-    <span class="pathMod">pathMod: []</span></pre>
+  },
+  <span class="bowerCopy">copy: {</span>
+    <span class="bowerCopyEnabled">enabled: true,</span>
+    <span class="trackChanges">trackChanges: true,</span>
+    <span class="outRoot">outRoot: null,</span>
+    <span class="bowerExclude">exclude:[],</span>
+    <span class="unknownMainFullCopy">unknownMainFullCopy: false,</span>
+    <span class="mainOverrides">mainOverrides: {},</span>
+    <span class="strategy">strategy: "packageRoot",</span>
+    <span class="forceLatest">forceLatest: true,</span>
+    <span class="pathMod">pathMod: []</span>
+  }
+}</pre>
       </div>
     </div>
 
@@ -541,29 +553,34 @@
 <h4 class="hi tracking require">require.tracking</h4>
 <p class="hi tracking require">Settings for mimosa-require tracking. When enabled mimosa-require makes a record of its dependency information on the file system. This provides faster <code class="option">mimosa watch</code> startup times as Mimosa does not need to process every JavaScript file to build the mimosa-require dependency information.</p>
 
+<h4 class="hi trackingEnabled tracking require">require.tracking.enabled</h4>
+<p class="hi trackingEnabled tracking require">When set <code class="option">true</code> mimosa-require will keep tracking information cached on the file system. When set to <code class="option">false</code> mimosa-require will force Mimosa to recompile all the JavaScript. This currently defaults to <code class="option">false</code> while it is being tried out but will default to <code class="option">true</code> in the near future.</p>
+
       </div>
       <div class="span6">
-<pre><span class="require">require:</span>
-  <span class="requireExclude">exclude:[]</span>
-  <span class="commonConfig">commonConfig:"common"</span>
-  <span class="tracking">tracking:</span>
-    <span class="trackingEnabled">enabled: true</span>
+<pre><span class="require">require: {</span>
+  <span class="requireExclude">exclude:[],</span>
+  <span class="commonConfig">commonConfig:"common",</span>
+  <span class="tracking">tracking: {</span>
+    <span class="trackingEnabled">enabled: true,</span>
     <span class="trackingPath">path: ".mimosa/require/tracking.json"</span>
-  <span class="verify">verify:</span>
-    <span class="verifyenabled">enabled: true</span>
-    <span class="requireplugins">plugins:</span>
-      <span class="plugincss">css:"css"</span>
+  }
+  <span class="verify">verify: {</span>
+    <span class="verifyenabled">enabled: true,</span>
+    <span class="requireplugins">plugins: {</span>
+      <span class="plugincss">css:"css",</span>
       <span class="pluginhbs">hbs:"hbs"</span>
-  <span class="optimize">optimize :</span>
-    <span class="modules">modules: null</span>
-    <span class="moduleCaching">moduleCachingPath: ".mimosa/require/moduleCaching"</span>
-    <span class="inferConfig">inferConfig:true</span>
-    <span class="overrides">overrides:</span></pre>
+    }
+  }
+  <span class="optimize">optimize : {</span>
+    <span class="modules">modules: null,</span>
+    <span class="moduleCaching">moduleCachingPath: ".mimosa/require/moduleCaching",</span>
+    <span class="inferConfig">inferConfig:true,</span>
+    <span class="overrides">overrides:{}</span>
+  }
+}</pre>
       </div>
     </div>
-
-    <h4 class="hi trackingEnabled tracking require">require.tracking.enabled</h4>
-    <p class="hi trackingEnabled tracking require">When set <code class="option">true</code> mimosa-require will keep tracking information cached on the file system. When set to <code class="option">false</code> mimosa-require will force Mimosa to recompile all the JavaScript. This currently defaults to <code class="option">false</code> while it is being tried out but will default to <code class="option">true</code> in the near future.</p>
 
     <h4 class="hi trackingPath tracking require">require.tracking.path</h4>
     <p class="hi trackingPath tracking require">The path to the tracking file.</p>
@@ -612,13 +629,16 @@
 
 
       <div class="span6">
-<pre><span class="minifyJS">minifyJS:</span>
-  <span class="excludeJS">exclude:[/\.min\./]</span>
+<pre><span class="minifyJS">minifyJS: {</span>
+  <span class="excludeJS">exclude:[/\.min\./],</span>
   <span class="mangleNames">mangleNames:true</span>
-<span class="minifyCSS">minifyCSS:</span>
-  <span class="excludeCSS">exclude:[/\.min\./]</span>
-  <span class="minCSSoptions">options:</span>
+}
+<span class="minifyCSS">minifyCSS: {</span>
+  <span class="excludeCSS">exclude:[/\.min\./],</span>
+  <span class="minCSSoptions">options:{ </span>
     <span class="processImport">processImport: false</span>
+  }
+}
 </pre>
       </div>
     </div>
@@ -680,38 +700,47 @@
         <h4 class="hi embeddedenabled embedded logger">logger.embedded.enabled</h4>
         <p class="hi embeddedenabled embedded logger">Whether or not embedded content in log messages is differently colored.</p>
 
+<h4 class="hi embeddedcolor embedded logger">logger.embedded.color</h4>
+<p class="hi embeddedcolor embedded logger">The color for embedded content.</p>
+
+<h4 class="hi growl growlenabled">growl.enabled</h4>
+<p class="hi growl growlenabled">Whether or not Mimosa will attempt to send Growl messages.</p>
+
+
       </div>
       <div class="span6">
-<pre><span class="logger">logger:</span>
-  <span class="info">info: </span>
-    <span class="infoenabled">enabled: true</span>
+<pre><span class="logger">logger: {</span>
+  <span class="info">info: {</span>
+    <span class="infoenabled">enabled: true,</span>
     <span class="infocolor">color: null</span>
-  <span class="warn">warn:</span>
-    <span class="warnenabled">enabled: true</span>
+  },
+  <span class="warn">warn: {</span>
+    <span class="warnenabled">enabled: true,</span>
     <span class="warncolor">color: 'yellow+bold'</span>
-  <span class="success">success:</span>
-    <span class="successenabled">enabled: true</span>
+  },
+  <span class="success">success: {</span>
+    <span class="successenabled">enabled: true,</span>
     <span class="successcolor">color: 'green'</span>
-  <span class="error">error:</span>
-    <span class="errorenabled">enabled: true</span>
+  },
+  <span class="error">error: {</span>
+    <span class="errorenabled">enabled: true,</span>
     <span class="errorcolor">color: 'red+bold'</span>
-  <span class="debug">debug:</span>
+  },
+  <span class="debug">debug: {</span>
     <span class="debugcolor">color: 'blue'</span>
-  <span class="embedded">embeddedText:</span>
-    <span class="embeddedenabled">enabled: true</span>
+  },
+  <span class="embedded">embeddedText: {</span>
+    <span class="embeddedenabled">enabled: true,</span>
     <span class="embeddedcolor">color: 'cyan'</span>
-  <span class="growl">growl:</span>
-    <span class="growlenabled">enabled: true</span>
-    <span class="onstartup">onStartup: false</span>
-    <span class="onsuccess">onSuccess: true</span></pre>
+  },
+  <span class="growl">growl: {</span>
+    <span class="growlenabled">enabled: true,</span>
+    <span class="onstartup">onStartup: false,</span>
+    <span class="onsuccess">onSuccess: true</span>
+  }
+}</pre>
       </div>
     </div>
-
-    <h4 class="hi embeddedcolor embedded logger">logger.embedded.color</h4>
-    <p class="hi embeddedcolor embedded logger">The color for embedded content.</p>
-
-    <h4 class="hi growl growlenabled">growl.enabled</h4>
-    <p class="hi growl growlenabled">Whether or not Mimosa will attempt to send Growl messages.</p>
 
     <h4 class="hi onstartup growl">growl.onStartup</h4>
     <p class="hi onstartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents growl messages for those successful compiles.</p>
@@ -739,13 +768,14 @@
 
       </div>
       <div class="span6">
-<pre><span class="jshint">jshint:</span>
-  <span class="lintexcludejs">exclude:[]</span>
-  <span class="compiledjavascript">compiled: true</span>
-  <span class="copiedjavascript">copied: true</span>
-  <span class="vendorjavascript">vendor: false</span>
-  <span class="jshintrc">jshintrc: ".jshintrc"</span>
-  <span class="rulesjavascript">rules: {}</span></pre>
+<pre><span class="jshint">jshint: {</span>
+  <span class="lintexcludejs">exclude:[],</span>
+  <span class="compiledjavascript">compiled: true,</span>
+  <span class="copiedjavascript">copied: true,</span>
+  <span class="vendorjavascript">vendor: false,</span>
+  <span class="jshintrc">jshintrc: ".jshintrc",</span>
+  <span class="rulesjavascript">rules: {}</span>
+}</pre>
       </div>
     </div>
 
@@ -772,19 +802,22 @@
     <h4 class="hi csslint">csslint</h4>
     <p class="hi csslint">Settings for CSS linting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
 
+<h4 class="hi lintexcludecss csslint">csslint.exclude</h4>
+<p class="hi lintexcludecss csslint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute.</p>
+
+
       </div>
       <div class="span6">
-      <pre><span class="csslint">csslint:</span>
-  <span class="lintexcludecss">exclude:[]</span>
-  <span class="compiledcss">compiled: true</span>
-  <span class="copiedcss">copied: true</span>
-  <span class="vendorcss">vendor: false</span>
-  <span class="rulescss">rules: {}</span></pre>
+      <pre><span class="csslint">csslint: {</span>
+  <span class="lintexcludecss">exclude:[],</span>
+  <span class="compiledcss">compiled: true,</span>
+  <span class="copiedcss">copied: true,</span>
+  <span class="vendorcss">vendor: false,</span>
+  <span class="rulescss">rules: {}</span>
+}</pre>
       </div>
     </div>
 
-    <h4 class="hi lintexcludecss csslint">csslint.exclude</h4>
-    <p class="hi lintexcludecss csslint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute.</p>
 
     <h4 class="hi compiledcss csslint">csslint.compiled</h4>
     <p class="hi compiledcss csslint">When this property is set to true, Mimosa will execute csslint on the successful compile of an asset to  CSS.</p>
@@ -812,9 +845,10 @@
         <p class="hi liveReload lrenabled">This property determines whether or not Live Reload is enabled. When Live Reload is enabled, a few javascript files are added to the layout of the dev version of the app. See the <a href="utilities.html#reload">Utilities tab</a> to read more on this functionality.</p>
       </div>
       <div class="span6">
-<pre><span class="liveReload">liveReload:</span>
-  <span class="lrenabled">enabled: true</span>
-  <span class="additionalDirs">additionalDirs:["views"]</span></pre>
+<pre><span class="liveReload">liveReload: {</span>
+  <span class="lrenabled">enabled: true,</span>
+  <span class="additionalDirs">additionalDirs:["views"]</span>
+}</pre>
       </div>
     </div>
 
