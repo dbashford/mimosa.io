@@ -416,15 +416,16 @@
           <p>The <code class="option">mimosa-config</code> can be altered to build multiple compiled template output files. Instead of using <code class="option">template.outputFileName</code>, use the <code class="option">template.output</code> array.  Each element in the array has a <code class="option">folders</code> array and an <code class="option">outputFileName</code>. <code class="option">output[].outputFileName</code> is identical to <code class="option">template.outputFileName</code> except that is has no default so it must be provided.  <code class="option">folders</code> specifies which folders of templates should be bundled together.  Every template contained in the folder structure under each of the <code class="option">folders</code> will be compiled and concatenated into the output file. The <code class="option">mimosa-config-documented</code> also includes a commented out example for this configuration.</p>
         </div>
         <div class="span6">
-              <pre>template:
+              <pre>template: {
   output: [{
-    folders:["search","shared"]
+    folders:["search","shared"],
     outputFileName: "search_templates"
   },
   {
-    folders:["user","shared"]
+    folders:["user","shared"],
     outputFileName: "user_templates"
-  }]</pre>
+  }]
+}</pre>
 
         </div>
       </div>

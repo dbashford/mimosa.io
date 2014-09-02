@@ -134,20 +134,23 @@
             </div>
           </div>
 
-          <pre>bower:
-  bowerDir:
-    path: ".mimosa/bower/bower_components"
+          <pre>bower: {
+  bowerDir: {
+    path: ".mimosa/bower/bower_components",
     clean: true
-  copy:
-    enabled: true
-    trackChanges: true
-    outRoot: null
-    exclude:[]
-    unknownMainFullCopy: false
-    mainOverrides: {}
-    strategy: "packageRoot"
-    forceLatest: true
-    pathMod: []</pre>
+  },
+  copy: {
+    enabled: true,
+    trackChanges: true,
+    outRoot: null,
+    exclude:[],
+    unknownMainFullCopy: false,
+    mainOverrides: {},
+    strategy: "packageRoot",
+    forceLatest: true,
+    pathMod: []
+  }
+}</pre>
           </div>
         </div>
 
@@ -203,7 +206,12 @@
             <li>Bundle optimized JavaScript with <a href="https://github.com/jrburke/almond">Almond</a></li>
           </ul>
 
+<p>Path verification can be turned off using the configuration shown here.  Set <code class="option">require.verify.enabled</code> to <code class="option">false</code>. For information about how Mimosa uses RequireJS to optimize your application, check out the <a href="./optimization.html">Optimization</a> tab.</p>
+
+
         </div>
+
+
         <div class="span6">
           <div class="term">
             <div class="inner">
@@ -213,27 +221,30 @@
               18:59:43 - <span class="logerror">ERROR</span> - RequireJS mapping inside file <span class="path">public/javascripts/main.js</span>, for module <span class="path">*</span> has path that cannot be found <span class="path">vendor/angular-resourc</span>.
             </div>
           </div>
-<pre>require:
-  exclude:[]
-  commonConfig:"common"
-  tracking:
-    enabled: true
+<pre>require: {
+  exclude:[],
+  commonConfig:"common",
+  tracking: {
+    enabled: true,
     path: ".mimosa/require/tracking.json"
-  verify:
-    enabled: true
-    plugins:
-      css: "css"
+  },
+  verify: {
+    enabled: true,
+    plugins: {
+      css: "css",
       hbs: "hbs"
-  optimize :
-    modules: null
-    moduleCachingPath: ".mimosa/require/moduleCaching"
-    inferConfig:true
-    overrides:</pre>
+    }
+  },
+  optimize : {
+    modules: null,
+    moduleCachingPath: ".mimosa/require/moduleCaching",
+    inferConfig:true,
+    overrides:{}
+  }
+}</pre>
 
         </div>
       </div>
-
-      <p>Path verification can be turned off using the configuration shown here.  Set <code class="option">require.verify.enabled</code> to <code class="option">false</code>. For information about how Mimosa uses RequireJS to optimize your application, check out the <a href="./optimization.html">Optimization</a> tab.</p>
 
       <p>Path verification is always disabled for vendor assets, that is, assets in the configured <code class="option">vendor.javascripts</code> directory.  Vendor assets often use creative means to turn themselves into AMD modules that prove hard to verify.  That said, if a vendor asset is placed outside the vendor folder, Mimosa is coded to handle how some of the methods vendor assets are AMDed. But Mimosa may complain that some vendor assets are throwing errors or are not properly wrapped.</p>
 
@@ -261,27 +272,29 @@
 
           <p>The <code class="option">copied</code> flags determine whether or not to lint copied files, like hand-coded JavaScript and CSS.</p>
 
+          <h2>Linting Vendor Assets</h2>
+
         </div>
 
         <div class="span4">
-<pre>jshint:
-  exclude:[]
-  compiled: true
-  copied: true
-  vendor: false
-  jshintrc: ".jshintrc"
+<pre>jshint: {
+  exclude:[],
+  compiled: true,
+  copied: true,
+  vendor: false,
+  jshintrc: ".jshintrc",
   rules: {}
+}
 
-csslint:
-  exclude:[]
-  compiled: true
-  copied: true
-  vendor: false
-  rules: {}</pre>
+csslint: {
+  exclude:[],
+  compiled: true,
+  copied: true,
+  vendor: false,
+  rules: {}
+}</pre>
         </div>
       </div>
-
-      <h2>Linting Vendor Assets</h2>
 
       <p>Linting is, by default, disabled for vendor assets, that is, those assets located inside the <code class="option">vendor.javascripts</code> or <code class="option">vendor.stylesheets</code> directory. Vendor libraries often break from the idiom or use hacks to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap emits 400+ warnings.</p>
 
@@ -298,9 +311,9 @@ csslint:
           <p>For CoffeeScript and IcedCoffeeScript some jshint rules are turned off by default. Those compilers output JavaScript that violates jshint and there is nothing that can be done other than turn the rules off. So when compiling those files, Mimosa will turn off the listed rules by default.</p>
         </div>
         <div class="span6">
-          <pre>boss: true
-eqnull: true
-shadow: true
+          <pre>boss: true,
+eqnull: true,
+shadow: true,
 expr: true</pre>
         </div>
       </div>
@@ -392,28 +405,35 @@ expr: true</pre>
 
         </div>
         <div class="span4">
-<pre>logger:
-  info:
-    enabled: true
+<pre>logger: {
+  info: {
+    enabled: true,
     color: null
-  warn
-    enabled: true
+  },
+  warn: {
+    enabled: true,
     color: 'yellow+bold'
-  success:
-    enabled: true
+  },
+  success: {
+    enabled: true,
     color: 'green'
-  error:
-    enabled: true
+  },
+  error: {
+    enabled: true,
     color: 'red+bold'
-  debug:
+  },
+  debug: {
     color: 'blue'
-  embeddedText:
-    enabled: true
+  },
+  embeddedText: {
+    enabled: true,
     color: 'cyan'
-  growl:
-    enabled: true
-    onStartup: false
+  },
+  growl: {
+    enabled: true,
+    onStartup: false,
     onSuccess: true
+  }
 </pre>
         </div>
       </div>

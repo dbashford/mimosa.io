@@ -184,8 +184,9 @@
 
     <p>When running a non-node.js server, the major consideration is the <code class="option">watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives. Consider the following:</p>
 
-<pre>watch:
-  compiledDir: "../server/public"</pre>
+<pre>watch: {
+  compiledDir: "../server/public"
+}</pre>
 
   <p>This setup will place the compiled assets up one level and then into a <code class="option">server/public</code> directory. Sitting alongside the <code class="option">server</code> directory might be a <code class="option">client</code> directory where all the Mimosa managed UI code lives.</p>
 
