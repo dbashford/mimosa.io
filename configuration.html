@@ -237,7 +237,7 @@
     <p class="hi javascriptDir javascript compilers"><code class="option">watch.javascriptDir</code> can be set to <code class="option">null</code> if not building web applictions. If <code class="option">watch.javascriptDir</code> is set to <code class="option">null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
 
     <h4 class="hi exclude watch">watch.exclude</h4>
-    <p class="hi exclude watch">The <code class="option">exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code class="option">sourceDir</code> or absolute. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
+    <p class="hi exclude watch">The <code class="option">exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code class="option">sourceDir</code> or absolute. String paths must include the file name. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
 
     <h4 class="hi throttle watch">watch.throttle</h4>
     <p class="hi throttle watch">The <code class="option">throttle</code> property represents how many files Mimosa will process every 100 milliseconds. Setting this property will slow down processing of file additions. This is necessary for very large projects with thousands of files. Mimosa processes them so fast that it quickly hits a system's open file limit. When this setting is set to 0, no throttling will take place. But if there are hundreds of files and EMFILE issues occur, play with the throttle. It may take a few minutes to get the throttle setting right, so that Mimosa is still processing files quickly, but not so quickly it crashes. NOTE: If<code class="option">usePolling</code> is set to  <code class="option">false</code>, this setting has no effect.</p>
@@ -382,7 +382,7 @@
 
     <h4 class="hi copyexclude copy">copy.exclude</h4>
 
-    <p class="hi copyexclude copy">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">watch.sourceDir</code> or absolute.</p>
+    <p class="hi copyexclude copy">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">watch.sourceDir</code> or absolute. String paths must include the file name.</p>
 
     <section id="server">
       <div class="page-header">
@@ -512,7 +512,7 @@
     <p class="hi bower bowerCopy outRoot">A string path to append to the vendor directories before copying in assets. All copied assets would go inside this directory. Example: "bower-managed". <code class="option">null</code> means no <code class="option">outRoot</code> is applied. <code class="option">null</code> is the default.</p>
 
     <h4 class="hi bower bowerCopy bowerExclude">bower.copy.exclude</h4>
-    <p class="hi bower bowerCopy bowerExclude">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">bowerDir.path</code> or absolute.</p>
+    <p class="hi bower bowerCopy bowerExclude">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">bowerDir.path</code> or absolute. String paths must include the file name.</p>
 
     <h4 class="hi bower bowerCopy unknownMainFullCopy">bower.copy.unknownMainFullCopy</h4>
     <p class="hi bower bowerCopy unknownMainFullCopy">A boolean that when set will force the copy of all Bower module assets into the vendor output directory for the module. This will likely copy a lot of undesirable assets, but if that isn't a problem, setting this property is a quick way to get files copied over without the hassle of configuring <code class="option">mainOverrides</code> (below).</p>
@@ -545,7 +545,7 @@
         <p class="hi require">Mimosa's configuration for AMD/RequireJS path verification and the r.js optimizer.</p>
 
         <h4 class="hi require requireExclude">require.exclude</h4>
-        <p class="hi require requireExclude">The <code class="option">exclude</code> setting is an array of either string paths (absolute or relative) or regexes that when matching a file will keep that file from being processed by the  <code class="option">require</code> module. This can be used to keep files from being considered main modules to be used for processing if <code class="option">require</code> infers incorrectly.</p>
+        <p class="hi require requireExclude">The <code class="option">exclude</code> setting is an array of either string paths (absolute or relative) or regexes that when matching a file will keep that file from being processed by the <code class="option">require</code> module. This can be used to keep files from being considered main modules to be used for processing if <code class="option">require</code> infers incorrectly. String paths must include the file name.</p>
 
         <h4 class="hi require commonConfig">require.commonConfig</h4>
         <p class="hi require commonConfig">Location of common RequireJS configuration that is used across multiple pages/modules. See the <a href="https://github.com/requirejs/example-multipage/tree/master/www/js">RequireJS multi-page application example</a> on GitHub for an example of using common configuration.</p>
@@ -623,7 +623,7 @@
         <p class="hi minifyJS">The <code class="option">minifyJS</code> config block contains configuration for JavaScript minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
 
         <h4 class="hi excludeJS minifyJS">minifyJS.exclude</h4>
-        <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
+        <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
 
       </div>
 
@@ -643,15 +643,15 @@
       </div>
     </div>
 
-    <h4 class="hi excludeJS minifyJS">minifyJS.mangleNames</h4>
-    <p class="hi excludeJS minifyJS"><code class="option">minifyJS.mangleNames</code>, when set to <code class="option">false</code> will not alter variable names when JavaScript code is minified.</p>
+    <h4 class="hi mangleNames minifyJS">minifyJS.mangleNames</h4>
+    <p class="hi mangleNames minifyJS"><code class="option">minifyJS.mangleNames</code>, when set to <code class="option">false</code> will not alter variable names when JavaScript code is minified.</p>
 
 
     <h4 class="hi minifyCSS">minifyCSS</h4>
     <p class="hi minifyCSS">The <code class="option">minifyCSS</code> config block contains configuration for CSS minification/compression via clean-css using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
 
     <h4 class="hi excludeCSS minifyCSS">minifyCSS.exclude</h4>
-    <p class="hi excludeCSS minifyCSS"><code class="option">minifyCSS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. Any file possessing ".min." in its name, like bootstrap.min.css, is assumed to already be minified so it will be ignored by default.</p>
+    <p class="hi excludeCSS minifyCSS"><code class="option">minifyCSS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like bootstrap.min.css, is assumed to already be minified so it will be ignored by default.</p>
 
     <h4 class="hi minCSSoptions minifyCSS">minifyCSS.options</h4>
     <p class="hi minCSSoptions minifyCSS"><code class="option">minifyCSS.options</code> contains options for the <a href="https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically">clean-css package</a>.</p>
@@ -764,7 +764,7 @@
         <p class="hi jshint">Settings for JS hinting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
 
         <h4 class="hi lintexcludejs jshint">jshint.exclude</h4>
-        <p class="hi lintexcludejs jshint">Files to exclude from jshint. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute.</p>
+        <p class="hi lintexcludejs jshint">Files to exclude from jshint. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. </p>
 
       </div>
       <div class="span6">
@@ -803,7 +803,7 @@
     <p class="hi csslint">Settings for CSS linting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
 
 <h4 class="hi lintexcludecss csslint">csslint.exclude</h4>
-<p class="hi lintexcludecss csslint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute.</p>
+<p class="hi lintexcludecss csslint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name.</p>
 
 
       </div>
