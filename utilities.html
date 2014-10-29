@@ -377,6 +377,14 @@ expr: true</pre>
 
       <p>There is a <a href="https://github.com/ifraixedes/chrome-extension-mimosa-livereload">Chrome Extension</a> that can provide live reload without needing to embed scrips on your page in your app.  It embeds them in the browser.</p>
 
+      <h2>Using Another a Chrome Extension?</h2>
+
+      <p>If you are having trouble getting Live Reload working such that you are seeing things like this in your console:</p>
+
+      <pre>GET http://127.0.0.1:35729/livereload.js?ext=Chrome&extver=2.0.9 net::ERR_CONNECTION_REFUSED</pre>
+
+      <p>Then you may need to disable your existing live reload plugin.  Mimosa's live reload support is purposefully built to not need plugins and existing plugins may interfere with Mimosa's live reload.</p>
+      
     </section>
     <section id="notify">
       <div class="page-header">
