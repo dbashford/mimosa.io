@@ -79,13 +79,13 @@
     <p class="lead">Interact with Mimosa via the command line with a large set of commands and options</p>
     <div class="subnav">
       <ul class="nav nav-pills">
-        <li><a href="#module" title="Module commands">Modules</a></li>
         <li><a href="#new" title="Create a new project">New Project</a></li>
         <li><a href="#watch" title="Watch, compile and serve assets">Watch, Compile, Serve</a></li>
         <li><a href="#clean" title="Clean compiled assets">Clean</a></li>
         <li><a href="#build" title="One time asset compilation and optimization">Build</a></li>
         <li><a href="#bower" title="Bower commands">Bower</a></li>
         <li><a href="#skel" title="Interact with Mimosa's skeletons">Skeletons</a></li>
+        <li><a href="#module" title="Module commands">Modules</a></li>
         <li><a href="#misc" title="Copy Mimosa config to an existing project">Misc</a></li>
       </ul>
     </div>
@@ -101,7 +101,14 @@
       </div>
     </section>
 
-    <p>Each command has a section dedicated to it below, but here is a quick list of the available non-module commands.  Most commands have flags that influence the behavior of the command.  Read more about those below.</p>
+    <p>Each command has a section dedicated to it below, but here is a quick list
+      of the available non-module commands. Most commands have flags that influence
+      the behavior of the command. Read more about those below.</p>
+
+    <h2>Mimosa Commands</h2>
+
+    <p>A set of commands come with Mimosa and that are available no matter
+      what modules are included in your project</p>
 
     <table class="table table-striped table-bordered table-condensed">
       <thead>
@@ -138,16 +145,6 @@
           <td>Provides a mimosa-config when one isn't present, and writes a fully documented version for reference.</td>
         </tr>
         <tr>
-          <td>bower</td>
-          <td>[-P/--profile]</td>
-          <td>Runs bower install.</td>
-        </tr>
-        <tr>
-          <td>bower:clean</td>
-          <td>[-c, --cache], [-P/--profile]</td>
-          <td>Remove all of the mimosa-bower installed dependencies from their target directories.</td>
-        </tr>
-        <tr>
           <td>skel:new</td>
           <td>&lt;skeletonName&gt; [installFolder]</td>
           <td>Creates a new project from an existing skeleton.</td>
@@ -170,16 +167,38 @@
       </tbody>
     </table>
 
-    <section id="module">
-      <div class="page-header">
-        <h1>
-          Module Commands
-          <small><span class="mim">mimosa</span> <span class="command">mod:[install/uninstall/list/config]</span></small>
-        </h1>
-      </div>
-    </section>
+    <h2>Commands from Modules</h2>
 
-    <p>Mimosa's module features have their own set of commands prefixed with <code class='option'>mod:</code>.  Read about them on the <a href="./modules.html#commands">Module's page</a>.</p>
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>Command</th>
+          <th>Options</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bower</td>
+          <td>bower</td>
+          <td>[-P/--profile]</td>
+          <td>Runs bower install.</td>
+        </tr>
+        <tr>
+          <td>bower</td>
+          <td>bower:install</td>
+          <td>[-d/--savedev]</td>
+          <td>Will install one to many modules into your application.</td>
+        </tr>
+        <tr>
+          <td>bower</td>
+          <td>bower:clean</td>
+          <td>[-c, --cache], [-P/--profile]</td>
+          <td>Remove all of the mimosa-bower installed dependencies from their target directories.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <section id="new">
       <div class="page-header">
@@ -669,13 +688,7 @@ $ mimosa build -P nameOfProfile</pre>
       </div>
     </section>
 
-    <p><h2>bower</h2> <code class='option'>bower</code> provide one off access to Bower installs without kicking off <code class='option'>watch</code>or <code class='option'>build</code>.</p>
-
-    <p><h2>bower:install &lt;names,of,modules&gt; [-d/--savedev]</h2> <code class='option'>bower:install</code> will install one to many modules into your application and save the new modules to the <code class='option'>dependencies</code> array of the <code class='option'>bower.json</code>. To save to the <code class='option'>devDependencies</code>, add a <code class='option'>[-d/--savedev]</code> flag. You can even use version numbers when installing modules. Example: <code class='option'>mimosa bower:install backbone,underscore,jquery#1.8.1</code></p>
-
-    <p><h2>bower:clean [-c/--cache]</h2> <code class='option'>bower:clean</code> will remove all of the Bower installed dependencies from their target directories in the vendor folder. It will also clean up any Bower package related folders that then become empty. Finally it will clean up the <code class='option'>bower.bowerDir.path</code> folder, removing all the temporary assets.</p>
-
-    <p><code class='option'>bower:clean --cache</code>, in addition to cleaning up installed dependencies, will also clean the Bower cache. This often is necessary when Bower updates, or if packages get updated without new versions.</p>
+    <p>See the <a href="https://github.com/dbashford/mimosa-bower#additional-commands">repository for the bower module</a> to get details on the bower commands.</p>
 
     <section id="skel">
       <div class="page-header">
@@ -697,6 +710,17 @@ $ mimosa build -P nameOfProfile</pre>
     <p><h2>skel:new [nameOfSkeleton] [directory]</h2> This command will install the named skeleton in the directory provided. If the directory is not provided, it will install the skeleton in the current directory.</p>
     <p><h2>skel:search [searchTerm]</h2> This command will search the registry for any skeletons possessing the searchTerm as a keyword.</p>
     <p><h2>skel:list</h2> This command will list all skeletons.</p>
+
+    <section id="module">
+      <div class="page-header">
+        <h1>
+          Module Commands
+          <small><span class="mim">mimosa</span> <span class="command">mod:[install/uninstall/list/config]</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <p>Mimosa's module features have their own set of commands prefixed with <code class='option'>mod:</code>.  Read about them on the <a href="./modules.html#commands">Module's page</a>.</p>
 
     <section id="misc">
       <div class="page-header">

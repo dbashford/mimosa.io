@@ -459,77 +459,7 @@
       </div>
     </section>
 
-    <div class="row">
-      <div class="span6">
-        <h4 class="hi bower">bower</h4>
-        <p class="hi bower">Root level container for Bower configuration.</p>
-
-        <h4 class="hi bower bowerWatch">bower.watch</h4>
-        <p class="hi bower bowerWatch">When <code class="option">bower.watch</code> is set to <code class="option">true</code>, Mimosa will watch the <code class="option">bower.json</code> for changes, and when the file changes, run a Bower install.</p>
-
-        <h4 class="hi bower bowerDir">bower.bowerDir</h4>
-        <p class="hi bower bowerDir">Container for configuration for how to handle the directory where Bower first places its assets before Mimosa copies them to their final destination.</p>
-
-        <h4 class="hi bower bowerDir bowerPath">bower.bowerDir.path</h4>
-        <p class="hi bower bowerDir bowerPath">The path to where mimosa-bower will initially install Bower assets before moving the key assets into the <code class="option">watch.sourceDir</code>. This is a string and is relative to the root of the project.</p>
-
-        <h4 class="hi bower bowerDir bowerClean">bower.bowerDir.clean</h4>
-        <p class="hi bower bowerDir bowerClean">A flag to indicate whether or not to remove temporary bower assets after install. Bower downloads entire GitHub repositories, so cleaning them keeps your project from having those be kept around.</p>
-
-      </div>
-      <div class="span6">
-        <pre><span class="bower">bower: {</span>
-  <span class="bowerWatch">watch:true,</span>
-  <span class="bowerDir">bowerDir: {</span>
-    <span class="bowerPath">path: ".mimosa/bower_components",</span>
-    <span class="bowerClean">clean: true</span>
-  },
-  <span class="bowerCopy">copy: {</span>
-    <span class="bowerCopyEnabled">enabled: true,</span>
-    <span class="trackChanges">trackChanges: true,</span>
-    <span class="outRoot">outRoot: null,</span>
-    <span class="bowerExclude">exclude:[],</span>
-    <span class="unknownMainFullCopy">unknownMainFullCopy: false,</span>
-    <span class="mainOverrides">mainOverrides: {},</span>
-    <span class="strategy">strategy: "packageRoot",</span>
-    <span class="forceLatest">forceLatest: true,</span>
-    <span class="pathMod">pathMod: []</span>
-  }
-}</pre>
-      </div>
-    </div>
-
-    <h4 class="hi bower bowerCopy">bower.copy</h4>
-    <p class="hi bower bowerCopy">Container for properties that instruct mimosa-bower how to go about copying assets to their eventual destination.</p>
-
-    <h4 class="hi bower bowerCopy bowerCopyEnabled">bower.copy.enabled </h4>
-    <p class="hi bower bowerCopy bowerCopyEnabled">A flag to indicate whether or not to copy assets out of the <code class="option">bowerDir.path</code> and into <code class="option">watch.sourceDir</code></p>
-
-    <h4 class="hi bower bowerCopy trackChanges">bower.copy.trackChanges</h4>
-    <p class="hi bower bowerCopy trackChanges">When set to <code class="option">true</code>, mimosa-bower will keep track of your <code class="option">bower.json</code> and <code class="option">mimosa-config</code> bower configuration and kick off installs if it detects changes. When set to <code class="option">false</code>, bower's default checking is used. The Bower default checking is based on the contents of <code class="option">bowerDir.path</code>. If <code class="option">bowerDir.clean</code> is <code class="option">true</code> and <code class="option">trackChanges</code> is <code class="option">false</code>, mimosa-bower will not perform installs during watch and build because installs would occur every time Mimosa starts up.</p>
-
-    <h4 class="hi bower bowerCopy outRoot">bower.copy.outRoot</h4>
-    <p class="hi bower bowerCopy outRoot">A string path to append to the vendor directories before copying in assets. All copied assets would go inside this directory. Example: "bower-managed". <code class="option">null</code> means no <code class="option">outRoot</code> is applied. <code class="option">null</code> is the default.</p>
-
-    <h4 class="hi bower bowerCopy bowerExclude">bower.copy.exclude</h4>
-    <p class="hi bower bowerCopy bowerExclude">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">bowerDir.path</code> or absolute. String paths must include the file name.</p>
-
-    <h4 class="hi bower bowerCopy unknownMainFullCopy">bower.copy.unknownMainFullCopy</h4>
-    <p class="hi bower bowerCopy unknownMainFullCopy">A boolean that when set will force the copy of all Bower module assets into the vendor output directory for the module. This will likely copy a lot of undesirable assets, but if that isn't a problem, setting this property is a quick way to get files copied over without the hassle of configuring <code class="option">mainOverrides</code> (below).</p>
-
-    <h4 class="hi bower bowerCopy mainOverrides">bower.copy.mainOverrides</h4>
-    <p class="hi bower bowerCopy mainOverrides"> Occasionally bower packages do not clearly indicate what file is the main library file. In those cases, mimosa-bower cannot find the main files to copy them to the vendor directory. json2 is a good example. <code class="option">mainOverrides</code> allows for setting which files should be copied for a package. The key for this object is the name of the package. The value is an array of path strings representing the package's main files. The paths should be relative to the root of the package. For example: <code class="option">{"json2":["json2.js","json_parse.js"]}</code>. The paths can also be to directories. That will include all the directory's files. <code class="option">mainOverrides</code> packages can also be provided an object in addition to string paths. The object maps input paths to output paths and allow for specific placement of files and folders. Ex <code class="option">{"json2":[{"json2.js":"json-utils/json2.js"}]</code>. In this case the <code class="option">json2.js</code> file will be placed in <code class="option">json-utils/json2.js</code> in the <code class="option">vendor.javascripts</code> folder. If a file is provided as opposed to a directory, the output path must specify the output file name. Any directories copied in this way are copied entirely without manipulation of the folder structure.</p>
-
-    <p>See <a href="https://gist.github.com/dbashford/7189582">this gist</a> for a detailed and explained real world <code class="option">mainOverrides</code> example.</p>
-
-    <h4 class="hi bower bowerCopy strategy">bower.copy.strategy</h4>
-    <p class="hi bower bowerCopy strategy">The copying strategy, a string. <code class="option">vendorRoot</code> places all files at the root of the <code class="option">vendor</code> directory. <code class="option">packageRoot</code> places the files in the vendor directory in a folder named for that package. <code class="option">none</code> will copy the assets into the vendor directory without modification. <code class="option">strategy</code> can also be an object with keys that match the names of packages and values of strategy types. When using a strategy object, the key of <code class="option">*</code> provides a default strategy. If only 2 of 10 packages are specified in the object, the rest get the <code class="option">*</code> strategy. If no <code class="option">*</code> is provided, <code class="option">packageRoot</code> is the assumed default.</p>
-
-    <h4 class="hi bower bowerCopy forceLatest">bower.copy.forceLatest</h4>
-    <p class="hi bower bowerCopy forceLatest"><code class="option">forceLatest</code> is a means to quickly fix any problems with library version collisions. If you want to install the latest jquery, but one of your other libraries wants to install an older version the install will fail. This flag will ensure the the latest version is selected and the Bower install will continue. When the <code class="option">forceLatest</code> results in a selection, a warning message is logged with the details of which version was picked and which versions were not.</p>
-
-    <h4 class="hi bower bowerCopy pathMod">bower.copy.pathMod</h4>
-    <p class="hi bower bowerCopy pathMod"><code class="option">pathMod</code> can be an array of strings or regexes. It is used to strip full pieces of a path from the output file when the selected strategy is <code class="option">none</code> or a <code class="option">mainOverrides</code> object is used. If a Bower package script is in <code class="option">packageName/lib/js/foo.js</code> and <code class="option">pathMod</code> is set to <code class="option">["lib", "js"]</code> the output path would have <code class="option">lib</code> and <code class="option">js</code> stripped.</p>
+    <p>For details on bower configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-bower#default-config">GitHub repository</a>.
 
     <section id="require">
       <div class="page-header">

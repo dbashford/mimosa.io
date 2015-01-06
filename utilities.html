@@ -99,82 +99,9 @@
         </h1>
       </div>
 
-      <div class="row">
-        <div class="span6">
+      <p>Mimosa comes with <a href="http://bower.io">Bower</a> support built in via the <code class="option">mimosa-bower</code> module.</p>
 
-          <p>Mimosa comes with <a href="http://bower.io">Bower</a> support built in via the <code class="option">mimosa-bower</code> module.</p>
-
-          <h3>What is Bower?</h3>
-
-          <p>This is how Bower describes itself:</p>
-
-          <blockquote>
-            Bower is a package manager for the web. It offers a generic, unopinionated solution to the problem of front-end package management, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack. There are no system wide dependencies, no dependencies are shared between different apps, and the dependency tree is flat.
-          </blockquote>
-
-            <p>It mentions an "opinionated build stack".  That would be Mimosa. Mimosa wraps Bower with its opinions of where Bower managed assets should be placed. Mimosa will handle placement on its own when it can, but it provides configuration to control placement at a fine-grained level if that is necessary.</p>
-
-            <p><code class="option">mimosa new</code> created projects will include a <code class="option">bower.json</code> that <code class="option">mimosa-bower</code> will use to pull in both jQuery and require.js when you run Mimosa for the first time.</p>
-
-            <h3>"I know what Bower is and I don't want it!"</h3>
-
-            <p>Before Mimosa v1.0.0, mimosa-bower existed, but was not an automatically included module. That means it is not tied in to the core of Mimosa in any way and can be removed without any side effects. Just remove <code class="option">bower</code> from your list of modules.</p>
-
-            <h3>How does Mimosa use Bower?</h3>
-
-        </div>
-        <div class="span6">
-          <div class="term">
-            <div class="inner">
-              $ mimosa bower<br/>
-              21:16:50 - Info - Starting Bower install...<br/>
-              21:16:51 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/requirejs/require.js</span><br/>
-              21:16:51 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/jquery/jquery.js</span><br/>
-              21:16:51 - Info - Cleaned temp bower output directory <span class="path">.mimosa/bower/bower_components</span><br/>
-            </div>
-          </div>
-
-          <pre>bower: {
-  bowerDir: {
-    path: ".mimosa/bower/bower_components",
-    clean: true
-  },
-  copy: {
-    enabled: true,
-    trackChanges: true,
-    outRoot: null,
-    exclude:[],
-    unknownMainFullCopy: false,
-    mainOverrides: {},
-    strategy: "packageRoot",
-    forceLatest: true,
-    pathMod: []
-  }
-}</pre>
-          </div>
-        </div>
-
-        <p>When <code class="option">mimosa bower</code>, <code class="option">mimosa watch</code> or <code class="option">mimosa build</code> are executed, Mimosa will assess whether or not any packages need to be installed and install them to the <code class="option">bower.bowerDir.path</code> directory, by default <code class="option">.mimosa/bower/bower_components</code>. Mimosa will also watch the <code class="option">bower.json</code> for changes while running <code class="option">mimosa watch</code> and if any changes occur, Mimosa will immediately kick off a Bower install.</p>
-
-        <p>If <code class="option">bower.copy.trackChanges</code> is set to <code class="option">true</code> (the default), Mimosa keeps track of two artifacts to help it determine if installs need to occur. First, it keeps track of the <code class="option">bower.json</code> that was last used for an install. If the current <code class="option">bower.json</code> is different, an install will be executed. Second, Mimosa keeps track of the bower section of your project's <code class="option">mimosa-config</code> for the last install. If it changes, an install will be executed.</p>
-
-            <p>If <code class="option">bower.copy.trackChanges</code> is set to <code class="option">false</code> and <code class="option">bower.bowerDir.clean</code> is set to <code class="option">false</code>, Bower default processing will check to see if an install is necessary based on the contents of the <code class="option">bower.bowerDir.path</code>. If it detects that nothing has changed, no install will be run.</p>
-
-            <p>If <code class="option">bower.copy.trackChanges</code> is set to <code class="option">false</code> and <code class="option">bower.bowerDir.clean</code> is set to <code class="option">true</code> (not recommended), then Mimosa has no way to determine if an install is necessary so the Bower functionality does not register itself to be run during <code class="option">mimosa watch</code> and <code class="option">mimosa build</code>. In this case it must be executed using the <code class="option">mimosa bower</code> command.</p>
-
-
-      <p>If any packages are installed, Mimosa then moves them into the vendor directories as indicated by Mimosa's <code class="option">vendor</code> config. The <code class="option">bower.copy.strategy</code> determines how the files are copied over. They can be copied to the root of the vendor directory (<code class="option">vendorRoot</code>), to the root of the component directory (<code class="option">packageRoot</code>, the default), or can be copied keeping the entire folder structure intact, <code class="option">none</code>.</p>
-
-      <p>Mimosa requires a valid <code class="option">bower.json</code> at the root of project (in the same directory as <code class="option">mimosa-config)</code>.</p>
-
-      <p>If Bower encounters any version collisions, it will automatically choose the latest version for that library because the <code class="option">forceLatest</code> flag is set to <code class="option">true</code>.  If it is not set to <code class="option">true</code>, the Bower install will error out and the collision will need to be addressed.</p>
-
-      <p>If Mimosa cannot identify the main files for a package because it hasn't been provided by the package author, Mimosa will indicate that via a console log message. The <code class="option">bower.copy.mainOverrides</code> can be used to indicate which files from the package are to use used.</p>
-
-      <p>The <a href="./configuration.html#bower">Configuration</a> page has details on how to use <code class="option">mainOverrides</code> and  <code class="option">strategy</code> to properly place the right files from Bower modules in the desired project location.</p>
-
-      <p>And <a href="https://gist.github.com/dbashford/7189582">this gist</a> covers a real world <code class="option">mainOverrides</code> example which includes all the various ways to use <code class="option">mainOverrides</code> to place files.</p>
-
+      <p>For details on the bower module's functionality, check out the <a href="https://github.com/dbashford/mimosa-bower#functionality">GitHub repository</a> for the module.</p>
     </section>
 
     <section id="requirejs" >
@@ -384,7 +311,7 @@ expr: true</pre>
       <pre>GET http://127.0.0.1:35729/livereload.js?ext=Chrome&extver=2.0.9 net::ERR_CONNECTION_REFUSED</pre>
 
       <p>Then you may need to disable your existing live reload plugin.  Mimosa's live reload support is purposefully built to not need plugins and existing plugins may interfere with Mimosa's live reload.</p>
-      
+
     </section>
     <section id="notify">
       <div class="page-header">
