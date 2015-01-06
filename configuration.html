@@ -44,9 +44,6 @@
             <li  class="">
               <a href="./modules.html">Modules</a>
             </li>
-            <li  class="">
-              <a href="./compilers.html">Compilers</a>
-            </li>
             <li class="">
               <a href="./server.html">Serve</a>
             </li>
@@ -82,7 +79,6 @@
         <li><a href="#modules" title="What modules are installed">Modules</a></li>
         <li><a href="#watch" title="What to watch and where">Watch</a></li>
         <li><a href="#vendor" title="Where the vendor scripts are">Vendor</a></li>
-        <li><a href="#compilers" title="Compiler tweaks">Compilers</a></li>
         <li><a href="#templates" title="Template config">Templates</a></li>
         <li><a href="#copy" title="What files will Mimosa copy">Copy</a></li>
         <li><a href="#server" title="Micro-Templates galore">Server</a></li>
@@ -279,16 +275,6 @@
 }</pre>
       </div>
     </div>
-
-    <section id="compilers">
-      <div class="page-header">
-        <h1>
-          Compiling your Meta-Languages <small><span class="command">compilers</span></small>
-        </h1>
-      </div>
-    </section>
-
-    <p>With Mimosa <code class="option">2.0</code> the <code class="option">compilers</code> section of the <code class="option">mimosa-config</code> was removed. <code class="option">2.0</code> externalized all of the compilers, so the <code class="option">compilers</code> config now resides with each individual external compiler.</p>
 
     <section id="templates">
       <div class="page-header">
@@ -549,45 +535,31 @@
 
     <div class="row">
       <div class="span6">
+        <h3>minify-js</h3>
+
         <h4 class="hi minifyJS">minifyJS</h4>
         <p class="hi minifyJS">The <code class="option">minifyJS</code> config block contains configuration for JavaScript minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
 
-        <h4 class="hi excludeJS minifyJS">minifyJS.exclude</h4>
-        <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
-
       </div>
-
 
       <div class="span6">
 <pre><span class="minifyJS">minifyJS: {</span>
   <span class="excludeJS">exclude:[/\.min\./],</span>
   <span class="mangleNames">mangleNames:true</span>
 }
-<span class="minifyCSS">minifyCSS: {</span>
-  <span class="excludeCSS">exclude:[/\.min\./],</span>
-  <span class="minCSSoptions">options:{ </span>
-    <span class="processImport">processImport: false</span>
-  }
-}
 </pre>
       </div>
     </div>
 
+    <h4 class="hi excludeJS minifyJS">minifyJS.exclude</h4>
+    <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
+
     <h4 class="hi mangleNames minifyJS">minifyJS.mangleNames</h4>
     <p class="hi mangleNames minifyJS"><code class="option">minifyJS.mangleNames</code>, when set to <code class="option">false</code> will not alter variable names when JavaScript code is minified.</p>
 
+    <h3>minify-css</h3>
 
-    <h4 class="hi minifyCSS">minifyCSS</h4>
-    <p class="hi minifyCSS">The <code class="option">minifyCSS</code> config block contains configuration for CSS minification/compression via clean-css using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
-
-    <h4 class="hi excludeCSS minifyCSS">minifyCSS.exclude</h4>
-    <p class="hi excludeCSS minifyCSS"><code class="option">minifyCSS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like bootstrap.min.css, is assumed to already be minified so it will be ignored by default.</p>
-
-    <h4 class="hi minCSSoptions minifyCSS">minifyCSS.options</h4>
-    <p class="hi minCSSoptions minifyCSS"><code class="option">minifyCSS.options</code> contains options for the <a href="https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically">clean-css package</a>.</p>
-
-    <h4 class="hi processImport minCSSoptions minifyCSS">minifyCSS.options.processImport</h4>
-    <p class="hi processImport minCSSoptions minifyCSS"><code class="option">minifyCSS.options.processImport</code> is a default setting for the minify-css/clean-css module that prevents @import statements from being removed.</p>
+    <p>For details on the mimosa-minify-css module configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-minify-css#default-config">GitHub repository</a>.
 
     <section id="growl">
       <div class="page-header">
