@@ -263,55 +263,7 @@ expr: true</pre>
         </h1>
       </div>
 
-      <p>Mimosa provides live reload support by default via the <code class="option">mimosa-live-reload</code> module. Live reload will immediately refresh a page any time an asset is compiled or a view changes.</p>
-
-      <p><code class="option">mimosa-live-reload</code> handles CSS and JavaScript assets differently. For CSS the page does not need a full reload.  The new CSS is re-evaluated without reloading anything other than the CSS. The page is simply repainted. When JavaScript assets are updated, the entire page refreshes. (Note: With version <code class="option">2.3</code> of Mimosa, live reload of CSS is handled differently in Chrome. See the <a href="https://github.com/dbashford/mimosa/blob/master/RELEASENOTES.md#major-changes) for details.">Release Notes</a> for details.)</p>
-
-      <p>This sounds like a fairly small nice-to-have feature, but it quickly becomes one of the handiest time savers in your workflow. Mimosa and Live Reload are often fast enough to get the page reloaded before the browser can be toggled to.</p>
-
-      <p>If <code class="option">mimosa new</code> was used to create the project, then live reload will already be included. If enabling it on an existing project, some minor things need to change on both the client and server to use it.</p>
-
-      <div class="row">
-        <div class="span6">
-          <h2>Client Scripts</h2>
-
-          <p>For live reload to work, two scripts need to be added to the page.  If using dynamic templating for views, then the scripts need to be included for development and not included when in production.</p>
-
-          <p>The paths to use for the two scripts are:</p>
-
-          <ul>
-            <li><code class="option">/socket.io/socket.io.js</code>: This is <a href="http://socket.io/">socket.io</a>. Mimosa will serve this file, so it need not be in the project's codebase, but a script tag must pull it in. socket.io is what allows instant communication of server-side changes to the client. socket.io will emit events on the client that indicate that a JavaScript or CSS file has changed.</li>
-            <li><code class="option">/javascripts/reload-client.js</code>: This is a small piece of code that reacts to events emitted by socket.io. When it hears from socket.io that a piece of CSS has changed, it reloads the CSS.  When it hears that some JavaScript has changed, it refreshes the page.</li>
-          </ul>
-        </div>
-        <div class="span6">
-
-          <h2>Server Component</h2>
-
-          <p>If Mimosa is serving assets, there is nothing to do on the server.</p>
-
-          <p>If running a node server that Mimosa is starting, then the callback that Mimosa passes <code class="option">startServer</code> needs to be passed the http server object. This is the same object returned by <code class="option">require('http').createServer()</code> and by <code class="option">express().listen()</code>. The <code class="option">mimosa-live-reload</code> module needs access to the server to establish a connection between the socket.io client and the server.</p>
-        </div>
-      </div>
-
-      <h2>Already using socket.io?</h2>
-
-      <p>This pertains to those who are using their own server, not Mimosa's.  The <code class="option">mimosa-live-reload</code> module uses socket.io in conjunction with the server passed to the <code class="option">startServer</code> callback function to provide live reload functionality. But if socket.io is already being used, Mimosa's use of socket.io will cause problems.</p>
-
-      <p>If socket.io is already being used, then it must also be given to the callback function executed at the end of <code class="option">startServer</code>. The first parameter passed to the callback should be the server, and the second should be the object returned by <code class="option">socketio.listen(server)</code>. If this object is provided, <code class="option">mimosa-live-reload</code> will not create its own socketio connection, and instead use the existing one.</p>
-
-      <h2>Try a Chrome Extension?</h2>
-
-      <p>There is a <a href="https://github.com/ifraixedes/chrome-extension-mimosa-livereload">Chrome Extension</a> that can provide live reload without needing to embed scrips on your page in your app.  It embeds them in the browser.</p>
-
-      <h2>Using Another a Chrome Extension?</h2>
-
-      <p>If you are having trouble getting Live Reload working such that you are seeing things like this in your console:</p>
-
-      <pre>GET http://127.0.0.1:35729/livereload.js?ext=Chrome&extver=2.0.9 net::ERR_CONNECTION_REFUSED</pre>
-
-      <p>Then you may need to disable your existing live reload plugin.  Mimosa's live reload support is purposefully built to not need plugins and existing plugins may interfere with Mimosa's live reload.</p>
-
+      <p>Mimosa provides live reload support by default via the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload</a> module. For details on what live reload is, how mimosa-live-reload functions and how to integrate mimosa-live-reload into your existing server setup, visit the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload GitHub page.</p>
     </section>
     <section id="notify">
       <div class="page-header">
