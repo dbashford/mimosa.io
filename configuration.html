@@ -537,29 +537,9 @@
       </div>
     </section>
 
-    <div class="row">
-      <div class="span6">
-        <h3>minify-js</h3>
+    <h3>minify-js</h3>
 
-        <h4 class="hi minifyJS">minifyJS</h4>
-        <p class="hi minifyJS">The <code class="option">minifyJS</code> config block contains configuration for JavaScript minification/compression via uglify using the <code class="option">--minify</code> flag. For more information on minification, see the <a href="./optimization.html#min">optimization tab</a>.</p>
-
-      </div>
-
-      <div class="span6">
-<pre><span class="minifyJS">minifyJS: {</span>
-  <span class="excludeJS">exclude:[/\.min\./],</span>
-  <span class="mangleNames">mangleNames:true</span>
-}
-</pre>
-      </div>
-    </div>
-
-    <h4 class="hi excludeJS minifyJS">minifyJS.exclude</h4>
-    <p class="hi excludeJS minifyJS"><code class="option">minifyJS.exclude</code> contains an array of regexs and/or strings that match paths to exclude from minification. String paths can be either relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. Any file possessing ".min." in its name, like jquery.min.js, is assumed to already be minified so it will be ignored by default.</p>
-
-    <h4 class="hi mangleNames minifyJS">minifyJS.mangleNames</h4>
-    <p class="hi mangleNames minifyJS"><code class="option">minifyJS.mangleNames</code>, when set to <code class="option">false</code> will not alter variable names when JavaScript code is minified.</p>
+    <p>For details on the mimosa-minify-js module configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-minify-js#default-config">GitHub repository</a>.
 
     <h3>minify-css</h3>
 
