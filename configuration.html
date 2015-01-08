@@ -659,41 +659,10 @@
     <h4 class="hi rulesjavascript jshint">jshint.rules</h4>
     <p class="hi rulesjavascript jshint">Add  <a href="http://www.jshint.com/options/">jshint overrides</a> as key/value pairs underneath this property.</p>
 
-    <div class="row">
-      <div class="span6">
-        <h3>csslint</h3>
+    <h3>csslint</h3>
 
-    <h4 class="hi csslint">csslint</h4>
-    <p class="hi csslint">Settings for CSS linting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
+    <p>For details on the mimosa-csslint module configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-csslint">GitHub repository</a>.
 
-<h4 class="hi lintexcludecss csslint">csslint.exclude</h4>
-<p class="hi lintexcludecss csslint">Files to exclude from linting. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name.</p>
-
-
-      </div>
-      <div class="span6">
-      <pre><span class="csslint">csslint: {</span>
-  <span class="lintexcludecss">exclude:[],</span>
-  <span class="compiledcss">compiled: true,</span>
-  <span class="copiedcss">copied: true,</span>
-  <span class="vendorcss">vendor: false,</span>
-  <span class="rulescss">rules: {}</span>
-}</pre>
-      </div>
-    </div>
-
-
-    <h4 class="hi compiledcss csslint">csslint.compiled</h4>
-    <p class="hi compiledcss csslint">When this property is set to true, Mimosa will execute csslint on the successful compile of an asset to  CSS.</p>
-
-    <h4 class="hi copiedcss csslint">csslint.copied</h4>
-    <p class="hi copiedcss csslint">When this property is set to true, Mimosa will execute csslint on the successful copy of a CSS asset.</p>
-
-    <h4 class="hi vendorcss csslint">csslint.vendor</h4>
-    <p class="hi vendorcss csslint">When this property is set to true, Mimosa will execute csslint on the successful copy of a vendor CSS asset.</p>
-
-    <h4 class="hi rulescss csslint">csslint.rules</h4>
-    <p class="hi rulescss csslint">Add <a href="https://github.com/stubbornella/csslint/wiki/Rules">csslint overrides</a> as key/value pairs underneath this property.</p>
 
     <section id="lint">
       <div class="page-header">
