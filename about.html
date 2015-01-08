@@ -81,7 +81,6 @@
       <ul class="nav nav-pills">
         <li><a href="#upgrade21" title="upgrade to 2.1">2.1 upgrade</a></li>
         <li><a href="#upgrade20" title="upgrade to 2.0">2.0 upgrade</a></li>
-        <li><a href="#upgrade12" title="upgrade to 1.2">1.2 upgrade</a></li>
         <li><a href="#git" title="git">git error?</a></li>
         <li><a href="#cpu" title="cpu burn">CPU Burn</a></li>
         <li><a href="#emfile" title="EMFILE">EMFILE</a></li>
@@ -125,37 +124,6 @@
       <li>The Handlebars compiler has been pulled out into two separate compilers, one for those using ember.js, and those who are not.  This removes the need to specifically configure ember.  Instead of configuring ember, just use the ember specific compiler. The <a href="https://github.com/dbashford/mimosa-ember-handlebars">ember-handlebars</a> and <a href="https://github.com/dbashford/mimosa-handlebars">handlebars</a> github pages have details on how to configure those new modules.</li>
       <li>The mimosa-server module now depends on the project to have the correct transpilers <code class="option">npm install</code>ed to use those transpilers for node.js server code. So, for instance, if LiveScript is being used on the server, then LiveScript must be  <code class="option">npm install</code>ed into the project.</li>
     </ul>
-
-    <h2 id="upgrade11">1.2 upgrade</h2>
-
-    <p>With <code class="option">1.2</code> the <code class="option">mimosa-minify</code> module is being phased out as a default module.  It will still be a valid module and if you have it included in your project, Mimosa will continue to use it. Going forward, though, <a href="https://github.com/dbashford/mimosa-minify-js">mimosa-minify-js</a> and <a href="https://github.com/dbashford/mimosa-minify-css">mimosa-minify-css</a> will replace <code class="option">mimosa-minify</code> as default modules.</p>
-
-    <h3>How might this effect me?</h3>
-
-    <p>If you <b>do not</b> override your modules array -- if it is still commented out -- and you upgrade to <code class="option">1.2</code> Mimosa will no longer use <code class="option">mimosa-minify</code> and will instead use the two new modules. So, if you have uncommented the <code class="option">minify.exclude</code> configuration you'll need to make some changes.</p>
-
-    <p>You could uncomment your modules array.  That'll solve the problem straight away.  That'll force your project to use the <code class="option">minify</code> module and its config.</p>
-
-    <p>You could also switch to using the new modules.  This'll mean 15 seconds of config updates.</p>
-
-    <h3>I'd like to use the new modules please</h3>
-
-    <p>Here are the new default configs, when comparing them to the old one, the config translation should be an easy one:</p>
-
-    <div class="row">
-      <div class="span6">
-        <h4>mimosa-minify-js</h4>
-        <pre>minifyJS: {
-  exclude:[/\.min\./]
-}</pre>
-      </div>
-      <div class="span6">
-        <h4>mimosa-minify-css</h4>
-        <pre>minifyCSS: {
-  exclude:[/\.min\./]
-}</pre>
-      </div>
-    </div>
 
     <h2 id="git">"Error: git is not installed or not in the PATH"</h2>
 

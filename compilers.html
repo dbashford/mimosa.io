@@ -284,7 +284,7 @@
         <tr>
           <td><a href="https://github.com/dbashford/mimosa-copy">File copying module</a></td>
           <td>copy</td>
-          <td>js, css, png, jpg, jpeg, gif, html, eot, svg, ttf, woff, otf, yaml, kml, ico, htc, htm, json, txt, xml, xsd, map, md, mp4</td>
+          <td>js, css, png, jpg, jpeg, gif, html, eot, svg, ttf, woff, otf, yaml, kml, ico, htc, htm, json, txt, xml, xsd, map, md, mp4, swf</td>
         </tr>
       </tbody>
     </table>
@@ -448,12 +448,10 @@
     <section id="copy">
       <div class="page-header">
         <h1>
-          Copy "Compiler" <small><span class="command">["js", "css", "png", "jpg", "jpeg", "gif", "html", "eot", "svg", "ttf", "woff", "otf", "yaml", "kml", "ico", "htc", "htm", "json", "txt", "xml", "xsd", "map", "md", "mp4"] </span></small>
+          Copying Files
         </h1>
       </div>
-      <p>The <a href="https://github.com/dbashford/mimosa-copy">file copying module</a> handles copying files from the assets directory to the public directory. Because of the copy compiler, images, plain JavaScript, CSS will not be left out.</p>
-
-      <p>If there are extra files to copy over, uncomment the <code class="option">copy.extensions</code> config and add it to the list. If the default list of extensions for the copy compiler needs to be updated, consider <a href="https://github.com/dbashford/mimosa-copy/issues">submitting an issue</a> to have new extensions added to Mimosa's defaults.</p>
+      <p>The <a href="https://github.com/dbashford/mimosa-copy">file copying module</a> can handle copying files that don't need compilation, like plain old JavaScript and CSS, from the assets directory to the public directory.</p>
 
     </section>
     <section id="more">

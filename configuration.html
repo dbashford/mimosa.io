@@ -332,9 +332,6 @@
     <h4 class="hi outputFileName template">template.outputFileName</h4>
     <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./compilers.html#mt">compilers tab</a> for more info.</p>
 
-    <h4 class="hi handlebars template">template.handlebars</h4>
-    <p class="hi handlebars template">With Mimosa <code class="option">2.0</code> the <code class="option">handlebars</code> config has been removed from the <code class="option">template</code> config. Mimosa <code class="option">2.0</code> externalized all of the compilers, so the handlebars config now resides with the two new <a href="https://github.com/dbashford/mimosa-handlebars">handlebars</a> and <a href="https://github.com/dbashford/mimosa-ember-handlebars">ember-handlebars</a> compilers.</p>
-
     <h4 class="hi output template">template.output</h4>
     <p class="hi output template">An alternate configuration to <code class="option">template.outputFileName</code>, <code class="option">template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code class="option">template.output</code> and <code class="option">template.outputFileName</code> cannot both be used at the same time.</p>
 
@@ -352,27 +349,8 @@
       </div>
     </section>
 
-    <div class="row">
-      <div class="span6">
-        <h4 class="hi copy">copy</h4>
-        <p class="hi copy">The <code class="option">copy</code> config block contains configuration for the copy "compiler". For more information on the copy "compiler", see <a href="./compilers.html#copy">the compilers tab</a>.</p>
+    <p>For details on file copying configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-copy#default-config">GitHub repository</a>.
 
-        <h4 class="hi copyextensions copy">copy.extensions</h4>
-
-        <p class="hi copyextensions copy"><code class="option">copy.extensions</code> is an array of strings representing the extensions for the files that Mimosa will copy from the <code class="option">watch.sourceDir</code> to the <code class="option">watch.compiledDir</code>. Mimosa will still run various workflow steps (like linting and AMD path verification) against certain copied assets. If you find yourself editing this list, consider <a href="https://github.com/dbashford/mimosa/issues">filing an issue</a> to get your extension added to the defaults.</p>
-
-      </div>
-      <div class="span6">
-<pre><span class="copy">copy: {</span>
-  <span class="copyextensions">extensions: ["js","css","png","jpg","jpeg","gif","html","eot","svg","ttf","woff","otf","yaml","kml","ico","htc","htm","json","txt","xml","xsd","map","md","mp4"],</span>
-  <span class="copyexclude">exclude: []</span>
-}</pre>
-      </div>
-    </div>
-
-    <h4 class="hi copyexclude copy">copy.exclude</h4>
-
-    <p class="hi copyexclude copy">An array of string paths or regexes that match files to exclude from copying. Paths should be relative to the <code class="option">watch.sourceDir</code> or absolute. String paths must include the file name.</p>
 
     <section id="server">
       <div class="page-header">
