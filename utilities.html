@@ -83,8 +83,6 @@
         <li><a href="#lint" title="Lint your assets">Linting</a></li>
         <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>
         <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
-        <li><a href="#gzip" title="Keep your assets nice and small">GZip</a></li>
-        <li><a href="#cache" title="Keep your assets nice and small">Cache Busting</a></li>
         <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
       </ul>
     </div>
@@ -265,29 +263,6 @@
 </pre>
         </div>
       </div>
-
-    </section>
-
-    <section id="gzip">
-      <div class="page-header">
-        <h1>
-          GZip Your Assets
-          <small><span class="options">because size matters</span></small>
-        </h1>
-      </div>
-      <p>All static assets will be served up <a href="http://en.wikipedia.org/wiki/Gzip">GZip</a>-ed! 'nuff said.</p>
-    </section>
-
-    <section id="cache" >
-      <div class="page-header">
-        <h1>
-          Cache Busting
-          <small><span class="options">no more shift-f5 and pray</span></small>
-        </h1>
-      </div>
-      <p>No forcing a refresh to bypass caching issues. All JavaScript and CSS files are cache-busted during development.</p>
-
-      <p>JavaScript cache-busting is done via the <code class="option">urlArgs</code> parameter with RequireJS.  That can cause some problems if you are doing breakpoint debugging in the client.  You'll want to comment out the <code class="option">urlArgs</code> if you do that kind of debugging.</p>
 
     </section>
 
