@@ -620,44 +620,9 @@
       </div>
     </section>
 
-    <div class="row">
-      <div class="span6">
-        <h3>jshint</h3>
+    <h3>jshint</h3>
 
-        <h4 class="hi jshint">jshint</h4>
-        <p class="hi jshint">Settings for JS hinting, including what files should be linted and rule overrides to use when running linting. For more on linting, see the <a href="./utilities.html#lint">Utilities tab</a>.</p>
-
-        <h4 class="hi lintexcludejs jshint">jshint.exclude</h4>
-        <p class="hi lintexcludejs jshint">Files to exclude from jshint. This setting is an array and can be comprised of strings or regexes. Strings are paths that can be relative to the <code class="option">watch.compiledDir</code> or absolute. String paths must include the file name. </p>
-
-      </div>
-      <div class="span6">
-<pre><span class="jshint">jshint: {</span>
-  <span class="lintexcludejs">exclude:[],</span>
-  <span class="compiledjavascript">compiled: true,</span>
-  <span class="copiedjavascript">copied: true,</span>
-  <span class="vendorjavascript">vendor: false,</span>
-  <span class="jshintrc">jshintrc: ".jshintrc",</span>
-  <span class="rulesjavascript">rules: {}</span>
-}</pre>
-      </div>
-    </div>
-
-    <h4 class="hi compiledjavascript jshint">jshint.compiled</h4>
-    <p class="hi compiledjavascript jshint">When this property is set to true, Mimosa will execute jshint on the successful compile of an asset to JavaScript.</p>
-
-    <h4 class="hi copiedjavascript jshint">jshint.copied</h4>
-
-    <p class="hi copiedjavascript jshint">When this property is set to true, Mimosa will execute jshint on the successful copy of a JavaScript asset.</p>
-
-    <h4 class="hi vendorjavascript jshint">jshint.vendor</h4>
-    <p class="hi vendorjavascript jshint">When this property is set to true, Mimosa will execute jshint on the successful copy of a vendor JavaScript asset.</p>
-
-    <h4 class="hi jshintrc jshint">jshint.jshintrc</h4>
-    <p class="hi jshintrc jshint">Location of a .jshintrc file if one exists. Mimosa will look up the file structure in an attempt to find this file, eventually stopping at the file system root.</p>
-
-    <h4 class="hi rulesjavascript jshint">jshint.rules</h4>
-    <p class="hi rulesjavascript jshint">Add  <a href="http://www.jshint.com/options/">jshint overrides</a> as key/value pairs underneath this property.</p>
+    <p>For details on the mimosa-jshint module configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-jshint">GitHub repository</a>.
 
     <h3>csslint</h3>
 

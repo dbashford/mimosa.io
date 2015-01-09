@@ -187,72 +187,8 @@
           <small><span class="options">keep your code idiomatic</span></small>
         </h1>
       </div>
-      <div class="row">
-        <div class="span8">
-          <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Using the <code class="option">mimosa-csslint</code> and <code class="option">mimosa-jshint</code> modules, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. The config snippets to the right control the linting for a project's CSS and JavaScript.</p>
 
-          <h2>Linting Compiled Assets</h2>
-
-          <p>The <code class="option">compiled</code> flags control whether or not linting is enabled for compiled code. So when Mimosa compiles SASS, LESS or Stylus, Mimosa will send the resulting CSS through a linting process. Similarly for the JavaScript transpilers, Mimosa will lint the resulting JavaScript.</p>
-
-          <h2>Linting Copied Assets</h2>
-
-          <p>The <code class="option">copied</code> flags determine whether or not to lint copied files, like hand-coded JavaScript and CSS.</p>
-
-          <h2>Linting Vendor Assets</h2>
-
-        </div>
-
-        <div class="span4">
-<pre>jshint: {
-  exclude:[],
-  compiled: true,
-  copied: true,
-  vendor: false,
-  jshintrc: ".jshintrc",
-  rules: {}
-}
-
-csslint: {
-  exclude:[],
-  compiled: true,
-  copied: true,
-  vendor: false,
-  rules: {}
-}</pre>
-        </div>
-      </div>
-
-      <p>Linting is, by default, disabled for vendor assets, that is, those assets located inside the <code class="option">vendor.javascripts</code> or <code class="option">vendor.stylesheets</code> directory. Vendor libraries often break from the idiom or use hacks to solve complex browser issues for you. For example, when run through CSSLint, Bootstrap emits 400+ warnings.</p>
-
-      <p>To enable vendor asset linting, uncomment and set the <code class="option">vendor</code> flag to <code class="option">true</code>.</p>
-
-      <h2>Lint Rules</h2>
-
-      <p>The <code class="option">rules</code> block is where linting rules for each of the linting tools are overridden or changed. Example overrides are provided in the default configuration. Those are examples, they are not actual overrides.</p>
-
-      <h2>Default Rules</h2>
-
-      <div class="row">
-        <div class="span6">
-          <p>For CoffeeScript and IcedCoffeeScript some jshint rules are turned off by default. Those compilers output JavaScript that violates jshint and there is nothing that can be done other than turn the rules off. So when compiling those files, Mimosa will turn off the listed rules by default.</p>
-        </div>
-        <div class="span6">
-          <pre>boss: true,
-eqnull: true,
-shadow: true,
-expr: true</pre>
-        </div>
-      </div>
-
-      <h2>JSHint, CSSLint</h2>
-
-      <p>Both of the lint/hinters come with default configurations that Mimosa uses. Here are links to the tools, as well as to the configuration for those tools.</p>
-
-      <ul>
-        <li><a href="http://www.jshint.com/">JSHint</a>, <a href="http://www.jshint.com/docs/options/">JSHint Rules Definitions</a></li>
-        <li><a href="http://csslint.net/">CSSLint</a>, <a href="https://github.com/stubbornella/csslint/wiki/Rules">CSSLint Rules Definitions</a></li>
-      </ul>
+      <p>To 'lint' code is to check it for common mistakes or variances from the idiom. Using the <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a> and <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> modules, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation. The config snippets to the right control the linting for a project's CSS and JavaScript.</p>
 
     </section>
     <section id="reload">
