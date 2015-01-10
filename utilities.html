@@ -78,132 +78,17 @@
     <p class="lead">All the little things that add up to win.</p>
     <div class="subnav">
       <ul class="nav nav-pills">
+        <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
+        <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
         <li><a href="#bower" title="Bower-ify all the things">Bower</a></li>
         <li><a href="#requirejs" title="Lint your assets">RequireJS Support</a></li>
         <li><a href="#lint" title="Lint your assets">Linting</a></li>
-        <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>
-        <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
-        <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
+        <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>        
       </ul>
     </div>
   </header>
 
   <section class="command-list">
-    <section id="bower" >
-      <div class="page-header">
-        <h1>
-          Bower
-          <small><span class="options">package management for vendor libraries</span></small>
-        </h1>
-      </div>
-
-      <p>Mimosa comes with <a href="http://bower.io">Bower</a> support built in via the <code class="option">mimosa-bower</code> module.</p>
-
-      <p>For details on the bower module's functionality, check out the <a href="https://github.com/dbashford/mimosa-bower#functionality">GitHub repository</a> for the module.</p>
-    </section>
-
-    <section id="requirejs" >
-      <div class="page-header">
-        <h1>
-          RequireJS Support
-          <small><span class="options">maps and shims and paths, o my</span></small>
-        </h1>
-      </div>
-      <div class="row">
-        <div class="span6">
-          <p>Mimosa comes with loads of AMD/RequireJS support all provided by the <code class="option">mimosa-require</code> module. That module will...</p>
-
-          <ul>
-             <li>Verify paths when JavaScript successfully compiles. Mimosa will follow relative paths for dependencies, and also use config paths whether they resolve to an actual dependency, <code class="option">jquery: 'vendor/jquery'</code>, or they resolve to a module, <code class="option">moduleX:'a/path/to/module/x'</code>.
-            <li>Detect dependencies embedded within <code class="option">define</code> and <code class="option">require</code> callbacks. i.e. deferred <code class="option">require</code> calls.</li>
-            <li>Verify map, shim and package paths, and keep track of those configs for path verification.</li>
-            <li>Verify plugin paths.</li>
-            <li>Notify when paths are broken. An unresolved path is as crucial as a compiler error: code is broken.</li>
-            <li>Catch circular dependencies and notify on the console.</li>
-            <li>Catch when a non-vendor piece of compiled JavaScript isn't wrapped in <code class="option">require</code> or <code class="option">define</code> and notify you on the console.</li>
-            <li>Run RequireJS' optimizer when the <code class="option">optimize</code> flag is enabled for <code class="option">mimosa build</code>, and on every file change for <code class="option">mimosa watch</code>.</li>
-            <li>Need no config at all for the optimizer, which takes some time to configure. Mimosa will keep track of dependencies and build a vanilla optimizer configuration.</li>
-            <li>Use your <code class="option">modules</code> config to create many r.js outputs for your dynamic requirejs calls.</li>
-            <li>For complex r.js configurations, allow modification of pre-built inferred configs rather than needing from-scratch configurations.</li>
-            <li>Handle multi-page applications with multiple modules.</li>
-            <li>Detect and use common RequireJS configuration used across multiple modules</li>
-            <li>Only compile those modules that need compiling based on changed code.</li>
-            <li>Bundle optimized JavaScript with <a href="https://github.com/jrburke/almond">Almond</a></li>
-          </ul>
-
-<p>Path verification can be turned off using the configuration shown here.  Set <code class="option">require.verify.enabled</code> to <code class="option">false</code>. For information about how Mimosa uses RequireJS to optimize your application, check out the <a href="./optimization.html">Optimization</a> tab.</p>
-
-
-        </div>
-
-
-        <div class="span6">
-          <div class="term">
-            <div class="inner">
-              18:59:06 - <span class="logerror">ERROR</span> - RequireJS dependency <span class="path">controller</span> for path alias <span class="path">c</span>, inside file <span class="path">/public/javascripts/main.js</span>, cannot be found.<br/>
-              18:59:22 - <span class="logerror">ERROR</span> - RequireJS shim <span class="path">ang</span> inside file <span class="path">public/javascripts/main.js</span> refers to a dependency that cannot be found <span class="path">vendo/modernizr</span>.<br/>
-              18:59:33 - <span class="logerror">ERROR</span> - RequireJS dependency <span class="path">c/gitHu</span>, inside file <span class="path">/public/javascripts/main.js</span>, cannot be found.<br/>
-              18:59:43 - <span class="logerror">ERROR</span> - RequireJS mapping inside file <span class="path">public/javascripts/main.js</span>, for module <span class="path">*</span> has path that cannot be found <span class="path">vendor/angular-resourc</span>.
-            </div>
-          </div>
-<pre>require: {
-  exclude:[],
-  commonConfig:"common",
-  tracking: {
-    enabled: true,
-    path: ".mimosa/require/tracking.json"
-  },
-  verify: {
-    enabled: true,
-    plugins: {
-      css: "css",
-      hbs: "hbs"
-    }
-  },
-  optimize : {
-    modules: null,
-    moduleCachingPath: ".mimosa/require/moduleCaching",
-    inferConfig:true,
-    overrides:{}
-  }
-}</pre>
-
-        </div>
-      </div>
-
-      <p>Path verification is always disabled for vendor assets, that is, assets in the configured <code class="option">vendor.javascripts</code> directory.  Vendor assets often use creative means to turn themselves into AMD modules that prove hard to verify.  That said, if a vendor asset is placed outside the vendor folder, Mimosa is coded to handle how some of the methods vendor assets are AMDed. But Mimosa may complain that some vendor assets are throwing errors or are not properly wrapped.</p>
-
-      <p>Mimosa also has the ability to cache dependency information between Mimosa runs, making startup time fast for large applications.</p>
-
-      <p>To read more about Mimosa's RequireJS support, head over to the <a href="./optimization.html">Optimization</a> page.</p>
-
-    </section>
-    <section id="lint">
-      <div class="page-header">
-        <h1>
-          Linting
-          <small><span class="options">keep your code idiomatic</span></small>
-        </h1>
-      </div>
-
-      <p>To 'lint' code is to check it for common mistakes or variances from the idiom.
-        Using the <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a>
-        and <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> modules,
-        Mimosa will automatically lint all of the CSS and JavaScript it moves from source
-        directories to compiled directories. Any errors or warnings that come out of
-        linting will be printed to the console but will not stop or fail the compilation.</p>
-
-    </section>
-    <section id="reload">
-      <div class="page-header">
-        <h1>
-          Live Reload
-          <small><span class="options">so simple, such a time saver</span></small>
-        </h1>
-      </div>
-
-      <p>Mimosa provides live reload support by default via the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload</a> module. For details on what live reload is, how mimosa-live-reload functions and how to integrate mimosa-live-reload into your existing server setup, visit the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload GitHub page</a>.</p>
-    </section>
     <section id="notify">
       <div class="page-header">
         <h1>
@@ -295,6 +180,60 @@
 
 
     </section>
+    <section id="bower" >
+      <div class="page-header">
+        <h1>
+          Bower
+          <small><span class="options">package management for vendor libraries</span></small>
+        </h1>
+      </div>
+
+      <p>Mimosa comes with <a href="http://bower.io">Bower</a> support built in via the <code class="option">mimosa-bower</code> module.</p>
+
+      <p>For details on the bower module's functionality, check out the <a href="https://github.com/dbashford/mimosa-bower#functionality">GitHub repository</a> for the module.</p>
+    </section>
+
+    <section id="requirejs" >
+      <div class="page-header">
+        <h1>
+          RequireJS Support
+          <small><span class="options">first class</span></small>
+        </h1>
+      </div>
+
+      <p>Mimosa comes with <a href="http://requirejs.org/">require.js</a> support built in via the <code class="option">mimosa-require</code> module.</p>
+
+      <p>For details on the require.js module's functionality, check out the <a href="https://github.com/dbashford/mimosa-require#functionality">GitHub repository</a> for the module.</p>
+
+    </section>
+    <section id="lint">
+      <div class="page-header">
+        <h1>
+          Linting
+          <small><span class="options">keep your code idiomatic</span></small>
+        </h1>
+      </div>
+
+      <p>To 'lint' code is to check it for common mistakes or variances from the idiom.
+        Using the <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a>
+        and <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> modules,
+        Mimosa will automatically lint all of the CSS and JavaScript it moves from source
+        directories to compiled directories. Any errors or warnings that come out of
+        linting will be printed to the console but will not stop or fail the compilation.</p>
+
+      </section>
+      <section id="reload">
+        <div class="page-header">
+          <h1>
+            Live Reload
+            <small><span class="options">so simple, such a time saver</span></small>
+          </h1>
+        </div>
+
+        <p>Mimosa provides live reload support by default via the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload</a> module. For details on what live reload is, how mimosa-live-reload functions and how to integrate mimosa-live-reload into your existing server setup, visit the <a href="https://github.com/dbashford/mimosa-live-reload">mimosa-live-reload GitHub page</a>.</p>
+      </section>
+
+
 
   </section>
 
