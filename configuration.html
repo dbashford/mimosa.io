@@ -84,12 +84,12 @@
         <li><a href="#watch" title="What to watch and where">Watch</a></li>
         <li><a href="#vendor" title="Where the vendor scripts are">Vendor</a></li>
         <li><a href="#templates" title="Template config">Templates</a></li>
+        <li><a href="#growl" title="logging and growl">Logger</a></li>          
         <li><a href="#copy" title="What files will Mimosa copy">Copy</a></li>
         <li><a href="#server" title="Micro-Templates galore">Server</a></li>
         <li><a href="#bower" title="Bower config">Bower</a></li>
         <li><a href="#require" title="Copy JS/CSS and other assets like images">RequireJS</a></li>
         <li><a href="#minify" title="minification">Minify</a></li>
-        <li><a href="#growl" title="logging and growl">Logger</a></li>
         <li><a href="#lint" title="To Lint or not to Lint">Lint</a></li>
       </ul>
     </div>
@@ -341,6 +341,96 @@
     <h4 class="hi outputFileName2 output template">template.output[].outputFileName</h4>
     <p class="hi outputFileName2 output template"><code class="option">template.output[].outputFileName</code> is identical to <code class="option">template.outputFileName</code> except it is scoped in this case to just the folder specified by the <code class="option">folder</code> property. There is no default, so this property must be provided.</p>
 
+    <section id="growl">
+      <div class="page-header">
+        <h1>
+          Logging <small><span class="command">logger</span></small>
+        </h1>
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="span6">
+
+        <h4 class="hi infoenabled info logger">logger.info.enabled</h4>
+        <p class="hi infoenabled info logger">Whether or not <code class="option">Info</code> level logging is enabled.</p>
+
+        <h4 class="hi infocolor info logger">logger.info.color</h4>
+        <p class="hi infocolor info logger">The color for <code class="option">Info</code> level logging.</p>
+
+        <h4 class="hi warnenabled warn logger">logger.warn.enabled</h4>
+        <p class="hi warnenabled warn logger">Whether or not <code class="option">WARN</code> level logging is enabled.</p>
+
+        <h4 class="hi warncolor warn logger">logger.warn.color</h4>
+        <p class="hi warncolor warn logger">The color for <code class="option">WARN</code> level logging.</p>
+
+        <h4 class="hi successenabled success logger">logger.success.enabled</h4>
+        <p class="hi successenabled success logger">Whether or not <code class="option">Success</code> level logging is enabled.</p>
+
+        <h4 class="hi successcolor success logger">logger.success.color</h4>
+        <p class="hi successcolor success logger">The color for <code class="option">Success</code> level logging.</p>
+
+        <h4 class="hi errorenabled error logger">logger.error.enabled</h4>
+        <p class="hi errorenabled error logger">Whether or not <code class="option">ERROR</code> level logging is enabled.</p>
+
+        <h4 class="hi errorcolor error logger">logger.error.color</h4>
+        <p class="hi errorcolor error logger">The color for <code class="option">ERROR</code> level logging.</p>
+
+        <h4 class="hi debugcolor debug logger">logger.debug.color</h4>
+        <p class="hi debugcolor debug logger">The color for <code class="option">Debug</code> level logging.</p>
+
+        <h4 class="hi embeddedenabled embedded logger">logger.embedded.enabled</h4>
+        <p class="hi embeddedenabled embedded logger">Whether or not embedded content in log messages is differently colored.</p>
+
+        <h4 class="hi embeddedcolor embedded logger">logger.embedded.color</h4>
+        <p class="hi embeddedcolor embedded logger">The color for embedded content.</p>
+
+        <h4 class="hi growl growlenabled">growl.enabled</h4>
+        <p class="hi growl growlenabled">Whether or not Mimosa will attempt to send Growl messages.</p>
+
+
+      </div>
+      <div class="span6">
+        <pre><span class="logger">logger: {</span>
+          <span class="info">info: {</span>
+            <span class="infoenabled">enabled: true,</span>
+            <span class="infocolor">color: null</span>
+          },
+          <span class="warn">warn: {</span>
+            <span class="warnenabled">enabled: true,</span>
+            <span class="warncolor">color: 'yellow+bold'</span>
+          },
+          <span class="success">success: {</span>
+            <span class="successenabled">enabled: true,</span>
+            <span class="successcolor">color: 'green'</span>
+          },
+          <span class="error">error: {</span>
+            <span class="errorenabled">enabled: true,</span>
+            <span class="errorcolor">color: 'red+bold'</span>
+          },
+          <span class="debug">debug: {</span>
+            <span class="debugcolor">color: 'blue'</span>
+          },
+          <span class="embedded">embeddedText: {</span>
+            <span class="embeddedenabled">enabled: true,</span>
+            <span class="embeddedcolor">color: 'cyan'</span>
+          },
+          <span class="growl">growl: {</span>
+            <span class="growlenabled">enabled: true,</span>
+            <span class="onstartup">onStartup: false,</span>
+            <span class="onsuccess">onSuccess: true</span>
+          }
+        }</pre>
+      </div>
+    </div>
+
+    <h4 class="hi onstartup growl">growl.onStartup</h4>
+    <p class="hi onstartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents growl messages for those successful compiles.</p>
+
+    <h4 class="hi onsuccess growl">growl.onSuccess</h4>
+    <p class="hi onsuccess growl">Whether or not to Growl success log messages after startup.</p>
+
+
     <section id="copy">
       <div class="page-header">
         <h1>
@@ -454,95 +544,6 @@
     <h3>minify-css</h3>
 
     <p>For details on the mimosa-minify-css module configuration, please check out the documentation on the <a href="https://github.com/dbashford/mimosa-minify-css#default-config">GitHub repository</a>.
-
-    <section id="growl">
-      <div class="page-header">
-        <h1>
-          Logging <small><span class="command">logger</span></small>
-        </h1>
-      </div>
-    </section>
-
-    <div class="row">
-      <div class="span6">
-
-        <h4 class="hi infoenabled info logger">logger.info.enabled</h4>
-        <p class="hi infoenabled info logger">Whether or not <code class="option">Info</code> level logging is enabled.</p>
-
-        <h4 class="hi infocolor info logger">logger.info.color</h4>
-        <p class="hi infocolor info logger">The color for <code class="option">Info</code> level logging.</p>
-
-        <h4 class="hi warnenabled warn logger">logger.warn.enabled</h4>
-        <p class="hi warnenabled warn logger">Whether or not <code class="option">WARN</code> level logging is enabled.</p>
-
-        <h4 class="hi warncolor warn logger">logger.warn.color</h4>
-        <p class="hi warncolor warn logger">The color for <code class="option">WARN</code> level logging.</p>
-
-        <h4 class="hi successenabled success logger">logger.success.enabled</h4>
-        <p class="hi successenabled success logger">Whether or not <code class="option">Success</code> level logging is enabled.</p>
-
-        <h4 class="hi successcolor success logger">logger.success.color</h4>
-        <p class="hi successcolor success logger">The color for <code class="option">Success</code> level logging.</p>
-
-        <h4 class="hi errorenabled error logger">logger.error.enabled</h4>
-        <p class="hi errorenabled error logger">Whether or not <code class="option">ERROR</code> level logging is enabled.</p>
-
-        <h4 class="hi errorcolor error logger">logger.error.color</h4>
-        <p class="hi errorcolor error logger">The color for <code class="option">ERROR</code> level logging.</p>
-
-        <h4 class="hi debugcolor debug logger">logger.debug.color</h4>
-        <p class="hi debugcolor debug logger">The color for <code class="option">Debug</code> level logging.</p>
-
-        <h4 class="hi embeddedenabled embedded logger">logger.embedded.enabled</h4>
-        <p class="hi embeddedenabled embedded logger">Whether or not embedded content in log messages is differently colored.</p>
-
-<h4 class="hi embeddedcolor embedded logger">logger.embedded.color</h4>
-<p class="hi embeddedcolor embedded logger">The color for embedded content.</p>
-
-<h4 class="hi growl growlenabled">growl.enabled</h4>
-<p class="hi growl growlenabled">Whether or not Mimosa will attempt to send Growl messages.</p>
-
-
-      </div>
-      <div class="span6">
-<pre><span class="logger">logger: {</span>
-  <span class="info">info: {</span>
-    <span class="infoenabled">enabled: true,</span>
-    <span class="infocolor">color: null</span>
-  },
-  <span class="warn">warn: {</span>
-    <span class="warnenabled">enabled: true,</span>
-    <span class="warncolor">color: 'yellow+bold'</span>
-  },
-  <span class="success">success: {</span>
-    <span class="successenabled">enabled: true,</span>
-    <span class="successcolor">color: 'green'</span>
-  },
-  <span class="error">error: {</span>
-    <span class="errorenabled">enabled: true,</span>
-    <span class="errorcolor">color: 'red+bold'</span>
-  },
-  <span class="debug">debug: {</span>
-    <span class="debugcolor">color: 'blue'</span>
-  },
-  <span class="embedded">embeddedText: {</span>
-    <span class="embeddedenabled">enabled: true,</span>
-    <span class="embeddedcolor">color: 'cyan'</span>
-  },
-  <span class="growl">growl: {</span>
-    <span class="growlenabled">enabled: true,</span>
-    <span class="onstartup">onStartup: false,</span>
-    <span class="onsuccess">onSuccess: true</span>
-  }
-}</pre>
-      </div>
-    </div>
-
-    <h4 class="hi onstartup growl">growl.onStartup</h4>
-    <p class="hi onstartup growl">Controls whether or not to Growl when assets successfully compile/copy on startup. If there are 100 CoffeeScript files, and clean and watch are performed, there will be 100 successful compiles. This setting prevents growl messages for those successful compiles.</p>
-
-    <h4 class="hi onsuccess growl">growl.onSuccess</h4>
-    <p class="hi onsuccess growl">Whether or not to Growl success log messages after startup.</p>
 
     <section id="lint">
       <div class="page-header">
