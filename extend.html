@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Extend Mimosa with Custom Modules - Mimosa</title>
+  <title>How to Build Mimosa Modules - Mimosa</title>
   <meta name="description" content="Mimosa is extensible, making it easy to add your own functionality via modules.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="css/main.css"> -->
@@ -75,8 +75,7 @@
   <div class="container main">
 
     <header class="jumbotron subhead" id="overview">
-      <h1>Extending Mimosa with Modules</h1>
-      <p class="lead">How to build your own modules</p>
+      <h1>Build Your Own Mimosa Module</h1>
     </header>
 
     <section class="command-list server-list">
@@ -387,8 +386,7 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
           <p>Each file in the <code class="options">watch.sourceDir</code> is passed through the <code class="options">cleanFile</code> workflow one at a time.</p>
 
           <h4>postClean</h4>
-          <p>The <code class="options">postClean</code> workflow is the final opportunity to tidy up files and directories. This is when, for example, a module might make a pass to remove any empty directories the module might be responsible for that remain
-            after the files have been handled.</p>
+          <p>The <code class="options">postClean</code> workflow is the final opportunity to tidy up files and directories. This is when, for example, a module might make a pass to remove any empty directories the module might be responsible for that remain after the files have been handled.</p>
 
         </div>
       </div>
@@ -400,22 +398,18 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
       <p>The simplest workflow is <code class="options">update</code>. If a CoffeeScript file is saved inside the <code class="options">watch.sourceDir</code> while Mimosa is running, here is what might happen:</p>
 
       <ol>
-        <li>The first step executed is <code class="options">init</code>. During the <code class="options">init</code> step, Mimosa will generate some information about the asset to be used by future steps. For instance it will set a flag into the <code class="options">options</code> object
-          (discussed in the next section) to indicate that the file is a JavaScript file, and it will set flags to indicate if the file is a vendor file or not.</li>
+        <li>The first step executed is <code class="options">init</code>. During the <code class="options">init</code> step, Mimosa will generate some information about the asset to be used by future steps. For instance it will set a flag into the <code class="options">options</code> object (discussed in the next section) to indicate that the file is a JavaScript file, and it will set flags to indicate if the file is a vendor file or not.</li>
         <li>During a step named <code class="options">read</code> the modified CoffeeScript file is read in.</li>
         <li>The <code class="options">compile</code> step is next. Here the CoffeeScript gets compiled to JavaScript.</li>
         <li>Next is <code class="options">afterCompile</code>. Here the compiled JavaScript is linted to get feedback regarding code quality.</li>
         <li>If minification was selected, <code class="options">beforeWrite</code> is where the compiled JavaScript would be minified.</li>
-        <li>During the <code class="options">write</code> step the compiled JavaScript is written to the <code class="options">watch.compiledDir</code>
-        </li>
+        <li>During the <code class="options">write</code> step the compiled JavaScript is written to the <code class="options">watch.compiledDir</code></li>
         <li>The <code class="options">afterWrite</code> step is where optimization takes place if that is selected.</li>
       </ol>
 
       <p>Also, many modules can register to be executed for the same workflow and step, they'll just be executed in order that they get registered which is determined by their order in the <code class="options">modules</code> array in the <code class="options">mimosa-config</code>.</p>
 
-      <p>When building a module, a developer needs to decide which step is the right place to execute a module's functionality. For instance, if building a module that will run <a href="http://www.coffeelint.org/">CoffeeLint</a> over CoffeeScript to determine
-        CoffeeScript code quality, then <code class="options">afterRead</code> is probably the best step. If, for instance, <code class="options">beforeRead</code> is used, then Mimosa will have not yet read in the file, and there will be nothing on which
-        to run CoffeeLint.</p>
+      <p>When building a module, a developer needs to decide which step is the right place to execute a module's functionality. For instance, if building a module that will run <a href="http://www.coffeelint.org/">CoffeeLint</a> over CoffeeScript to determine CoffeeScript code quality, then <code class="options">afterRead</code> is probably the best step. If, for instance, <code class="options">beforeRead</code> is used, then Mimosa will have not yet read in the file, and there will be nothing on which to run CoffeeLint.</p>
 
       <h2>Workflow Type & Step Breakdown</h2>
 
@@ -813,9 +807,9 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
 
       <div class="page-header" id="callback">
         <h1>
-                        Your Workflow Module Callback
-                        <small><span class="options">when the rubber hits the code</span></small>
-                      </h1>
+          Your Workflow Module Callback
+          <small><span class="options">when the rubber hits the code</span></small>
+        </h1>
       </div>
 
       <p>So a module's code is registered to be called in the right spot in the workflow. What happens when Mimosa calls the function that has been registered?</p>
@@ -826,59 +820,52 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
         <li><code class="options">config</code>: The full <code class="options">mimosa-config</code> enriched with all sorts of useful data beyond the default <code class="options">mimosa-config</code>, and including the configuration for the module being
           developed.</li>
         <li><code class="options">options</code>: An object containing information about the asset(s)/extension currently being processed. At different steps of the a Mimosa workflow the options object will contain various important pieces of information.
-          One of the first steps a module developer should take when developing a new module is to <code class="options">console.log</code> the content of the options object to see what sort of information is available at their desired workflow and workflow
-          step.</li>
-        <li><code class="options">next</code>: a workflow callback. This callback must be called when a module has finished processing. It tells Mimosa to execute the next step in the workflow. If for some reason a module decides that processing for the
-          current asset/build step needs to stop, the callback can be called passing false. Ex: <code class="options">next(false)</code>. In most cases the workflow should not be ended prematurely.</li>
+          One of the first steps a module developer should take when developing a new module is to <code class="options">console.log</code> the content of the options object to see what sort of information is available at their desired workflow and workflow step.</li>
+        <li><code class="options">next</code>: a workflow callback. This callback must be called when a module has finished processing. It tells Mimosa to execute the next step in the workflow. If for some reason a module decides that processing for the current asset/build step needs to stop, the callback can be called passing false. Ex: <code class="options">next(false)</code>. In most cases the workflow should not be ended prematurely.</li>
       </ol>
 
       <div class="page-header" id="register">
         <h1>
-                        Registering A Command Module
-                        <small><span class="options">add brand new commands</span></small>
-                      </h1>
+          Registering A Command Module
+          <small><span class="options">add brand new commands</span></small>
+        </h1>
       </div>
 
       <p>A command module has a very simple interface. A module that intends to implement a new command needs to implement and export a <code class='option'>registerCommand</code> function. That function takes a <a href="https://github.com/visionmedia/commander.js/">commander</a>
         <code
         class='option'>program</code>object for registering the command, the flags, the help text and a callback.</p>
 
-      <p>If a function needs access to execute a <code class='option'>build</code> before running, or needs the <code class='option'>mimosa-config</code>, it can get accomplish those things using the second parameter passed to <code class='option'>registerCommand</code>.
-        The second parameter, a <code class='option'>retrieveConfig</code> function, takes a flag indicating if a build is needed, and a callback. That callback should contain the command module's code, and it is passed the full <code class='option'>mimosa-config</code>.</p>
+      <p>If a function needs access to execute a <code class='option'>build</code> before running, or needs the <code class='option'>mimosa-config</code>, it can get accomplish those things using the second parameter passed to <code class='option'>registerCommand</code>. The second parameter, a <code class='option'>retrieveConfig</code> function, takes a flag indicating if a build is needed, and a callback. That callback should contain the command module's code, and it is passed the full <code class='option'>mimosa-config</code>.</p>
 
       <div class="page-header" id="register">
         <h1>
-                        Logging
-                        <small><span class="options">access Mimosa's logging capabilities</span></small>
-                      </h1>
+          Logging
+          <small><span class="options">access Mimosa's logging capabilities</span></small>
+        </h1>
       </div>
 
-      <p>Mimosa's logger, <a href="https://github.com/dbashford/logmimosa">logmimosa</a>, is attached to the resolved <code class='option'>mimosaConfig</code> when Mimosa starts up. Every function in a module that Mimosa calls and includes the <code class='option'>mimosaConfig</code>,
-        like the workflow methods, <code class='option'>registration</code> or <code class='option'>registerCommand</code>, can access the logger via <code class='option'>mimosaConfig.log</code>.</p>
+      <p>Mimosa's logger, <a href="https://github.com/dbashford/logmimosa">logmimosa</a>, is attached to the resolved <code class='option'>mimosaConfig</code> when Mimosa starts up. Every function in a module that Mimosa calls and includes the <code class='option'>mimosaConfig</code>, like the workflow methods, <code class='option'>registration</code> or <code class='option'>registerCommand</code>, can access the logger via <code class='option'>mimosaConfig.log</code>.</p>
 
       <p>To take advantage of Mimosa's colorizing, wrap important or variable parts of log messages in <code class='option'>[[</code> and <code class='option'>]]</code>.</p>
 
       <div class="page-header" id="install">
         <h1>
-                        Installing A Module
-                        <small><span class="options">You've coded it up, now what?</span></small>
-                      </h1>
+          Installing A Module
+          <small><span class="options">You've coded it up, now what?</span></small>
+        </h1>
       </div>
 
       <h2>During Development</h2>
 
-      <p>The <code class="options">mimosa mod:install</code> command handles installing local modules to Mimosa. From inside the root module directory, the directory with the <code class="options">package.json</code> file, execute <code class="options">mimosa mod:install</code>.
-        Then modify the modules array of a project's <code class="options">mimosa-config</code> to use the module. Fire up Mimosa and test your module out!</p>
+      <p>The <code class="options">mimosa mod:install</code> command handles installing local modules to Mimosa. From inside the root module directory, the directory with the <code class="options">package.json</code> file, execute <code class="options">mimosa mod:install</code>. Then modify the modules array of a project's <code class="options">mimosa-config</code> to use the module. Fire up Mimosa and test your module out!</p>
 
       <h2>Publishing to NPM</h2>
 
-      <p>If you are familiar with <a href="http://npmjs.org/">NPM</a>, this part is not new. A simple <code class="options">npm publish</code> from the root of your module will install a module to NPM so that anyone can get access to it. Once it is in NPM,
-        commands like <code class="options">mod:install</code> and <code class="options">mod:list</code> will be able to find it.</p>
+      <p>If you are familiar with <a href="http://npmjs.org/">NPM</a>, this part is not new. A simple <code class="options">npm publish</code> from the root of your module will install a module to NPM so that anyone can get access to it. Once it is in NPM, commands like <code class="options">mod:install</code> and <code class="options">mod:list</code> will be able to find it.</p>
 
       <p>If you have never published to NPM before, then spend a few minutes reading the <a href="https://npmjs.org/doc/developers.html">developer docs</a>. Just a few simple steps and you are ready to publish.</p>
 
-      <p>With upcoming Mimosa releases, Mimosa will no longer recognize CoffeeScript modules. The CoffeeScript module skeleton delivered with <code class="options">mod:init -c</code> accounts for this by using Mimosa to build the CoffeeScript module when
-        npm install and publish are used.</p>
+      <p>With upcoming Mimosa releases, Mimosa will no longer recognize CoffeeScript modules. The CoffeeScript module skeleton delivered with <code class="options">mod:init -c</code> accounts for this by using Mimosa to build the CoffeeScript module when npm install and publish are used.</p>
 
       <p>If you do create and publish a module, let us know!!!</p>
 
