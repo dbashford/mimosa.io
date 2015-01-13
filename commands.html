@@ -46,9 +46,6 @@
               <a href="./modules.html">Modules</a>
             </li>
             <li class="">
-              <a href="./compilers.html">Compilers</a>
-            </li>
-            <li class="">
               <a href="./server.html">Serve</a>
             </li>
             <li class="">
@@ -437,7 +434,7 @@ $ mimosa watch -d</pre>
 
     <div class="row">
       <div class="span6">
-        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--optimize</code> flag turned on and by default, via the <code class='option'>require</code> module, Mimosa will optimize the codebase on start-up and with every file change. See the <a href="./optimization.html">optimization</a> tab to read more about Mimosa's default optimization options.</p>
+        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--optimize</code> flag turned on and any optimization modules you are using will perform their optimizations.</p>
       </div>
       <div class="span6">
         <pre>$ mimosa watch --optimize
@@ -449,7 +446,7 @@ $ mimosa watch -o</pre>
 
     <div class="row">
       <div class="span6">
-        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--minify</code> flag turned on and Mimosa will, by default, via the <code class='option'>minify</code> module, use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files after they are compiled and before they are written. The <code class='option'>minify</code> module will also single-line CSS.</p>
+        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--minify</code> flag turned on and any minification modules you have enabled will minify their assets.</p>
       </div>
       <div class="span6">
         <pre>$ mimosa watch --minify
@@ -461,7 +458,7 @@ $ mimosa watch -m</pre>
 
     <div class="row">
       <div class="span6">
-    <p>When combined, the <code class='option'>--minify</code> and <code class='option'>--optimize</code> options provide more control over the application's minification strategy. Check out the <a href="./optimization.html#minopt">Minify + Optimize section of the Optimization tab</a> to learn more.</a>
+    <p>Flags are cumulative, so both the minify and optimize flags can be used at the same time to both minify and optimize your codebase.</a>
       </div>
       <div class="span6">
         <pre>$ mimosa watch --minify --optimize
@@ -577,7 +574,7 @@ $ mimosa clean -P nameOfProfile</pre>
 
         <h3>Optimized Build (-o/--optimize)</h3>
 
-        <p>If you want to build and generate optimized output, provide an <code class="option">--optimize</code> flag. See the <a href="./optimization.html">Optimization page</a> for more information on optimization.</p>
+        <p>If you want to build and generate optimized output, provide an <code class="option">--optimize</code> flag. This will signal any optimization modules you are using that optimization is to be performed.</p>
 
         <pre>$ mimosa build --optimize
 $ mimosa build -o</pre>
@@ -620,7 +617,7 @@ $ mimosa build -m</pre>
 
     <div class="row">
       <div class="span6">
-        <p>Need a bit more control over a project's minification strategy?  See the <a href="./optimization.html">page on optimization</a> to see the benefit of using <code class='option'>--minify</code> and <code class='option'>--optimize</code> together.</p>
+        <p>Using <code class='option'>--minify</code> and <code class='option'>--optimize</code> together signals both minification and optimization modules to perform their tasks.</p>
       </div>
       <div class="span6">
         <pre>$ mimosa build --minify --optimize

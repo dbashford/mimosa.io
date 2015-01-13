@@ -44,9 +44,6 @@
             <li  class="">
               <a href="./modules.html">Modules</a>
             </li>
-            <li  class="">
-              <a href="./compilers.html">Compilers</a>
-            </li>
 
             <li class="">
               <a href="./server.html">Serve</a>
@@ -113,7 +110,7 @@
 
     <h2>When you want to change the config...</h2>
 
-    <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="./compilers.html#copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
+    <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
 
     </p>
 
@@ -323,7 +320,7 @@
     <p class="hi commonLibPath template">Valid when <code class="option">wrapType</code> is 'common'. The commonjs path to the client library. Some libraries do not have clients therefore this is not strictly required when choosing the common wrapType</p>
 
     <h4 class="hi outputFileName template">template.outputFileName</h4>
-    <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./compilers.html#mt">compilers tab</a> for more info.</p>
+    <p class="hi outputFileName template">The path of the file all templates are compiled into. The path is relative to <code class="option">watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./modules.html#mt">modules tab</a> for more info.</p>
 
     <h4 class="hi output template">template.output</h4>
     <p class="hi output template">An alternate configuration to <code class="option">template.outputFileName</code>, <code class="option">template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code class="option">template.output</code> and <code class="option">template.outputFileName</code> cannot both be used at the same time.</p>
