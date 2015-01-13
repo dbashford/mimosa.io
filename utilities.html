@@ -54,9 +54,6 @@
               <a href="./utilities.html">Utilities</a>
             </li>
             <li class="">
-              <a href="./optimization.html">Optimize</a>
-            </li>
-            <li class="">
               <a href="./configuration.html">Config</a>
             </li>
             <li class="">
@@ -80,10 +77,10 @@
       <ul class="nav nav-pills">
         <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
         <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
+        <li><a href="#optimize" title="Minify and concatenate your application's assets">Asset Optimization</a></li>
         <li><a href="#bower" title="Bower-ify all the things">Bower</a></li>
-        <li><a href="#requirejs" title="Lint your assets">RequireJS Support</a></li>
         <li><a href="#lint" title="Lint your assets">Linting</a></li>
-        <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>        
+        <li><a href="#reload" title="Never refresh your browser again">Live Reload</a></li>
       </ul>
     </div>
   </header>
@@ -180,6 +177,28 @@
 
 
     </section>
+
+    <section id="optmize">
+      <div class="page-header">
+        <h1>
+          Optimization/Minification
+          <small><span class="options">require.js? browserify? concatenation? minification?</span></small>
+        </h1>
+      </div>
+
+      <p>Here's a list of a few of the asset optimization modules Mimosa has available:</p>
+      <ul>
+      <li>Mimosa's RequireJS optimization support comes courtesy of the <a href="https://github.com/dbashford/mimosa-require">mimosa-require</a> module. That module comes packed with features and capabilities.</li>
+
+      <li>If <a href="http://browserify.org/">browserify</a> is your favorite build tool, then check out the <a href="https://github.com/JonET/mimosa-browserify">mimosa-browserify</a> module. The GitHub page has details on its use and the author has put an <a href="https://github.com/JonET/mimosa-browserify-example">example app</a> up show how to use it.</li>
+
+      <li>Mimosa has modules for minifying/optimizing all sorts of assets including: <a href="https://github.com/dbashford/mimosa-minify-js/">javascript</a>, <a href="https://github.com/dbashford/mimosa-minify-css">css</a>, <a href="https://github.com/dbashford/mimosa-minify-json">json</a> and <a href="https://github.com/dbashford/mimosa-minify-img">images</a>.</li>
+
+      <li>The <a href="https://github.com/dbashford/mimosa-combine">mimosa-combine module</a> can be used to concatenate all sorts of non-binary files. All mimosa-combine wants is a folder to merge and a place to put the result, but it also allows assets to be excluded and an order to be provided.</li>
+
+    </section>
+
+
     <section id="bower" >
       <div class="page-header">
         <h1>
@@ -193,19 +212,6 @@
       <p>For details on the bower module's functionality, check out the <a href="https://github.com/dbashford/mimosa-bower#functionality">GitHub repository</a> for the module.</p>
     </section>
 
-    <section id="requirejs" >
-      <div class="page-header">
-        <h1>
-          RequireJS Support
-          <small><span class="options">first class</span></small>
-        </h1>
-      </div>
-
-      <p>Mimosa comes with <a href="http://requirejs.org/">require.js</a> support built in via the <code class="option">mimosa-require</code> module.</p>
-
-      <p>For details on the require.js module's functionality, check out the <a href="https://github.com/dbashford/mimosa-require#functionality">GitHub repository</a> for the module.</p>
-
-    </section>
     <section id="lint">
       <div class="page-header">
         <h1>
