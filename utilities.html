@@ -45,6 +45,9 @@
               <a href="./modules.html">Modules</a>
             </li>
             <li class="">
+              <a href="./extend.html">Extend</a>
+            </li>
+            <li class="">
               <a href="./server.html">Serve</a>
             </li>
             <li class="active">
@@ -69,10 +72,8 @@
 
   <header class="jumbotron subhead" id="overview">
     <h1>Utilities</h1>
-    <p class="lead">All the little things that add up to win.</p>
     <div class="subnav">
       <ul class="nav nav-pills">
-        <li><a href="#notify" title="Find out right away when thigs go horribly wrong">Logger</a></li>
         <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
         <li><a href="#optimize" title="Minify and concatenate your application's assets">Asset Optimization</a></li>
         <li><a href="#bower" title="Bower-ify all the things">Bower</a></li>
@@ -83,68 +84,6 @@
   </header>
 
   <section class="command-list">
-    <section id="notify">
-      <div class="page-header">
-        <h1>
-          Logging and Growl
-          <small><span class="options">find out right now that something is broken</span></small>
-        </h1>
-      </div>
-
-      <div class="row">
-        <div class="span8">
-          <h2>Logging</h2>
-
-          <p>Mimosa's core code and its various modules will all attempt to log events. Errors, warnings, information, debugging and success messages emanate from Mimosa at various times.</p>
-
-          <p>Mimosa provides an ability to configure its logger. Various types of messages can be turned off and colors can be edited. The configuration listed here is fairly self-explanatory.</p>
-
-          <h2>Growl</h2>
-
-          <p>If <a href="http://growl.info/">Growl</a> is installed and turned on, a Growl notification will be created for each failed or successful asset compile. In the event Growl gets too spammy, Growl notifications can be turned off for successful compiles or turned off entirely. Growl has its own setting in Mimosa, the defaults are to the right.</p>
-
-          <p>If  <a href="./commands.html#clean">clean</a> in run on a project and then <a href="./commands.html#watch">watch</a> is started, Mimosa will compile every asset. If there are dozens or hundreds of assets, Growl notifications may not be desirable for each successful compile during startup. Startup success notifications are off by default, but can be turned on by uncommenting the config and setting the <code class="option">growl.onStartup</code> flag to <code class="option">true</code>. Post-startup success notifications can be turned off by altering the <code class="option">growl.onSuccess</code> flats. These notifications are on by default.</p>
-
-          <p>To allow Mimosa to use Growl, an extra library needs to be installed. For details on installation on your system, check out the <a href="https://github.com/visionmedia/node-growl#install">node-growl</a> page.</a>
-
-
-        </div>
-        <div class="span4">
-<pre>logger: {
-  info: {
-    enabled: true,
-    color: null
-  },
-  warn: {
-    enabled: true,
-    color: 'yellow+bold'
-  },
-  success: {
-    enabled: true,
-    color: 'green'
-  },
-  error: {
-    enabled: true,
-    color: 'red+bold'
-  },
-  debug: {
-    color: 'blue'
-  },
-  embeddedText: {
-    enabled: true,
-    color: 'cyan'
-  },
-  growl: {
-    enabled: true,
-    onStartup: false,
-    onSuccess: true
-  }
-</pre>
-        </div>
-      </div>
-
-    </section>
-
     <section id="profiles" >
       <div class="page-header">
         <h1>
@@ -204,7 +143,7 @@
         </h1>
       </div>
 
-      <p>Mimosa comes with <a href="http://bower.io">Bower</a> support built in via the <code class="option">mimosa-bower</code> module.</p>
+      <p>Mimosa comes with <a href="http://bower.io">Bower</a> support via the <code class="option">mimosa-bower</code> module.</p>
 
       <p>For details on the bower module's functionality, check out the <a href="https://github.com/dbashford/mimosa-bower#functionality">GitHub repository</a> for the module.</p>
     </section>
@@ -218,11 +157,7 @@
       </div>
 
       <p>To 'lint' code is to check it for common mistakes or variances from the idiom.
-        Using the <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a>
-        and <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> modules,
-        Mimosa will automatically lint all of the CSS and JavaScript it moves from source
-        directories to compiled directories. Any errors or warnings that come out of
-        linting will be printed to the console but will not stop or fail the compilation.</p>
+        If you are using the <a href="https://github.com/dbashford/mimosa-csslint">mimosa-csslint</a> and <a href="https://github.com/dbashford/mimosa-jshint">mimosa-jshint</a> modules, Mimosa will automatically lint all of the CSS and JavaScript it moves from source directories to compiled directories. Any errors or warnings that come out of linting will be printed to the console but will not stop or fail the compilation.</p>
 
       </section>
       <section id="reload">

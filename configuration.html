@@ -44,6 +44,9 @@
             <li  class="">
               <a href="./modules.html">Modules</a>
             </li>
+            <li class="">
+              <a href="./extend.html">Extend</a>
+            </li>
 
             <li class="">
               <a href="./server.html">Serve</a>
@@ -341,6 +344,9 @@
 
     <div class="row">
       <div class="span6">
+        <p>If <a href="http://growl.info/">Growl</a> is installed and turned on, a Growl notification will be created for each failed or successful asset compile. In the event Growl gets too spammy, Growl notifications can be turned off for successful compiles or turned off entirely.</p>
+
+        <p>To allow Mimosa to use Growl, an extra library needs to be installed. For details on installation on your system, check out the <a href="https://github.com/visionmedia/node-growl#install">node-growl</a> page.</a>
 
         <h4 class="hi infoenabled info logger">logger.info.enabled</h4>
         <p class="hi infoenabled info logger">Whether or not <code class="option">Info</code> level logging is enabled.</p>
@@ -382,35 +388,35 @@
       </div>
       <div class="span6">
         <pre><span class="logger">logger: {</span>
-          <span class="info">info: {</span>
-            <span class="infoenabled">enabled: true,</span>
-            <span class="infocolor">color: null</span>
-          },
-          <span class="warn">warn: {</span>
-            <span class="warnenabled">enabled: true,</span>
-            <span class="warncolor">color: 'yellow+bold'</span>
-          },
-          <span class="success">success: {</span>
-            <span class="successenabled">enabled: true,</span>
-            <span class="successcolor">color: 'green'</span>
-          },
-          <span class="error">error: {</span>
-            <span class="errorenabled">enabled: true,</span>
-            <span class="errorcolor">color: 'red+bold'</span>
-          },
-          <span class="debug">debug: {</span>
-            <span class="debugcolor">color: 'blue'</span>
-          },
-          <span class="embedded">embeddedText: {</span>
-            <span class="embeddedenabled">enabled: true,</span>
-            <span class="embeddedcolor">color: 'cyan'</span>
-          },
-          <span class="growl">growl: {</span>
-            <span class="growlenabled">enabled: true,</span>
-            <span class="onstartup">onStartup: false,</span>
-            <span class="onsuccess">onSuccess: true</span>
-          }
-        }</pre>
+  <span class="info">info: {</span>
+    <span class="infoenabled">enabled: true,</span>
+    <span class="infocolor">color: null</span>
+  },
+  <span class="warn">warn: {</span>
+    <span class="warnenabled">enabled: true,</span>
+    <span class="warncolor">color: 'yellow+bold'</span>
+  },
+  <span class="success">success: {</span>
+    <span class="successenabled">enabled: true,</span>
+    <span class="successcolor">color: 'green'</span>
+  },
+  <span class="error">error: {</span>
+    <span class="errorenabled">enabled: true,</span>
+    <span class="errorcolor">color: 'red+bold'</span>
+  },
+  <span class="debug">debug: {</span>
+    <span class="debugcolor">color: 'blue'</span>
+  },
+  <span class="embedded">embeddedText: {</span>
+    <span class="embeddedenabled">enabled: true,</span>
+    <span class="embeddedcolor">color: 'cyan'</span>
+  },
+  <span class="growl">growl: {</span>
+    <span class="growlenabled">enabled: true,</span>
+    <span class="onstartup">onStartup: false,</span>
+    <span class="onsuccess">onSuccess: true</span>
+  }
+}</pre>
       </div>
     </div>
 
