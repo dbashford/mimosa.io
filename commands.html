@@ -47,7 +47,7 @@
             </li>
             <li class="">
               <a href="./extend.html">Extend</a>
-            </li>            
+            </li>
             <li class="">
               <a href="./server.html">Serve</a>
             </li>
@@ -80,7 +80,6 @@
         <li><a href="#watch" title="Watch, compile and serve assets">Watch, Compile, Serve</a></li>
         <li><a href="#clean" title="Clean compiled assets">Clean</a></li>
         <li><a href="#build" title="One time asset compilation and optimization">Build</a></li>
-        <li><a href="#bower" title="Bower commands">Bower</a></li>
         <li><a href="#skel" title="Interact with Mimosa's skeletons">Skeletons</a></li>
         <li><a href="#module" title="Module commands">Modules</a></li>
         <li><a href="#misc" title="Copy Mimosa config to an existing project">Misc</a></li>
@@ -101,6 +100,11 @@
     <p>Each command has a section dedicated to it below, but here is a quick list
       of the available non-module commands. Most commands have flags that influence
       the behavior of the command. Read more about those below.</p>
+
+    <h2>Commands from Modules</h2>
+
+    <p>Don't see the command you are looking for here? Chances are good that command is from another module. Mimosa modules can add commands to your project, <a href="https://github.com/dbashford/mimosa-bower#additional-commands">mimosa-bower</a> is a good example.</p>
+
 
     <h2>Mimosa Commands</h2>
 
@@ -164,39 +168,6 @@
       </tbody>
     </table>
 
-    <h2>Commands from Modules</h2>
-
-    <table class="table table-striped table-bordered table-condensed">
-      <thead>
-        <tr>
-          <th>Module</th>
-          <th>Command</th>
-          <th>Options</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>bower</td>
-          <td>bower</td>
-          <td>[-P/--profile]</td>
-          <td>Runs bower install.</td>
-        </tr>
-        <tr>
-          <td>bower</td>
-          <td>bower:install</td>
-          <td>[-d/--savedev]</td>
-          <td>Will install one to many modules into your application.</td>
-        </tr>
-        <tr>
-          <td>bower</td>
-          <td>bower:clean</td>
-          <td>[-c, --cache], [-P/--profile]</td>
-          <td>Remove all of the mimosa-bower installed dependencies from their target directories.</td>
-        </tr>
-      </tbody>
-    </table>
-
     <section id="new">
       <div class="page-header">
         <h1>
@@ -205,8 +176,7 @@
         </h1>
       </div>
     </section>
-    <div class="row">
-      <div class="span6">
+
         <h2>new</h2>
 
         <p>One way to get started with Mimosa is to use it to create a new application/project structure.</p>
@@ -230,117 +200,7 @@
         <pre>$ mimosa new nameOfApplicationHere --defaults
 $ mimosa new nameOfApplicationHere -d</pre>
 
-      </div>
-      <div class="span6 term">
-        <div class="inner">
-          <p class="prompt">$ mimosa new foo</p>
 
-          <p class="inst">Determining system capabilities...</p>
-
-          <p class="inst">Mimosa will guide you through technology selection and project creation. For all of the selections, if your favorite is not an option, you can add a GitHub issue and we'll look into adding it.</p>
-
-          <p class="inst">If you are unsure which options to pick, the ones with asterisks are Mimosa favorites. Feel free to hit the web to research your selections, Mimosa will be here when you get back.</p>
-
-          <p class="inst">To start, please choose your JavaScript transpiler:</p>
-
-          <p>
-            1) Coco - https://github.com/satyr/coco<br/>
-            2) (*) CoffeeScript - http://coffeescript.org/<br/>
-            3) Iced CoffeeScript - http://maxtaco.github.com/coffee-script/<br/>
-            4) LiveScript - http://gkz.github.com/LiveScript/<br/>
-            5) None (Raw JavaScript)<br/>
-            6) TypeScript - http://www.typescriptlang.org<br/>
-            : 2
-          </p>
-
-          <p class="fb">
-            You chose (*) CoffeeScript - http://coffeescript.org/.
-          </p>
-
-          <p class="inst">
-            Choose your CSS preprocessor:
-          </p>
-
-          <p>
-            1) LESS - http://lesscss.org/<br/>
-            2) None (Raw CSS)<br/>
-            3) SASS - http://sass-lang.com/<br/>
-            4) (*) Stylus - http://learnboost.github.com/stylus/<br/>
-            : 4
-          </p>
-
-          <p class="fb">
-            You chose Stylus - http://learnboost.github.com/stylus/.
-          </p>
-
-          <p class="inst">
-            Choose your micro-templating language:
-          </p>
-
-          <p>
-            1) (*) Dust - https://github.com/linkedin/dustjs/<br/>
-            2) Embedded CoffeeScript Templates (ECO) - https://github.com/sstephenson/eco<br/>
-            3) Embedded JavaScript Templates (EJS) - https://github.com/visionmedia/ejs<br/>
-            4) (*) Handlebars - http://handlebarsjs.com/<br/>
-            5) Hogan - http://twitter.github.com/hogan.js/<br/>
-            6) HTML - Just Plain HTML Snippets, no compiling<br/>
-            7) Jade - http://jade-lang.com/<br/>
-            8) LoDash - http://lodash.com/docs#template<br/>
-            9) None (No Templating)<br/>
-            10) Ractive - http://ractivejs.org<br/>
-            11) Underscore - http://underscorejs.org/#template<br/>
-            : 5
-          </p>
-
-          <p class="fb">
-            You chose Hogan - http://twitter.github.com/hogan.js/.
-          </p>
-
-          <p class="inst">
-            Choose your server technology:
-          </p>
-
-          <p>
-
-            1) None - You either don't need a server or you have one already that you will manage separate from Mimosa.<br/>
-            2) Mimosa's Embedded Server - http://mimosa.io/server.html#mimosas, this is less powerful than having your own, but may be sufficient for trivial websites.<br/>
-            3) (*) Express - http://expressjs.com/<br/>
-            4) Express w/socket.io - http://expressjs.com/ + http://socket.io/<br/>
-            5) Hapi - http://hapijs.com/<br/>
-            : 3
-          </p>
-
-          <p class="fb">
-            You chose (*) Express - http://expressjs.com/.
-          </p>
-
-          <p class="inst">
-            And finally choose your server view templating library:
-          </p>
-
-          <p>
-            1) (*) Jade - http://jade-lang.com/<br/>
-            2) Hogan - http://twitter.github.com/hogan.js/<br/>
-            3) Plain HTML<br/>
-            4) Embedded JavaScript Templates (EJS) - https://github.com/visionmedia/ejs<br/>
-            5) Handlebars - http://handlebarsjs.com/</br>
-            6) Dust - http://linkedin.github.io/dustjs/</br>
-            : 1
-          </p>
-
-          <p class="fb">
-            You chose (*) Jade - http://jade-lang.com/.
-          </p>
-
-          <p class="inst">Creating and setting up your project...</p>
-
-          <p class="logs">
-            23:20:05 - Installing application and Mimosa development node modules. This may take a few seconds.<br/>
-            <span class="inst">23:20:09 - New project creation complete! Execute 'mimosa watch' from inside your project's directory to monitor the file system. Then start coding!</span><br/>
-          </p>
-        </div>
-      </div>
-    </div>
     <section id="watch">
       <div class="page-header">
         <h1>
@@ -349,50 +209,35 @@ $ mimosa new nameOfApplicationHere -d</pre>
         </h1>
       </div>
     </section>
-    <div class="row">
-      <div class="span6">
+
         <h2>watch</h2>
 
+        <div class="row">
+          <div class="span6">
         <p>Mimosa will watch the configured <code class='option'>watch.sourceDir</code>, by default the <code class='option'>assets</code> directory. When files are added, updated, or deleted, Mimosa's will process the files through the configured Mimosa modules.</p>
+      </div>
+      <div class="span6">
 
         <pre>$ mimosa watch</pre>
 
+      </div>
+    </div>
+
         <h3>Serve Assets (-s/--server)</h3>
+
+        <div class="row">
+          <div class="span6">
+
 
         <p>Start Mimosa with the <code class='option'>server</code> flag if assets need to be served.</p>
 
-        <pre>$ mimosa watch --server
-$ mimosa watch -s</pre>
-
-        <p>By default, using functionality provided by the <code class='option'>server</code> module, Mimosa will run a piece of code located at <code class='option'>server.path</code>. If Mimosa was used to create the project, and a server was chosen, a <code class='option'>server.js (.iced/.coffee/.ls/.coco)</code> file will be at the project's root. Mimosa will run the <code class='option'>startServer</code> function in this file and pass it the full <code class='option'>mimosa-config</code> and a callback function that must be executed.</p>
-
-        <p>Mimosa's embedded (non-extendable) Express server can be used by changing the <code class='option'>server.defaultServer.enabled</code> configuration to <code class='option'>true</code>. If no server was chosen during project creation, this setting will be set.</p>
+        <p>Using the <code class="option">-s/--server</code> flag with <code class="option">mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
 
       </div>
 
-      <div class="span6 term">
-        <div class="inner">
-          <p>
-            <span class="prompt">$ mimosa watch --server</span><br/>
-            20:31:54 - Info - Did not find compiled directory <span class="path">public</span>, so making it for you<br/>
-            20:31:54 - Info - Starting Bower install...<br/>
-            20:31:54 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/jquery/jquery.js</span><br/>
-            20:31:54 - Info - mimosa-bower created file <span class="path">assets/javascripts/vendor/requirejs/require.js</span><br/>
-            20:31:54 - Info - Cleaned temp bower output directory <span class="path">.mimosa/bower/bower_components</span><br/>
-            20:31:54 - Info - Watching <span class="path">assets</span><br/>
-            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/main.js</span><br/>
-            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/example-view.js</span><br/>
-            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
-            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
-            20:31:54 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
-            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/stylesheets/style.css</span><br/>
-            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
-            20:31:55 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
-            20:31:55 - <span class="inst">Success</span> - Mimosa is starting your server: server.coffee</span><br/>
-            Express server listening on port 3000 in development mode<br/>
-            &nbsp;&nbsp;&nbsp;<span class="path">info</span>  - socket.io started<br/>
-          </p>
-        </div>
+      <div class="span6">
+        <pre>$ mimosa watch --server
+$ mimosa watch -s</pre>
       </div>
     </div>
 
@@ -519,7 +364,6 @@ $ mimosa clean -f</pre>
         <div class="inner">
           <p>
             $ mimosa clean<br/>
-            20:40:04 - Info - mimosa-live-reload: removed live reload client.<br/>
             20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/main.js</span><br/>
             20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/stylesheets/style.css</span><br/>
             20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/app/example-view.js</span><br/>
@@ -676,15 +520,6 @@ $ mimosa build -P nameOfProfile</pre>
       </div>
     </div>
 
-    <section id="bower">
-      <div class="page-header">
-        <h1>
-          Bower Commands
-          <small><span class="mim">mimosa</span> <span class="command">bower</span>, <span class="command">bower:clean</span></small>
-        </h1>
-      </div>
-    </section>
-
     <p>See the <a href="https://github.com/dbashford/mimosa-bower#additional-commands">repository for the bower module</a> to get details on the bower commands.</p>
 
     <section id="skel">
@@ -701,8 +536,6 @@ $ mimosa build -P nameOfProfile</pre>
     <p>Creating a new skeleton has a dependency on git being available at the command line.</p>
 
     <p><span style="font-weight:bold">Mimosa needs skeletons!</span> <a href="https://github.com/dbashford/skelmimosa#contribute">Learn how to contribute!</a></p>
-
-    <p>As of version <code class="option">0.14.6</code>, Mimosa's skeleton module is a default Mimosa module and its three commands are immediately available.</p>
 
     <p><h2>skel:new [nameOfSkeleton] [directory]</h2> This command will install the named skeleton in the directory provided. If the directory is not provided, it will install the skeleton in the current directory.</p>
     <p><h2>skel:search [searchTerm]</h2> This command will search the registry for any skeletons possessing the searchTerm as a keyword.</p>
