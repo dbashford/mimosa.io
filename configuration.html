@@ -47,9 +47,6 @@
             <li class="">
               <a href="./extend.html">Extend</a>
             </li>
-            <li class="">
-              <a href="./utilities.html">Utilities</a>
-            </li>
             <li class="active">
               <a href="./configuration.html">Config</a>
             </li>
@@ -72,14 +69,13 @@
     <p class="lead">The keys to the kingdom, when Mimosa's defaults aren't quite cutting it</p>
     <div class="subnav configuration">
       <ul class="nav nav-pills">
+        <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
         <li><a href="#version" title="Enforce a Mimosa version">Version</a></li>
         <li><a href="#modules" title="What modules are installed">Modules</a></li>
         <li><a href="#watch" title="What to watch and where">Watch</a></li>
         <li><a href="#vendor" title="Where the vendor scripts are">Vendor</a></li>
         <li><a href="#templates" title="Template config">Templates</a></li>
         <li><a href="#growl" title="logging and growl">Logger</a></li>
-        <li><a href="#therest" title="other config?">Other</a></li>
-
       </ul>
     </div>
   </header>
@@ -111,15 +107,43 @@
 
     <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
 
-    </p>
-
-    <section id="version">
+    <section id="config">
       <div class="page-header">
         <h1>
-          Mimosa Version
+          Run Profiles
+          <small><span class="options">override the mimosa-config at runtime</span></small>
         </h1>
       </div>
     </section>
+
+      <p>Profiles allow for overriding of <code class="option">mimosa-config</code> settings via external config files. A project might have a "build" profile that is used for automated builds, and for those builds maybe certain modules aren't needed. For instance the "lint" module can be left out of the modules array.</p>
+
+      <p>Profiles are implemented as <code class="option">mimosa-config</code> files. Any properties of a project's <code class="option">mimosa-config</code> that need to be overridden would be the properties placed in a profile file.</p>
+
+      <p>By default, profile files should be located in a <code class="option">profiles/</code> directory at the root of a Mimosa project. This location can be overridden via the <code class="option">profileLocation</code> property in the project's <code class="option">mimosa-config</code>.  <code class="option">profileLocation</code> is relative to the root of the project.</p>
+
+      <p>Profiles can be used for the <code class="option">watch</code>, <code class="option">build</code> and <code class="option">clean</code> commands. Each of those commands have a <code class="option">-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code class="option">mimosa-config</code>. Ex: <code class="option">mimosa build -P build</code>.
+
+        <p>If necessary the root <code class="option">mimosa-config</code> can be accessed in your profile. For more information, see <a href="https://github.com/dbashford/mimosa/issues/399">this GitHub issue</a></p>
+
+        <h2>Multiple Profiles</h2>
+
+        <p>New with version <code class="option">2.2.14</code> of Mimosa, multiple profiles can be provided at the command line.  Ex: <code class="option">mimosa build -P foo#bar</code>.  Profiles are applied from left to right.  So, in this case if the <code class="option">bar</code> profile contains the same configuration as the <code class="option">foo</code> profile, the <code class="option">bar</code> profile information will overwrite foo.</p>
+
+        <h2>Default Profiles</h2>
+
+        <p>New with version <code class="option">2.3.2</code> of Mimosa is the introduction of default profiles. Profiles are a powerful feature. Using a profile is easy enough, but if you have a set of profiles that you are constantly applying, you find yourself typing <code class="option">-P profileName</code> quite a bit.  Now you can keep a default profile in a <code class="option">`.mimosa_profile`</code> file at the root of your project.  This file, a <code class="option">\n</code>-delimited list of profile names, will be the first profiles applied.  You can also append <code class="option">-P profileName</code> and those profiles will be applied last (and therefore override any settings in a default profile).</p>
+
+
+    <h1 class="page-header">
+      Mimosa Core Configuration
+    </h1>
+
+    <p>The following sections document Mimosa's core config. All Mimosa projects have this config to alter basic Mimosa behavior. Any configuration for your project not documented below belongs to a Mimosa module that you have installed into your project. If you are looking for configuration that isn't present here, for example, for your <code class="option">bower</code> config or your <code class="option">require</code> config, then you will want to check the GitHub repository for those modules. </p>
+
+    <hr/>
+
+    <h2 id="version">Version Enforcement</h2>
 
     <div class="row">
       <div class="span6">
@@ -145,13 +169,11 @@
 
     <p class="hi requiredMimosaVersion">When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
 
-    <section id="modules">
-      <div class="page-header">
-        <h1>
-          Mimosa Modules <small><span class="command">modules</span></small>
-        </h1>
-      </div>
-    </section>
+    <hr/>
+
+    <h2 id="modules">
+      Module List
+    </h2>
 
     <div class="row">
       <div class="span6">
@@ -161,6 +183,8 @@
         <p class="hi modules">The <code class="option">modules</code> array informs Mimosa what Mimosa modules to use. Many Mimosa modules may be installed, both ones that come with Mimosa and ones installed on top of Mimosa. This setting lets Mimosa know which ones to use for a project. The defaults represent those modules that come with Mimosa out of the box without any additional installs. The <code class="option">mimosa-</code> can be left off the name of modules as Mimosa will assume it.</p>
 
     <p class="hi modules">If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code class="option">mod:install</code>.</p>
+
+    <p class="hi modules">Also, this config allows for installing specific versions of modules. If a new module is added by name only, Mimosa installs the latest version. If a version if provided, Mimosa will install that specific version.</p>
 
       </div>
       <div class="span6">
@@ -178,15 +202,14 @@
       </div>
     </div>
 
-    <p class="hi modules">Also, this config allows for installing specific versions of modules. If a new module is added by name only, Mimosa installs the latest version. If a version if provided, Mimosa will install that specific version. The syntax for installing specific versions is <code class="option">moduleName@moduleVersion</code>, for example <code class="option">web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
 
-    <section id="watch">
-      <div class="page-header">
-        <h1>
-          Watching the File System <small><span class="command">watch</span></small>
-        </h1>
-      </div>
-    </section>
+    <p class="hi modules"> The syntax for installing specific versions is <code class="option">moduleName@moduleVersion</code>, for example <code class="option">web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
+
+    <hr/>
+
+    <h2 id="watch">
+      File System Watching
+    </h2>
 
     <div class="row">
       <div class="span6">
@@ -243,13 +266,11 @@
     <h4 class="hi delay watch">watch.delay</h4>
     <p class="hi delay watch">The <code class="option">delay</code> setting forces Mimosa to pause for a number of milliseconds before processing a file. Use this if it seems Mimosa is processing a file before the file has been entirely written.</p>
 
-    <section id="vendor">
-      <div class="page-header">
-        <h1>
-          Vendor Scripts <small><span class="command">vendor</span></small>
-        </h1>
-      </div>
-    </section>
+    <hr/>
+
+    <h2 id="vendor">
+      Vendor Scripts
+    </h2>
 
     <div class="row">
       <div class="span6">
@@ -269,36 +290,31 @@
       </div>
     </div>
 
-    <section id="templates">
-      <div class="page-header">
-        <h1>
-          Templates <small><span class="command">template</span></small>
-        </h1>
-      </div>
-    </section>
+    <hr/>
+
+    <h2 id="templates">
+      Core Template Config
+    </h2>
 
     <div class="row">
       <div class="span6">
+
+        <p class="hi writeLibrary template">For details on how templates work, check the <a href="./modules.html#mt">Using Template Compilers</a> documentation.</p>
+
         <h4 class="hi writeLibrary template">template.writeLibrary</h4>
         <p class="hi writeLibrary template">By default many of Mimosa's template compilers will write an AMD wrapped version of the template compiler's client library as a convenience.  If using <code class="option">common</code> as a <code class="option">wrapType</code> it will not.  But there are cases when AMD is being used and a client library is not desired.  In those cases set <code class="option">template.writeLibrary</code> to <code class="option">false</code>.</p>
-        <h4 class="hi nameTransform template">template.nameTransform</h4>
-        <p class="hi nameTransform template">Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.
 
-          <ul class="hi nameTransform template">
-            <li><code class="option">fileName</code> (default), this option results in the name of the file being the name of the template.</li>
-            <li><code class="option">filePath</code>, this makes the name of the template the path of the file with 1) the <a href="./configuration.html#watch">watch.javascriptDir</a> chopped off, 2) the slashes forced to <code class="option">/</code>, and 3) the extension removed. No leading slash.</li>
-            <li>A RegExp can be provided. That RegExp is applied on the <code class="option">filePath</code> string from above to remove any unwanted pieces of text from the string. The RegExp is used as part of a <code class="option">string.replace</code></li>
-            <li>A function can be provided. That function is passed the <code class="option">filePath</code> from above. The function must return a string that is the desired name of the template.</li>
-          </ul>
 
-        </p>
+        <h4 class="hi wrapType template">template.wrapType</h4>
+        <p class="hi wrapType template">By default Mimosa wraps compiled template files in an AMD-compliant <code class="option">define</code> block. When <code class="option">wrapType</code> is set to <code class="option">"none"</code> Mimosa will not wrap the compiled template files and will also not write a wrapped client library for the micro-templater of choice. When <code class="option">wrapType</code> is set to <code class="option">"common"</code>, CommonJS style <code class="option">require</code>s and <code class="option">module.exports</code> are used.</p>
+
 
       </div>
       <div class="span6">
 <pre><span class="template">template: {</span>
   <span class="writeLibrary">writeLibrary: true,</span>
-  <span class="nameTransform">nameTransform: "fileName",</span>
   <span class="wrapType">wrapType: "amd",</span>
+  <span class="nameTransform">nameTransform: "fileName",</span>
   <span class="commonLibPath">commonLibPath: null,</span>
   <span class="outputFileName">outputFileName: "javascripts/templates",</span>
 
@@ -312,8 +328,17 @@
       </div>
     </div>
 
-    <h4 class="hi wrapType template">template.wrapType</h4>
-    <p class="hi wrapType template">By default Mimosa wraps compiled template files in an AMD-compliant <code class="option">define</code> block. When <code class="option">wrapType</code> is set to <code class="option">"none"</code> Mimosa will not wrap the compiled template files and will also not write a wrapped client library for the micro-templater of choice. When <code class="option">wrapType</code> is set to <code class="option">"common"</code>, CommonJS style <code class="option">require</code>s and <code class="option">module.exports</code> are used.</p>
+    <h4 class="hi nameTransform template">template.nameTransform</h4>
+    <p class="hi nameTransform template">Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.</p>
+
+
+    <ul class="hi nameTransform template">
+      <li><code class="option">fileName</code> (default), this option results in the name of the file being the name of the template.</li>
+      <li><code class="option">filePath</code>, this makes the name of the template the path of the file with 1) the <a href="./configuration.html#watch">watch.javascriptDir</a> chopped off, 2) the slashes forced to <code class="option">/</code>, and 3) the extension removed. No leading slash.</li>
+      <li>A RegExp can be provided. That RegExp is applied on the <code class="option">filePath</code> string from above to remove any unwanted pieces of text from the string. The RegExp is used as part of a <code class="option">string.replace</code></li>
+      <li>A function can be provided. That function is passed the <code class="option">filePath</code> from above. The function must return a string that is the desired name of the template.</li>
+    </ul>
+
 
     <h4 class="hi commonLibPath template">template.commonLibPath</h4>
     <p class="hi commonLibPath template">Valid when <code class="option">wrapType</code> is 'common'. The commonjs path to the client library. Some libraries do not have clients therefore this is not strictly required when choosing the common wrapType</p>
@@ -330,13 +355,11 @@
     <h4 class="hi outputFileName2 output template">template.output[].outputFileName</h4>
     <p class="hi outputFileName2 output template"><code class="option">template.output[].outputFileName</code> is identical to <code class="option">template.outputFileName</code> except it is scoped in this case to just the folder specified by the <code class="option">folder</code> property. There is no default, so this property must be provided.</p>
 
-    <section id="growl">
-      <div class="page-header">
-        <h1>
-          Logging <small><span class="command">logger</span></small>
-        </h1>
-      </div>
-    </section>
+    <hr/>
+
+    <h2 id="growl">
+      Logging
+    </h2>
 
     <div class="row">
       <div class="span6">
@@ -422,16 +445,7 @@
     <h4 class="hi onsuccess growl">growl.onSuccess</h4>
     <p class="hi onsuccess growl">Whether or not to Growl success log messages after startup.</p>
 
-    <section id="therest">
-      <div class="page-header">
-        <h1>
-          Other
-        </h1>
-      </div>
-
-      <p>Looking for configuration here and can't find it? There's a good chance you can find it on the GitHub page for that module!</p>
-    </section>
-
+    <hr/>
 
   </section>
 
