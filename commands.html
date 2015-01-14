@@ -49,9 +49,6 @@
               <a href="./extend.html">Extend</a>
             </li>
             <li class="">
-              <a href="./server.html">Serve</a>
-            </li>
-            <li class="">
               <a href="./utilities.html">Utilities</a>
             </li>
             <li class="">
@@ -177,29 +174,13 @@
       </div>
     </section>
 
-        <h2>new</h2>
+    <h2>new</h2>
 
-        <p>One way to get started with Mimosa is to use it to create a new application/project structure.</p>
+    <pre>$ mimosa new nameOfApplicationHere</pre>
 
-        <pre>$ mimosa new nameOfApplicationHere</pre>
+    <p>The <code class='option'>new</code> command will kick off a series of prompts to choose a set of technologies to get you started with a Mimosa application.</p>
 
-        <p>The <code class='option'>new</code> command will kick off a series of prompts to choose meta-languages, a templating library, a server, and a server templater. Mimosa will then create a directory using the name provided. Inside that directory Mimosa will populate an application skeleton. The <code class='option'>assets</code> directory will contain some example code for the chosen selections. At the root of the project will be a <code class='option'>bower.json</code> file that will be used to pull in jQuery and RequireJS when you first start Mimosa.</p>
-
-        <p>If a server was chosen, Mimosa will include the bare essentials for that server selection, application, and the server code will be delivered in the chosen transpiler language.</p>
-
-        <p>Mimosa will also provide some starter views for an index page in the chosen view templating language.</p>
-
-        <p>If no server is chosen, Mimosa can handle serving assets. Mimosa provides some configuration options for an embedded Express server so not having a server is a little less painful than it would be otherwise.</p>
-
-        <p>The project directory will also contain Mimosa's configuration file which will contain at a minimum a <code class='option'>modules</code> array. If a JavaScript transpiler, a CSS preprocessor or a micro-templating library were chosen, the modules for those will be added to the <code class='option'>modules</code> array and installed inside the project as part of creating the project. A documented version of the config will also be created. It will contain all the information for each of the modules used to build the project along with defaults.</p>
-
-        <h3>Pick the defaults (-d/--defaults)</h3>
-
-        <p>Should Mimosa's defaults (CoffeeScript, Handlebars,  Stylus, Express, Jade) suffice, the prompts can be bypassed by providing a <code class="option">--defaults</code> flag.</p>
-
-        <pre>$ mimosa new nameOfApplicationHere --defaults
-$ mimosa new nameOfApplicationHere -d</pre>
-
+    <p>Mimosa gets the <code class='option'>new</code> command from the <a href="https://github.com/dbashford/newmimosa">newmimosa</a> module. For details on what sort of assets it gives you, check out that module's <a href="https://github.com/dbashford/newmimosa">GitHub repository</a>.</a>
 
     <section id="watch">
       <div class="page-header">
@@ -232,6 +213,12 @@ $ mimosa new nameOfApplicationHere -d</pre>
         <p>Start Mimosa with the <code class='option'>server</code> flag if assets need to be served.</p>
 
         <p>Using the <code class="option">-s/--server</code> flag with <code class="option">mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
+
+        <p>Mimosa does not require a server. You may simply not need one (static site?) or you may have your own non-node.js server that Mimosa cannot start for you. When running a non-node.js server, the major consideration is the <code class="option">watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives.</p>
+
+        <pre>watch: {
+  compiledDir: "../server/public"
+}</pre>
 
       </div>
 
