@@ -1,0 +1,37 @@
+body {
+  padding-top: 70px;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.nav-stacked.affix {
+  margin-top:50px;
+}
+
+.about-page h2:first-of-type {
+  margin-top:10px;
+}
+
+.affix {
+  top: 0;
+}
+
+@media (max-width: 765px) {
+  .row .affix {
+    position: static;
+  }
+
+  .nav-stacked.affix {
+    margin-top:0px;
+  }
+}
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -65px;
+  height: 65px;
+  visibility: hidden;
+}
