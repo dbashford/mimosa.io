@@ -1,21 +1,13 @@
-body {
-  padding-top: 70px;
-}
-
 .navbar {
   border-radius: 0;
-}
-
-.nav-stacked.affix {
-  margin-top:50px;
 }
 
 .about-page h2:first-of-type {
   margin-top:10px;
 }
 
-.affix {
-  top: 0;
+.jumbotron {
+  background-color: #f5f5f5
 }
 
 @media (max-width: 765px) {
