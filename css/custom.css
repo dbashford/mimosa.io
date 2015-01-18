@@ -6,6 +6,23 @@
   margin-top:10px;
 }
 
+.large-heading {
+  padding-top:1px;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .navbar-nav>li>a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 991px) {
+  .nav-stacked.affix {
+    width:8.5em;
+  }
+}
+
 @media (max-width: 765px) {
   .row .affix {
     position: static;
