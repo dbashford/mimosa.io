@@ -10,10 +10,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="At the command line is where Mimosa's magic happens.">
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" >
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" >
-  <link rel="stylesheet" href="css/app.css">
+
+  <link rel="stylesheet" href="css/bootstrap3.css" >
+  <link rel="stylesheet" href="css/custom.css" >
 
   <link rel="shortcut icon" href="img/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
@@ -21,626 +20,486 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
 </head>
-<body data-spy="scroll" data-target=".subnav" data-offset="50">
+<body class="command-page" data-spy="scroll" data-target=".left-nav" data-offset="90">
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-            <li class="">
-              <a href="./index.html">Mimosa</a>
-            </li>
-            <li class="">
-              <a href="./started.html">Get Started</a>
-            </li>
-            <li class="active">
-              <a href="./commands.html">Commands</a>
-            </li>
-            <li  class="">
-              <a href="./modules.html">Modules</a>
-            </li>
-            <li class="">
-              <a href="./extend.html">Extend</a>
-            </li>
-            <li class="">
-              <a href="./configuration.html">Config</a>
-            </li>
-            <li class="">
-              <a href="./about.html">About/FAQ</a>
-            </li>
-            <li class="">
-              <a href="http://dbashford.github.io">Blog</a>
-            </li>
-          </ul>
+        <a class="navbar-brand" href="./index.html">Mimosa</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./started.html">Get Started</a></li>
+          <li class="active"><a href="./commands.html">Commands</a></li>
+          <li><a href="./modules.html">Modules</a></li>
+          <li><a href="./extend.html">Extend</a></li>
+          <li><a href="./configuration.html">Config</a></li>
+          <li><a href="./about.html">FAQ/Tips</a></li>
+          <li><a href="http://dbashford.github.io">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="jumbotron">
+      <h1>Commands</h1>
+      <p class="lead">Interact with your project via the command line</p>
+    </header>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-3 left-nav" >
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="195" data-offset-bottom="0">
+          <li><a href="#list" title="Create a new project">Command List</a></li>
+          <li><a href="#new" title="Create a new project">New Project</a></li>
+          <li><a href="#watch" title="Watch, compile and serve assets">Watch & Serve</a></li>
+          <li><a href="#clean" title="Clean compiled assets">Clean</a></li>
+          <li><a href="#build" title="One time asset compilation and optimization">Build</a></li>
+          <li><a href="#skel" title="Interact with Mimosa's skeletons">Skeletons</a></li>
+          <li><a href="#module" title="Module commands">Modules</a></li>
+          <li><a href="#misc" title="Copy Mimosa config to an existing project">Misc</a></li>
+        </ul>
+      </div>
+      <div class="col-md-10 col-sm-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="list">Quick List</h2>
+          </div>
+          <div class="panel-body">
+            <p>Each command has a section dedicated to it below, but here is a quick list of the available non-module commands. Most commands have flags that influence the behavior of the command. Read more about those below.</p>
+
+            <h3>Commands from Modules</h3>
+            <p>Don't see the command you are looking for here? Chances are good that command is from another module. Mimosa modules can add commands to your project, <a href="https://github.com/dbashford/mimosa-bower#additional-commands">mimosa-bower</a> is a good example.</p>
+
+            <h3>Mimosa Commands</h3>
+            <p>A set of commands come with Mimosa and that are available no matter what modules are included in your project</p>
+
+            <table class="table table-striped table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Options</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>new</td>
+                  <td>[name] [-d/--defaults]</td>
+                  <td>Creates a new project skeleton with sample code.</td>
+                </tr>
+                <tr>
+                  <td>watch</td>
+                  <td>[-s/--server] [-c/--clean] [-C/--cleanall] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</td>
+                  <td>Builds the project and continues watching project files to build them on-the-fly.</td>
+                </tr>
+                <tr>
+                  <td>clean</td>
+                  <td>[-f/--force] [-C/--cleanall] [-P/--profile]</td>
+                  <td>Cleans the Mimosa generated assets.</td>
+                </tr>
+                <tr>
+                  <td>build</td>
+                  <td>[-C/--cleanall] [-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
+                  <td>Builds the project and exits.</td>
+                </tr>
+                <tr>
+                  <td>config</td>
+                  <td></td>
+                  <td>Provides a mimosa-config when one isn't present, and writes a fully documented version for reference.</td>
+                </tr>
+                <tr>
+                  <td>skel:new</td>
+                  <td>&lt;skeletonName&gt; [installFolder]</td>
+                  <td>Creates a new project from an existing skeleton.</td>
+                </tr>
+                <tr>
+                  <td>skel:list</td>
+                  <td></td>
+                  <td>List all skeletons.</td>
+                </tr>
+                <tr>
+                  <td>skel:search</td>
+                  <td>&lt;keyword&gt;</td>
+                  <td>Search for skeletons using keywords.</td>
+                </tr>
+                <tr>
+                  <td>All Commands</td>
+                  <td>[-D, --mdebug], [--help]</td>
+                  <td>These flags are available for all commands.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="new">New Project</h2>
+            <h5>mimosa new [nameOfProject]</h5>
+          </div>
+          <div class="panel-body">
+            <h3>new</h3>
+            <pre>$ mimosa new nameOfApplicationHere</pre>
+            <p>The <code>new</code> command will kick off a series of prompts to choose a set of technologies to get you started with a Mimosa application.</p>
+            <p>Mimosa gets the <code>new</code> command from the <a href="https://github.com/dbashford/newmimosa">newmimosa</a> module. For details on what sort of assets it gives you, check out that module's <a href="https://github.com/dbashford/newmimosa">GitHub repository</a>.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="watch">Watch, Compile, Serve</h2>
+            <h5>mimosa watch [-s/--server] [-c/--clean] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</h5>
+          </div>
+          <div class="panel-body">
+            <h3>watch</h3>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Mimosa will watch the configured <code>watch.sourceDir</code>, by default the <code>assets</code> directory. When files are added, updated, or deleted, Mimosa's will process the files through the configured Mimosa modules.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch</pre>
+              </div>
+            </div>
+
+            <h4>Serve Assets (-s/--server)</h4>
+            <p>Start Mimosa with the <code>server</code> flag if assets need to be served.</p>
+            <pre>$ mimosa watch --server
+$ mimosa watch -s</pre>
+            <p>Using the <code>-s/--server</code> flag with <code>mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
+            <p>Mimosa does not require a server. You may simply not need one (static site?) or you may have your own non-node.js server that Mimosa cannot start for you. When running a non-node.js server, the major consideration is the <code>watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives.</p>
+            <pre>watch: {
+compiledDir: "../server/public"
+}</pre>
+
+            <h4>Clean Compiled Assets First (-c/--clean)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Use the <code>--clean</code> flag to clean the compiled directory before watching starts. This forces a recompile and recopy of all assets.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --clean
+$ mimosa watch -c</pre>
+              </div>
+            </div>
+
+            <h4>Clean Compiled Assets and the .mimosa Cache (-C/--cleanall)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Use the <code>--cleanall</code> flag to delete the <code>.mimosa</code> directory before watching starts. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
+                <p>This also includes a clean as with the <code>--clean</code> flag above.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --cleanall
+$ mimosa watch -C</pre>
+              </div>
+            </div>
+
+            <h4>Delete Compiled Directory First (-d/--delete)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>More drastic than the <code>clean</code> flag, the  <code>--delete</code> flag will remove the compiled directory entirely. This is the same as the <code>--force</code> option for the <code>clean</code> command below.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --delete
+$ mimosa watch -d</pre>
+              </div>
+            </div>
+
+            <h4>Run Optimized (-o/--optimize)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Start <code>mimosa watch</code> with the <code>--optimize</code> flag turned on and any optimization modules you are using will perform their optimizations.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --optimize
+$ mimosa watch -o</pre>
+              </div>
+            </div>
+
+            <h4>Minify Assets (-m/--minify)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Start <code>mimosa watch</code> with the <code>--minify</code> flag turned on and any minification modules you have enabled will minify their assets.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --minify
+$ mimosa watch -m</pre>
+              </div>
+            </div>
+
+            <h4>Minify and Optimize Assets (-mo/--minify --optimize)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Flags are cumulative, so both the minify and optimize flags can be used at the same time to both minify and optimize your codebase.</a></p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --minify --optimize
+$ mimosa watch -mo</pre>
+              </div>
+            </div>
+
+            <h4>Use a Profile (-P/--profile)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Follow the <code>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code>mimosa-config</code> contained in the profile. See the <a href="./configuration.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --profile nameOfProfile
+$ mimosa watch -P nameOfProfile</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="clean">Clean Project</h2>
+            <h5>mimosa clean [-f/--force] [-P/--profile]</h5>
+          </div>
+          <div class="panel-body">
+            <h3>clean</h3>
+            <div class="row">
+              <div class="col-md-7">
+                <p><code>mimosa clean</code> will wipe out any file from the <code>watch.compiledDir</code> that is currently in the <code>watch.sourceDir</code>. Any assets in the <code>watch.compiledDir</code> that are not in the <code>watch.sourceDir</code> are left alone in case they were placed there purposefully. Mimosa makes a pass to clean out the files, and once done, it makes a pass to clean out any directories that were emptied.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa clean</pre>
+
+              </div>
+            </div>
+
+            <h4>Remove the .mimosa Cache (-C/--cleanall)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Use the <code>--cleanall</code> flag to delete the <code>.mimosa</code> directory as part of the clean.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --cleanall
+$ mimosa watch -C</pre>
+              </div>
+            </div>
+
+            <h4>Force Asset Deletion (-f/--force)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Because the clean command will not remove anything in <code>watch.compiledDir</code> that isn't in <code>watch.sourceDir</code>, Mimosa may leave behind code. If <code>mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa clean --force
+$ mimosa clean -f</pre>
+              </div>
+            </div>
+            <p>When included, the <code>--force</code> flag will remove the entire compiled directory and all of its contents, no questions asked.</p>
+
+            <h4>Use a Profile (-P/--profile)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Follow the <code>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code>mimosa-config</code> contained in the profile. See the <a href="./configuration.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa clean --profile nameOfProfile
+$ mimosa clean -P nameOfProfile</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="build">Project Build</h2>
+            <h5>mimosa build [-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-P/--profile]</h5>
+          </div>
+          <div class="panel-body">
+            <h3>build</h3>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Use <code>mimosa build</code> to build your application and exit. <code>mimosa build</code> is also used when creating deployable versions of a project. This command executes a clean before it does anything, so a clean version of the application is built.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build</pre>
+              </div>
+            </div>
+
+            <h4>Remove the .mimosa Cache (-C/--cleanall)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Use the <code>--cleanall</code> flag to delete the <code>.mimosa</code> directory before building. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa watch --cleanall
+$ mimosa watch -C</pre>
+              </div>
+            </div>
+
+            <h4>Optimized Build (-o/--optimize)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>If you want to build and generate optimized output, provide an <code>--optimize</code> flag. This will signal any optimization modules you are using that optimization is to be performed.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --optimize
+$ mimosa build -o</pre>
+              </div>
+            </div>
+
+            <h4>Minify Assets (-m/--minify)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>To build minified code, run the <code>build</code> command with the <code>--minify</code> flag. If the <code>minify</code> module is in use, Mimosa will use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files and will single-line CSS.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --minify
+$ mimosa build -m</pre>
+              </div>
+            </div>
+
+            <h4>Minify and Optimize Assets (-mo/--minify --optimize)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Using <code>--minify</code> and <code>--optimize</code> together signals both minification and optimization modules to perform their tasks.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --minify --optimize
+$ mimosa build -mo</pre>
+              </div>
+            </div>
+
+            <h4>Package Application (-p/--package)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Provide a <code>--package</code> flag and Mimosa will invoke any installed packaging modules. Mimosa doesn't come with any packaging functionality by default, but modules like <a href="https://github.com/dbashford/mimosa-web-package">mimosa-web-package</a> are available and can be added to an application by simply adding the module name to the <code>mimosa-config</code> <code>modules</code> array.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --package
+$ mimosa build -p</pre>
+              </div>
+            </div>
+
+            <h4>Install Application (-i/--install)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Provide a <code>--install</code> flag and Mimosa will invoke any configured install modules. Mimosa doesn't come with any installation modules, but this paves the way for those sorts of modules to be used.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --install
+$ mimosa build -i</pre>
+              </div>
+            </div>
+
+            <h4>Force Erroring Out (-e/--errorout)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Provide a <code>--errorout</code> flag and the <code>build</code> command will error out if it encounters any compiler (js, css, template) errors.  Without this flag set, <code>build</code> compiles everything and gracefully exits.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --errorout
+$ mimosa build -e</pre>
+              </div>
+            </div>
+
+            <h4>Use a Profile (-P/--profile)</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Follow the <code>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code>mimosa-config</code> contained in the profile. See the <a href="./configuration.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa build --profile nameOfProfile
+$ mimosa build -P nameOfProfile</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="skel">Skeleton Commands</h2>
+            <h5>mimosa skel:new, skel:search, skel:list</h5>
+          </div>
+          <div class="panel-body">
+            <p>Skeletons are starter apps that include things like MVC libraries (Backbone or Angular), CSS libraries (Bootstrap or Foundation), boilerplate assets, a notional file structure and possibly integration with things like Bower or Testem. Mimosa is admittedly very light on skeletons at the moment. About that...</p>
+            <p><span style="font-weight:bold">Mimosa needs skeletons!</span> <a href="https://github.com/dbashford/skelmimosa#contribute">Learn how to contribute!</a></p>
+
+            <p><h3>skel:new [nameOfSkeleton] [directory]</h3> This command will install the named skeleton in the directory provided. If the directory is not provided, it will install the skeleton in the current directory.</p>
+            <p><h3>skel:search [searchTerm]</h3> This command will search the registry for any skeletons possessing the searchTerm as a keyword.</p>
+            <p><h3>skel:list</h3> This command will list all skeletons.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="module">Module Commands</h2>
+            <h5>mimosa mod:[install/uninstall/list/config]</h5>
+          </div>
+          <div class="panel-body">
+            <p>Mimosa's module features have their own set of commands prefixed with <code>mod:</code>.  Read about them on the <a href="./modules.html#commands">Modules page</a>.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="misc">Miscellaneous Commands and Options</h2>
+          </div>
+          <div class="panel-body">
+            <h3>config</h3>
+            <div class="row">
+              <div class="col-md-7">
+                <p>To use Mimosa with an existing project, use this command to copy the default <code>mimosa-config.js</code> file into the current directory. Some configuration will likely need to be updated for the project. This command will also create a <code>mimosa-config-documented.coffee</code>. This will allow modifications to occur to the <code>mimosa-config</code> while keeping the defaults file for reference.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa config</pre>
+              </div>
+            </div>
+
+            <h4>-h/--help</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>Mimosa includes help documentation for each command. Use <code>--help</code> or <code>-h</code> to bring up help. </p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa --help
+$ mimosa new --help
+$ mimosa [command] --help</pre>
+              </div>
+            </div>
+
+            <h4>-D/--mdebug</h4>
+            <div class="row">
+              <div class="col-md-7">
+                <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code>--mdebug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
+              </div>
+              <div class="col-md-5">
+                <pre>$ mimosa [command] --mdebug
+$ mimosa [command] -D</pre>
+              </div>
+            </div>
+
+            <h4>node.js flags</h4>
+            <p>Mimosa will take and use an assortment of node.js process flags. These flags are the same as the ones that would be used when executing <code>node</code> directly. The available node pass-through flags are <code>--nolazy</code>, <code>--debug</code>, <code>--debug-brk</code>, <code>-gc</code>, <code>--expose-gc</code>, <code>--gc-global</code>, <code>--harmony</code>, <code>--harmony-proxies</code>, <code>--harmony-collections</code>, <code>--harmony-generators</code>, <code>--prof</code>.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-<div class="container main">
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-  <header class="jumbotron subhead" id="overview">
-    <h1>Commands</h1>
-    <p class="lead">Interact with Mimosa via the command line with a large set of commands and options</p>
-    <div class="subnav">
-      <ul class="nav nav-pills">
-        <li><a href="#new" title="Create a new project">New Project</a></li>
-        <li><a href="#watch" title="Watch, compile and serve assets">Watch, Compile, Serve</a></li>
-        <li><a href="#clean" title="Clean compiled assets">Clean</a></li>
-        <li><a href="#build" title="One time asset compilation and optimization">Build</a></li>
-        <li><a href="#skel" title="Interact with Mimosa's skeletons">Skeletons</a></li>
-        <li><a href="#module" title="Module commands">Modules</a></li>
-        <li><a href="#misc" title="Copy Mimosa config to an existing project">Misc</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <section class="command-list">
-
-    <section id="module">
-      <div class="page-header">
-        <h1>
-          Quick List
-        </h1>
-      </div>
-    </section>
-
-    <p>Each command has a section dedicated to it below, but here is a quick list
-      of the available non-module commands. Most commands have flags that influence
-      the behavior of the command. Read more about those below.</p>
-
-    <h2>Commands from Modules</h2>
-
-    <p>Don't see the command you are looking for here? Chances are good that command is from another module. Mimosa modules can add commands to your project, <a href="https://github.com/dbashford/mimosa-bower#additional-commands">mimosa-bower</a> is a good example.</p>
-
-
-    <h2>Mimosa Commands</h2>
-
-    <p>A set of commands come with Mimosa and that are available no matter
-      what modules are included in your project</p>
-
-    <table class="table table-striped table-bordered table-condensed">
-      <thead>
-        <tr>
-          <th>Command</th>
-          <th>Options</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>new</td>
-          <td>[name] [-d/--defaults]</td>
-          <td>Creates a new project skeleton with sample code.</td>
-        </tr>
-        <tr>
-          <td>watch</td>
-          <td>[-s/--server] [-c/--clean] [-C/--cleanall] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</td>
-          <td>Builds the project and continues watching project files to build them on-the-fly.</td>
-        </tr>
-        <tr>
-          <td>clean</td>
-          <td>[-f/--force] [-C/--cleanall] [-P/--profile]</td>
-          <td>Cleans the Mimosa generated assets.</td>
-        </tr>
-        <tr>
-          <td>build</td>
-          <td>[-C/--cleanall] [-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
-          <td>Builds the project and exits.</td>
-        </tr>
-        <tr>
-          <td>config</td>
-          <td></td>
-          <td>Provides a mimosa-config when one isn't present, and writes a fully documented version for reference.</td>
-        </tr>
-        <tr>
-          <td>skel:new</td>
-          <td>&lt;skeletonName&gt; [installFolder]</td>
-          <td>Creates a new project from an existing skeleton.</td>
-        </tr>
-        <tr>
-          <td>skel:list</td>
-          <td></td>
-          <td>List all skeletons.</td>
-        </tr>
-        <tr>
-          <td>skel:search</td>
-          <td>&lt;keyword&gt;</td>
-          <td>Search for skeletons using keywords.</td>
-        </tr>
-        <tr>
-          <td>All Commands</td>
-          <td>[-D, --mdebug], [--help]</td>
-          <td>These flags are available for all commands.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <section id="new">
-      <div class="page-header">
-        <h1>
-          New Project
-          <small><span class="mim">mimosa</span> <span class="command">new</span> <span class="options">[nameOfProject] [-d/--defaults]</span></small>
-        </h1>
-      </div>
-    </section>
-
-    <h2>new</h2>
-
-    <pre>$ mimosa new nameOfApplicationHere</pre>
-
-    <p>The <code class='option'>new</code> command will kick off a series of prompts to choose a set of technologies to get you started with a Mimosa application.</p>
-
-    <p>Mimosa gets the <code class='option'>new</code> command from the <a href="https://github.com/dbashford/newmimosa">newmimosa</a> module. For details on what sort of assets it gives you, check out that module's <a href="https://github.com/dbashford/newmimosa">GitHub repository</a>.</a>
-
-    <section id="watch">
-      <div class="page-header">
-        <h1>
-          Watch, Compile, Serve
-          <small><span class="mim">mimosa</span> <span class="command">watch</span> <span class="options">[-s/--server] [-c/--clean] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</span></small>
-        </h1>
-      </div>
-    </section>
-
-        <h2>watch</h2>
-
-        <div class="row">
-          <div class="span6">
-        <p>Mimosa will watch the configured <code class='option'>watch.sourceDir</code>, by default the <code class='option'>assets</code> directory. When files are added, updated, or deleted, Mimosa's will process the files through the configured Mimosa modules.</p>
-      </div>
-      <div class="span6">
-
-        <pre>$ mimosa watch</pre>
-
-      </div>
-    </div>
-
-        <h3>Serve Assets (-s/--server)</h3>
-
-        <div class="row">
-          <div class="span6">
-
-
-        <p>Start Mimosa with the <code class='option'>server</code> flag if assets need to be served.</p>
-
-        <p>Using the <code class="option">-s/--server</code> flag with <code class="option">mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
-
-        <p>Mimosa does not require a server. You may simply not need one (static site?) or you may have your own non-node.js server that Mimosa cannot start for you. When running a non-node.js server, the major consideration is the <code class="option">watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives.</p>
-
-        <pre>watch: {
-  compiledDir: "../server/public"
-}</pre>
-
-      </div>
-
-      <div class="span6">
-        <pre>$ mimosa watch --server
-$ mimosa watch -s</pre>
-      </div>
-    </div>
-
-    <h3>Clean Compiled Assets First (-c/--clean)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Use the <code class='option'>--clean</code> flag to clean the compiled directory before watching starts. This forces a recompile and recopy of all assets.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --clean
-$ mimosa watch -c</pre>
-      </div>
-    </div>
-
-    <h3>Clean Compiled Assets and the .mimosa Cache (-C/--cleanall)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory before watching starts. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
-        <p>This also includes a clean as with the <code class='option'>--clean</code> flag above.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --cleanall
-$ mimosa watch -C</pre>
-      </div>
-    </div>
-
-    <h3>Delete Compiled Directory First (-d/--delete)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>More drastic than the <code class='option'>clean</code> flag, the  <code class='option'>--delete</code> flag will remove the compiled directory entirely. This is the same as the <code class='option'>--force</code> option for the <code class='option'>clean</code> command below.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --delete
-$ mimosa watch -d</pre>
-      </div>
-    </div>
-
-    <h3>Serve Optimized Assets (-o/--optimize)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--optimize</code> flag turned on and any optimization modules you are using will perform their optimizations.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --optimize
-$ mimosa watch -o</pre>
-      </div>
-    </div>
-
-    <h3>Minify Assets (-m/--minify)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Start <code class='option'>mimosa watch</code> with the <code class='option'>--minify</code> flag turned on and any minification modules you have enabled will minify their assets.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --minify
-$ mimosa watch -m</pre>
-      </div>
-    </div>
-
-    <h3>Minify and Optimize Assets (-mo/--minify --optimize)</h3>
-
-    <div class="row">
-      <div class="span6">
-    <p>Flags are cumulative, so both the minify and optimize flags can be used at the same time to both minify and optimize your codebase.</a>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa watch --minify --optimize
-$ mimosa watch -mo</pre>
-      </div>
-    </div>
-
-
-    <h3>Use a Profile (-P/--profile)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-      </div>
-      <div class="span6">
-    <pre>$ mimosa watch --profile nameOfProfile
-$ mimosa watch -P nameOfProfile</pre>
-      </div>
-    </div>
-
-    <section id="clean">
-      <div class="page-header">
-        <h1>
-          Clean Project
-          <small><span class="mim">mimosa</span> <span class="command">clean</span> <span class="options">[-f/--force] [-P/--profile]</span> </small>
-        </h1>
-      </div>
-    </section>
-    <div class="row">
-      <div class="span6">
-        <h2>clean</h2>
-
-        <p><code class="option">mimosa clean</code> will wipe out any file from the <code class="option">watch.compiledDir</code> that is currently in the <code class="option">watch.sourceDir</code>. Any assets in the <code class="option">watch.compiledDir</code> that are not in the <code class="option">watch.sourceDir</code> are left alone in case they were placed there purposefully. Mimosa makes a pass to clean out the files, and once done, it makes a pass to clean out any directories that were emptied.</p>
-
-        <pre>$ mimosa clean</pre>
-
-        <h3>Remove the .mimosa Cache (-C/--cleanall)</h3>
-
-        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory as part of the clean.</p>
-
-        <pre>$ mimosa watch --cleanall
-$ mimosa watch -C</pre>
-
-        <h3>Force Asset Deletion (-f/--force)</h3>
-
-        <p>Because the clean command will not remove anything in <code class="option">watch.compiledDir</code> that isn't in <code class="option">watch.sourceDir</code>, Mimosa may leave behind code. If <code class="option">mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning. </p>
-
-        <p>When included, the <code class="option">--force</code> flag will remove the entire compiled directory and all of its contents, no questions asked.</p>
-
-        <pre>$ mimosa clean --force
-$ mimosa clean -f</pre>
-
-      </div>
-      <div class="span6 term">
-        <div class="inner">
-          <p>
-            $ mimosa clean<br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/main.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/stylesheets/style.css</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/app/example-view.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/templates.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted file <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor/requirejs</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor/jquery</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/app/template</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/vendor</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts/app</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/stylesheets</span><br/>
-            20:40:04 - <span class="inst">Success</span> - Deleted empty directory <span class="path">public/javascripts</span><br/>
-            20:40:04 - <span class="inst">Success</span> - <span class="path">public</span> has been cleaned.<br/>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <h3>Use a Profile (-P/--profile)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa clean --profile nameOfProfile
-$ mimosa clean -P nameOfProfile</pre>
-      </div>
-    </div>
-    <section id="build">
-      <div class="page-header">
-        <h1>
-          Project Build
-          <small><span class="mim">mimosa</span> <span class="command">build</span> <span class="options">[-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-P/--profile]</span></small>
-        </h1>
-      </div>
-    </section>
-    <div class="row">
-      <div class="span6">
-        <h2>build</h2>
-
-        <p>Use <code class="option">mimosa build</code> to build your application and exit. <code class="option">mimosa build</code> is also used when creating deployable versions of a project. This command executes a clean before it does anything, so a clean version of the application is built.</p>
-
-        <pre>$ mimosa build</pre>
-
-        <h3>Remove the .mimosa Cache (-C/--cleanall)</h3>
-
-        <p>Use the <code class='option'>--cleanall</code> flag to delete the <code class='option'>.mimosa</code> directory before building. This forces modules, like mimosa-bower, to reprocess anything that may have been cached.</p>
-
-        <pre>$ mimosa watch --cleanall
-        $ mimosa watch -C</pre>
-
-        <h3>Optimized Build (-o/--optimize)</h3>
-
-        <p>If you want to build and generate optimized output, provide an <code class="option">--optimize</code> flag. This will signal any optimization modules you are using that optimization is to be performed.</p>
-
-        <pre>$ mimosa build --optimize
-$ mimosa build -o</pre>
-
-      </div>
-      <div class="span6 term">
-        <div class="inner">
-          <p>
-            $ mimosa build --optimize<br/>
-            20:46:18 - Info - Beginning build<br/>
-            20:46:18 - Info - Did not find compiled directory <span class="path">public</span>, so making it for you<br/>
-            20:46:18 - Info - No Bower installs needed.<br/>
-            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/main.js</span><br/>
-            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/example-view.js</span><br/>
-            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/app/template/handlebars-helpers.js</span><br/>
-            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/requirejs/require.js</span><br/>
-            20:46:18 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/jquery/jquery.js</span><br/>
-            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/stylesheets/style.css</span><br/>
-            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
-            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/templates.js</span><br/>
-            20:46:19 - <span class="inst">Success</span> - Compiled/copied <span class="path">public/javascripts/vendor/handlebars.js</span><br/>
-            20:46:19 - <span class="inst">Success</span> - Finished build<br/>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <h3>Minify Assets (-m/--minify)</h3>
-    <div class="row">
-      <div class="span6">
-        <p>To build minified code, run the <code class='option'>build</code> command with the <code class='option'>--minify</code> flag. If the <code class='option'>minify</code> module is in use, Mimosa will use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files and will single-line CSS.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --minify
-$ mimosa build -m</pre>
-      </div>
-    </div>
-
-    <h3>Minify and Optimize Assets (-mo/--minify --optimize)</h3>
-
-    <div class="row">
-      <div class="span6">
-        <p>Using <code class='option'>--minify</code> and <code class='option'>--optimize</code> together signals both minification and optimization modules to perform their tasks.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --minify --optimize
-$ mimosa build -mo</pre>
-      </div>
-    </div>
-
-    <h3>Package Application (-p/--package)</h3>
-
-    <div class="row">
-      <div class="span6">
-    <p>Provide a <code class="option">--package</code> flag and Mimosa will invoke any installed packaging modules. Mimosa doesn't come with any packaging modules by default, but modules like <a href="https://github.com/dbashford/mimosa-web-package">mimosa-web-package</a> are available and can be added to an application by simply adding the module name to the <code class="option">mimosa-config</code> <code class="option">modules</code> array.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --package
-$ mimosa build -p</pre>
-      </div>
-    </div>
-
-    <h3>Install Application (-i/--install)</h3>
-
-    <div class="row">
-      <div class="span6">
-    <p>Provide a <code class="option">--install</code> flag and Mimosa will invoke any configured install modules. Mimosa doesn't come with any installation modules, but this paves the way for those sorts of modules to be used.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --install
-$ mimosa build -i</pre>
-      </div>
-    </div>
-
-    <h3>Force Erroring Out (-e/--errorout)</h3>
-
-    <div class="row">
-      <div class="span6">
-    <p>Provide a <code class="option">--errorout</code> flag and the <code class='option'>build</code> command will error out if it encounters any compiler (js, css, template) errors.  Without this flag set, <code class='option'>build</code> compiles everything and gracefully exits.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --errorout
-$ mimosa build -e</pre>
-      </div>
-    </div>
-
-    <h3>Use a Profile (-P/--profile)</h3>
-
-    <div class="row">
-      <div class="span6">
-    <p>Follow the <code class='option'>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code class='option'>mimosa-config</code> contained in the profile. See the <a href="./utilities.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa build --profile nameOfProfile
-$ mimosa build -P nameOfProfile</pre>
-      </div>
-    </div>
-
-    <p>See the <a href="https://github.com/dbashford/mimosa-bower#additional-commands">repository for the bower module</a> to get details on the bower commands.</p>
-
-    <section id="skel">
-      <div class="page-header">
-        <h1>
-          Skeleton Commands
-          <small><span class="mim">mimosa</span> <span class="command">skel:new</span>, <span class="command">skel:search</span>, <span class="command">skel:list</span></small>
-        </h1>
-      </div>
-    </section>
-
-    <p>Skeletons are starter apps that include things like MVC libraries (Backbone or Angular), CSS libraries (Bootstrap or Foundation), boilerplate assets, a notional file structure and possibly integration with things like Bower or Testem. Mimosa is admittedly very light on skeletons at the moment. About that...</p>
-
-    <p>Creating a new skeleton has a dependency on git being available at the command line.</p>
-
-    <p><span style="font-weight:bold">Mimosa needs skeletons!</span> <a href="https://github.com/dbashford/skelmimosa#contribute">Learn how to contribute!</a></p>
-
-    <p><h2>skel:new [nameOfSkeleton] [directory]</h2> This command will install the named skeleton in the directory provided. If the directory is not provided, it will install the skeleton in the current directory.</p>
-    <p><h2>skel:search [searchTerm]</h2> This command will search the registry for any skeletons possessing the searchTerm as a keyword.</p>
-    <p><h2>skel:list</h2> This command will list all skeletons.</p>
-
-    <section id="module">
-      <div class="page-header">
-        <h1>
-          Module Commands
-          <small><span class="mim">mimosa</span> <span class="command">mod:[install/uninstall/list/config]</span></small>
-        </h1>
-      </div>
-    </section>
-
-    <p>Mimosa's module features have their own set of commands prefixed with <code class='option'>mod:</code>.  Read about them on the <a href="./modules.html#commands">Module's page</a>.</p>
-
-    <section id="misc">
-      <div class="page-header">
-        <h1>
-          Miscellaneous Commands and Options
-        </h1>
-      </div>
-    </section>
-    <div class="row">
-      <div class="span6">
-        <h2>config</h2>
-
-        <pre>$ mimosa config</pre>
-
-        <p>To use Mimosa with an existing project, use this command to copy the default <code class="option">mimosa-config.js</code> file into the current directory. Some configuration will likely need to be updated for the project. This command will also create a <code class="option">mimosa-config-documented.coffee</code>. This will allow modifications to occur to the <code class="option">mimosa-config</code> while keeping the defaults file for reference.</p>
-
-      </div>
-      <div class="span6 term">
-        <div class="inner">
-          <p>
-            $ mimosa config<br/>
-            20:57:19 - <span class="inst">Success</span> - Copied <span class="path">mimosa-config-documented.coffee</span> into current directory.<br/>
-            20:57:19 - <span class="inst">Success</span> - Copied <span class="path">mimosa-config.js</span> into current directory.<br/>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span6">
-        <h3>-h/--help</h3>
-
-        <p>Mimosa includes extensive help documentation for each command. Use <code class="option">--help</code> or <code class="option">-h</code> to bring up help. </p>
-
-        <pre>$ mimosa --help
-$ mimosa new --help
-$ mimosa [command] --help</pre>
-
-      </div>
-      <div class="span6 term">
-        <div class="inner">
-          <p>$ mimosa new --help</p>
-
-          <div class="help">
-            <p>Usage: new [options] [name]</p>
-
-            <p>Options:</p>
-
-            <div style="padding-left:10px">
-                -h, --help      output usage information<br/>
-                -d, --defaults  bypass prompts and go with Mimosa defaults (CoffeeScript, SASS, Handlebars)<br/>
-                -D, --mdebug     run in debug mode<br/>
-            </div>
-
-            <br/>
-
-            <p class="inst">The new command will take you through a series of questions regarding what JavaScript meta-language, CSS meta-language, micro-templating library, server and server view technology you would like to use to build your project. Once you have answered the questions, Mimosa will create a directory using the name you provided, and place a project skeleton inside of it.  That project skeleton will by default include a basic application using the technologies you selected.</p>
-
-            <p class="command">$ mimosa new [nameOfProject]</p>
-
-            <p class="inst">If you wish to copy the project skeleton into your current directory instead of into a new one leave off the name.</p>
-
-            <p class="command">$ mimosa new</p>
-
-            <p class="inst">If you are happy with the defaults (CoffeeScript, Stylus, Handlebars, Express, Jade), you can bypass the prompts by providing a 'defaults' flag.</p>
-
-            <p class="command">
-                $ mimosa new [name] --defaults<br/>
-                $ mimosa new [name] -d
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h3>-D/--mdebug</h3>
-    <div class="row">
-      <div class="span6">
-        <p>All Mimosa commands have a debug mode that will print detailed logs to the console for everything Mimosa is doing. As you'll find out the first time you execute a Mimosa command with the <code class="option">--mdebug</code> flag, Mimosa logs quite a bit of what it does, so this is only useful when doing deep debugging, it is not something to use regularly just to see what Mimosa is up to.</p>
-      </div>
-      <div class="span6">
-        <pre>$ mimosa [command] --mdebug
-$ mimosa [command] -D</pre>
-      </div>
-    </div>
-    <h3>node.js flags</h3>
-        <p>Mimosa will take and use an assortment of node.js process flags. These flags are the same as the ones that would be used when executing <code class="option">node</code> directly. The available node pass-through flags are <code class="option">--nolazy</code>, <code class="option">--debug</code>, <code class="option">--debug-brk</code>, <code class="option">-gc</code>, <code class="option">--expose-gc</code>, <code class="option">--gc-global</code>, <code class="option">--harmony</code>, <code class="option">--harmony-proxies</code>, <code class="option">--harmony-collections</code>, <code class="option">--harmony-generators</code>, <code class="option">--prof</code>.</p>
-
-  </section>
-</div>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
-<script src="js/vendor/bootstrap-collapse.js"></script>
-<script src="js/vendor/bootstrap-scrollspy.js"></script>
-
-<!-- scripts concatenated and minified via build script -->
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<!-- end scripts -->
-
-<script>
+  <script>
     var _gaq=[['_setAccount','UA-33737130-1'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+  </script>
 
 </body>
 </html>
