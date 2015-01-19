@@ -33,6 +33,25 @@ ul.top-split {
   border-top:0
 }
 
+h2[id]:before, h3[id]:before, h4[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -121px;
+  height: 121px;
+  visibility: hidden;
+}
+
+h3[id]:before {
+  margin-top: -115px;
+  height: 115px;
+}
+
+h4[id]:before {
+  margin-top: -115px;
+  height: 115px;
+}
+
+
 @media (max-width: 991px) and (min-width: 768px) {
   .navbar-nav>li>a {
     padding-left: 10px;
@@ -54,17 +73,4 @@ ul.top-split {
   .nav-stacked.affix {
     margin-top:0px;
   }
-}
-
-h2[id]:before, h3[id]:before {
-  display: block;
-  content: " ";
-  margin-top: -121px;
-  height: 121px;
-  visibility: hidden;
-}
-
-h3[id]:before {
-  margin-top: -115px;
-  height: 115px;
 }
