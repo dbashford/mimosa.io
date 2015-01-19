@@ -58,7 +58,7 @@
 
     <div class="row">
       <div class="col-md-2 col-sm-3 left-nav" >
-        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="195">
           <li><a href="#overview" title="Getting started with configuration">Config Overview</a></li>
           <li><a href="#profiles" title="Tweak the config using Profiles">Run Profiles</a></li>
           <li><a href="#version" title="Enforce a Mimosa version">Version</a></li>
@@ -77,13 +77,13 @@
             </h2>
           </div>
           <div class="panel-body">
-            <p>When Mimosa starts up, it expects to find a <code class="option">mimosa-config.coffee</code> or a <code class="option">mimosa-config.js</code> file in current directory.  The <code class="option">mimosa-config</code> file configures all that Mimosa does.
+            <p>When Mimosa starts up, it expects to find a <code>mimosa-config.coffee</code> or a <code>mimosa-config.js</code> file in current directory.  The <code>mimosa-config</code> file configures all that Mimosa does.
             <h3>How to get it?</h3>
-            <p>There are two ways to be given a config file by Mimosa: with <code class="option">mimosa new</code> and <code class="option">mimosa config</code>. For <code class="option">mimosa new</code>, the <code class="option">mimosa-config</code> will be altered to match the selections made during project creation. For <code class="option">mimosa config</code> only the modules are provided.  Both commands, however, also output a <code class="option">mimosa-config-documented.coffee</code> file which contains all of the documentation on the possible/default configuration items for the modules that are currently installed.</p>
-            <p>For both <code class="option">mimosa new</code> and <code class="option">mimosa config</code>, the <code class="option">mimosa-config</code> file is a JavaScript file. However, if CoffeeScript is preferred, the file can be converted to <code class="option">.coffee</code> and Mimosa will find and use it.</p>
+            <p>There are two ways to be given a config file by Mimosa: with <code>mimosa new</code> and <code>mimosa config</code>. For <code>mimosa new</code>, the <code>mimosa-config</code> will be altered to match the selections made during project creation. For <code>mimosa config</code> only the modules are provided.  Both commands, however, also output a <code>mimosa-config-documented.coffee</code> file which contains all of the documentation on the possible/default configuration items for the modules that are currently installed.</p>
+            <p>For both <code>mimosa new</code> and <code>mimosa config</code>, the <code>mimosa-config</code> file is a JavaScript file. However, if CoffeeScript is preferred, the file can be converted to <code>.coffee</code> and Mimosa will find and use it.</p>
             <h3>Why is my config file so small?</h3>
             <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, then the less time is spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
-            <p>While the delivered config file is small, the <code class="option">mimosa-config-documented.coffee</code> file that Mimosa also provides is large and contains all the possible/default configuration items for the installed modules.</p>
+            <p>While the delivered config file is small, the <code>mimosa-config-documented.coffee</code> file that Mimosa also provides is large and contains all the possible/default configuration items for the installed modules.</p>
             <h3>When you want to change the config...</h3>
             <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
           </div>
@@ -97,15 +97,15 @@
             </h2>
           </div>
           <div class="panel-body">
-            <p>Profiles allow for overriding of <code class="option">mimosa-config</code> settings via external config files. A project might have a "build" profile that is used for automated builds, and for those builds maybe certain modules aren't needed. For instance the "lint" module can be left out of the modules array.</p>
-            <p>Profiles are implemented as <code class="option">mimosa-config</code> files. Any properties of a project's <code class="option">mimosa-config</code> that need to be overridden would be the properties placed in a profile file.</p>
-            <p>By default, profile files should be located in a <code class="option">profiles/</code> directory at the root of a Mimosa project. This location can be overridden via the <code class="option">profileLocation</code> property in the project's <code class="option">mimosa-config</code>.  <code class="option">profileLocation</code> is relative to the root of the project.</p>
-            <p>Profiles can be used for the <code class="option">watch</code>, <code class="option">build</code> and <code class="option">clean</code> commands. Each of those commands have a <code class="option">-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code class="option">mimosa-config</code>. Ex: <code class="option">mimosa build -P build</code>.</p>
-            <p>If necessary the root <code class="option">mimosa-config</code> can be accessed in your profile. For more information, see <a href="https://github.com/dbashford/mimosa/issues/399">this GitHub issue</a></p>
+            <p>Profiles allow for overriding of <code>mimosa-config</code> settings via external config files. A project might have a "build" profile that is used for automated builds, and for those builds maybe certain modules aren't needed. For instance the "lint" module can be left out of the modules array.</p>
+            <p>Profiles are implemented as <code>mimosa-config</code> files. Any properties of a project's <code>mimosa-config</code> that need to be overridden would be the properties placed in a profile file.</p>
+            <p>By default, profile files should be located in a <code>profiles/</code> directory at the root of a Mimosa project. This location can be overridden via the <code>profileLocation</code> property in the project's <code>mimosa-config</code>.  <code>profileLocation</code> is relative to the root of the project.</p>
+            <p>Profiles can be used for the <code>watch</code>, <code>build</code> and <code>clean</code> commands. Each of those commands have a <code>-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code>mimosa-config</code>. Ex: <code>mimosa build -P build</code>.</p>
+            <p>If necessary the root <code>mimosa-config</code> can be accessed in your profile. For more information, see <a href="https://github.com/dbashford/mimosa/issues/399">this GitHub issue</a></p>
             <h3>Multiple Profiles</h3>
-            <p>New with version <code class="option">2.2.14</code> of Mimosa, multiple profiles can be provided at the command line.  Ex: <code class="option">mimosa build -P foo#bar</code>.  Profiles are applied from left to right.  So, in this case if the <code class="option">bar</code> profile contains the same configuration as the <code class="option">foo</code> profile, the <code class="option">bar</code> profile information will overwrite foo.</p>
+            <p>New with version <code>2.2.14</code> of Mimosa, multiple profiles can be provided at the command line.  Ex: <code>mimosa build -P foo#bar</code>.  Profiles are applied from left to right.  So, in this case if the <code>bar</code> profile contains the same configuration as the <code>foo</code> profile, the <code>bar</code> profile information will overwrite foo.</p>
             <h3>Default Profiles</h3>
-            <p>New with version <code class="option">2.3.2</code> of Mimosa is the introduction of default profiles. Profiles are a powerful feature. Using a profile is easy enough, but if you have a set of profiles that you are constantly applying, you find yourself typing <code class="option">-P profileName</code> quite a bit.  Now you can keep a default profile in a <code class="option">`.mimosa_profile`</code> file at the root of your project.  This file, a <code class="option">\n</code>-delimited list of profile names, will be the first profiles applied.  You can also append <code class="option">-P profileName</code> and those profiles will be applied last (and therefore override any settings in a default profile).</p>
+            <p>New with version <code>2.3.2</code> of Mimosa is the introduction of default profiles. Profiles are a powerful feature. Using a profile is easy enough, but if you have a set of profiles that you are constantly applying, you find yourself typing <code>-P profileName</code> quite a bit.  Now you can keep a default profile in a <code>`.mimosa_profile`</code> file at the root of your project.  This file, a <code>\n</code>-delimited list of profile names, will be the first profiles applied.  You can also append <code>-P profileName</code> and those profiles will be applied last (and therefore override any settings in a default profile).</p>
           </div>
         </div>
 
@@ -116,7 +116,7 @@
             </h2>
           </div>
           <div class="panel-body">
-            <p>The following sections document Mimosa's core config. All Mimosa projects have this config to alter basic Mimosa behavior. Any configuration for your project not documented below belongs to a Mimosa module that you have installed into your project. If you are looking for configuration that isn't present here, for example, for your <code class="option">bower</code> config or your <code class="option">require</code> config, then you will want to check the GitHub repository for those modules. </p>
+            <p>The following sections document Mimosa's core config. All Mimosa projects have this config to alter basic Mimosa behavior. Any configuration for your project not documented below belongs to a Mimosa module that you have installed into your project. If you are looking for configuration that isn't present here, for example, for your <code>bower</code> config or your <code>require</code> config, then you will want to check the GitHub repository for those modules. </p>
           </div>
         </div>
 
@@ -135,11 +135,11 @@
 requiredMimosaVersion: null</pre>
               </div>
             </div>
-            <p>The <code class="option">minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">1.1.0</code> installed, and the <code class="option">minMimosaVersion</code> is set to <code class="option">1.1.5</code>, when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
-            <p>When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
+            <p>The <code>minMimosaVersion</code> setting allows the enforcing of a minimum allowed Mimosa version in order to start Mimosa with the given project. If a user has version <code>1.1.0</code> installed, and the <code>minMimosaVersion</code> is set to <code>1.1.5</code>, when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+            <p>When set to <code>null</code>, which is the default, Mimosa will not perform any version checks.</p>
             <h4>requiredMimosaVersion</h4>
-            <p>The <code class="option">requiredMimosaVersion</code> setting allows the enforcing of specific Mimosa version in order to start Mimosa with the given project. If a user has version <code class="option">1.1.0</code> installed, and the <code class="option">requiredMimosaVersion</code> is set to anything else, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
-            <p>When set to <code class="option">null</code>, which is the default, Mimosa will not perform any version checks.</p>
+            <p>The <code>requiredMimosaVersion</code> setting allows the enforcing of specific Mimosa version in order to start Mimosa with the given project. If a user has version <code>1.1.0</code> installed, and the <code>requiredMimosaVersion</code> is set to anything else, then when Mimosa is started, it will write an error to the log and exit. Until the version problem is cleared up, Mimosa will not start.</p>
+            <p>When set to <code>null</code>, which is the default, Mimosa will not perform any version checks.</p>
           </div>
         </div>
 
@@ -151,8 +151,8 @@ requiredMimosaVersion: null</pre>
             <div class="row">
               <div class="col-md-8">
                 <h4>modules</h4>
-                <p>The <code class="option">modules</code> array informs Mimosa what Mimosa modules to use. Many Mimosa modules may be installed, both ones that come with Mimosa and ones installed on top of Mimosa. This setting lets Mimosa know which ones to use for a project. The defaults represent those modules that come with Mimosa out of the box without any additional installs. The <code class="option">mimosa-</code> can be left off the name of modules as Mimosa will assume it.</p>
-                <p>If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code class="option">mod:install</code>.</p>
+                <p>The <code>modules</code> array informs Mimosa what Mimosa modules to use. Many Mimosa modules may be installed, both ones that come with Mimosa and ones installed on top of Mimosa. This setting lets Mimosa know which ones to use for a project. The defaults represent those modules that come with Mimosa out of the box without any additional installs. The <code>mimosa-</code> can be left off the name of modules as Mimosa will assume it.</p>
+                <p>If a module is included that is not installed, Mimosa will attempt to install it from NPM. This saves the extra step of doing a <code>mod:install</code>.</p>
               </div>
               <div class="col-md-4">
                 <pre>modules: [
@@ -169,7 +169,7 @@ requiredMimosaVersion: null</pre>
               </div>
             </div>
             <p>Also, this config allows for installing specific versions of modules. If a new module is added by name only, Mimosa installs the latest version. If a version if provided, Mimosa will install that specific version.</p>
-            <p>The syntax for installing specific versions is <code class="option">moduleName@moduleVersion</code>, for example <code class="option">web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
+            <p>The syntax for installing specific versions is <code>moduleName@moduleVersion</code>, for example <code>web-package@0.2.0</code>. Versions can be changed and toggled at will. Because Mimosa installs modules on startup, different versions of a module can be used per project and incur only the cost of the time it takes to run the install when you switch between projects.</p>
           </div>
         </div>
 
@@ -181,9 +181,9 @@ requiredMimosaVersion: null</pre>
             <div class="row">
               <div class="col-md-6">
                 <h4>watch</h4>
-                <p>The <code class="option">watch</code> section of the config contains information about what directories to watch, what files to ignore, and how fast to process added files.</p>
+                <p>The <code>watch</code> section of the config contains information about what directories to watch, what files to ignore, and how fast to process added files.</p>
                 <h4>watch.sourceDir</h4>
-                <p>The <code class="option">sourceDir</code> property is the path, either relative to the <code class="option">mimosa-config</code> or absolute, where assets are located. This is the directory Mimosa will watch for changes to kick off the compiler workflow.</p>
+                <p>The <code>sourceDir</code> property is the path, either relative to the <code>mimosa-config</code> or absolute, where assets are located. This is the directory Mimosa will watch for changes to kick off the compiler workflow.</p>
               </div>
               <div class="col-md-6">
                 <pre>watch: {
@@ -200,22 +200,22 @@ requiredMimosaVersion: null</pre>
               </div>
             </div>
             <h4>watch.compiledDir</h4>
-            <p>The <code class="option">compiledDir</code> property is the path, relative to the <code class="option">mimosa-config</code> or absolute, where compiled assets will be delivered. If the <code class="option">compiledDir</code> does not exist, Mimosa will create it. Mimosa will mimic the same folder/directory structure in the <code class="option">compiledDir</code> that it finds in the <code class="option">sourceDir</code></p>
+            <p>The <code>compiledDir</code> property is the path, relative to the <code>mimosa-config</code> or absolute, where compiled assets will be delivered. If the <code>compiledDir</code> does not exist, Mimosa will create it. Mimosa will mimic the same folder/directory structure in the <code>compiledDir</code> that it finds in the <code>sourceDir</code></p>
             <h4>watch.javascriptDir</h4>
-            <p>Location of the JavaScript code inside the <code class="option">watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code class="option">watch.compiledDir</code>. Note that there is not a <code class="option">watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
-            <p><code class="option">watch.javascriptDir</code> can be set to <code class="option">null</code> if not building web applictions. If <code class="option">watch.javascriptDir</code> is set to <code class="option">null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
+            <p>Location of the JavaScript code inside the <code>watch.sourceDir</code> directory and therefore also the location of the compiled JavaScript in the <code>watch.compiledDir</code>. Note that there is not a <code>watch.stylesheetsDir</code>. Mimosa does not need to know where CSS is placed, so the directory containing CSS can be named anything.</p>
+            <p><code>watch.javascriptDir</code> can be set to <code>null</code> if not building web applictions. If <code>watch.javascriptDir</code> is set to <code>null</code> inside a web application, Mimosa will error out in a non-graceful fashion, so be careful when using this setting.</p>
             <h4>watch.exclude</h4>
-            <p>The <code class="option">exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code class="option">sourceDir</code> or absolute. String paths must include the file name. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
+            <p>The <code>exclude</code> property is an array of strings and/or regexs that match paths to exclude from processing. Path strings can be relative to the <code>sourceDir</code> or absolute. String paths must include the file name. When a path string or a regex matches a file path, Mimosa will ignore the file. By default this property is set such that various dot and temp files are ignored.</p>
             <h4>watch.throttle</h4>
-            <p>The <code class="option">throttle</code> property represents how many files Mimosa will process every 100 milliseconds. Setting this property will slow down processing of file additions. This is necessary for very large projects with thousands of files. Mimosa processes them so fast that it quickly hits a system's open file limit. When this setting is set to 0, no throttling will take place. But if there are hundreds of files and EMFILE issues occur, play with the throttle. It may take a few minutes to get the throttle setting right, so that Mimosa is still processing files quickly, but not so quickly it crashes. NOTE: If<code class="option">usePolling</code> is set to  <code class="option">false</code>, this setting has no effect.</p>
+            <p>The <code>throttle</code> property represents how many files Mimosa will process every 100 milliseconds. Setting this property will slow down processing of file additions. This is necessary for very large projects with thousands of files. Mimosa processes them so fast that it quickly hits a system's open file limit. When this setting is set to 0, no throttling will take place. But if there are hundreds of files and EMFILE issues occur, play with the throttle. It may take a few minutes to get the throttle setting right, so that Mimosa is still processing files quickly, but not so quickly it crashes. NOTE: If<code>usePolling</code> is set to  <code>false</code>, this setting has no effect.</p>
             <h4>watch.usePolling</h4>
-            <p>DO NOT turn <code class="option">usePolling</code> off if you are on a *nix, you will crash with EMFILE issues. Windows users, read on: The <code class="option">usePolling</code> setting determines whether or not system polling is the method by which Mimosa keeps track of project assets. Polling on large applications with many hundreds of files may cause Mimosa/node to eat up a lot of CPU. The first settings to play with are the intervals below, to see if you can slow the polling down to an amount that is satisfactory to use but that also doesn't eat up the CPU. Turning <code class="option">usePolling</code> to false is a last option.</p>
+            <p>DO NOT turn <code>usePolling</code> off if you are on a *nix, you will crash with EMFILE issues. Windows users, read on: The <code>usePolling</code> setting determines whether or not system polling is the method by which Mimosa keeps track of project assets. Polling on large applications with many hundreds of files may cause Mimosa/node to eat up a lot of CPU. The first settings to play with are the intervals below, to see if you can slow the polling down to an amount that is satisfactory to use but that also doesn't eat up the CPU. Turning <code>usePolling</code> to false is a last option.</p>
             <h4>watch.interval</h4>
-            <p>The <code class="option">interval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for non-binary files. Tweak this number if you are having CPU issues.</p>
+            <p>The <code>interval</code> setting, when <code>usePolling</code> is set to <code>true</code>, determines how frequent polling occurs for non-binary files. Tweak this number if you are having CPU issues.</p>
             <h4>watch.binaryInterval</h4>
-            <p>The <code class="option">binaryInterval</code> setting, when <code class="option">usePolling</code> is set to <code class="option">true</code>, determines how frequent polling occurs for binary files. Tweak this number if you are having CPU issues.</p>
+            <p>The <code>binaryInterval</code> setting, when <code>usePolling</code> is set to <code>true</code>, determines how frequent polling occurs for binary files. Tweak this number if you are having CPU issues.</p>
             <h4>watch.delay</h4>
-            <p>The <code class="option">delay</code> setting forces Mimosa to pause for a number of milliseconds before processing a file. Use this if it seems Mimosa is processing a file before the file has been entirely written.</p>
+            <p>The <code>delay</code> setting forces Mimosa to pause for a number of milliseconds before processing a file. Use this if it seems Mimosa is processing a file before the file has been entirely written.</p>
           </div>
         </div>
 
@@ -227,7 +227,7 @@ requiredMimosaVersion: null</pre>
             <div class="row">
               <div class="col-md-6">
                 <h4>vendor.javascripts</h4>
-                <p>The location, relative to the <code class="option">watch.sourceDir</code>, of the vendor scripts.</p>
+                <p>The location, relative to the <code>watch.sourceDir</code>, of the vendor scripts.</p>
                 <h4>vendor.stylesheets</h4>
               </div>
               <div class="col-md-6">
@@ -237,7 +237,7 @@ requiredMimosaVersion: null</pre>
 }</pre>
               </div>
             </div>
-            <p>The location, relative to the <code class="option">watch.sourceDir</code>, of the vendor stylesheets.</p>
+            <p>The location, relative to the <code>watch.sourceDir</code>, of the vendor stylesheets.</p>
           </div>
         </div>
 
@@ -250,7 +250,7 @@ requiredMimosaVersion: null</pre>
               <div class="col-md-6">
                 <p>This configuration is the core template config that all template compilers inherit and use. For details on how templates work, check the <a href="./modules.html#mt">Using Template Compilers</a> documentation.</p>
                 <h4>template.writeLibrary</h4>
-                <p>By default many of Mimosa's template compilers will write an AMD wrapped version of the template compiler's client library as a convenience.  If using <code class="option">common</code> as a <code class="option">wrapType</code> it will not.  But there are cases when AMD is being used and a client library is not desired.  In those cases set <code class="option">template.writeLibrary</code> to <code class="option">false</code>.</p>
+                <p>By default many of Mimosa's template compilers will write an AMD wrapped version of the template compiler's client library as a convenience.  If using <code>common</code> as a <code>wrapType</code> it will not.  But there are cases when AMD is being used and a client library is not desired.  In those cases set <code>template.writeLibrary</code> to <code>false</code>.</p>
                 <h4>template.wrapType</h4>
               </div>
               <div class="col-md-6">
@@ -270,25 +270,25 @@ requiredMimosaVersion: null</pre>
 }</pre>
               </div>
             </div>
-            <p>By default Mimosa wraps compiled template files in an AMD-compliant <code class="option">define</code> block. When <code class="option">wrapType</code> is set to <code class="option">"none"</code> Mimosa will not wrap the compiled template files and will also not write a wrapped client library for the micro-templater of choice. When <code class="option">wrapType</code> is set to <code class="option">"common"</code>, CommonJS style <code class="option">require</code>s and <code class="option">module.exports</code> are used.</p>
+            <p>By default Mimosa wraps compiled template files in an AMD-compliant <code>define</code> block. When <code>wrapType</code> is set to <code>"none"</code> Mimosa will not wrap the compiled template files and will also not write a wrapped client library for the micro-templater of choice. When <code>wrapType</code> is set to <code>"common"</code>, CommonJS style <code>require</code>s and <code>module.exports</code> are used.</p>
             <h4>template.nameTransform</h4>
-            <p>Mimosa provides some flexibility in the naming of compiled templates. <code class="option">template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.</p>
+            <p>Mimosa provides some flexibility in the naming of compiled templates. <code>template.nameTransform</code> allows for configuring the naming of compiled templates. There are 4 possible settings.</p>
             <ul>
-              <li><code class="option">fileName</code> (default), this option results in the name of the file being the name of the template.</li>
-              <li><code class="option">filePath</code>, this makes the name of the template the path of the file with 1) the <a href="./configuration.html#watch">watch.javascriptDir</a> chopped off, 2) the slashes forced to <code class="option">/</code>, and 3) the extension removed. No leading slash.</li>
-              <li>A RegExp can be provided. That RegExp is applied on the <code class="option">filePath</code> string from above to remove any unwanted pieces of text from the string. The RegExp is used as part of a <code class="option">string.replace</code></li>
-              <li>A function can be provided. That function is passed the <code class="option">filePath</code> from above. The function must return a string that is the desired name of the template.</li>
+              <li><code>fileName</code> (default), this option results in the name of the file being the name of the template.</li>
+              <li><code>filePath</code>, this makes the name of the template the path of the file with 1) the <a href="./configuration.html#watch">watch.javascriptDir</a> chopped off, 2) the slashes forced to <code>/</code>, and 3) the extension removed. No leading slash.</li>
+              <li>A RegExp can be provided. That RegExp is applied on the <code>filePath</code> string from above to remove any unwanted pieces of text from the string. The RegExp is used as part of a <code>string.replace</code></li>
+              <li>A function can be provided. That function is passed the <code>filePath</code> from above. The function must return a string that is the desired name of the template.</li>
             </ul>
             <h4>template.commonLibPath</h4>
-            <p>Valid when <code class="option">wrapType</code> is 'common'. The commonjs path to the client library. Some libraries do not have clients therefore this is not strictly required when choosing the common wrapType</p>
+            <p>Valid when <code>wrapType</code> is 'common'. The commonjs path to the client library. Some libraries do not have clients therefore this is not strictly required when choosing the common wrapType</p>
             <h4>template.outputFileName</h4>
-            <p>The path of the file all templates are compiled into. The path is relative to <code class="option">watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code class="option">hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./modules.html#mt">modules tab</a> for more info.</p>
+            <p>The path of the file all templates are compiled into. The path is relative to <code>watch.sourceDir</code>. If multiple templating languages are being used, instead of being a single string, this setting should be a map of Mimosa template compiler name to file path.  Like <code>hogan:"hogan-templates", dust:"dust-templates"</code>. See the <a href="./modules.html#mt">modules tab</a> for more info.</p>
             <h4>template.output</h4>
-            <p>An alternate configuration to <code class="option">template.outputFileName</code>, <code class="option">template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code class="option">template.output</code> and <code class="option">template.outputFileName</code> cannot both be used at the same time.</p>
+            <p>An alternate configuration to <code>template.outputFileName</code>, <code>template.output</code> allows for writing several compiled template files. This is ideal when using compiled templates across multiple pages as opposed to a single page web app. <code>template.output</code> and <code>template.outputFileName</code> cannot both be used at the same time.</p>
             <h4>template.output[].folders</h4>
-            <p>All of the templates contained inside <code class="option">folders</code> are compiled and bundled together. It is recursive, so any templates inside sub-folders are included as well.  <code class="option">folders</code> entries are relative to <code class="option">watch.sourceDir</code> and must exist. If left a blank string, the folder used will be <code class="option">watch.sourceDir</code>.</p>
+            <p>All of the templates contained inside <code>folders</code> are compiled and bundled together. It is recursive, so any templates inside sub-folders are included as well.  <code>folders</code> entries are relative to <code>watch.sourceDir</code> and must exist. If left a blank string, the folder used will be <code>watch.sourceDir</code>.</p>
             <h4>template.output[].outputFileName</h4>
-            <p><code class="option">template.output[].outputFileName</code> is identical to <code class="option">template.outputFileName</code> except it is scoped in this case to just the folder specified by the <code class="option">folder</code> property. There is no default, so this property must be provided.</p>
+            <p><code>template.output[].outputFileName</code> is identical to <code>template.outputFileName</code> except it is scoped in this case to just the folder specified by the <code>folder</code> property. There is no default, so this property must be provided.</p>
           </div>
         </div>
 
@@ -302,15 +302,15 @@ requiredMimosaVersion: null</pre>
                 <p>If <a href="http://growl.info/">Growl</a> is installed and turned on, a Growl notification will be created for each failed or successful asset compile. In the event Growl gets too spammy, Growl notifications can be turned off for successful compiles or turned off entirely.</p>
                 <p>To allow Mimosa to use Growl, an extra library needs to be inst<a href="#"></a>lled. For details on installation on your system, check out the <a href="https://github.com/visionmedia/node-growl#install">node-growl</a> page.</a></p>
                 <h4>logger.info.enabled</h4>
-                <p>Whether or not <code class="option">Info</code> level logging is enabled.</p>
+                <p>Whether or not <code>Info</code> level logging is enabled.</p>
                 <h4>logger.info.color</h4>
-                <p>The color for <code class="option">Info</code> level logging.</p>
+                <p>The color for <code>Info</code> level logging.</p>
                 <h4>logger.warn.enabled</h4>
-                <p>Whether or not <code class="option">WARN</code> level logging is enabled.</p>
+                <p>Whether or not <code>WARN</code> level logging is enabled.</p>
                 <h4>logger.warn.color</h4>
-                <p>The color for <code class="option">WARN</code> level logging.</p>
+                <p>The color for <code>WARN</code> level logging.</p>
                 <h4>logger.success.enabled</h4>
-                <p>Whether or not <code class="option">Success</code> level logging is enabled.</p>
+                <p>Whether or not <code>Success</code> level logging is enabled.</p>
                 <h4>logger.success.color</h4>
               </div>
               <div class="col-md-6">
@@ -346,13 +346,13 @@ requiredMimosaVersion: null</pre>
 }</pre>
               </div>
             </div>
-            <p>The color for <code class="option">Success</code> level logging.</p>
+            <p>The color for <code>Success</code> level logging.</p>
             <h4>logger.error.enabled</h4>
-            <p>Whether or not <code class="option">ERROR</code> level logging is enabled.</p>
+            <p>Whether or not <code>ERROR</code> level logging is enabled.</p>
             <h4>logger.error.color</h4>
-            <p>The color for <code class="option">ERROR</code> level logging.</p>
+            <p>The color for <code>ERROR</code> level logging.</p>
             <h4>logger.debug.color</h4>
-            <p>The color for <code class="option">Debug</code> level logging.</p>
+            <p>The color for <code>Debug</code> level logging.</p>
             <h4>logger.embedded.enabled</h4>
             <p>Whether or not embedded content in log messages is differently colored.</p>
             <h4>logger.embedded.color</h4>

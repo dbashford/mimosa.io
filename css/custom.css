@@ -2,12 +2,35 @@
   border-radius: 0;
 }
 
+.nav-stacked.affix {
+  margin-top:90px;
+}
+
 .about-page h2:first-of-type {
   margin-top:10px;
 }
 
 .large-heading {
   padding-top:1px;
+}
+
+ul.top-split {
+  margin-bottom:0px;
+}
+
+.workflow-steps ul {
+  list-style-type:none;
+  padding-left:0;
+  border:1px solid #E5E5E5;
+}
+
+.workflow-steps li {
+  border-top: 1px solid #E5E5E5;
+  padding:5px;
+}
+
+.workflow-steps ul > li:first-child {
+  border-top:0
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
@@ -33,10 +56,15 @@
   }
 }
 
-*[id]:before {
+h2[id]:before, h3[id]:before {
   display: block;
   content: " ";
-  margin-top: -65px;
-  height: 65px;
+  margin-top: -121px;
+  height: 121px;
   visibility: hidden;
+}
+
+h3[id]:before {
+  margin-top: -115px;
+  height: 115px;
 }
