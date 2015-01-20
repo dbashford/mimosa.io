@@ -1,0 +1,38 @@
+.jumbotron {
+  margin-bottom:0;
+}
+
+.jumbotron h1 {
+  background: url("../img/new-mimosa-logo.png")no-repeat;
+  height: 135px;
+}
+
+.link-notes {
+  font-size: 65%;
+  margin-left: 10px;
+}
+
+.link-notes:hover {
+  color:white;
+  text-decoration: none;
+}
+
+
+.links-panel {
+  text-align:center;
+}
+
+.links-panel .panel-body {
+  padding-bottom:15px;
+  background-color: #82979f;
+}
+
+.links-panel ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left:0;
+}
+
+.links-panel li {
+  display:inline
+}
