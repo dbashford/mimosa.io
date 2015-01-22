@@ -5,12 +5,9 @@
 
 /* =====[ COLORS ]============================================================================== */
 
-.color-1-bg {
-background: url("../img/gradient-bcg.png") no-repeat!important;
-}
 
 .color-1-font {
-color:#ac8c47!important;
+color:rgba(223, 105, 26, 0.85) !important;
 }
 
 .front, .back {
@@ -21,8 +18,8 @@ background:#FFF;
 -webkit-border-radius:100%;
 -moz-border-radius:100%;
 border-radius:100%;
--webkit-box-shadow:0 0 8px 0 #bbbbbb;
-box-shadow:0 0 8px 0 #bbbbbb;
+-webkit-box-shadow:0 0 4px 0px #df691a;
+box-shadow:0 0 4px 0px #df691a;
 -webkit-transition:all .3s ease-in-out;
 -moz-transition:all .3s ease-in-out;
 -o-transition:all .3s ease-in-out;
@@ -72,7 +69,7 @@ font-size:16px;
 text-transform:uppercase;
 text-align:center;
 padding:0;
-font-family: SerifaStd-LightItalic;
+font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .description {
@@ -145,11 +142,6 @@ border-radius:10% 50% 50% 50%!important;
 
 .front-popular .icon {
   height: 65px;
-}
-
-.front-popular .bigger {
-  font-family: SerifaStd-Italic;
-  color:#c65c06!important;
 }
 
 .scalable {
@@ -260,4 +252,8 @@ z-index:0;
 }
 .circle:hover .front{
 *display:none;
+}
+
+.color-1-bg {
+  background-color: #df691a;
 }
