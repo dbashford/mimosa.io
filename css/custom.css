@@ -6,6 +6,10 @@
   margin-top:90px;
 }
 
+.nav-stacked.affix-bottom {
+  margin-bottom:200px;
+}
+
 .about-page h2:first-of-type {
   margin-top:10px;
 }
@@ -51,6 +55,40 @@ h4[id]:before {
   height: 115px;
 }
 
+footer {
+  background-color:#2b3e50;
+  min-height: 150px;
+  padding: 35px 0;
+}
+
+footer ul {
+  list-style: none;
+  margin-bottom: 20px;
+  padding-left:0;
+}
+
+footer li {
+  display:inline;
+  margin-right:5px;
+}
+
+footer ul:first-of-type {
+  margin-left:25px
+}
+
+
+footer a {
+  color:white;
+}
+
+footer a:hover {
+  color:white;
+}
+
+
+.footer-buttons {
+  text-align:center;
+}
 
 @media (max-width: 991px) and (min-width: 768px) {
   .navbar-nav>li>a {
