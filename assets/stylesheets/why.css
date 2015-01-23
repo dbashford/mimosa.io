@@ -145,43 +145,43 @@ border-radius:10% 50% 50% 50%!important;
 }
 
 .scalable {
-  background: url("../img/scalable-inactive-icon.png") 43px 20px no-repeat;
+  background: url("../images/scalable-inactive-icon.png") 43px 20px no-repeat;
 }
 
 .icon-scalable {
-  background: url("../img/scalable-active-icon.png") no-repeat;
+  background: url("../images/scalable-active-icon.png") no-repeat;
 }
 
 .fast {
-  background: url("../img/speed-inactive-icon.png") 43px 20px no-repeat;
+  background: url("../images/speed-inactive-icon.png") 43px 20px no-repeat;
 }
 
 .icon-fast {
-  background: url("../img/speed-active-icon.png") no-repeat;
+  background: url("../images/speed-active-icon.png") no-repeat;
 }
 
 .pluggable {
-  background: url("../img/plug-inactive-icon.png") 43px 20px no-repeat;
+  background: url("../images/plug-inactive-icon.png") 43px 20px no-repeat;
 }
 
 .icon-pluggable {
-  background: url("../img/plug-active-icon.png") no-repeat;
+  background: url("../images/plug-active-icon.png") no-repeat;
 }
 
 .code {
-  background: url("../img/code-inactive-icon.png") 43px 20px no-repeat;
+  background: url("../images/code-inactive-icon.png") 43px 20px no-repeat;
 }
 
 .icon-code {
-  background: url("../img/code-active-icon.png") no-repeat;
+  background: url("../images/code-active-icon.png") no-repeat;
 }
 
 .seconds {
-  background: url("../img/development-inactive-icon.png") 43px 20px no-repeat;
+  background: url("../images/development-inactive-icon.png") 43px 20px no-repeat;
 }
 
 .icon-seconds {
-  background: url("../img/development-active-icon.png") no-repeat;
+  background: url("../images/development-active-icon.png") no-repeat;
 }
 
 
