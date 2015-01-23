@@ -32,3 +32,11 @@ h6 {
   font-weight: 700;
   text-shadow: none;
 }
+
+.features h2 {
+  text-align:center;
+}
+
+.features {
+  margin-bottom: 50px
+}
