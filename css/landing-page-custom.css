@@ -1,0 +1,34 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+.intro-header {
+  background-color: #fafafa;
+  background-image: none;
+  padding-top: 0;
+}
+
+.intro-header img {
+  margin: 0 auto;
+}
+
+.intro-message {
+  padding-bottom: 10%;
+}
+
+.intro-message > h1 {
+  text-shadow: none;
+}
+
+.intro-message > h3 {
+  color: #2B3E50;
+  font-weight: 700;
+  text-shadow: none;
+}
