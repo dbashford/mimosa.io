@@ -92,14 +92,14 @@
             <p>node.js is fast. Wicked fast. Sometimes too fast for its own good. If you have a large project with many files (usually 200+) that Mimosa has to move from one directory to another on startup, Mimosa will attempt to process all your files at once and may attempt to open more files than your system allows. When that happens, you'll see an error like this:</p>
 
             <pre>child_process.js:922
-              throw errnoException(process._errno, 'spawn');
-              ^
-              Error: spawn EMFILE
-              at errnoException (child_process.js:975:11)
-              at ChildProcess.spawn (child_process.js:922:11)
-              at exports.spawn (child_process.js:710:9)
-              at Object.exports.execFile (child_process.js:602:15)
-              at exports.exec (child_process.js:573:18)</pre>
+throw errnoException(process._errno, 'spawn');
+^
+Error: spawn EMFILE
+at errnoException (child_process.js:975:11)
+at ChildProcess.spawn (child_process.js:922:11)
+at exports.spawn (child_process.js:710:9)
+at Object.exports.execFile (child_process.js:602:15)
+at exports.exec (child_process.js:573:18)</pre>
               <p>This problem is why the <code>watch.throttle</code> setting was created.  Check it out on the <a href="./configuration.html#watch">Configuration</a> page.</p>
             </div>
           </div>

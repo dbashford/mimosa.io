@@ -1,5 +1,18 @@
 exports.config = {
-  modules:["copy", "rename", "less", "hogan-static"],
+  modules:[
+    "copy",
+    "rename",
+    "less",
+    "hogan-static",
+    "minify-html",
+    "minify-css"],
+  minifyHtml: {
+    options: {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeEmptyAttributes: true
+    }
+  },
   rename: {
     map:[
       [/public\/html\/([a-z]+)\.html$/, "$1.html"]
