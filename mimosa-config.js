@@ -1,5 +1,5 @@
 exports.config = {
-  modules:["copy", "rename", "adhoc-module"],
+  modules:["copy", "rename", "less", "adhoc-module"],
   rename: {
     map:[
       [/public\/html\/([a-z]+)\.html$/, "$1.html"]
