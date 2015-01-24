@@ -10,7 +10,7 @@ exports.config = {
       require("./scripts/hogan-compile")({
         partials:["html/partials"],
         globals: {
-
+          version: "3.0.0"
         },
         contexts: {
           about: {

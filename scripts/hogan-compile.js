@@ -12,7 +12,8 @@ var path = require( "path" )
 */
 
 var _registerPartial = function( partialPath ) {
-  var partialText = fs.readFileSync(partialPath).toString();
+  compileConfig.fullPartialPaths.push( partialPath );
+  var partialText = fs.readFileSync( partialPath ).toString();
   var partialName = path.basename( partialPath, ".html" );
   compileConfig.registeredPartials[partialName] = partialText;
 };
@@ -25,6 +26,8 @@ var _config = function( mimosaConfig ) {
   }
 
   compileConfig.registeredPartials = {};
+  compileConfig.fullPartialPaths = [];
+
   var partials = compileConfig.partials;
   for ( var i = 0; i < partials.length; i++ ) {
     var partPath = path.join( mimosaConfig.watch.sourceDir, partials[i] );
@@ -49,12 +52,18 @@ var _compile = function( mimosaConfig, options, next ) {
   if ( options.files && options.files.length ) {
     for ( var i = 0; i < options.files.length; i++ ) {
       var file = options.files[i];
-      var template = hogan.compile ( file.inputFileText.toString() );
-      var basename = path.basename( file.inputFileName, ".html" );
-      file.outputFileText = template.render(
-        compileConfig.contexts[basename],
-        compileConfig.registeredPartials
-      );
+      // only compile if file is not a partial
+      if (compileConfig.fullPartialPaths.indexOf(file.inputFileName) == -1) {
+        var template = hogan.compile ( file.inputFileText.toString() );
+        var basename = path.basename( file.inputFileName, ".html" );
+        file.outputFileText = template.render(
+          compileConfig.contexts[basename],
+          compileConfig.registeredPartials
+        );
+      } else {
+        // don't want to write the partial
+        file.outputFileText = null;
+      }
     }
   }
   next();
@@ -63,7 +72,7 @@ var _compile = function( mimosaConfig, options, next ) {
 var registration = function( mimosaConfig, register ) {
   logger = mimosaConfig.log;
   _config( mimosaConfig );
-  register( ["add","update","buildFile"], "compile", _compile, ["html"] );
+  register( ["add","update","buildFile"], "afterCompile", _compile, ["html"] );
 };
 
 module.exports = function( compileConf ) {
