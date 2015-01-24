@@ -11,35 +11,38 @@ var path = require( "path" )
   contexts: {}
 */
 
-var _registerPartial = function( partialPath ) {
-  compileConfig.fullPartialPaths.push( partialPath );
+var _registerPartial = function( hS, partialPath ) {
+  hS.fullPartialPaths.push( partialPath );
   var partialText = fs.readFileSync( partialPath ).toString();
   var partialName = path.basename( partialPath, ".html" );
-  compileConfig.registeredPartials[partialName] = partialText;
+  hS.registeredPartials[partialName] = partialText;
 };
 
-var _config = function( mimosaConfig ) {
-  for ( var context in compileConfig.contexts ) {
-    for ( var global in compileConfig.globals ) {
-      compileConfig.contexts[context][global] = compileConfig.globals[global];
+var validate = function( mimosaConfig, validators ) {
+  mimosaConfig.hoganStatic = compileConfig;
+
+  var hS = mimosaConfig.hoganStatic
+  for ( var context in hS.contexts ) {
+    for ( var global in hS.globals ) {
+      hS.contexts[context][global] = hS.globals[global];
     }
   }
 
-  compileConfig.registeredPartials = {};
-  compileConfig.fullPartialPaths = [];
+  hS.registeredPartials = {};
+  hS.fullPartialPaths = [];
 
-  var partials = compileConfig.partials;
+  var partials = hS.partials;
   for ( var i = 0; i < partials.length; i++ ) {
     var partPath = path.join( mimosaConfig.watch.sourceDir, partials[i] );
     var exists = fs.existsSync( partPath );
     if (exists) {
       var stat = fs.statSync( partPath );
       if (stat.isFile()) {
-        _registerPartial( partPath );
+        _registerPartial( hS, partPath );
       } else {
         fs.readdirSync( partPath )
           .map( function( p ){ return path.join(partPath, p); })
-          .forEach( _registerPartial );
+          .forEach( function( p ){ _registerPartial( hS, p); } );
       }
     } else {
       // does not exist, errors
@@ -53,12 +56,12 @@ var _compile = function( mimosaConfig, options, next ) {
     for ( var i = 0; i < options.files.length; i++ ) {
       var file = options.files[i];
       // only compile if file is not a partial
-      if (compileConfig.fullPartialPaths.indexOf(file.inputFileName) == -1) {
+      if (mimosaConfig.hoganStatic.fullPartialPaths.indexOf(file.inputFileName) == -1) {
         var template = hogan.compile ( file.inputFileText.toString() );
         var basename = path.basename( file.inputFileName, ".html" );
         file.outputFileText = template.render(
-          compileConfig.contexts[basename],
-          compileConfig.registeredPartials
+          mimosaConfig.hoganStatic.contexts[basename],
+          mimosaConfig.hoganStatic.registeredPartials
         );
       } else {
         // don't want to write the partial
@@ -71,17 +74,14 @@ var _compile = function( mimosaConfig, options, next ) {
 
 var registration = function( mimosaConfig, register ) {
   logger = mimosaConfig.log;
-  _config( mimosaConfig );
+  validate( mimosaConfig )
   register( ["add","update","buildFile"], "afterCompile", _compile, ["html"] );
 };
 
 module.exports = function( compileConf ) {
-  compileConfig = compileConf
+  compileConfig = compileConf;
 
   return {
     registration: registration
   };
 };
-
-
-
