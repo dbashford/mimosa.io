@@ -50,7 +50,9 @@ exports.config = {
             lead:"Installation and project setup. You'll be coding in minutes."
           },
           index: {
-
+            title:"Mimosa - A build tool for modern web development",
+            desc: "A lightning-fast build tool for modern web development. Mimosa includes support for JavaScript, CSS, and template compilers, bower, linting, optimization, serving, RequireJS support, and Live Reload. It is also modular and pluggable for authoring your own functionality.",
+            includeJumbo:false
           }
         }
       })

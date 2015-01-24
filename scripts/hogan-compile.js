@@ -24,7 +24,10 @@ var validate = function( mimosaConfig, validators ) {
   var hS = mimosaConfig.hoganStatic
   for ( var context in hS.contexts ) {
     for ( var global in hS.globals ) {
-      hS.contexts[context][global] = hS.globals[global];
+      if ( hS.contexts[context][global] === undefined ) {
+        hS.contexts[context][global] = hS.globals[global];
+      }
+      hS.contexts[context].pageName = context;
     }
   }
 
@@ -59,8 +62,12 @@ var _compile = function( mimosaConfig, options, next ) {
       if (mimosaConfig.hoganStatic.fullPartialPaths.indexOf(file.inputFileName) == -1) {
         var template = hogan.compile ( file.inputFileText.toString() );
         var basename = path.basename( file.inputFileName, ".html" );
+        var context = mimosaConfig.hoganStatic.contexts[basename];
+        if (context.pageName && context.pageName === basename ) {
+          context[basename] = true;
+        }
         file.outputFileText = template.render(
-          mimosaConfig.hoganStatic.contexts[basename],
+          context,
           mimosaConfig.hoganStatic.registeredPartials
         );
       } else {
