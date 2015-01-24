@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Commands - Mimosa</title>
+  <title>{{ title }}</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="At the command line is where Mimosa's magic happens.">
+  <meta name="description" content="{{{ desc }}}">
 
   <link rel="stylesheet" href="public/stylesheets/bootstrap3.css" >
   <link rel="stylesheet" href="public/stylesheets/custom.css" >
@@ -50,8 +50,8 @@
   <div class="container-fluid">
     <header class="jumbotron">
       <div class="container">
-        <h1>Commands</h1>
-        <p class="lead">Interact with your project via the command line</p>
+        <h1>{{ header }}</h1>
+        <p class="lead">{{ lead }}</p>
       </div>
     </header>
   </div>
@@ -552,7 +552,7 @@ $ mimosa [command] -D</pre>
   <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script src="public/javascripts/vendor/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-  
+
   <script>
     var _gaq=[['_setAccount','UA-33737130-1'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

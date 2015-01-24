@@ -1,0 +1,7 @@
+{
+  "name": "mimosa.io",
+  "version": "3.0.0",
+  "devDependencies": {
+    "hogan.js": "*"
+  }
+}
