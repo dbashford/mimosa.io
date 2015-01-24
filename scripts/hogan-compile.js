@@ -1,4 +1,5 @@
 var path = require( "path" )
+  , fs = require( "fs" )
   , hogan = require("hogan.js")
   , logger
   , compileConfig
@@ -10,14 +11,38 @@ var path = require( "path" )
   contexts: {}
 */
 
-var _config = function( compileConf ) {
-  compileConfig = compileConf;
+var _registerPartial = function( partialPath ) {
+  var partialText = fs.readFileSync(partialPath).toString();
+  var partialName = path.basename( partialPath, ".html" );
+  compileConfig.registeredPartials[partialName] = partialText;
+};
 
+var _config = function( mimosaConfig ) {
   for ( var context in compileConfig.contexts ) {
-    for (var global in compileConf.globals) {
-      compileConfig.contexts[context][global] = compileConf.globals[global];
+    for ( var global in compileConfig.globals ) {
+      compileConfig.contexts[context][global] = compileConfig.globals[global];
     }
   }
+
+  compileConfig.registeredPartials = {};
+  var partials = compileConfig.partials;
+  for ( var i = 0; i < partials.length; i++ ) {
+    var partPath = path.join( mimosaConfig.watch.sourceDir, partials[i] );
+    var exists = fs.existsSync( partPath );
+    if (exists) {
+      var stat = fs.statSync( partPath );
+      if (stat.isFile()) {
+        _registerPartial( partPath );
+      } else {
+        fs.readdirSync( partPath )
+          .map( function( p ){ return path.join(partPath, p); })
+          .forEach( _registerPartial );
+      }
+    } else {
+      // does not exist, errors
+    }
+  }
+
 };
 
 var _compile = function( mimosaConfig, options, next ) {
@@ -26,7 +51,10 @@ var _compile = function( mimosaConfig, options, next ) {
       var file = options.files[i];
       var template = hogan.compile ( file.inputFileText.toString() );
       var basename = path.basename( file.inputFileName, ".html" );
-      file.outputFileText = template.render( compileConfig.contexts[basename] );
+      file.outputFileText = template.render(
+        compileConfig.contexts[basename],
+        compileConfig.registeredPartials
+      );
     }
   }
   next();
@@ -34,11 +62,12 @@ var _compile = function( mimosaConfig, options, next ) {
 
 var registration = function( mimosaConfig, register ) {
   logger = mimosaConfig.log;
+  _config( mimosaConfig );
   register( ["add","update","buildFile"], "compile", _compile, ["html"] );
 };
 
 module.exports = function( compileConf ) {
-  _config( compileConf );
+  compileConfig = compileConf
 
   return {
     registration: registration
