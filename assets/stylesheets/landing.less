@@ -1,5 +1,20 @@
+@import "variables.less";
+@import "mixins.less";
 @import (inline) "vendor/bootstrap3.css";
 @import (inline) "landing/landing-page.css";
 @import (inline) "landing/landing-page-custom.css";
 @import (inline) "landing/why.css";
 @import (inline) "site/footer.css";
+
+.intro-header {
+  .linear-gradient(@blue-darker, @blue-vivid);
+
+  h3 {
+    color: @orange-light;
+    text-shadow: 2px 2px 5px @blue-darker;
+  }
+
+  .content_wrap {
+    display: none;
+  }
+}
