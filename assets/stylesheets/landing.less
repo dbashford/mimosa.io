@@ -6,8 +6,33 @@
 @import (inline) "landing/why.css";
 @import (inline) "site/footer.css";
 
+
+// one, orange to black
+@left: #000000;
+@right: #e74c3c;
+
+// two, purple
+@left: #AA076B;
+@right: #61045F;
+
+//four, blue to black
+@left: #000000;
+@right: #516395;
+
+// five, purple to black
+@left: #000000;
+@right: #61045F;
+
+// six more blues
+@left: #4b6cb7;
+@right: #182848;
+
+
+
 .intro-header {
-  .linear-gradient(@blue-darker, @blue-vivid);
+
+  //.linear-gradient(@blue-darker, @blue-vivid);
+  .linear-gradient-lr(@left, @right);
 
   h3 {
     color: @orange-light;
