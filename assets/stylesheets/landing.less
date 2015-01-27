@@ -24,10 +24,8 @@
 @right: #61045F;
 
 // six more blues
-@left: #4b6cb7;
-@right: #182848;
-
-
+//@left: #4b6cb7;
+//@right: #182848;
 
 .intro-header {
 
@@ -35,11 +33,21 @@
   .linear-gradient-lr(@left, @right);
 
   h3 {
-    color: @orange-light;
+    //color: @orange-light;
+    color: white;
     text-shadow: 2px 2px 5px @blue-darker;
   }
 
   .content_wrap {
     display: none;
+  }
+
+  .start-button {
+    text-transform: none;
+    margin-top:100px;
+  }
+
+  .intro-message {
+    padding-bottom: 5%;
   }
 }
