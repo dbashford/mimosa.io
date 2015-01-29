@@ -6,6 +6,9 @@ exports.config = {
     "hogan-static",
     "minify-html",
     "minify-css"],
+  copy: {
+    extensions:["png", "html","js", "jpg", "ico"]
+  },
   minifyHtml: {
     options: {
       collapseWhitespace: true,

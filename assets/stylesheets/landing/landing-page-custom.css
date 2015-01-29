@@ -9,8 +9,11 @@ h6 {
   font-weight: normal;
 }
 
+body {
+  background-color:white;
+}
+
 .intro-header {
-  background-color: #fafafa;
   background-image: none;
   padding-top: 0;
 }
