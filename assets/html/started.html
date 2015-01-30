@@ -72,12 +72,15 @@
           <div class="panel-body">
             <p>If you want to use Mimosa with an existing app, start here.</p>
 
-            <h3>1) Get the config</h3>
-            <p>From the command line, type <code>mimosa config</code> and Mimosa will generate a <code>mimosa-config.js</code> file in the current directory. This file controls everything Mimosa does. For now its contents will be relatively brief. <code>mimosa config</code> also delivers a <code>mimosa-config-documented.coffee</code> file which contains documentation for all the various configuration options.</p>
+            <h3>1) Create a mimosa-config.js</h3>
+            <p>Inside your project, create a <code>mimosa-config.js</code> file. To start, the contents of the file should look like this:</p>
+            <pre>exports.config = {
+  "modules": []
+}</pre>
 
             <h3>2) Tweak the config</h3>
-            <p>Place the <code>mimosa-config</code> at the root of a project. Either change the project's codebase to match Mimosa's defaults, or change the <code>mimosa-config</code> to work with the project. All of the <a href="./configuration.html">configuration options</a> are documented on the site as well as in the <code>mimosa-config-documented.coffee</code>.</p>
-            <p>The most important settings in the config, to get you started, are inside the top <code>watch</code> setting.  Make sure that <code>watch.sourceDir</code>, <code>watch.compiledDir</code>, and <code>watch.javascriptDir</code> all point to the right place in the project.</p>
+            <p>The next step is to marry your project with <a href="./configuration.html">Mimosa's defaults</a> by changing either the config or your project.  For instance, if you keep your code in a <code>src</code> directory instead of an <code>assets</code> directory, something will need to change because by default Mimosa expects an <code>assets</code> directory.</p>
+            <p>Then you need to decide what modules you want to use. <a href="./modules.html">There are plenty!</a> For starters, you probably need the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a> which performs the simple task of copying files of certain types from <code>assets</code> to <code>public</code> where compiled code lives. To add the copy compiler, simply add the string <code>"copy"</code> to the <code>modules</code> array.</p>
 
             <h3>3) Fire it up</h3>
             <p>Execute <code>mimosa watch</code> and Mimosa will build and watch project assets. Mimosa will generate errors if something is wrong with the config.</p>
