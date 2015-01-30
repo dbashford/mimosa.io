@@ -25,32 +25,30 @@
 
             <h3>Mimosa module's exports</h3>
             <p>Mimosa expects to find certain things in a module's interface.</p>
-            <p>At the bottom of the <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/index.js#L36-L41">index file</a> is the <code class="option">module.exports</code> object. That object defines the module interface.</p>
+            <p>At the bottom of the <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/index.js#L39-L43">index file</a> is the <code class="option">module.exports</code> object. That object defines the module interface.</p>
             <p>Working from the bottom up:</p>
             <div class="row">
               <div class="col-md-6">
                 <ul class="top-split">
-                  <li><code class="option">validate</code> is optional, but if it exists it is called to validate a user's configuration. The <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/config.js#L18-L25">mimosa-minify-html validate</a> is small. One thing it does is verify that the mimosa-config's <code class="option">minifyHtml</code> object is an <code class="option">object</code>. If it wasn't <code class="option">validate</code> would return an error, Mimosa would not start, and the error message would be displayed.</li>
+                  <li><code class="option">validate</code> is optional, but if it exists it is called to validate a user's configuration. The <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/config.js#L11-L19">mimosa-minify-html validate</a> is small. One thing it does is verify that the mimosa-config's <code class="option">minifyHtml</code> object is an <code class="option">object</code>. If it wasn't <code class="option">validate</code> would return an error, Mimosa would not start, and the error message would be displayed.</li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <pre>module.exports = {
   registration: registration,
   defaults: config.defaults,
-  placeholder: config.placeholder,
   validate: config.validate
 }</pre>
               </div>
             </div>
             <ul>
-              <li><code class="option">placeholder</code>, also optional, is how the commented out mimosa-config placeholder text is provided and how the <code class="option">mimosa mod:config</code> command is able to output a module's configuration snippet. <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/config.js#L11-L16">mimosa-minify-html's placeholder</a> contains text explaining each configuration parameter.</li>
-              <li><code class="option">defaults</code>, again optional, is how the module lets Mimosa know its default configuration. <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/config.js#L3-L9">mimosa-minify-html's defaults</a> returns a simple object.</li>
+              <li><code class="option">defaults</code>, again optional, is how the module lets Mimosa know its default configuration. <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/config.js#L3-L9">mimosa-minify-html's defaults</a> returns a simple object.</li>
               <li><code class="option">registration</code> is how a module informs Mimosa what code to call and when.</li>
             </ul>
 
             <h3>Registering a module</h3>
             <p>A module needs to register itself with Mimosa so that Mimosa knows what functionality to invoke and when to invoke it.</p>
-            <p>Lets break down a single line of <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/index.js#L32">mimosa-minify-html's registration</a>.</p>
+            <p>Lets break down a single line of <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/index.js#L35">mimosa-minify-html's registration</a>.</p>
             <div class="row">
               <div class="col-md-6">
                 <ul class="top-split">
@@ -76,7 +74,7 @@
 
             <h3>Module execution</h3>
             <p>When Mimosa execute the functionality of a module, Mimosa passes along certain objects/functions</p>
-            <p>Lets look at the first few lines of the <a href="https://github.com/dbashford/mimosa-minify-html/blob/3589ae3113286cdb7243107ba4c4a62dffa93db1/src/index.js#L6-L7">_execute</a> function.</p>
+            <p>Lets look at the first few lines of the <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/index.js#L6-L7">_execute</a> function.</p>
             <div class="row">
               <div class="col-md-4">
                 <p>Functions called during Mimosa's workflows are handed three objects.</p>
@@ -119,7 +117,7 @@
             <ul>
               <li><code>package.json</code>: Those familiar with node.js recognize this file. This defines all sorts of metadata about a node project: the project name, dependencies, repo location, a description, and more. When a project is published to <a href="https://npmjs.org/">NPM</a>, NPM expects the <code>package.json</code> to be present. The <code>package.json</code> that Mimosa provides needs some editing. Many of the fields inside of it are placeholders and should be changed before publishing.</li>
               <li><code>index.js</code>/<code>index.coffee</code>: This highly commented file defines a module's interface to Mimosa. Mimosa will use this file to execute a module's functionality. How a module is structured is entirely up to the developer, as long as the functions Mimosa expects are exported in the <code>index</code> file.</li>
-              <li><code>config.js</code>/<code>config.coffee</code>: This file is also highly commented and contains three functions that might need to be implemented: a function that returns the default configuration, a function that returns a string placeholder for the <code>mimosa-config</code>, and a function that validates a user's configuration for the module. Mimosa calls these functions at different times. If a module has no configuration at all, the functions and the file can be removed, or they can be left and commented out in case configuration might be introduced later.</li>
+              <li><code>config.js</code>/<code>config.coffee</code>: This file is also highly commented and contains two functions that might need to be implemented: a function that returns the default configuration and a function that validates a user's configuration for the module. Mimosa calls these functions at different times. If a module has no configuration at all, the functions and the file can be removed, or they can be left and commented out in case configuration might be introduced later.</li>
               <li>A <code>docs</code> folder: Using a tool called <a href="http://jashkenas.github.com/docco/">Docco</a> the comments in the <code>config</code> and <code>index</code> files have been turned into easy to read web pages, with comments alongside code. This is the real place to start. Read through the the Docco pages and get comfy with the concepts.</li>
               <li>A starter <code>README.md</code> with a few things filled out.</li>
             </ul>
@@ -158,15 +156,6 @@
 };</pre>
               </div>
             </div>
-
-            <h3>placeholder()</h3>
-            <p>A module's <code>placeholder</code> function is called when Mimosa is building the <code>mimosa-config</code> file that is delivered to a user during both the <code>mimosa new</code> and <code>mimosa config</code> commands. Use this function to return a string that shows what the module's configuration is and then explains each setting.</p>
-            <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
-            <pre>exports.placeholder = function() {
-  return "\t\n\n" +
-  "  minifyHtml:     # config settings for HTML minifier\n" +
-  "    options: {}   # pass-through options to the html-minifier tool";
-};</pre>
 
           <h3>validate(mimosaConfig, validators)</h3>
           <p>A module's <code>validate</code> function is called when Mimosa starts up and after Mimosa has put together the full <code>mimosa-config</code>. That full config is passed to the <code>validate</code> function of all modules and each module has the opportunity to ensure that the config settings are valid. This function should return an array of strings. Each string represents an error that the module has found with the config. If a module return any errors, Mimosa will print the errors and exit to give the user a chance to update the config.</p>

@@ -648,7 +648,7 @@
             <p>Use <code>npm install -g</code> to install any modules into the global node scope. Modules installed with <code>mod:install</code> take priority, so if any modules are installed with both <code>npm install -g</code> and <code>mod:install</code>, the <code>npm install -g</code> module will be ignored.</p>
 
             <h3>Install specific module version</h3>
-            <p>To install a specific version of a module, to, for instance, ensure everyone on a project stays on the same version, add a <code>@</code> followed by the version after the module name. Ex: <code>web-package@0.1.0</code>. This can also be accomplished by managing versions in a project's package.json.</p>
+            <p>To install a specific version of a module, to, for instance, ensure everyone on a project stays on the same version, add a <code>@</code> followed by the version after the module name. Ex: <code>web-package@0.1.0</code>. This can also be accomplished by managing versions in a project's <code>package.json</code>.</p>
           </div>
         </div>
 
@@ -714,7 +714,7 @@
             <tbody>
               <tr>
                 <td>mod:list</td>
-                <td>[-i/--installed][-v/--verbose]</td>
+                <td>[-i/--installed]<br/>[-v/--verbose]</td>
                 <td>List all Mimosa modules in NPM, or, with a flag, just those you have installed including version information.</td>
               </tr>
               <tr>
@@ -726,11 +726,6 @@
                 <td>mod:uninstall</td>
                 <td>&lt;moduleName&gt;</td>
                 <td>Remove a Mimosa module from your global Mimosa.</td>
-              </tr>
-              <tr>
-                <td>mod:config</td>
-                <td>&lt;moduleName&gt;</td>
-                <td>Print the default configuration of a module to the console.</td>
               </tr>
             </tbody>
           </table>
@@ -752,18 +747,12 @@ $ mimosa mod:list -v</pre>
           <pre>$ mimosa mod:install mimosa-server</pre>
           <p>If the module has already been installed, this will update it to the latest version. To install a specific version of a module, add the version after a @.</p>
           <pre>$ mimosa mod:install mimosa-server@0.2.0</pre>
-          <p>To use and test a module under local development that isn't in NPM execute <code>mod:install</code> without providing a name for the module.  For this to work properly, the command must be executed from the same directory as the module's package.json, which should be the root of the module. Once the module is installed, Mimosa treats it the same as a module it installed from NPM.</p>
+          <p>To use and test a module under local development that isn't in NPM execute <code>mod:install</code> without providing a name for the module.  For this to work properly, the command must be executed from the same directory as the module's <code>package.json</code>, which should be the root of the module. Once the module is installed, Mimosa treats it the same as a module it installed from NPM.</p>
 
           <h3>Uninstall a Module
           <h4>mod:uninstall</h4>
-          <p>Execute <code>mod:uninstall</code> to remove a module from Mimosa.</p>
+          <p>Execute <code>mod:uninstall</code> to remove a module from the Mimosa global install. This will not remove it from your local project if it is installed there.  To do that simply remove it from the <code>node_modules</code> directory.</p>
           <pre>$ mimosa mod:uninstall mimosa-server</pre>
-
-          <h3>Get Module Configuration</h3>
-
-          <h4>mod:config</h4>
-          <p>Execute <code>mod:config</code> to have Mimosa write to the console the configuration placeholder for a module. This is useful when needing to add the configuration for a newly installed module to the <code>mimosa-config</code>.</p>
-          <pre>$ mimosa mod:config server</pre>
         </div>
       </div>
     </div>

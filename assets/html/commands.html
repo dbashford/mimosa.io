@@ -11,7 +11,7 @@
           <li><a href="#build" title="One time asset compilation and optimization">Build</a></li>
           <li><a href="#skel" title="Interact with Mimosa's skeletons">Skeletons</a></li>
           <li><a href="#module" title="Module commands">Modules</a></li>
-          <li><a href="#misc" title="Copy Mimosa config to an existing project">Misc</a></li>
+          <li><a href="#misc" title="miscellaneous command information">Misc</a></li>
         </ul>
       </div>
       <div class="col-md-10 col-sm-9">
@@ -44,27 +44,22 @@
                 </tr>
                 <tr>
                   <td>watch</td>
-                  <td>[-s/--server] [-c/--clean] [-C/--cleanall] [-d/--delete] [-o/--optimize] [-m/--minify] [-P/--profile]</td>
+                  <td>[-s/--server]<br/>[-c/--clean]<br/>[-C/--cleanall]<br/>[-d/--delete]<br/>[-o/--optimize]<br/>[-m/--minify]<br/>[-P/--profile]</td>
                   <td>Builds the project and continues watching project files to build them on-the-fly.</td>
                 </tr>
                 <tr>
                   <td>clean</td>
-                  <td>[-f/--force] [-C/--cleanall] [-P/--profile]</td>
+                  <td>[-f/--force]<br/>[-C/--cleanall]<br/>[-P/--profile]</td>
                   <td>Cleans the Mimosa generated assets.</td>
                 </tr>
                 <tr>
                   <td>build</td>
-                  <td>[-C/--cleanall] [-o/--optimize] [-m/--minify] [-p/--package] [-i/--install] [-e/--errorout] [-P/--profile]</td>
+                  <td>[-C/--cleanall]<br/>[-o/--optimize]<br/>[-m/--minify]<br/>[-p/--package]<br/>[-i/--install]<br/>[-e/--errorout]<br/>[-P/--profile]</td>
                   <td>Builds the project and exits.</td>
                 </tr>
                 <tr>
-                  <td>config</td>
-                  <td></td>
-                  <td>Provides a mimosa-config when one isn't present, and writes a fully documented version for reference.</td>
-                </tr>
-                <tr>
                   <td>skel:new</td>
-                  <td>&lt;skeletonName&gt; [installFolder]</td>
+                  <td nowrap>&lt;skeletonName&gt; &lt;installFolder&gt;</td>
                   <td>Creates a new project from an existing skeleton.</td>
                 </tr>
                 <tr>
@@ -78,7 +73,7 @@
                   <td>Search for skeletons using keywords.</td>
                 </tr>
                 <tr>
-                  <td>All Commands</td>
+                  <td>All</td>
                   <td>[-D, --mdebug], [--help]</td>
                   <td>These flags are available for all commands.</td>
                 </tr>
@@ -123,7 +118,7 @@ $ mimosa watch -s</pre>
             <p>Using the <code>-s/--server</code> flag with <code>mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
             <p>Mimosa does not require a server. You may simply not need one (static site?) or you may have your own non-node.js server that Mimosa cannot start for you. When running a non-node.js server, the major consideration is the <code>watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives.</p>
             <pre>watch: {
-compiledDir: "../server/public"
+  compiledDir: "../server/public"
 }</pre>
 
             <h4>Clean Compiled Assets First (-c/--clean)</h4>
@@ -383,7 +378,7 @@ $ mimosa build -P nameOfProfile</pre>
         <div class="panel panel-default">
           <div class="panel-heading large-heading">
             <h2 id="module">Module Commands</h2>
-            <h5>mimosa mod:[install/uninstall/list/config]</h5>
+            <h5>mimosa mod:[install/uninstall/list]</h5>
           </div>
           <div class="panel-body">
             <p>Mimosa's module features have their own set of commands prefixed with <code>mod:</code>.  Read about them on the <a href="./modules.html#commands">Modules page</a>.</p>
@@ -395,15 +390,6 @@ $ mimosa build -P nameOfProfile</pre>
             <h2 id="misc">Miscellaneous Commands and Options</h2>
           </div>
           <div class="panel-body">
-            <h3>config</h3>
-            <div class="row">
-              <div class="col-md-7">
-                <p>To use Mimosa with an existing project, use this command to copy the default <code>mimosa-config.js</code> file into the current directory. Some configuration will likely need to be updated for the project. This command will also create a <code>mimosa-config-documented.coffee</code>. This will allow modifications to occur to the <code>mimosa-config</code> while keeping the defaults file for reference.</p>
-              </div>
-              <div class="col-md-5">
-                <pre>$ mimosa config</pre>
-              </div>
-            </div>
 
             <h4>-h/--help</h4>
             <div class="row">

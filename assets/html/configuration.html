@@ -24,11 +24,15 @@
           <div class="panel-body">
             <p>When Mimosa starts up, it expects to find a <code>mimosa-config.coffee</code> or a <code>mimosa-config.js</code> file in current directory.  The <code>mimosa-config</code> file configures all that Mimosa does.
             <h3>How to get it?</h3>
-            <p>There are two ways to be given a config file by Mimosa: with <code>mimosa new</code> and <code>mimosa config</code>. For <code>mimosa new</code>, the <code>mimosa-config</code> will be altered to match the selections made during project creation. For <code>mimosa config</code> only the modules are provided.  Both commands, however, also output a <code>mimosa-config-documented.coffee</code> file which contains all of the documentation on the possible/default configuration items for the modules that are currently installed.</p>
-            <p>For both <code>mimosa new</code> and <code>mimosa config</code>, the <code>mimosa-config</code> file is a JavaScript file. However, if CoffeeScript is preferred, the file can be converted to <code>.coffee</code> and Mimosa will find and use it.</p>
+            <p>Executing <code>mimosa new</code> and creating a new project will get you a good starter <code>mimosa-config</code>.</p>
+            <p>Or you could make an empty config. Create a file named <code>mimosa-config.js</code> inside the directory where you wish to start a project. Inside that file, place the following configuration:</p>
+            <pre>exports.config = {
+  "modules": []
+}</pre>
+            <p>The next step is to tweak the configuration to match your project, or your project to match Mimosa's defaults (see below). Then, pick the modules you want and off you go!</p>
+
             <h3>Why is my config file so small?</h3>
             <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, then the less time is spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
-            <p>While the delivered config file is small, the <code>mimosa-config-documented.coffee</code> file that Mimosa also provides is large and contains all the possible/default configuration items for the installed modules.</p>
             <h3>When you want to change the config...</h3>
             <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
           </div>
@@ -260,7 +264,7 @@ requiredMimosaVersion: null</pre>
                 <p>The color for <code>Success</code> level logging.</p>
                 <h4>logger.error.enabled</h4>
                 <p>Whether or not <code>ERROR</code> level logging is enabled.</p>
-                
+
               </div>
               <div class="col-md-6">
                 <pre>logger: {
