@@ -13,14 +13,13 @@
           <li><a href="#norequirejs" title="No RequireJS">No RequireJS</a></li>
           <li><a href="#Heroku" title="Heroku">Heroku</a></li>
           <li><a href="#Azure" title="Heroku">Azure</a></li>
-          <li><a href="#dynamic" title="Heroku">require.js Dynamic Modules</a></li>
+          <li><a href="#dynamic" title="Heroku">Dynamic Modules</a></li>
         </ul>
       </div>
       <div class="col-md-10 col-sm-9">
-
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="upgrade21">Contact/Support</h4>
+            <h2 id="upgrade21">Contact/Support</h2>
           </div>
           <div class="panel-body">
             <p>Having trouble? We'd like to help! Here are a few ways to get some help:</p>
@@ -35,7 +34,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="upgrade21">2.1 upgrade</h4>
+            <h2 id="upgrade21">2.1 upgrade</h2>
           </div>
           <div class="panel-body">
             <p><code>2.1</code> upgraded logging in a major way. There are just a few things to keep in mind when upgrading.</p>
@@ -49,7 +48,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="upgrade20">2.0 upgrade</h4>
+            <h2 id="upgrade20">2.0 upgrade</h2>
           </div>
           <div class="panel-body">
             <p><code>2.0</code> brings the externalization of Mimosa's JS/CSS/Template compilers. This slims down Mimosa's footprint, speeding up installs, and greatly simplifies the Mimosa codebase. Externalizing the compilers also sets Mimosa up for other contributors to very easily create new, external compilers of their own. Previously that would have entailed pull requests back to the main Mimosa library.</p>
@@ -66,7 +65,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="git">"Error: git is not installed or not in the PATH"</h4>
+            <h2 id="git">"Error: git is not installed or not in the PATH"</h2>
           </div>
           <div class="panel-body">
             <p>By default Mimosa uses Bower.  Bower fetches scripts and libraries from GitHub.  So, Mimosa has a dependency on git because it uses Bower.  If you don't want to install git, then you cannot use Bower.  That isn't a problem!  Just remove <code>"bower"</code> from the list of modules in your <code>mimosa-config</code>.</p>
@@ -75,7 +74,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="cpu">CPU running hot?</h4>
+            <h2 id="cpu">CPU running hot?</h2>
           </div>
           <div class="panel-body">
             <p>If you have a lot of files, or are using multiple watchers (like mimosa + mimosa-import-source), you might find your CPU pegged and things bogging down. Both mimosa core (<code>watch</code> settings) and mimosa-import-source have intervals you can provide it to keep it from polling the file system too often. For details, check out the <a href="https://github.com/dbashford/mimosa/issues/179">GitHub issue</a> where this was discussed.</p>
@@ -86,7 +85,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 id="emfile">EMFILE Issues</h4>
+            <h2 id="emfile">EMFILE Issues</h2>
           </div>
           <div class="panel-body">
             <p>node.js is fast. Wicked fast. Sometimes too fast for its own good. If you have a large project with many files (usually 200+) that Mimosa has to move from one directory to another on startup, Mimosa will attempt to process all your files at once and may attempt to open more files than your system allows. When that happens, you'll see an error like this:</p>
@@ -106,7 +105,7 @@ at exports.exec (child_process.js:573:18)</pre>
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 id="norequirejs">Mimosa Without Require.js?</h4>
+              <h2 id="norequirejs">Mimosa Without Require.js?</h2>
             </div>
             <div class="panel-body">
               <p>I see search engine traffic coming to the Mimosa site having used the search term "mimosa without requirejs" quite a bit.</p>
@@ -122,7 +121,7 @@ at exports.exec (child_process.js:573:18)</pre>
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 id="Heroku">Heroku</h4>
+              <h2 id="Heroku">Heroku</h2>
             </div>
             <div class="panel-body">
               <p>Want to push your app to Heroku?  Here's a few steps to go from no app to a Heroku app in no time at all. The following assumes you have <a href="https://id.heroku.com/signup/devcenter">signed up</a>, you have the <a href="https://toolbelt.heroku.com/">toolbelt</a> installed, and you have git installed as Heroku deploys code via git.</p>
@@ -152,7 +151,7 @@ at exports.exec (child_process.js:573:18)</pre>
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 id="Azure">Azure</h4>
+              <h2 id="Azure">Azure</h2>
             </div>
             <div class="panel-body">
               <p>Peter Morlion wrote an <a href="http://petermorlion.blogspot.be/2014/03/getting-mimosa-durandal-app-to-work-on.html">excellent blog post</a> on how to get up and running with a Mimosa node.js application in <a href="https://www.windowsazure.com/">Azure</a>. His example includes a specific UI framwork, but the steps he took are universal.</p>
@@ -161,15 +160,13 @@ at exports.exec (child_process.js:573:18)</pre>
 
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4 id="dynamic">require.js and Dynamic Module Loading</h4>
+              <h2 id="dynamic">require.js and Dynamic Module Loading</h2>
             </div>
             <div class="panel-body">
               <p>require.js allows you to bundle your application up into single files for production builds. But what if you want to bundle your application into several small files rather than a single one?</p>
               <p>A common question from Mimosa's require.js users is how to configure the <a href="https://github.com/dbashford/mimosa-require">mimosa-require</a> module to handle dynamic modules. The <a href="https://github.com/dbashford/MimosaDynamicRequire">MimosaDynamicRequire</a> example application illustrates how to do that.</p>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

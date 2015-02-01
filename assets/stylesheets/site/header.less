@@ -22,8 +22,11 @@
       }
     }
 
-    & >.active > a {
-      background-color: @brand-dark;
+    & >.active {
+      a,
+      a:hover {
+        background-color: @brand-dark;
+      }
     }
   }
 }

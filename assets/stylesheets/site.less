@@ -1,3 +1,137 @@
-@import (inline) "vendor/bootstrap3.css";
-@import (inline) "site/custom.css";
-@import (inline) "site/footer.css";
+@import "base";
+
+.panel-heading,
+.panel-body {
+  padding: 15px 20px 15px 25px;
+}
+
+.panel-default {
+  .panel-heading {
+    background-color: @bg-dark;
+    color: #fff;
+
+    h2 > small {
+      color: #fff;
+    }
+
+    h5 {
+      color: #fff;
+      font-size: 1em;
+    }
+  }
+}
+
+.jumbotron {
+  padding: 5em 0 2em 0;
+  background-color: @bg-dark;
+  color: @brand-primary;
+
+  .container &,
+  .container-fluid & {
+    border-radius: 0px;
+  }
+
+  h1 {
+    color: #888;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    font-weight: 400;
+  }
+}
+
+.nav-pills {
+  li {
+    a,
+    a:focus,
+    a:active {
+      background-color: ligthen(@bg-dark, 5%);
+    }
+
+    &.active {
+      a,
+      a:focus,
+      a:active,
+      a:hover {
+        background-color: @bg-dark;
+      }
+    }
+  }
+}
+
+.nav-stacked.affix {
+  margin-top:90px;
+}
+
+.nav-stacked.affix-bottom {
+  margin-bottom:200px;
+}
+
+.about-page h2:first-of-type {
+  margin-top:10px;
+}
+
+.large-heading {
+  padding-top:1px;
+}
+
+ul.top-split {
+  margin-bottom:0px;
+}
+
+.workflow-steps ul {
+  list-style-type:none;
+  padding-left:0;
+  border:1px solid #E5E5E5;
+}
+
+.workflow-steps li {
+  border-top: 1px solid #E5E5E5;
+  padding:5px;
+}
+
+.workflow-steps ul > li:first-child {
+  border-top:0
+}
+
+h2[id]:before, h3[id]:before, h4[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -121px;
+  height: 121px;
+  visibility: hidden;
+}
+
+h3[id]:before {
+  margin-top: -115px;
+  height: 115px;
+}
+
+h4[id]:before {
+  margin-top: -115px;
+  height: 115px;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .navbar-nav>li>a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 991px) {
+  .nav-stacked.affix {
+    width:8.5em;
+  }
+}
+
+@media (max-width: 765px) {
+  .row .affix {
+    position: static;
+  }
+
+  .nav-stacked.affix {
+    margin-top:0px;
+  }
+}
