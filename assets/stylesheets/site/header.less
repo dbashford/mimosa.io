@@ -1,0 +1,29 @@
+.navbar-inverse {
+  background-color: @brand-primary;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  .navbar-brand {
+    padding: 17.5px 15px;
+    color: @brand-light;
+    font-size: 24px;
+    line-height: 29px;
+    height: 64px;
+  }
+
+  .navbar-nav {
+    & > li > a {
+      color: @brand-light;
+      line-height: 29px;
+
+      @media (min-width: 768px) {
+        padding-top: 17.5px;
+        padding-bottom: 17.5px;
+      }
+    }
+
+    & >.active > a {
+      background-color: @brand-dark;
+    }
+  }
+}

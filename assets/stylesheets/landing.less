@@ -1,61 +1,115 @@
-@import "variables.less";
-@import "mixins.less";
-@import (inline) "vendor/bootstrap3.css";
-@import (inline) "landing/landing-page.css";
-@import (inline) "landing/landing-page-custom.css";
-@import (inline) "site/footer.css";
-
-
-// one, orange to black
-@left: #000000;
-@right: #e74c3c;
-
-// two, purple
-// @left: #AA076B;
-// @right: #61045F;
-
-//four, blue to black
-// @left: #000000;
-// @right: #516395;
-
-// five, purple to black
-// @left: #000000;
-// @right: #61045F;
-
-// six more blues
-// @left: #4b6cb7;
-// @right: #182848;
+@import "base";
 
 .intro-header {
-  //.linear-gradient(@left, @right);
-  //.linear-gradient(@blue-darker, @blue-vivid);
-  .linear-gradient-lr(@left, @right);
+  background-color: @bg-dark;
+  padding: 10em 0 4em 0;
+  margin: 0 0 1em 0;
+  text-align: center;
+  color: #fff;
 
-  h3 {
-    //color: @orange-light;
-    color: white;
-    text-shadow: 2px 2px 5px @blue-darker;
+  @media (max-width: 950px) {
+    padding: 5em 0 3em 0;
   }
 
-  .content_wrap {
-    display: none;
-  }
+  &__message {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 
-  .start-button {
-    margin-top:100px;
-  }
+    h1 {
+      font-size: 6em;
+      font-weight: 500;
+      margin-left: -66px;
 
-  @media(max-width:950px) {
-    .start-button {
-      margin-top:20px;
+      @media (max-width: 320px) {
+        margin: 0;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        padding-right: 1em;
+        width: 66px;
+        height: 115px;
+        background: url('../images/mimosa-drop.png') no-repeat;
+
+        @media (max-width: 320px) {
+          padding-right: 0;
+        }
+      }
     }
   }
 
-  .intro-message {
-    padding-bottom: 5%;
+  &__buttons {
+    padding: 2.5em 0 1em 0;
+
+    @media (max-width: 950px) {
+      padding: 2em 0 .5em 0;
+    }
+  }
+}
+
+.features {
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    padding-top: 0.5em;
+    font-size: 2.5em;
+  }
+
+  &.why {
+    h3 {
+      color: #000;
+      font-weight: 400;
+    }
+
+    .feature {
+      background-color: #fff;
+      padding: 0.8em 2em;
+      margin: 0 0 2em 0;
+    }
+  }
+
+  &.modules {
+    .row {
+      background-color: @bg-medium;
+      color: #333;
+      padding: 2em;
+      margin: 1em 3em;
+    }
+
+    h3 {
+      font-size: 2em;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 1em;
+
+      .glyphicon {
+        color: @brand-primary;
+        padding-right: 0.3em;
+      }
+    }
+
+    .module {
+      text-align: left;
+      padding: 0 1em;
+    }
+  }
+
+  &.try {
+    padding: 2em 0 3em 0;
+
+    .lead {
+      font-size: 2em;
+      font-weight: 200;
+    }
   }
 }
 
 .start-button {
   text-transform: none;
+  font-size: 1.5em;
+
+  .intro-header & {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
 }

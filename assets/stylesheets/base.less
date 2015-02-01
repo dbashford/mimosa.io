@@ -1,0 +1,72 @@
+@import "base/fonts";
+@import "base/variables";
+@import "base/mixins";
+
+// This is the plain vanilla bootstrap.
+// We should fix the rest of the docs then get rid
+// of the bootswap stuff (currently compiled to vendor/bootstrap3.css.
+@import (inline) "vendor/bootstrap.min.css";
+
+@import "site/header";
+@import (inline) "site/footer.css";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .1px;
+  text-rendering: optimizeLegibility;
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 1.846;
+  background-color: @bg-light;
+  color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway";
+}
+
+h1, h2 {
+  color: @brand-primary;
+}
+
+a {
+  color: @brand-primary;
+
+  &:hover,
+  &:active {
+    color: darken(@brand-primary, 6%);
+  }
+}
+
+input,
+button {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .1px;
+  text-rendering: optimizeLegibility;
+}
+
+hr {
+  &.small {
+    max-width: 100px;
+    margin: 2.5em auto;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn {
+  &-primary {
+    background-color: @brand-primary;
+    border-color: darken(@brand-primary, 6%);
+
+    &:hover,
+    &:active {
+      background-color: darken(@brand-primary, 6%);
+      border-color: darken(@brand-primary, 6%);
+    }
+  }
+}

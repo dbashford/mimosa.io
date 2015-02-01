@@ -7,7 +7,8 @@ exports.config = {
     "minify-html",
     "minify-css"],
   copy: {
-    extensions:["png", "html","js", "jpg", "ico"]
+    extensions:["png", "html","js", "jpg", "ico",
+                "eot", "svg", "ttf", "woff", "woff2"]
   },
   minifyHtml: {
     options: {

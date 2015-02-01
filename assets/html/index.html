@@ -1,76 +1,100 @@
 {{>header}}
 
-  <!-- Header -->
-  <div class="intro-header">
+  <header class="intro-header">
     <div class="container">
-      <div class="intro-message">
-        <img class="img-responsive" src="public/images/new-mimosa-logo-v3.png" alt="Mimosa">
+      <div class="intro-header__message">
+        <h1>Mimosa</h1>
         <h3>a build tool for modern web development</h3>
+      </div>
+      <div class="intro-header__buttons">
         <a href="./started.html" class="btn btn-primary btn-lg start-button">Get Started</a>
       </div>
     </div>
-  </div>
+  </header>
 
   <div class="container-fluid features why">
-    <h2>Why Mimosa?</h2>
-
-    <div class="row">
-      <div class="col-md-3">
-        <h4>Limits I/O,<br/>So It Is Fast</h4>
-        <p>Many other build tools have to make repeated reads and writes to process a single file. Mimosa reads and writes once.</p>
-      </div>
-      <div class="col-md-3">
-        <h4>Common Functionality,<br/>Out of the Box</h4>
-        <p>Mimosa's core config and feature set are shared by all of its modules. Mimosa's defaults and conventions keep your config DRY.</p>
-      </div>
-      <div class="col-md-3">
-        <h4>Smart Modules,<br/>Small Config</h4>
-        <p>Mimosa's modules know what to execute and when to execute it. They don't need to be told what to do. You'll spend less time configuring Mimosa applications.</p>
-      </div>
-      <div class="col-md-3">
-        <h4>Just a Few Commands,<br/>Easy to Master</h4>
-        <p>Mimosa may have web development as its primary goal, but Mimosa is a multi-purpose task runner. Mimosa even builds itself.</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <h4>Coding in Seconds</h4>
-        <p>Use Mimosa's command line to build out a skeleton app that is ready to go with transpilers, pre-processors, and a server if you need one. Or use a pre-built skeleton or example app already equipped with your favoriate libraries.</p>
-      </div>
-      <div class="col-md-5">
-        <h4>Convention Over Configuration</h4>
-        <p>Sane defaults keep you coding instead of figuring out config. If you stick close to Mimosa's conventions you may never look at or update the configuration. But Mimosa is heavily configurable if you find yourself needing to vary away from its conventions.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="container-fluid features middle">
-    <h2>Modules</h2>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-2">
-        <h3>Utility & Library Integrations</h3>
-        <p>Live reload, Bower, jshint, eslint, ember.js, and the <a href="./modules.html">list goes on</a>. Building a module is simple, so if the one you deeply need doesn't exist, bridging the gap is a piece of cake.</p>
-      </div>
-      <div class="col-md-4">
-        <h3>Compilers</h3>
-        <p>SASS, Less, Stylus, CoffeeScript, 6to5, Handlebars, Jade and dozens of others. Mimosa's core provides the heavy lifting for compilers making writing a compiler module easy, so there plenty from which to chose.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-2">
-        <h3>Testing</h3>
-        <p>Karma, Testem, QUnit, and Mocha are a few of the testing modules out there, some with deep intergrations with libraries like Ember.</p>
-      </div>
-      <div class="col-md-4">
-        <h3>Module Loading</h3>
-        <p>Mimosa's AMD/require.js support is second to none, but if commonjs & browserify are your thing, there are modules for that too.</p>
+    <h1>Why Mimosa?</h1>
+    <hr class="small">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Limits I/O,<br/>So It Is Fast</h3>
+            <p><span class="glyphicon glyphicon-flash" aria-hidden="true"></span></p>
+            <p>Many other build tools have to make repeated reads and writes to process a single file. Mimosa reads and writes once.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Common Functionality,<br/>Out of the Box</h3>
+            <p><span class="glyphicon glyphicon-share" aria-hidden="true"></span></p>
+            <p>Mimosa's core config and feature set are shared by all of its modules. Mimosa's defaults and conventions keep your config DRY.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Just a Few Commands,<br/>Easy to Master</h3>
+            <p><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></p>
+            <p>Mimosa may have web development as its primary goal, but Mimosa is a multi-purpose task runner. Mimosa even builds itself.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Smart Modules,<br/>Small Config</h3>
+            <p><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></p>
+            <p>Mimosa's modules know what to execute and when to execute it. They don't need to be told what to do. You'll spend less time configuring Mimosa applications.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Coding in Seconds</h3>
+            <p><span class="glyphicon glyphicon-time" aria-hidden="true"></span></p>
+            <p>Use Mimosa's command line to build out a skeleton app that is ready to go with transpilers, pre-processors, and a server if you need one. Or use a pre-built skeleton or example app already equipped with your favoriate libraries.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="feature">
+            <h3>Convention Over Configuration</h3>
+            <p><span class="glyphicon glyphicon-check" aria-hidden="true"></span></p>
+            <p>Sane defaults keep you coding instead of figuring out config. If you stick to the conventions you may never look at or update the configuration. But Mimosa is heavily configurable if you ever need to vary away from its conventions.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container-fluid features">
+  <div class="container-fluid features modules">
+    <h1>Modules</h1>
+    <hr class="small">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="module">
+          <h3><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Utility &amp; Library Integrations</h3>
+          <p>Live reload, Bower, jshint, eslint, ember.js, and the <a href="./modules.html">list goes on</a>. Building a module is simple, so if the one you deeply need doesn't exist, bridging the gap is a piece of cake.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="module">
+          <h3><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Compilers</h3>
+          <p>SASS, Less, Stylus, CoffeeScript, 6to5, Handlebars, Jade and dozens of others. Mimosa's core provides the heavy lifting for compilers making writing a compiler module easy, so there plenty from which to chose.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="module">
+          <h3><span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Testing</h3>
+          <p>Karma, Testem, QUnit, and Mocha are a few of the testing modules out there, some with deep intergrations with libraries like Ember.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="module">
+          <h3><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Module Loading</h3>
+          <p>Mimosa's AMD/require.js support is second to none, but if commonjs &amp; browserify are your thing, there are modules for that too.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid features try">
     <p class="lead">Give Mimosa a few minutes and it will transform your development workflow.</p>
     <a href="./started.html" class="btn btn-primary btn-lg start-button">Get Started</a>
   </div>
