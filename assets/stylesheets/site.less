@@ -7,7 +7,8 @@
 
 .panel-default {
   .panel-heading {
-    background-color: @bg-medium;
+    padding-top: 1px;
+    background-color: lighten(@bg-dark, 15%);
     color: #fff;
 
     h2 > small {
@@ -43,22 +44,14 @@
 
 .nav-pills {
   li {
-    a,
-    a:focus,
-    a:active {
-      background-color: ligthen(@bg-dark, 5%);
-    }
-
     &.active {
       a,
       a:focus,
       a:active,
       a:hover {
-        background-color: @bg-dark;
+        background-color: lighten(@bg-dark, 15%);
       }
     }
-
-    background-color:@bg-medium;
   }
 }
 
@@ -74,6 +67,10 @@
 
 .about-page h2:first-of-type {
   margin-top:10px;
+}
+
+.configuration-page h4 {
+  font-size:21px;
 }
 
 .large-heading {
@@ -97,6 +94,11 @@ ul.top-split {
 
 .workflow-steps ul > li:first-child {
   border-top:0
+}
+
+.btn-primary.active {
+  background-color: #c45c17;
+  border:0;
 }
 
 h2[id]:before, h3[id]:before, h4[id]:before {
