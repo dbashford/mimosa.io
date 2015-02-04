@@ -17,10 +17,10 @@
       <div class="col-md-10 col-sm-9">
         <div class="panel panel-default">
           <div class="panel-heading large-heading">
-            <h2 id="list">Quick List</h2>
+            <h2 id="list">Command Quick Reference</h2>
           </div>
           <div class="panel-body">
-            <p>Each command has a section dedicated to it below, but here is a quick list of the available non-module commands. Most commands have flags that influence the behavior of the command. Read more about those below.</p>
+            <p>Each command has a section dedicated to it below, but here is a quick list of the available commands. Most commands have flags that influence the behavior of the command. Read more about those below.</p>
 
             <h3>Commands from Modules</h3>
             <p>Don't see the command you are looking for here? Chances are good that command is from another module. Mimosa modules can add commands to your project, <a href="https://github.com/dbashford/mimosa-bower#additional-commands">mimosa-bower</a> is a good example.</p>
@@ -117,7 +117,7 @@
 $ mimosa watch -s</pre>
             <p>Using the <code>-s/--server</code> flag with <code>mimosa watch</code> will indicate to any server related modules that they need to invoke their server-related code. <a href="https://github.com/dbashford/mimosa-server">mimosa-server</a> for example can start an embedded Express or start your node.js server</p>
             <p>Mimosa does not require a server. You may simply not need one (static site?) or you may have your own non-node.js server that Mimosa cannot start for you. When running a non-node.js server, the major consideration is the <code>watch.compiledDir</code>. The output of asset compilation might need to redirected to another folder where the server lives.</p>
-            <pre>watch: {
+            <pre style="margin-bottom:25px">watch: {
   compiledDir: "../server/public"
 }</pre>
 
@@ -191,7 +191,7 @@ $ mimosa watch -mo</pre>
             <h4>Use a Profile (-P/--profile)</h4>
             <div class="row">
               <div class="col-md-7">
-                <p>Follow the <code>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code>mimosa-config</code> contained in the profile. See the <a href="./configuration.html#profiles">profiles section</a> of the Utilities page for more information on profiles.</p>
+                <p>Follow the <code>--profile</code> flag with the name of a profile, and Mimosa will use that profile to override the <code>mimosa-config</code> contained in the profile. See the <a href="./configuration.html#profiles">profiles section</a> of the Configuration page for more information on profiles.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa watch --profile nameOfProfile
@@ -232,13 +232,14 @@ $ mimosa watch -C</pre>
             <h4>Force Asset Deletion (-f/--force)</h4>
             <div class="row">
               <div class="col-md-7">
-                <p>Because the clean command will not remove anything in <code>watch.compiledDir</code> that isn't in <code>watch.sourceDir</code>, Mimosa may leave behind code. If <code>mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning.</p>
+                <p>Because the clean command will not remove anything in <code>watch.compiledDir</code> that isn't in <code>watch.sourceDir</code>, Mimosa may leave behind code.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa clean --force
 $ mimosa clean -f</pre>
               </div>
             </div>
+            <p>If <code>mimosa watch</code> is running and a file is deleted or renamed, Mimosa cleans out the compiled version of that file, but if Mimosa is not running and a file is deleted or removed, Mimosa has no way of knowing the files left behind are safe for cleaning.</p>
             <p>When included, the <code>--force</code> flag will remove the entire compiled directory and all of its contents, no questions asked.</p>
 
             <h4>Use a Profile (-P/--profile)</h4>
@@ -263,7 +264,7 @@ $ mimosa clean -P nameOfProfile</pre>
             <h3>build</h3>
             <div class="row">
               <div class="col-md-7">
-                <p>Use <code>mimosa build</code> to build your application and exit. <code>mimosa build</code> is also used when creating deployable versions of a project. This command executes a clean before it does anything, so a clean version of the application is built.</p>
+                <p>Use <code>mimosa build</code> to build your application and exit. <code>mimosa build</code> is meant to be used when creating deployable versions of a project. This command executes a clean before it does anything, so a clean version of the application is built.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa build</pre>
@@ -295,7 +296,7 @@ $ mimosa build -o</pre>
             <h4>Minify Assets (-m/--minify)</h4>
             <div class="row">
               <div class="col-md-7">
-                <p>To build minified code, run the <code>build</code> command with the <code>--minify</code> flag. If the <code>minify</code> module is in use, Mimosa will use <a href="https://github.com/mishoo/UglifyJS2">Uglify2</a> to compress JavaScript files and will single-line CSS.</p>
+                <p>Start <code>mimosa build</code> with the <code>--minify</code> flag turned on and any minification modules you have enabled will minify their assets.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa build --minify
@@ -317,7 +318,7 @@ $ mimosa build -mo</pre>
             <h4>Package Application (-p/--package)</h4>
             <div class="row">
               <div class="col-md-7">
-                <p>Provide a <code>--package</code> flag and Mimosa will invoke any installed packaging modules. Mimosa doesn't come with any packaging functionality by default, but modules like <a href="https://github.com/dbashford/mimosa-web-package">mimosa-web-package</a> are available and can be added to an application by simply adding the module name to the <code>mimosa-config</code> <code>modules</code> array.</p>
+                <p>Provide a <code>--package</code> flag and Mimosa will invoke any installed packaging modules. Mimosa doesn't come with any packaging functionality, but modules like <a href="https://github.com/dbashford/mimosa-web-package">mimosa-web-package</a> are available and can be added to an application by simply adding the module name to the <code>mimosa-config</code> <code>modules</code> array.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa build --package
@@ -339,7 +340,7 @@ $ mimosa build -i</pre>
             <h4>Force Erroring Out (-e/--errorout)</h4>
             <div class="row">
               <div class="col-md-7">
-                <p>Provide a <code>--errorout</code> flag and the <code>build</code> command will error out if it encounters any compiler (js, css, template) errors.  Without this flag set, <code>build</code> compiles everything and gracefully exits.</p>
+                <p>Provide a <code>--errorout</code> flag and the <code>build</code> command will error out if it encounters any errors that self-identify as build-breaking. Without this flag set, <code>build</code> will continue past errors.</p>
               </div>
               <div class="col-md-5">
                 <pre>$ mimosa build --errorout
@@ -366,7 +367,7 @@ $ mimosa build -P nameOfProfile</pre>
             <h5>mimosa skel:new, skel:search, skel:list</h5>
           </div>
           <div class="panel-body">
-            <p>Skeletons are starter apps that include things like MVC libraries (Backbone or Angular), CSS libraries (Bootstrap or Foundation), boilerplate assets, a notional file structure and possibly integration with things like Bower or Testem. Mimosa is admittedly very light on skeletons at the moment. About that...</p>
+            <p>Skeletons are starter apps that include things like MVC libraries (Backbone or Angular), CSS libraries (Bootstrap or Foundation), boilerplate assets, a notional file structure and possibly integration with things like Bower or Testem.</p>
             <p><span style="font-weight:bold">Mimosa needs skeletons!</span> <a href="https://github.com/dbashford/skelmimosa#contribute">Learn how to contribute!</a></p>
 
             <p><h3>skel:new [nameOfSkeleton] [directory]</h3> This command will install the named skeleton in the directory provided. If the directory is not provided, it will install the skeleton in the current directory.</p>

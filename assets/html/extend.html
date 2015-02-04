@@ -8,6 +8,8 @@
           <li><a href="#createdetail" title="Mimosa module details">Details</a></li>
           <li><a href="#interface" title="Mimosa's Module Interface">Module Interface</a></li>
           <li><a href="#registering" title="Registering a module">Registration</a></li>
+          <li><a href="#workflows" title="Workflows">Workflows</a></li>
+          <li><a href="#steps" title="Workflow Steps">Workflow Steps</a></li>
           <li><a href="#execution" title="Module execution"> Execution</a></li>
           <li><a href="#commands" title="Custom Commands">Custom Commands</a></li>
           <li><a href="#logging" title="Module execution">Logging</a></li>
@@ -73,23 +75,21 @@
             </ul>
 
             <h3>Module execution</h3>
-            <p>When Mimosa execute the functionality of a module, Mimosa passes along certain objects/functions</p>
+            <p>When Mimosa execute the functionality of a module, Mimosa passes along certain objects/functions.</p>
             <p>Lets look at the first few lines of the <a href="https://github.com/dbashford/mimosa-minify-html/blob/7c547af5603ce4dcaa3cb688bc2d334755988ec6/src/index.js#L6-L7">_execute</a> function.</p>
             <div class="row">
               <div class="col-md-4">
-                <p>Functions called during Mimosa's workflows are handed three objects.</p>
-                <ul class="top-split">
-                  <li>The resolved mimosa-config, including the configuration for the module being invoked.</li>
-                </ul>
+                <p>Mimosa workflows functions are invoked with three parameters.</p>
               </div>
               <div class="col-md-8">
                 <pre>var _execute = function ( mimosaConfig, options, next ) {
-  if ( options.files && options.files.length ) {
-    ...</pre>
+  if ( options.files && options.files.length ) { ...</pre>
               </div>
             </div>
 
             <ul>
+              <li>The resolved mimosa-config, including the configuration for the module being invoked.</li>
+
               <li>An <code class="option">options</code> object which contains the information regarding the current file(s) being processed.</li>
               <li>A <code class="option">next</code> callback which informs Mimosa it can continue on to the next step in the workflow.</li>
             </ul>
@@ -109,16 +109,16 @@
             <h3>Where to start?</h3>
             <p>First, check out the <a href="http://dbashford.github.io/making-a-mimosa-module/index.html">blog post</a>, and if you still have questions, come back here for more details.</p>
             <p>By far the easiest way to create a new module is to start with an existing one.  There are many modules available on GitHub.  Pick one that does something somewhat similar to what you want to do and make tiny modifications to it.</p>
-            <p>There are also module skeletons. <code>mimosa skel:new</code> can be used to pull in a skeleton. There are two available in the skeleton registry <code>mimosa-module-javascript</code> and <code>mimosa-module-coffeescript</code>. So, for instance, <code>mimosa skel:new mimosa-module-javascript</code> will pull in the JavaScript Mimosa module skeleton.</p>
+            <p>There is also a module skeleton. <code>mimosa skel:new mimosa-module-javascript</code> can be used to pull in the module skeleton.</p>
             <p>The only hard and fast rule with Mimosa modules is that when they are created they must be prefixed with 'mimosa-'. This makes them easy to find if someone else wants to use them, but also differentiates Mimosa's modules from all of the libraries both in <a href="https://npmjs.org/">NPM</a> and inside Mimosa. So you'll want to make sure that you keep the name of the module prefixed.</p>
 
-            <h3>What does a skeleton give me?</h3>
-            <p>The module skeletons provide a group of files to get module development started.</p>
+            <h3>What assets comprise a typical module?</h3>
+            <p>Here are a group of files you'll see in a typical module and that you'll find in the module skeleton.</p>
             <ul>
-              <li><code>package.json</code>: Those familiar with node.js recognize this file. This defines all sorts of metadata about a node project: the project name, dependencies, repo location, a description, and more. When a project is published to <a href="https://npmjs.org/">NPM</a>, NPM expects the <code>package.json</code> to be present. The <code>package.json</code> that Mimosa provides needs some editing. Many of the fields inside of it are placeholders and should be changed before publishing.</li>
-              <li><code>index.js</code>/<code>index.coffee</code>: This highly commented file defines a module's interface to Mimosa. Mimosa will use this file to execute a module's functionality. How a module is structured is entirely up to the developer, as long as the functions Mimosa expects are exported in the <code>index</code> file.</li>
-              <li><code>config.js</code>/<code>config.coffee</code>: This file is also highly commented and contains two functions that might need to be implemented: a function that returns the default configuration and a function that validates a user's configuration for the module. Mimosa calls these functions at different times. If a module has no configuration at all, the functions and the file can be removed, or they can be left and commented out in case configuration might be introduced later.</li>
-              <li>A <code>docs</code> folder: Using a tool called <a href="http://jashkenas.github.com/docco/">Docco</a> the comments in the <code>config</code> and <code>index</code> files have been turned into easy to read web pages, with comments alongside code. This is the real place to start. Read through the the Docco pages and get comfy with the concepts.</li>
+              <li><code>package.json</code>: Those familiar with node.js recognize this file. This defines all sorts of metadata about a node project: the project name, dependencies, repo location, a description, and more. When a project is published to <a href="https://npmjs.org/">NPM</a>, NPM expects the <code>package.json</code> to be present. The <code>package.json</code> that is inside the skeleton needs some editing. Many of the fields inside of it are placeholders and should be changed before publishing.</li>
+              <li><code>index.js</code>: This highly commented file defines a module's interface to Mimosa. Mimosa will use this file to execute a module's functionality. How a module is structured is entirely up to the developer, as long as the functions Mimosa expects are exported in the <code>index</code> file.</li>
+              <li><code>config.js</code>: This file is also highly commented and contains two functions that might need to be implemented: a function that returns the default configuration and a function that validates a user's configuration for the module. Mimosa calls these functions at different times. If a module has no configuration at all, the functions and the file can be removed, or they can be left and commented out in case configuration might be introduced later.</li>
+              <li>A <code>docs</code> folder: In the skeleton is a <code>docs</code> folder. Using a tool called <a href="http://jashkenas.github.com/docco/">Docco</a> the comments in the <code>config</code> and <code>index</code> files have been turned into easy to read web pages, with comments alongside code. This is a great place to start. Read through the the Docco pages and get comfy with the concepts.</li>
               <li>A starter <code>README.md</code> with a few things filled out.</li>
             </ul>
           </div>
@@ -128,7 +128,7 @@
             <h2 id="interface">Mimosa's module interface</h2>
           </div>
           <div class="panel-body">
-            <p>At different times, Mimosa will attempt to execute five different functions in a module. All of the functions are optional.</p>
+            <p>At different times, Mimosa will attempt to execute four different functions in a module. All of the functions are optional.</p>
 
             <h3>registerCommand(program, retrieveConfig) <br/> registerCommand(program, debug, retrieveConfig)</h3>
             <p>The <code>registerCommand</code> function is self-explanatory. This function is used to register new Mimosa commands.</p>
@@ -144,7 +144,6 @@
             <div class="row">
               <div class="col-md-6">
                 <p>A module's <code>defaults</code> function is called when Mimosa starts up and is used to assemble the configuration used by Mimosa. <code>defaults</code> should return a JavaScript object that is the default configuration for the module. That default configuration is merged with the user provided configuration to establish the full <code>mimosa-config</code>.</p>
-                <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
               </div>
               <div class="col-md-6">
                 <pre>exports.defaults = function() {
@@ -156,6 +155,8 @@
 };</pre>
               </div>
             </div>
+            <p>If a module doesn't have its own configuration, then this function does not need to be implemented.</p>
+
 
           <h3>validate(mimosaConfig, validators)</h3>
           <p>A module's <code>validate</code> function is called when Mimosa starts up and after Mimosa has put together the full <code>mimosa-config</code>. That full config is passed to the <code>validate</code> function of all modules and each module has the opportunity to ensure that the config settings are valid. This function should return an array of strings. Each string represents an error that the module has found with the config. If a module return any errors, Mimosa will print the errors and exit to give the user a chance to update the config.</p>
@@ -184,7 +185,7 @@
 };</pre>
           <p>The arguments passed in are:</p>
           <ul>
-            <li><code>mimosaConfig</code>: The full <code>mimosa-config</code> including added flags to indicate what sort of Mimosa command is being run (like isForceClean), and an added list of extensions being used by the application. A developer may decide based on the flags in the config to not register anything, which is fine. In the case of the minification example here, if the isMinify flag isn't turned on then the module doesn't register itself.</li>
+            <li><code>mimosaConfig</code>: The full <code>mimosa-config</code> including added flags to indicate what sort of Mimosa command is being run (like <code>isForceClean</code>), and an added list of extensions being used by the application. A developer may decide based on the flags in the config to not register anything, which is fine. In the case of the minification example above, if the <code>isMinify</code> flag isn't turned on then the module doesn't register itself.</li>
             <li><code>register</code>: This is a function handed to a module as a means to register a module with Mimosa. More information about how to use this register function follows in the next section.</li>
           </ul>
         </div>
@@ -195,248 +196,261 @@
         </div>
         <div class="panel-body">
 
-        <p>As mentioned in a previous section, a module should implement a <code>registration</code> function that Mimosa calls when it starts up. When Mimosa calls the module's <code>registration</code> function, Mimosa passes the enriched <code>mimosa-config</code> and a <code>register</code> callback. The <code>register</code> callback is what a module uses to inform Mimosa what function in the module to call and under what circumstances to call it. The <code>register</code> function takes the following four parameters:</p>
-        <pre>register(['add','update','buildFile'],      'afterCompile', _minifyJS, e.javascript);
+          <p>As mentioned in a previous section, a module should implement a <code>registration</code> function that Mimosa calls when it starts up. When Mimosa calls the module's <code>registration</code> function, Mimosa passes the enriched <code>mimosa-config</code> and a <code>register</code> callback. The <code>register</code> callback is what a module uses to inform Mimosa what function in the module to call and under what circumstances to call it. The <code>register</code> function takes the following four parameters:</p>
+          <pre>register(['add','update','buildFile'],      'afterCompile', _minifyJS, e.javascript);
 register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.template);</pre>
-        <ol>
-          <li>A list of workflows, an array of strings. Pick one-to-many workflows depending on the sort of task the module accomplishes. The possible values, like buildFile, buildExtension, postBuild, add, update, and remove, are explained below.</li>
-          <li>A workflow step, a string. A workflow step for the selected workflows. For example, for the 'update' workflow, a module's code might be executed 'afterCompile'. The list of steps for each workflow is explained below.</li>
-          <li>Module callback, a function. This is the function Mimosa will call when processing reaches the workflow(s) and step called out in the previous parameters.</li>
-          <li>An optional array of extensions upon which to execute the callback. If the file or extension being processed doesn't match one of these extensions, the callback will not be executed. The extensions refer to the original extension of the file being processed, so in the case of a CoffeeScript file it would be 'coffee' and not 'js'. The passed in <code>mimosaConfig</code> object has an <code>extensions</code> object a module can use to cover all of the desired extensions. The <code>extensions</code> object has 4 properties: <code>javascript</code>, <code>css</code>, <code>template</code>, and <code>copy</code>. If no extensions are provided, Mimosa will send all files/extensions through the module.</li>
-        </ol>
-        <p>Notice that the register function is executed multiple times. There is nothing stopping a module from registering multiple times for multiple workflows.</p>
-
-        <h3>Workflows <small>categorizing application lifecycles</small></h3>
-        <p>A workflow is a set of steps an asset, a group of assets, or an application can go through. There are three groups of workflows that correspond to the three main processing types for an applciation: build, watch and clean.</p>
-        <div class="row">
-          <div class="col-md-4">
-            <h4>Build Workflows</h4>
-            <p>Modules registered to take place during the build workflows perform project builds. The build workflows all occur in order during Mimosa's startup. <code>preBuild</code> occurs first, followed by <code>buildFile</code>, <code>buildExtension</code>, and <code>postBuild</code>.</p>
-            <h5>preBuild</h5>
-            <p><code>preBuild</code> is processed before any asset is handled. This is the workflow for preparing the file system and moving files around in preparation for individual file processing.</p>
-            <h5>buildFile</h5>
-            <p>During <code>buildFile</code> each file in the configured <code>watch.sourceDir</code> is individually processed. This step is when, for instance, CoffeeScript files are compiled to JavaScript and written to <code>watch.compiledDir</code>. It is also when images are copied to the <code>watch.compiledDir</code>.</p>
-            <p>Some assets, like micro-template files (Handlebars or Dust) and CSS preprocessor files (SASS or LESS) are not processed during this step as they, during startup, need to be dealt with as a group rather than individually.</p>
-            <h5>buildExtension</h5>
-            <p>After all of the assets are processed individually, <code>buildExtension</code> makes another pass through all the assets, but this time to handle extension-wide processing. Now is when Mimosa handles the file types that need to be managed as a group like micro-templates and CSS preprocessors.</p>
-            <p>For instance, if a project uses SASS, then it might have 20 includes/partials that result in two top-level files. Mimosa will process all 20 files at once and recognize that only two files need to be compiled.</p>
-            <h5>postBuild</h5>
-            <p>After the extensions are finished, individual asset handling is finished. <code>postBuild</code> is when post asset completion tasks, like asset optimization, take place. <code>postBuild</code> is also when servers are started. If a module was being built for something like installing the app to Heroku, then <code>postBuild</code> is a candidate workflow.</p>
-          </div>
-          <div class="col-md-4">
-            <h4>Watch Workflows</h4>
-            <p>If <code>mimosa build</code> was executed, then after <code>postBuild</code> is done, Mimosa exits. If <code>mimosa watch</code> is executed, then Mimosa keeps running and monitors the project's codebase for changes. When changes occur, the watch workflows are executed. The watch types are very straight forward.</p>
-            <p>For watch types no delineation exists between file and extension. For each type only a single file is processed at a time. So modules like the CSS and micro-templates compilers perform extension-wide tasks based on the single file that was updated.</p>
-            <h5>add</h5>
-            <p>The <code>add</code> workflow is kicked off when a new file is added to the <code>watch.sourceDir</code> directory.</p>
-            <h5>update</h5>
-            <p>The <code>update</code> workflow is run when an existing file in the <code>watch.sourceDir</code> directory is saved.</p>
-            <h5>remove</h5>
-            <p>The <code>remove</code> workflow is executed when a file in the <code>watch.sourceDir</code> directory is deleted.</p>
-          </div>
-          <div class="col-md-4">
-            <h4>Clean Workflows</h4>
-            <p>The clean workflows execute when using <code>mimosa clean</code> (but not currently when <code>--force</code> is used), when the <code>--clean</code> flag is used with <code>mimosa watch</code> and at the beginning of a <code>mimosa build</code>. These workflows are responsible for removing compiled, copied and created assets and to generally return a project to a pre-Mimosa state. The clean workflows are always executed together and in order.</p>
-            <p>Modules can create and deposit files during the other workflows. A good module will use the clean workflows to tidy up after itself.</p>
-            <h5>preClean</h5>
-            <p>The <code>preClean</code> workflow is executed first and is an opportunity to handle files before <code>cleanFile</code> comes through and deals with each file individually.</p>
-            <h5>cleanFile</h5>
-            <p>Each file in the <code>watch.sourceDir</code> is passed through the <code>cleanFile</code> workflow one at a time.</p>
-            <h5>postClean</h5>
-            <p>The <code>postClean</code> workflow is the final opportunity to tidy up files and directories. This is when, for example, a module might make a pass to remove any empty directories the module might be responsible for that remain after the files have been handled.</p>
-          </div>
+          <ol>
+            <li>A list of workflows, an array of strings. Pick one-to-many workflows depending on the sort of task the module accomplishes. The possible values, like <code>buildFile</code>, <code>buildExtension</code>, <code>postBuild</code>, <code>add</code>, <code>update</code>, and <code>remove</code>, are explained below.</li>
+            <li>A workflow step, a string. A workflow step for the selected workflows. For example, for the <code>update</code> workflow, a module's code might be executed <code>afterCompile</code>. The list of steps for each workflow is explained below.</li>
+            <li>Module callback, a function. This is the function Mimosa will call when processing reaches the workflow(s) and step called out in the previous parameters.</li>
+            <li>An optional array of extensions upon which to execute the callback. If the file or extension being processed doesn't match one of these extensions, the callback will not be executed. The extensions refer to the original extension of the file being processed, so in the case of a CoffeeScript file it would be 'coffee' and not 'js'. The passed in <code>mimosaConfig</code> object has an <code>extensions</code> object a module can use to cover all of the desired extensions. The <code>extensions</code> object has 4 properties: <code>javascript</code>, <code>css</code>, <code>template</code>, and <code>copy</code>. If no extensions are provided, Mimosa will send all files/extensions through the module.</li>
+          </ol>
+          <p>Notice that the register function is executed multiple times. There is nothing stopping a module from registering multiple times for multiple workflows.</p>
         </div>
-
-        <h3>Workflow Steps <small>a list of processing steps for each workflow</small></h3>
-        <p>The previous section covered each of the workflows. Each workflow has many steps within it. An example is the best way to illustrate how steps relate to workflows.</p>
-        <p>The simplest workflow is <code>update</code>. If a CoffeeScript file is saved inside the <code>watch.sourceDir</code> while Mimosa is running, here is what might happen:</p>
-        <ol>
-          <li>The first step executed is <code>init</code>. During the <code>init</code> step, Mimosa will generate some information about the asset to be used by future steps. For instance it will set a flag into the <code>options</code> object (discussed in the next section) to indicate that the file is a JavaScript file, and it will set flags to indicate if the file is a vendor file or not.</li>
-          <li>During a step named <code>read</code> the modified CoffeeScript file is read in.</li>
-          <li>The <code>compile</code> step is next. Here the CoffeeScript gets compiled to JavaScript.</li>
-          <li>Next is <code>afterCompile</code>. Here the compiled JavaScript is linted to get feedback regarding code quality.</li>
-          <li>If minification was selected, <code>beforeWrite</code> is where the compiled JavaScript would be minified.</li>
-          <li>During the <code>write</code> step the compiled JavaScript is written to the <code>watch.compiledDir</code></li>
-          <li>The <code>afterWrite</code> step is where optimization takes place if that is selected.</li>
-        </ol>
-        <p>Also, many modules can register to be executed for the same workflow and step, they'll just be executed in order that they get registered which is determined by their order in the <code>modules</code> array in the <code>mimosa-config</code>.</p>
-        <p>When building a module, a developer needs to decide which step is the right place to execute a module's functionality. For instance, if building a module that will run <a href="http://www.coffeelint.org/">CoffeeLint</a> over CoffeeScript to determine CoffeeScript code quality, then <code>afterRead</code> is probably the best step. If, for instance, <code>beforeRead</code> is used, then Mimosa will have not yet read in the file, and there will be nothing on which to run CoffeeLint.</p>
-
-        <h3>Workflow Type & Step Breakdown</h3>
-        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-          <a data-type="build" href="#" class="btn btn-primary active" role="button">Build Workflows</a>
-          <a data-type="watch" href="#" class="btn btn-primary" role="button">Watch Workflows</a>
-          <a data-type="clean" href="#" class="btn btn-primary" role="button">Clean Workflows</a>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading large-heading">
+          <h2 id="workflows">Workflows <small>categorizing application lifecycles</small></h2>
         </div>
+        <div class="panel-body">
 
-        <div data-type="build" class="row workflow-steps">
-          <div class="col-md-3">
-            <h4>preBuild</h4>
-            <ul>
-              <li>init</li>
-              <li>complete</li>
-            </ul>
-          </div>
-
-          <div class="col-md-3">
-            <h4>buildFile</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>betweenReadCompile</li>
-              <li>beforeCompile</li>
-              <li>compile</li>
-              <li>afterCompile</li>
-              <li>betweenCompileWrite</li>
-              <li>beforeWrite</li>
-              <li>write</li>
-              <li>afterWrite</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4>buildExtension</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>betweenReadCompile</li>
-              <li>beforeCompile</li>
-              <li>compile</li>
-              <li>afterCompile</li>
-              <li>betweenCompileWrite</li>
-              <li>beforeWrite</li>
-              <li>write</li>
-              <li>afterWrite</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h4>postBuild</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeOptimize</li>
-              <li>optimize</li>
-              <li>afterOptimize</li>
-              <li>beforeServer</li>
-              <li>server</li>
-              <li>afterServer</li>
-              <li>beforePackage</li>
-              <li>package</li>
-              <li>afterPackage</li>
-              <li>beforeInstall</li>
-              <li>install</li>
-              <li>afterInstall</li>
-              <li>complete</li>
-            </ul>
-          </div>
-        </div>
-
-        <div data-type="watch" class="row workflow-steps hide">
-          <div class="col-md-4">
-            <h4>add</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>betweenReadCompile</li>
-              <li>beforeCompile</li>
-              <li>compile</li>
-              <li>afterCompile</li>
-              <li>betweenCompileWrite</li>
-              <li>beforeWrite</li>
-              <li>write</li>
-              <li>afterWrite</li>
-              <li>betweenWriteOptimize</li>
-              <li>beforeOptimize</li>
-              <li>optimize</li>
-              <li>afterOptimize</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>update</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>betweenReadCompile</li>
-              <li>beforeCompile</li>
-              <li>compile</li>
-              <li>afterCompile</li>
-              <li>betweenCompileWrite</li>
-              <li>beforeWrite</li>
-              <li>write</li>
-              <li>afterWrite</li>
-              <li>betweenWriteOptimize</li>
-              <li>beforeOptimize</li>
-              <li>optimize</li>
-              <li>afterOptimize</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>remove</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>beforeDelete</li>
-              <li>delete</li>
-              <li>afterDelete</li>
-              <li>beforeCompile</li>
-              <li>compile</li>
-              <li>afterCompile</li>
-              <li>betweenCompileWrite</li>
-              <li>beforeWrite</li>
-              <li>write</li>
-              <li>afterWrite</li>
-              <li>betweenWriteOptimize</li>
-              <li>beforeOptimize</li>
-              <li>optimize</li>
-              <li>afterOptimize</li>
-              <li>complete</li>
-            </ul>
-          </div>
-        </div>
-
-        <div data-type="clean" class="row workflow-steps hide">
-          <div class="col-md-4">
-            <h4>preClean</h4>
-            <ul>
-              <li>init</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>cleanFile</h4>
-            <ul>
-              <li>init</li>
-              <li>beforeRead</li>
-              <li>read</li>
-              <li>afterRead</li>
-              <li>beforeDelete</li>
-              <li>delete</li>
-              <li>afterDelete</li>
-              <li>complete</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>postClean</h4>
-            <ul>
-              <li>init</li>
-              <li>complete</li>
-            </ul>
+          <p>A workflow is a set of steps an asset, a group of assets, or an application can go through. There are three groups of workflows that correspond to the three main processing types for an applciation: build, watch and clean.</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h4>Build Workflows</h4>
+              <p>Modules registered to take place during the build workflows perform project builds. The build workflows all occur in order during Mimosa's startup. <code>preBuild</code> occurs first, followed by <code>buildFile</code>, <code>buildExtension</code>, and <code>postBuild</code>.</p>
+              <h5>preBuild</h5>
+              <p><code>preBuild</code> is processed before any asset is handled. This is the workflow for preparing the file system and moving files around in preparation for individual file processing.</p>
+              <h5>buildFile</h5>
+              <p>During <code>buildFile</code> each file in the configured <code>watch.sourceDir</code> is individually processed. This step is when, for instance, CoffeeScript files are compiled to JavaScript and written to <code>watch.compiledDir</code>. It is also when images are copied to the <code>watch.compiledDir</code>.</p>
+              <p>Some assets, like micro-template files (Handlebars or Dust) and CSS preprocessor files (SASS or LESS) are not processed during this step as they, during startup, need to be dealt with as a group rather than individually.</p>
+              <h5>buildExtension</h5>
+              <p>After all of the assets are processed individually, <code>buildExtension</code> makes another pass through all the assets, but this time to handle extension-wide processing. Now is when Mimosa handles the file types that need to be managed as a group like micro-templates and CSS preprocessors.</p>
+              <p>For instance, if a project uses SASS, then it might have 20 includes/partials that result in two top-level files. Mimosa will process all 20 files at once and recognize that only two files need to be compiled.</p>
+              <h5>postBuild</h5>
+              <p>After the extensions are finished, individual asset handling is finished. <code>postBuild</code> is when post asset completion tasks, like asset optimization, take place. <code>postBuild</code> is also when servers are started. If a module was being built for something like installing the app to Heroku, then <code>postBuild</code> is a candidate workflow.</p>
+            </div>
+            <div class="col-md-4">
+              <h4>Watch Workflows</h4>
+              <p>If <code>mimosa build</code> was executed, then after <code>postBuild</code> is done, Mimosa exits. If <code>mimosa watch</code> is executed, then Mimosa keeps running and monitors the project's codebase for changes. When changes occur, the watch workflows are executed. The watch types are very straight forward.</p>
+              <p>For watch types no delineation exists between file and extension. For each type only a single file is processed at a time. So modules like the CSS and micro-templates compilers perform extension-wide tasks based on the single file that was updated.</p>
+              <h5>add</h5>
+              <p>The <code>add</code> workflow is kicked off when a new file is added to the <code>watch.sourceDir</code> directory.</p>
+              <h5>update</h5>
+              <p>The <code>update</code> workflow is run when an existing file in the <code>watch.sourceDir</code> directory is saved.</p>
+              <h5>remove</h5>
+              <p>The <code>remove</code> workflow is executed when a file in the <code>watch.sourceDir</code> directory is deleted.</p>
+            </div>
+            <div class="col-md-4">
+              <h4>Clean Workflows</h4>
+              <p>The clean workflows execute when using <code>mimosa clean</code> (but not currently when <code>--force</code> is used), when the <code>--clean</code> flag is used with <code>mimosa watch</code> and at the beginning of a <code>mimosa build</code>. These workflows are responsible for removing compiled, copied and created assets and to generally return a project to a pre-Mimosa state. The clean workflows are always executed together and in order.</p>
+              <p>Modules can create and deposit files during the other workflows. A good module will use the clean workflows to tidy up after itself.</p>
+              <h5>preClean</h5>
+              <p>The <code>preClean</code> workflow is executed first and is an opportunity to handle files before <code>cleanFile</code> comes through and deals with each file individually.</p>
+              <h5>cleanFile</h5>
+              <p>Each file in the <code>watch.sourceDir</code> is passed through the <code>cleanFile</code> workflow one at a time.</p>
+              <h5>postClean</h5>
+              <p>The <code>postClean</code> workflow is the final opportunity to tidy up files and directories. This is when, for example, a module might make a pass to remove any empty directories the module might be responsible for that remain after the files have been handled.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="panel panel-default">
+        <div class="panel-heading large-heading">
+          <h2 id="steps">Workflow Steps <small>a list of processing steps for each workflow</small></h2>
+        </div>
+        <div class="panel-body">
+
+          <p>The previous section covered each of the workflows. Each workflow has many steps within it. An example is the best way to illustrate how steps relate to workflows.</p>
+          <p>The simplest workflow is <code>update</code>. If a CoffeeScript file is saved inside the <code>watch.sourceDir</code> while Mimosa is running, here is what might happen:</p>
+          <ol>
+            <li>The first step executed is <code>init</code>. During the <code>init</code> step, Mimosa will generate some information about the asset to be used by future steps. For instance it will set a flag into the <code>options</code> object (discussed in the next section) to indicate that the file is a JavaScript file, and it will set flags to indicate if the file is a vendor file or not.</li>
+            <li>During a step named <code>read</code> the modified CoffeeScript file is read in.</li>
+            <li>The <code>compile</code> step is next. Here the CoffeeScript gets compiled to JavaScript.</li>
+            <li>Next is <code>afterCompile</code>. Here the compiled JavaScript is linted to get feedback regarding code quality.</li>
+            <li>If minification was selected, <code>beforeWrite</code> is where the compiled JavaScript would be minified.</li>
+            <li>During the <code>write</code> step the compiled JavaScript is written to the <code>watch.compiledDir</code></li>
+            <li>The <code>afterWrite</code> step is where optimization takes place if that is selected.</li>
+          </ol>
+          <p>Modules can register to be executed for the same workflow and step. This tie is broken by the order the modules appear in the <code>modules</code> array in the <code>mimosa-config</code>.</p>
+          <p>When building a module, a developer needs to decide which step is the right place to execute a module's functionality. For instance, if building a module that will run <a href="http://www.coffeelint.org/">CoffeeLint</a> over CoffeeScript to determine CoffeeScript code quality, then <code>afterRead</code> is probably the best step. If, for instance, <code>beforeRead</code> is used, then Mimosa will have not yet read in the file, and there will be nothing on which to run CoffeeLint.</p>
+
+          <h3>Workflow Type & Step Breakdown</h3>
+          <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+            <a data-type="build" href="#" class="btn btn-primary active" role="button">Build Workflows</a>
+            <a data-type="watch" href="#" class="btn btn-primary" role="button">Watch Workflows</a>
+            <a data-type="clean" href="#" class="btn btn-primary" role="button">Clean Workflows</a>
+          </div>
+
+          <div data-type="build" class="row workflow-steps">
+            <div class="col-md-3">
+              <h4>preBuild</h4>
+              <ul>
+                <li>init</li>
+                <li>complete</li>
+              </ul>
+            </div>
+
+            <div class="col-md-3">
+              <h4>buildFile</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>betweenReadCompile</li>
+                <li>beforeCompile</li>
+                <li>compile</li>
+                <li>afterCompile</li>
+                <li>betweenCompileWrite</li>
+                <li>beforeWrite</li>
+                <li>write</li>
+                <li>afterWrite</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h4>buildExtension</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>betweenReadCompile</li>
+                <li>beforeCompile</li>
+                <li>compile</li>
+                <li>afterCompile</li>
+                <li>betweenCompileWrite</li>
+                <li>beforeWrite</li>
+                <li>write</li>
+                <li>afterWrite</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h4>postBuild</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeOptimize</li>
+                <li>optimize</li>
+                <li>afterOptimize</li>
+                <li>beforeServer</li>
+                <li>server</li>
+                <li>afterServer</li>
+                <li>beforePackage</li>
+                <li>package</li>
+                <li>afterPackage</li>
+                <li>beforeInstall</li>
+                <li>install</li>
+                <li>afterInstall</li>
+                <li>complete</li>
+              </ul>
+            </div>
+          </div>
+
+          <div data-type="watch" class="row workflow-steps hide">
+            <div class="col-md-4">
+              <h4>add</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>betweenReadCompile</li>
+                <li>beforeCompile</li>
+                <li>compile</li>
+                <li>afterCompile</li>
+                <li>betweenCompileWrite</li>
+                <li>beforeWrite</li>
+                <li>write</li>
+                <li>afterWrite</li>
+                <li>betweenWriteOptimize</li>
+                <li>beforeOptimize</li>
+                <li>optimize</li>
+                <li>afterOptimize</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>update</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>betweenReadCompile</li>
+                <li>beforeCompile</li>
+                <li>compile</li>
+                <li>afterCompile</li>
+                <li>betweenCompileWrite</li>
+                <li>beforeWrite</li>
+                <li>write</li>
+                <li>afterWrite</li>
+                <li>betweenWriteOptimize</li>
+                <li>beforeOptimize</li>
+                <li>optimize</li>
+                <li>afterOptimize</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>remove</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>beforeDelete</li>
+                <li>delete</li>
+                <li>afterDelete</li>
+                <li>beforeCompile</li>
+                <li>compile</li>
+                <li>afterCompile</li>
+                <li>betweenCompileWrite</li>
+                <li>beforeWrite</li>
+                <li>write</li>
+                <li>afterWrite</li>
+                <li>betweenWriteOptimize</li>
+                <li>beforeOptimize</li>
+                <li>optimize</li>
+                <li>afterOptimize</li>
+                <li>complete</li>
+              </ul>
+            </div>
+          </div>
+
+          <div data-type="clean" class="row workflow-steps hide">
+            <div class="col-md-4">
+              <h4>preClean</h4>
+              <ul>
+                <li>init</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>cleanFile</h4>
+              <ul>
+                <li>init</li>
+                <li>beforeRead</li>
+                <li>read</li>
+                <li>afterRead</li>
+                <li>beforeDelete</li>
+                <li>delete</li>
+                <li>afterDelete</li>
+                <li>complete</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4>postClean</h4>
+              <ul>
+                <li>init</li>
+                <li>complete</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <div class="panel panel-default">
       <div class="panel-heading large-heading">
