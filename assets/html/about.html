@@ -68,7 +68,7 @@
             <h2 id="git">"Error: git is not installed or not in the PATH"</h2>
           </div>
           <div class="panel-body">
-            <p>By default Mimosa uses Bower.  Bower fetches scripts and libraries from GitHub.  So, Mimosa has a dependency on git because it uses Bower.  If you don't want to install git, then you cannot use Bower.  That isn't a problem!  Just remove <code>"bower"</code> from the list of modules in your <code>mimosa-config</code>.</p>
+            <p>Using Bower? Bower fetches scripts and libraries from GitHub which  means it has a dependency on git. If you don't want to install git, then you cannot use Bower.  That isn't a problem!  Just remove <code>"bower"</code> from the list of modules in your <code>mimosa-config</code>.</p>
           </div>
         </div>
 
@@ -109,7 +109,7 @@ at exports.exec (child_process.js:573:18)</pre>
             </div>
             <div class="panel-body">
               <p>I see search engine traffic coming to the Mimosa site having used the search term "mimosa without requirejs" quite a bit.</p>
-              <p>Mimosa certainly provides a lot of sugar for RequireJS users, and it comes configured with RequireJS support enabled, but Mimosa is absolutely usable if you aren't using RequireJS. All Mimosa truly relies on RequireJS for is concatenation of scripts. Mimosa can compile, lint, minify, serve and provide live reload out of the box without using RequireJS at all.</p>
+              <p>Mimosa's mimosa-require module certainly provides a lot of sugar for RequireJS users, but Mimosa is absolutely usable if you aren't using RequireJS. There are other module loaders you can use, like Browserify, or you can not use a loader module at all.</p>
               <p>The key changes to any Mimosa project not using RequireJS are</p>
               <ul>
                 <li>Remove the <code>require</code> module from the list of configured modules</li>
