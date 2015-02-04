@@ -25,7 +25,7 @@
             <p>When Mimosa starts up, it expects to find a <code>mimosa-config.coffee</code> or a <code>mimosa-config.js</code> file in current directory.  The <code>mimosa-config</code> file configures all that Mimosa does.
             <h3>How to get it?</h3>
             <p>Executing <code>mimosa new</code> and creating a new project will get you a good starter <code>mimosa-config</code>.</p>
-            <p>Or you could make an empty config. Create a file named <code>mimosa-config.js</code> inside the directory where you wish to start a project. Inside that file, place the following configuration:</p>
+            <p>Or you can start with an empty config. Create a file named <code>mimosa-config.js</code> inside the directory where you wish to start a project. Inside that file, place the following configuration:</p>
             <pre>exports.config = {
   "modules": []
 }</pre>
@@ -33,8 +33,6 @@
 
             <h3>Why is my config file so small?</h3>
             <p>One of Mimosa's goals was to have developers spending as little time fiddling with config as possible.  The more time spent looking at config, the more time spent understanding it, and playing with it, then the less time is spent actually writing code. To that end, while highly configurable, Mimosa comes set up with a really sane set of defaults/conventions built-in.</p>
-            <h3>When you want to change the config...</h3>
-            <p>First stop and consider if there is any way Mimosa can help. We'd rather build more smarts into Mimosa than to force more config maintenance. For instance, if you feel certain jshint options should be enabled by default for CoffeeScript applications, or another file extension should be added to the <a href="https://github.com/dbashford/mimosa-copy">copy compiler</a>, then <a href="https://github.com/dbashford/mimosa/issues">let us know</a>!</p>
           </div>
         </div>
 
@@ -46,15 +44,15 @@
             </h2>
           </div>
           <div class="panel-body">
-            <p>Profiles allow for overriding of <code>mimosa-config</code> settings via external config files. A project might have a "build" profile that is used for automated builds, and for those builds maybe certain modules aren't needed. For instance the "lint" module can be left out of the modules array.</p>
+            <p>Profiles allow for overriding of <code>mimosa-config</code> settings via external config files. A project might have a "build" profile that is used for automated builds, and for those builds maybe certain modules aren't needed. For instance the <code>"jshint"</code> module can be left out of the <code>modules</code> array.</p>
             <p>Profiles are implemented as <code>mimosa-config</code> files. Any properties of a project's <code>mimosa-config</code> that need to be overridden would be the properties placed in a profile file.</p>
-            <p>By default, profile files should be located in a <code>profiles/</code> directory at the root of a Mimosa project. This location can be overridden via the <code>profileLocation</code> property in the project's <code>mimosa-config</code>.  <code>profileLocation</code> is relative to the root of the project.</p>
-            <p>Profiles can be used for the <code>watch</code>, <code>build</code> and <code>clean</code> commands. Each of those commands have a <code>-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code>mimosa-config</code>. Ex: <code>mimosa build -P build</code>.</p>
+            <p>By default, profile files should be located in a <code>profiles/</code> directory at the root of a Mimosa project. This location can be overridden via the <code>profileLocation</code> property in the project's <code>mimosa-config</code>. <code>profileLocation</code> is relative to the root of the project.</p>
+            <p>Profiles can be used for the <code>watch</code>, <code>build</code> and <code>clean</code> commands. Each of those commands have a <code>-P/--profile</code> flag. Follow the flag with the name of the profile to use and Mimosa will pull that profile in and use it to override the settings in the <code>mimosa-config</code>. Ex: <code>mimosa build -P build</code>. Other commands may support profiles, check the module documentation for any modules that introduce commands.</p>
             <p>If necessary the root <code>mimosa-config</code> can be accessed in your profile. For more information, see <a href="https://github.com/dbashford/mimosa/issues/399">this GitHub issue</a></p>
             <h3>Multiple Profiles</h3>
             <p>New with version <code>2.2.14</code> of Mimosa, multiple profiles can be provided at the command line.  Ex: <code>mimosa build -P foo#bar</code>.  Profiles are applied from left to right.  So, in this case if the <code>bar</code> profile contains the same configuration as the <code>foo</code> profile, the <code>bar</code> profile information will overwrite foo.</p>
             <h3>Default Profiles</h3>
-            <p>New with version <code>2.3.2</code> of Mimosa is the introduction of default profiles. Profiles are a powerful feature. Using a profile is easy enough, but if you have a set of profiles that you are constantly applying, you find yourself typing <code>-P profileName</code> quite a bit.  Now you can keep a default profile in a <code>`.mimosa_profile`</code> file at the root of your project.  This file, a <code>\n</code>-delimited list of profile names, will be the first profiles applied.  You can also append <code>-P profileName</code> and those profiles will be applied last (and therefore override any settings in a default profile).</p>
+            <p>New with version <code>2.3.2</code> of Mimosa is the introduction of default profiles. Using a profile is easy enough, but if you have a set of profiles that you are constantly applying, you find yourself typing <code>-P profileName</code> quite a bit.  Now you can keep a default profile in a <code>.mimosa_profile</code> file at the root of your project. Inside this file should be a <code>\n</code>-delimited list of profile names. You can also append <code>-P profileName</code> and those profiles will be applied last (and therefore override any settings in a default profile).</p>
           </div>
         </div>
 

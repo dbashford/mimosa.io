@@ -17,9 +17,11 @@
             <h2 id="mod">What is a Module?</h2>
           </div>
           <div class="panel-body">
-            <p>A Mimosa module is a node.js package that, when installed inside Mimosa, can be used as part of Mimosa's workflows. Mimosa is able to use a module because modules implement a simple interface Mimosa can access.</p>
-            <p>Modules are collaborative in nature. They are all able to access one another. One good example is the <a href="https://github.com/brzpegasus/mimosa-dependency-graph">dependency-graph</a> module which creates d3 visualizations depicting an application's dependency tree. Rather than needing to build the dependency tree itself, that module can utilize the data already available in the <code>mimosa-require</code> module, which exposes a dependency object. This lets the module author just focus on writing d3 to create a cool visualization.</p>
-            <p>Also, unlike other build tools, Mimosa modules do not rely on communicating via the file system. Mimosa's core is responsible for lining up the modules on an execution conveyor belt, passing information from one module to another directly. So, for example, a CoffeeScript file can be read, compiled, linted, minified, written to disk and live reload-ed in the browser -- effectively being touched by 6 modules -- with only two IOs: the read of the input CoffeeScript and the write of the output minified JavaScript. This keeps Mimosa fast. Live Reload will kick off before you even get a chance to toggle back to the browser.</p>
+            <p>A Mimosa module is a node.js package that, when installed inside Mimosa or your project, can be used as part of Mimosa's workflows. Mimosa is able to use a module because modules implement a simple interface Mimosa understands and can use.</p>
+            <h4>Process Files in Memory</h4>
+            <p>Unlike other build tools, Mimosa modules do not rely on communicating with each other via the file system. Mimosa's core is responsible for lining up the modules on an execution conveyor belt, passing information from one module to another directly. So, for example, a CoffeeScript file can be read, compiled, linted, minified, written to disk and live reload-ed in the browser -- effectively being touched by 6 modules -- with only two IOs: the read of the input CoffeeScript and the write of the output minified JavaScript. This keeps Mimosa fast. Live Reload will kick off before you even get a chance to toggle back to the browser.</p>
+            <h4>Collaborative</h4>
+            <p>Modules are collaborative in nature. They can access other modules directly. One good example is the <a href="https://github.com/brzpegasus/mimosa-dependency-graph">dependency-graph</a> module which creates d3 visualizations depicting an application's dependency tree. Rather than needing to build the dependency tree itself, that module can utilize the data already available in the <code>mimosa-require</code> module, which exposes a dependency object. This lets the module author just focus on using d3 to create a cool visualization.</p>
           </div>
         </div>
 
@@ -232,7 +234,7 @@
                   <td>Use ES6 generator syntax today. This module compiles ES6 generators down to ES5 compatible javascript.</td>
                 </tr>
                 <tr>
-                  <td><a href="https://github.com/dbashford/mimosa-esperanto-es6-modules">esperanto-es6-modules</a></td>
+                  <td nowrap><a href="https://github.com/dbashford/mimosa-esperanto-es6-modules">esperanto-es6-modules</a></td>
                   <td>Use ES6 module syntax today. This module compiles ES6 module syntax down to AMD or CommonJS.</td>
                 </tr>
                 <tr>
@@ -284,7 +286,7 @@
                   <td><a href="http://karma-runner.github.io/0.8/index.html">Karma</a> test runner integration.</td>
                 </tr>
                 <tr>
-                  <td><a href="https://npmjs.org/package/mimosa-karma-enterprise">karma-enterprise</a></td>
+                  <td nowrap><a href="https://npmjs.org/package/mimosa-karma-enterprise">karma-enterprise</a></td>
                   <td>Advanced and maintained <a href="http://karma-runner.github.io/0.8/index.html">Karma</a> test runner integration.</td>
                 </tr>
                 <tr>
@@ -364,7 +366,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a href="https://github.com/dbashford/mimosa-npm-web-dependencies">npm-web-dependencies</a></td>
+                  <td nowrap><a href="https://github.com/dbashford/mimosa-npm-web-dependencies">npm-web-dependencies</a></td>
                   <td>Install web dependencies from NPM using Browserify.</td>
                 </tr>
                 <tr>
@@ -496,7 +498,7 @@
                   <td>Find dependencies and include them in r.js module config include arrays.</td>
                 </tr>
                 <tr>
-                  <td><a href="https://github.com/twill88/mimosa-requirebuild-textplugin-module-include">requirebuild-textplugin-module-include</a></td>
+                  <td nowrap><a href="https://github.com/twill88/mimosa-requirebuild-textplugin-module-include">requirebuild-textplugin-module-include</a></td>
                   <td>Find text dependencies and include them in r.js module config include arrays.</td>
                 </tr>
               </tbody>
@@ -512,7 +514,7 @@
                 </tr>
               </thead>
               <tr>
-                <td><a href="https://github.com/dbashford/mimosa-ember-module-import">ember-module-import</a></td>
+                <td nowrap><a href="https://github.com/dbashford/mimosa-ember-module-import">ember-module-import</a></td>
                 <td>Builds ember.js module manifests for an AMD/CommonJS-based application</td>
               </tr>
               <tr>
@@ -599,7 +601,7 @@
                   <td>This module will automatically prefix your vendor CSS and provides source map support.</td>
                 </tr>
                 <tr>
-                  <td><a href="https://github.com/dbashford/mimosa-handlebars-on-window">handlebars-on-window</a></td>
+                  <td nowrap><a href="https://github.com/dbashford/mimosa-handlebars-on-window">handlebars-on-window</a></td>
                   <td>Use this module to alter handlebars.js to place Handlebars on the window object.</td>
                 </tr>
                 <tr>
@@ -634,15 +636,15 @@
           <div class="panel-body">
             <p>There are several ways to install a module.</p>
 
-            <h3>Easiest Way: add the module name to the mimosa-config modules array</h3>
-            <p>One way to install a module is to just add the name to the <a href="./configuration.html#modules">modules</a> array in the <code>mimosa-config</code>. This is a shortcut for the project level <code>npm install</code> (covered next). The next time Mimosa is started for that project it will install the module into the Mimosa project from NPM.</p>
-            <p>To use a module it needs to be added to the <a href="./configuration.html#modules">modules</a> array anyway, so this shortcut saves the installation step.</p>
+            <h3>Easiest Way: add the module name to the mimosa-config <code>modules</code> array</h3>
+            <p>One way to install a module is to just add the name to the <code><a href="./configuration.html#modules">modules</a></code> array in the <code>mimosa-config</code>. This is a shortcut for the project level <code>npm install</code> (covered next). The next time Mimosa is started for that project it will install the module into the Mimosa project from NPM.</p>
+            <p>To use a module it needs to be added to the <code><a href="./configuration.html#modules">modules</a></code> array anyway, so this shortcut saves the installation step.</p>
 
             <h3>npm install</h3>
-            <p>Place and install Mimosa modules in the project itself and Mimosa will prioritize those modules above all others. Run <code>npm install mimosa-nameOfModule</code> and the module will be installed. Modules installed inside a project take precedence over any modules installed into other scopes.</p>
+            <p>Install Mimosa modules in the project itself and Mimosa will prioritize those modules above all others. Run <code>npm install mimosa-nameOfModule</code> and the module will be installed. Modules installed inside a project take precedence over any modules installed into other scopes.</p>
 
             <h3>mimosa mod:install</h3>
-            <p>One way to install a module is the <code>mod:install</code> command discussed further below. <code>mimosa mod:install mimosa-web-package</code> will install <code>mimosa-web-package</code> from NPM. The module will still need to be added to any projects that need to use it. This command adds the module right into the Mimosa install as if it was installed with Mimosa itself.  This allows Mimosa to draw from it when building a new <code>mimosa-config</code>. If a module is installed inside Mimosa, Mimosa will include that module's configuration snippet inside any generated <code>mimosa-config</code>.</p>
+            <p>One way to install a module is the <code>mod:install</code> command discussed further below. <code>mimosa mod:install mimosa-web-package</code> will install <code>mimosa-web-package</code> from NPM. The module will still need to be added to any projects that need to use it. This command adds the module to the globally installed Mimosa making it available to every Mimosa project.</p>
 
             <h3>npm install -g</h3>
             <p>Use <code>npm install -g</code> to install any modules into the global node scope. Modules installed with <code>mod:install</code> take priority, so if any modules are installed with both <code>npm install -g</code> and <code>mod:install</code>, the <code>npm install -g</code> module will be ignored.</p>
@@ -667,27 +669,26 @@
 
             <h4>Multiple Template Output</h4>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <p>If a single-page web app is being built, then a single template file is ideal and Mimosa's defaults can be left alone. But if a site has multiple pages, then ideally Mimosa should build a template file per page.</p>
-                <p>The <code>mimosa-config</code> can be altered to build multiple compiled template output files. Instead of using <code>template.outputFileName</code>, use the <code>template.output</code> array.  Each element in the array has a <code>folders</code> array and an <code>outputFileName</code>. <code>output[].outputFileName</code> is identical to <code>template.outputFileName</code> except that is has no default so it must be provided.  <code>folders</code> specifies which folders of templates should be bundled together.  Every template contained in the folder structure under each of the <code>folders</code> will be compiled and concatenated into the output file. The <code>mimosa-config-documented</code> also includes a commented out example for this configuration.</p>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <pre>template: {
   output: [{
     folders:["search","shared"],
     outputFileName: "search_templates"
-  },
-  {
+  },{
     folders:["user","shared"],
     outputFileName: "user_templates"
   }]
 }</pre>
             </div>
           </div>
+          <p>The <code>mimosa-config</code> can be altered to build multiple compiled template output files. Instead of using <code>template.outputFileName</code>, use the <code>template.output</code> array.  Each element in the array has a <code>folders</code> array and an <code>outputFileName</code>. <code>output[].outputFileName</code> is identical to <code>template.outputFileName</code> except that is has no default so it must be provided.  <code>folders</code> specifies which folders of templates should be bundled together.  Every template contained in the folder structure under each of the <code>folders</code> will be compiled and concatenated into the output file. The <code>mimosa-config-documented</code> also includes a commented out example for this configuration.</p>
           <p>So, for example, if an app has two pages, "search" and "user", which each have many templates of their own (inside "search" and "user" directories), but that also share common templates from a "shared" folder, that can be configured as listed here.</p>
 
           <h4>Multiple Template Libraries</h4>
-          <p>As with the CSS and JavaScript compilers, multiple templating libraries can be used at once, but to do so properly, there is some additional config Mimosa needs. Mimosa bundles templates into the same file, but templates from different libraries don't belong in the same file. So if multiple libraries are being used, provide Mimosa, via the <code>mimosa-config</code>, a map/hash of compiler name to output file name with the <code>template.outputFileName</code> (or the <code>template.output[].outputFileName</code>) config property.</p>
+          <p>Multiple templating libraries can be used at once, but to do so properly, there is some additional config Mimosa needs. Mimosa bundles templates into the same file, but templates from different libraries don't belong in the same file. So if multiple libraries are being used, provide Mimosa, via the <code>mimosa-config</code>, a map/hash of compiler name to output file name with the <code>template.outputFileName</code> (or the <code>template.output[].outputFileName</code>) config property.</p>
 
           <h4>Not Wrapped at All</h4>
           <p>If <code>template.wrapType</code> is set to <code>none</code>, then Mimosa does no wrapping. Mimosa will also not write the AMD-wrapped template client library into the <code>watch.javascriptDir</code>/<code>vendor</code> directory. If going the non-AMD route, the client library must be provided by the project.</p>
@@ -734,12 +735,27 @@
           <h4>mod:list</h4>
           <p><code>mod:list</code> will search <a href="https://npmjs.org/">NPM</a> to find all available Mimosa modules. <code>mod:list</code> will list the most recent version of the module and if that module is currently installed, the installed version. If there is a difference, the installed version will be colored to signal that the version is out of date.</p>
           <h4>Just the installed modules (-i/--installed)</h4>
-          <p>Execute <code>mod:list</code> with the <code>--installed</code> flag to limit the full list to just those currently installed.</p>
-          <pre>$ mimosa mod:list</pre>
+          <div class="row">
+            <div class="col-md-6">
+              <p>Execute <code>mod:list</code> with the <code>--installed</code> flag to limit the full list to just those currently installed.</p>
+            </div>
+            <div class="col-md-6">
+              <pre>$ mimosa mod:list -installed
+$ mimosa mod:list -i</pre>
+            </div>
+          </div>
           <h4>Get more details (-v/--verbose)</h4>
-          <p>Add a <code>--verbose</code> flag and Mimosa will including a short description and the list of dependencies the module has on other node.js modules.</p>
-          <pre>$ mimosa mod:list --verbose
+
+          <div class="row">
+            <div class="col-md-6">
+              <p>Add a <code>--verbose</code> flag and Mimosa will including a short description and the list of dependencies the module has on other node.js modules.</p>
+            </div>
+            <div class="col-md-6">
+              <pre>$ mimosa mod:list --verbose
 $ mimosa mod:list -v</pre>
+            </div>
+          </div>
+
 
           <h3>Install a Module</h3>
           <h4>mod:install</h4>
@@ -751,8 +767,14 @@ $ mimosa mod:list -v</pre>
 
           <h3>Uninstall a Module
           <h4>mod:uninstall</h4>
-          <p>Execute <code>mod:uninstall</code> to remove a module from the Mimosa global install. This will not remove it from your local project if it is installed there.  To do that simply remove it from the <code>node_modules</code> directory.</p>
-          <pre>$ mimosa mod:uninstall mimosa-server</pre>
+          <div class="row">
+            <div class="col-md-6">
+              <p>Execute <code>mod:uninstall</code> to remove a module from the Mimosa global install. This will not remove it from your local project if it is installed there.  To do that simply remove it from the <code>node_modules</code> directory.</p>
+            </div>
+            <div class="col-md-6">
+              <pre>$ mimosa mod:uninstall mimosa-server</pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
