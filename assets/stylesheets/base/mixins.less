@@ -1,9 +1,9 @@
-.linear-gradient-lr(@from, @to) {
-  background-color: @to;
-  background-image: -webkit-linear-gradient(90deg, @from 10%, @to 90%);
-  background-image:    -moz-linear-gradient(90deg, @from 10%, @to 90%);
-  background-image:     -ms-linear-gradient(90deg, @from 10%, @to 90%);
-  background-image:      -o-linear-gradient(90deg, @from 10%, @to 90%);
-  background-image:         linear-gradient(90deg, @from 10%, @to 90%);
+.site-gradient() {
+  background-color: @gradient-right;
+  background-image: -webkit-linear-gradient(90deg, @gradient-left 10%, @gradient-right 90%);
+  background-image:    -moz-linear-gradient(90deg, @gradient-left 10%, @gradient-right 90%);
+  background-image:     -ms-linear-gradient(90deg, @gradient-left 10%, @gradient-right 90%);
+  background-image:      -o-linear-gradient(90deg, @gradient-left 10%, @gradient-right 90%);
+  background-image:         linear-gradient(90deg, @gradient-left 10%, @gradient-right 90%);
 }
 
