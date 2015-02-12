@@ -25,7 +25,7 @@ exports.config = {
   hoganStatic: {
     partials:["html/partials"],
     globals: {
-      version: "2.3.30"
+      version: "2.3.31"
     },
     contexts: {
       about: {
