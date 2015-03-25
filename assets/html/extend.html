@@ -130,15 +130,15 @@
           <div class="panel-body">
             <p>At different times, Mimosa will attempt to execute four different functions in a module. All of the functions are optional.</p>
 
-            <h3>registerCommand(program, retrieveConfig) <br/> registerCommand(program, debug, retrieveConfig)</h3>
+            <h3>registerCommand(program, logger, retrieveConfig)</h3>
             <p>The <code>registerCommand</code> function is self-explanatory. This function is used to register new Mimosa commands.</p>
             <p>The arguments passed in are:</p>
             <ul>
               <li><code>program</code>: A <a href="https://github.com/visionmedia/commander.js/">commander</a>  <code>program</code> object. Use this object to register commands, help text, flags, and the command's callback.</li>
-              <li><code>debug</code>: A boolean to indicate if Mimosa's debug mode should be turned on.</li>
-              <li><code>retrieveConfig</code>: A callback function that a module can use to execute a Mimosa <code>clean</code> and <code>build</code> and get the full <code>mimosa-config</code> should it be needed. This function takes two parameters, a flag to indicate if a build should be run before executing the command, and a callback function to execute the command module's code. That callback is passed the full <code>mimosa-config</code>.</p>
+              <li><code>logger</code>: A <a href="./configuration.html#growl">logger</a> instance.</li>
+              <li><code>retrieveConfig</code>: A callback function that a module can use to execute a Mimosa <code>clean</code> and <code>build</code> and get the full <code>mimosa-config</code> should it be needed. This function takes two parameters, an options object that can indicate if a build should be run before executing the command and a flag to turn Mimosa's debugging on, and a callback function to execute the command module's code. That callback is passed the full <code>mimosa-config</code>.</p>
             </ul>
-            <p>The <a href="https://github.com/dbashford/mimosa-bower/blob/3df656086d84d8deee7cb244c3a7c0918d17cda3/src/index.coffee#L55-L78">mimosa-bower</a> module is a good example module for how to add a command to Mimosa. It adds three commands, <code>bower</code>, <code>bower:install</code> and <code>bower:clean</code>.</p>
+            <p>The <a href="https://github.com/dbashford/mimosa-npm-web-dependencies/blob/9c82eb0b2ca5223357e7ede131fd727019a08f35/src/index.js#L180-L193">mimosa-npm-web-dependencies</a> module is a good example module for how to add a command to Mimosa. It adds one command: <code>npmweb</code>.</p>
 
             <h3>defaults()</h3>
             <div class="row">
@@ -472,8 +472,8 @@ register(['add','update','buildExtension'], 'beforeWrite',  _minifyJS, e.templat
         <h2 id="commands">Adding New Commands: Command Modules</h2>
       </div>
       <div class="panel-body">
-        <p>A command module has a very simple interface. A module that intends to implement a new command needs to implement and export a <code>registerCommand</code> function. That function takes a <a href="https://github.com/visionmedia/commander.js/">commander</a> <code>program</code>object for registering the command, the flags, the help text and a callback.</p>
-        <p>If a function needs access to execute a <code>build</code> before running, or needs the <code>mimosa-config</code>, it can get accomplish those things using the second parameter passed to <code>registerCommand</code>. The second parameter, a <code>retrieveConfig</code> function, takes a flag indicating if a build is needed, and a callback. That callback should contain the command module's code, and it is passed the full <code>mimosa-config</code>.</p>
+        <p>A command module has a very simple interface. A module that intends to implement a new command needs to implement and export a <code>registerCommand</code> function. That function takes a <a href="https://github.com/visionmedia/commander.js/">commander</a> <code>program</code>object for registering the command, the flags, the help text and a callback. The version of commander used is <code>1.3</code>.</p>
+        <p>If a function needs access to execute a <code>build</code> before running, or needs the <code>mimosa-config</code>, it can get accomplish those things using the second parameter passed to <code>registerCommand</code>. The second parameter, a <code>retrieveConfig</code> function, takes an options object and a callback.  The callback would be the command module's code and it is passed the full <code>mimosa-config</code> when it is executed.  The options object contains 1) a <code>buildFirst</code> flag which indicates if a build is needed before running the command module code and a <code>mdebug</code> flag which turns on Mimosa's debugging.</p>
         <p>For interface details, see the <a href="#interface">interface section above</a>.</p>
       </div>
     </div>
